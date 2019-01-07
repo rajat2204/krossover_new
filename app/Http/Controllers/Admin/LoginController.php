@@ -15,12 +15,12 @@ class LoginController extends Controller
     }
 
     public function login(){
-    	$data['view'] = 'admin.login';
-    	return view('admin.login',$data);
+    	return view('admin/login');
         
     }
 
     public function authentication(Request $request){
+        // dd($request->all());
     	$validation = new Validations($request);
         $validator  = $validation->login();
         if($validator->fails()){
@@ -37,8 +37,13 @@ class LoginController extends Controller
 			else{
 	                $this->message  =  $validator->errors()->add('not_exists', 'User Email or Password is Incorrect.');
 	            } 
+        }
 		return $this->populateresponse();
-    	}
+    }
+
+    public function home(Request $request) {
+        $data['view'] = 'admin.dashboard';
+          return view('admin.home',$data);
     }
 
     public function logout(Request $request) {

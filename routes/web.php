@@ -14,6 +14,11 @@
 /***********************Front-Section****************************/
 Route::get('/','HomeController@index');
 
+/***********************Front-Section****************************/
+Route::get('admin/login','Admin\LoginController@login');
+Route::post('admin/login','Admin\LoginController@authentication');
+Route::get('admin/home','Admin\LoginController@home');
+
 
 // /***********************Admin-Section****************************/
 // Route::get('admin/login','Admin\LoginController@login');

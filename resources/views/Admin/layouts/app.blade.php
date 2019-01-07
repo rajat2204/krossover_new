@@ -26,6 +26,7 @@
   {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
@@ -36,6 +37,8 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/global/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/datepicker3.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
         <!-- [ DEFAULT STYLESHEET ] 
         =========================================================================================================================-->
@@ -58,12 +61,18 @@
     <!-- [ PLUGIN SCRIPT ] -->
   <script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-1.11.1.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
   <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
   <script src="{{asset('assets/js/countdown.js')}}"></script>
   <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
   <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('assets/js/bootstrap-datepicker.js')}}"></script>
+  <script src="{{asset('assets/js/easypiechart-data.js')}}"></script>
+  <script src="{{asset('assets/js/easypiechart.js')}}"></script>
+  <script src="{{asset('assets/js/chart-data.js')}}"></script>
+  <script src="{{asset('assets/js/chart.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
   <script src="{{asset('assets/js/script.js')}}"></script>
