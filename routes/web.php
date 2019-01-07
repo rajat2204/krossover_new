@@ -13,6 +13,9 @@
 
 /***********************Front-Section****************************/
 Route::get('/','HomeController@index');
+Route::get('category','HomeController@category');
+Route::get('product','HomeController@productView');
+
 
 /***********************Front-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');

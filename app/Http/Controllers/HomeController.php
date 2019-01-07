@@ -21,4 +21,16 @@ class HomeController extends Controller
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
+    public function category(Request $request)
+    {
+    	$data['view']='front.category';
+		return view('front_home',$data);
+    }
+
+    public function productView(Request $request)
+    {
+    	$data['view']='front.single-product';
+		return view('front_home',$data);
+    }
+
 }

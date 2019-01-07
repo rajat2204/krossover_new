@@ -16,10 +16,7 @@
         <meta charset="utf-8"/>
         <title>Kross-Over</title>
         
-        {{-- <link href="https://fonts.googleapis.com/css?family=Lobster+Two:400,400i,700,700i" rel="stylesheet">  --}}
-
-    <!-- [ PLUGIN STYLESHEET ]
-        =========================================================================================================================-->
+        
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/assets/global/plugins/datatables/media/images/favicon.ico')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/linearicons.css')}}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
