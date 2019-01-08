@@ -53,6 +53,7 @@
   <!-- start features Area -->
   <section class="features-area section_gap">
     <div class="container">
+     
       <div class="row features-inner">
         <!-- single features -->
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -102,6 +103,15 @@
   <!-- Start category Area -->
   <section class="category-area">
     <div class="container">
+       <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+          <div class="section-title">
+            <h1>OUR INSPIRATIONAL GALLERY</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.</p>
+          </div>
+        </div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
           <div class="row">
@@ -733,82 +743,10 @@
   </section>
   <!-- end product Area -->
 
-  <!-- Start exclusive deal Area -->
-  <section class="exclusive-deal-area">
-    <div class="container-fluid">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-6 no-padding exclusive-left">
-          <div class="row clock_sec clockdiv" id="clockdiv">
-            <div class="col-lg-12">
-              <h1>Exclusive Hot Deal Ends Soon!</h1>
-              <p>Who are in extremely love with eco friendly system.</p>
-            </div>
-            <div class="col-lg-12">
-              <div class="row clock-wrap">
-                <div class="col clockinner1 clockinner">
-                  <h1 class="days">150</h1>
-                  <span class="smalltext">Days</span>
-                </div>
-                <div class="col clockinner clockinner1">
-                  <h1 class="hours">23</h1>
-                  <span class="smalltext">Hours</span>
-                </div>
-                <div class="col clockinner clockinner1">
-                  <h1 class="minutes">47</h1>
-                  <span class="smalltext">Mins</span>
-                </div>
-                <div class="col clockinner clockinner1">
-                  <h1 class="seconds">59</h1>
-                  <span class="smalltext">Secs</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a href="" class="primary-btn">Shop Now</a>
-        </div>
-        <div class="col-lg-6 no-padding exclusive-right">
-          <div class="active-exclusive-product-slider">
-            <!-- single exclusive carousel -->
-            <div class="single-exclusive-slider">
-              <img class="img-fluid" src="{{url('img/product/e-p1.png')}}" alt="">
-              <div class="product-details">
-                <div class="price">
-                  <h6>$150.00</h6>
-                  <h6 class="l-through">$210.00</h6>
-                </div>
-                <h4>addidas New Hammer sole
-                  for Sports person</h4>
-                <div class="add-bag d-flex align-items-center justify-content-center">
-                  <a class="add-btn" href=""><span class="ti-bag"></span></a>
-                  <span class="add-text text-uppercase">Add to Bag</span>
-                </div>
-              </div>
-            </div>
-            <!-- single exclusive carousel -->
-            <div class="single-exclusive-slider">
-              <img class="img-fluid" src="{{url('img/product/e-p1.png')}}" alt="">
-              <div class="product-details">
-                <div class="price">
-                  <h6>$150.00</h6>
-                  <h6 class="l-through">$210.00</h6>
-                </div>
-                <h4>addidas New Hammer sole
-                  for Sports person</h4>
-                <div class="add-bag d-flex align-items-center justify-content-center">
-                  <a class="add-btn" href=""><span class="ti-bag"></span></a>
-                  <span class="add-text text-uppercase">Add to Bag</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End exclusive deal Area -->
+ 
 
   <!-- Start brand Area -->
-  <section class="brand-area section_gap">
+  {{-- <section class="brand-area section_gap">
     <div class="container">
       <div class="row">
         <a class="col single-img" href="#">
@@ -828,7 +766,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- End brand Area -->
 
   <!-- Start related-product Area -->
@@ -837,7 +775,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
-            <h1>Deals of the Week</h1>
+            <h1>MOST POPULAR</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.</p>
           </div>

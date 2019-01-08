@@ -14,7 +14,7 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item submenu dropdown">
+             {{--  <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
@@ -24,8 +24,34 @@
                   <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                   <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
                 </ul>
-              </li>
-              <li class="nav-item submenu dropdown">
+              </li> --}}
+              @if(\App\Models\Category::where('status','active')->count() >0)
+              @php
+                $menus = \App\Models\Category::where('status','active')->get();
+              @endphp
+                @foreach($menus as $menu)
+                  <li class="nav-item submenu dropdown">
+                    <a href="{{url('/category')}}/{{$menu->slug}}">{{$menu->name}}</a>
+                   
+                    @if(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->count() >0)
+                      <ul class="dropdown-menu">
+                        @foreach(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->get() as $submenu)
+                          <li class="nav-item">
+                            <a class="nav-link" href="category.html">{{$submenu->name}}</a>
+                            <ul class="dropdown-submenu">
+                              @foreach(\App\Models\Childcategories::where('sid',$submenu->id)->where('status','active')->get() as $childmenu)
+                              
+                              <li class="nav-item"><a class="nav-link" href="category.html">{{$childmenu->name}}</a></li>
+                              @endforeach
+                            </ul>
+                          </li>
+                        @endforeach
+                      </ul>
+                    @endif
+                  </li>
+                @endforeach
+              @endif
+              {{-- <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu">
@@ -42,7 +68,7 @@
                   <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> --}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
