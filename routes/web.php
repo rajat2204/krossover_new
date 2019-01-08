@@ -22,6 +22,15 @@ Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/login','Admin\LoginController@authentication');
 Route::get('admin/home','Admin\LoginController@home');
 
+/***********************Category-Section****************************/
+Route::resource('/admin/categories', 'Admin\CategoryController');
+
+/***********************Sub-Category-Section****************************/
+Route::resource('/admin/subcategories', 'Admin\SubcategoryController');
+
+/***********************Child-Category-Section****************************/
+Route::resource('/admin/childcategories', 'Admin\ChildcategoryController');
+
 
 // /***********************Admin-Section****************************/
 // Route::get('admin/login','Admin\LoginController@login');
