@@ -26,6 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
+	<link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -81,6 +82,9 @@
 	<script src="{{asset('assets/js/nouislider.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
+	<script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+	<script src="{{asset('assets/js/select2.full.min.js')}}"></script>
 	<script src="{{asset('assets/js/script.js')}}"></script>
 	<!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>

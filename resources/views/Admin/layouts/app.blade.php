@@ -37,8 +37,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/datepicker3.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
-        <!-- [ DEFAULT STYLESHEET ] 
-        =========================================================================================================================-->
+  <link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
     </head>
     <body class="page-md login">
         <div class="preloader">
@@ -73,12 +72,15 @@
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
   <script src="{{asset('assets/js/script.js')}}"></script>
-  <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
+  <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('assets/js/select2.full.min.js')}}"></script>
+<script src="{{asset('assets/js/script.js')}}"></script>
     <!-- [ SLIDER SCRIPT ] -->
     </body>
 </html>
