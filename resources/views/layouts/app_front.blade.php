@@ -34,6 +34,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/global/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
         <!-- [ DEFAULT STYLESHEET ] 
         =========================================================================================================================-->
     </head>

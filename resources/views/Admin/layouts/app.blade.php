@@ -38,6 +38,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
     </head>
     <body class="page-md login">
         <div class="preloader">

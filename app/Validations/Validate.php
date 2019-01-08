@@ -53,7 +53,7 @@ class Validate
 	}
 	public function login(){
         $validations = [
-            'username' 		       => $this->validation('email'),
+            'email' 		       => $this->validation('email'),
 			'password'       	   => $this->validation('password')
 			
     	];
