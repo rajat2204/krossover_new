@@ -72,9 +72,6 @@
   <script src="{{asset('assets/js/chart.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
-  <script src="{{asset('assets/js/script.js')}}"></script>
-        <!-- [ TYPING SCRIPT ] -->
-         <!-- [ COUNT SCRIPT ] -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
