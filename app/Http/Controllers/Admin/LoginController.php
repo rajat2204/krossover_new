@@ -35,7 +35,7 @@ class LoginController extends Controller
                     $this->message  = "Login Successfull!";
                     $this->redirect = url('admin/home');
                }else{
-                    Session::flush();
+                    \Session::flush();
                     $this->message  =  $validator->errors()->add('not_exists', 'you are not authorised user.');
                     return $this->populateresponse();
                }
