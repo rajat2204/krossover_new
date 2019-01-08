@@ -1,32 +1,35 @@
-@extends('admin.layouts.app')
-
-@section('content')
-
-<div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header">Edit Main Category</h1>
-	</div>
-</div><!--/.row-->
-
-<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="col-md-6">
-							<form role="edit-category" data-request="enable-enter" method="POST" action="{!! action('Admin\CategoryController@update') !!}" class="form-horizontal form-label-left">
-								{{csrf_field()}}
-								<div class="form-group">
-									<label>Category Display Name:</label>
-									<input class="form-control" placeholder="E.g. Men's Clothing">
-								</div>
-								<div class="form-group">
-									<label>Category URL Slug:</label>
-									<input class="form-control" placeholder="E.g. men's clothing">
-								</div>
-									<button type="button" class="btn btn-success btn-block edit_category" data-request="ajax-submit" data-target='[role="edit-category"]'>Add Main Category</button>
-								</div>
-							</form>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Edit Main Category</h1>
+		</div>
+	</div><!--/.row-->
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="col-md-6">
+				<form role="edit-category" data-request="enable-enter" action="{{url('admin/categories/'.___encrypt($category['id']))}}" method="POST" class="form-horizontal form-label-left">
+					{{csrf_field()}}
+					<input type="hidden" value="PUT" name="_method">
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{$category['id']}}">
 						</div>
 					</div>
-</div><!-- /.panel-->
+					<div class="form-group">
+						<label>Category Display Name:</label>
+						<input class="form-control" name="name" value="{{$category['name']}}" placeholder="E.g. Men's Clothing">
+					</div>
+					<div class="form-group">
+						<label>Category URL Slug:</label>
+						<input class="form-control" name="slug" value="{{$category['slug']}}" placeholder="E.g. men's clothing">
+					</div>
+						<button type="button" class="btn btn-success btn-block edit_category" data-request="ajax-submit" data-target='[role="edit-category"]'>Edit Main Category</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script type="text/javascript">
     setTimeout(function(){
@@ -39,8 +42,3 @@
     }); 
 },100);
 </script>
-@stop
-
-@section('footer')
-
-@stop

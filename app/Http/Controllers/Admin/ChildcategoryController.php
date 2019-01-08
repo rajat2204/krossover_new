@@ -27,7 +27,8 @@ class ChildcategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.childcategoryadd');
+        $data['view'] = 'admin.childcategoryadd';
+        return view('admin.home',$data);
     }
 
     /**

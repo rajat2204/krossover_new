@@ -8,7 +8,7 @@
         <meta content="" name="author"/>
 
         
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="_token" content="{{ csrf_token() }}">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
@@ -37,6 +37,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/datepicker3.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
   <link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
     </head>
@@ -68,6 +69,7 @@
   <script src="{{asset('assets/js/bootstrap-datepicker.js')}}"></script>
   <script src="{{asset('assets/js/easypiechart-data.js')}}"></script>
   <script src="{{asset('assets/js/easypiechart.js')}}"></script>
+  <script src="{{asset('plugins/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('assets/js/chart-data.js')}}"></script>
   <script src="{{asset('assets/js/chart.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
@@ -79,6 +81,16 @@
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+<script type="text/javascript">
+$(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        },isLocal: false
+    });
+});  
+</script>
+@yield('requirejs')
     <!-- [ SLIDER SCRIPT ] -->
     </body>
 </html>

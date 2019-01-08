@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Html\Builder;
 use Validations\Validate as Validations;
 
 class CategoryController extends Controller
@@ -22,9 +24,51 @@ class CategoryController extends Controller
         parent::__construct($request);
     }
 
-    public function index()
-    {
-        //
+    public function index(Request $request, Builder $builder){
+        $data['view'] = 'admin.categorylist';
+        
+        $category  = _arefy(Category::where('status','!=','trashed')->get());
+        if ($request->ajax()) {
+            return DataTables::of($category)
+            ->editColumn('action',function($item){
+                $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/categories/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                if($item['status'] == 'active'){
+                    $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/categories/status/?id=%s&status=inactive',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask="Would you like to change '.$item['name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                }elseif($item['status'] == 'inactive'){
+                    $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/categories/status/?id=%s&status=active',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('/images/active-user.png').'"
+                        data-ask="Would you like to change '.$item['name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                }
+                $html   .= '</div>';
+                                
+                return $html;
+            })
+            ->editColumn('status',function($item){
+                return ucfirst($item['status']);
+            })
+             ->editColumn('name',function($item){
+                return ucfirst($item['name']);
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
+
+        $data['html'] = $builder
+            ->parameters([
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
+            ])
+            ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Category Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+        return view('admin.home')->with($data);
     }
 
     /**
@@ -34,7 +78,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categoryadd');
+        $data['view'] = 'admin.categoryadd';
+        return view('admin.home',$data);
     }
 
     /**
@@ -58,7 +103,7 @@ class CategoryController extends Controller
             $this->modal    = true;
             $this->alert    = true;
             $this->message  = "Category has been Added successfully.";
-            // $this->redirect = url('admin/categories');
+            $this->redirect = url('admin/categories');
         }
          return $this->populateresponse();
     }
@@ -82,7 +127,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.categoryedit');
+        $data['view'] = 'admin.categoryedit';
+        $id = ___decrypt($id);
+        $data['category'] = _arefy(Category::where('id',$id)->first());
+        return view('admin.home',$data);
     }
 
     /**
@@ -93,8 +141,22 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   $id = ___decrypt($id);
+        $validation = new Validations($request);
+        $validator  = $validation->createCategory('edit');
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $category = Category::findOrFail($id);
+            $input = $request->all();
+            $category->update($input);
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Category has been Updated successfully.";
+            $this->redirect = url('admin/categories');
+        }
+        return $this->populateresponse();
     }
 
     /**
@@ -106,5 +168,22 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus(Request $request){
+        $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
+        $isUpdated               = Category::change($request->id,$userData);
+
+        if($isUpdated){
+            if($request->status == 'trashed'){
+                $this->message = 'Deleted Category successfully.';
+            }else{
+                $this->message = 'Updated Category successfully.';
+            }
+            $this->status = true;
+            $this->redirect = true;
+            $this->jsondata = [];
+        }
+        return $this->populateresponse();
     }
 }

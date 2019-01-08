@@ -20,17 +20,26 @@ Route::get('product','HomeController@productView');
 /***********************Front-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/login','Admin\LoginController@authentication');
-Route::get('admin/home','Admin\LoginController@home');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*,'middleware'=>'adminAuth'*/],function(){
+Route::get('home','LoginController@home');
 
 /***********************Category-Section****************************/
-Route::resource('/admin/categories', 'Admin\CategoryController');
+
+Route::resource('categories', 'CategoryController');
+	Route::group(['prefix' => 'categories'],function(){
+		Route::post('/status', 'CategoryController@changeStatus');
+	});
 
 /***********************Sub-Category-Section****************************/
-Route::resource('/admin/subcategories', 'Admin\SubcategoryController');
+
+Route::resource('subcategories', 'SubcategoryController');
+Route::group(['prefix' => 'categories'],function(){
+		Route::post('/status', 'SubcategoryController@changeStatus');
+	});
 
 /***********************Child-Category-Section****************************/
-Route::resource('/admin/childcategories', 'Admin\ChildcategoryController');
-
+Route::resource('childcategories', 'ChildcategoryController');
+});
 
 // /***********************Admin-Section****************************/
 // Route::get('admin/login','Admin\LoginController@login');

@@ -78,4 +78,25 @@ class Validate
         $validator = \Validator::make($this->data->all(), $validations,[]);
         return $validator;		
 	}
+
+	public function createSubCategory($action='add'){
+        $validations = [
+        	'cat_id' 			=> $this->validation('name'),
+            'name' 		        => $this->validation('name'),
+			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+    	];
+    	
+		if($action='edit'){
+			$validations['slug'] = array_merge($this->validation('slug_cat'),[
+				Rule::unique('categories')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+		}
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'cat_id.required' 		=>  'Main Category is required',
+
+    	]);
+        return $validator;		
+	}
 }

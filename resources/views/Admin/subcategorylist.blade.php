@@ -4,7 +4,7 @@
 			<div class="page-head">
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
-					<h1>Main Categories</h1>
+					<h1>Sub Categories</h1>
 				</div>
 			</div>
 			<div class="row">
@@ -13,10 +13,10 @@
 					<div class="portlet light">
 						<div class="portlet-title">
 							<div class="actions">
-								<a href="{{url('admin/categories/create')}}" class="btn btn-default btn-circle">
+								<a href="{{url('admin/subcategories/create')}}" class="btn btn-default btn-circle">
 								<i class="fa fa-plus"></i>
 								<span class="hidden-480">
-								Add Categories</span>
+								Add Sub Categories</span>
 								</a>
 							</div>
 						</div>
