@@ -11,7 +11,7 @@
 <div class="panel panel-default">
 					<div class="panel-body">
 						<div class="col-md-6">
-							<form role="edit-category" data-request="enable-enter" method="POST" class="form-horizontal form-label-left">
+							<form role="edit-category" data-request="enable-enter" method="POST" action="{!! action('Admin\CategoryController@update') !!}" class="form-horizontal form-label-left">
 								{{csrf_field()}}
 								<div class="form-group">
 									<label>Category Display Name:</label>

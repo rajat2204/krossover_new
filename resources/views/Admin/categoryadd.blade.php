@@ -9,23 +9,23 @@
 </div><!--/.row-->
 
 <div class="panel panel-default">
-					<div class="panel-body">
-						<div class="col-md-6">
-							<form role="add-category" data-request="enable-enter" method="POST" class="form-horizontal form-label-left">
-								{{csrf_field()}}
-								<div class="form-group">
-									<label>Category Display Name:</label>
-									<input class="form-control" placeholder="E.g. Men's Clothing">
-								</div>
-								<div class="form-group">
-									<label>Category URL Slug:</label>
-									<input class="form-control" placeholder="E.g. men's clothing">
-								</div>
-									<button type="button" class="btn btn-success btn-block add_category" data-request="ajax-submit" data-target='[role="add-category"]'>Add Main Category</button>
-								</div>
-							</form>
-						</div>
-					</div>
+	<div class="panel-body">
+		<div class="col-md-6">
+			<form role="add-category" data-request="enable-enter" method="POST" action="{!! action('Admin\CategoryController@store') !!}" class="form-horizontal form-label-left">
+				{{csrf_field()}}
+				<div class="form-group">
+					<label>Category Display Name:</label>
+					<input class="form-control" name="name" placeholder="E.g. Men's Clothing">
+				</div>
+				<div class="form-group">
+					<label>Category URL Slug:</label>
+					<input class="form-control" name="slug" placeholder="E.g. men's clothing">
+				</div>
+					<button type="button" class="btn btn-success btn-block add_category" data-request="ajax-submit" data-target='[role="add-category"]'>Add Main Category</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div><!-- /.panel-->
 
 <script type="text/javascript">

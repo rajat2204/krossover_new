@@ -43,9 +43,24 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        
+    public function store(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createCategory();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $category = new Category;
+            $category->fill($request->all());
+            $category['status'] = 'active';
+            $category->save();
+           
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Category has been Added successfully.";
+            // $this->redirect = url('admin/categories');
+        }
+         return $this->populateresponse();
     }
 
     /**
