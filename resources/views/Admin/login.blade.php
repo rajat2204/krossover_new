@@ -26,6 +26,8 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
+
 	<link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
 </head>
 
@@ -50,10 +52,11 @@
 						<form role="login" class="row login_form" action="{{url('admin/login')}}" data-request="enable-enter" method="post">
 							{{ csrf_field() }}
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<input type="text" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="hidden" name="not_exists">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">

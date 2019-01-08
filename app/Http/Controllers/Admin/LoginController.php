@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
-
+use Auth;
 class LoginController extends Controller
 {
 	public function __construct(Request $request)
@@ -20,19 +20,25 @@ class LoginController extends Controller
     }
 
     public function authentication(Request $request){
-        // dd($request->all());
     	$validation = new Validations($request);
         $validator  = $validation->login();
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-			 if (\Auth::attempt(['email' => $request->username, 'password' => $request->password])) {
-                // Success
-        		$this->status   = true;
-                $this->modal    = true;
-                $this->alert    = true;
-                $this->message  = "Login Successfull!";
-                $this->redirect = url('admin/home');
+			 if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+               if(Auth::user()->user_type == 'super_admin'){
+
+            		$this->status   = true;
+                    $this->modal    = true;
+                    $this->alert    = true;
+                    $this->message  = "Login Successfull!";
+                    $this->redirect = url('admin/home');
+               }else{
+                    Session::flush();
+                    $this->message  =  $validator->errors()->add('not_exists', 'you are not authorised user.');
+                    return $this->populateresponse();
+               }
 			}
 			else{
 	                $this->message  =  $validator->errors()->add('not_exists', 'User Email or Password is Incorrect.');
