@@ -1,7 +1,5 @@
 @extends('admin.layouts.app')
 
-@section('content')
-
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Add Main Category</h1>
@@ -11,7 +9,7 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="col-md-6">
-			<form role="add-category" data-request="enable-enter" method="POST" action="{!! action('Admin\CategoryController@store') !!}" class="form-horizontal form-label-left">
+			<form role="add-category"  method="POST" action="{!! action('Admin\CategoryController@store') !!}" class="form-horizontal form-label-left">
 				{{csrf_field()}}
 				<div class="form-group">
 					<label>Category Display Name:</label>
@@ -26,21 +24,8 @@
 			</form>
 		</div>
 	</div>
-</div><!-- /.panel-->
+</div>
 
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.add_category').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@stop
 
 @section('footer')
-
-@stop
+@endsection
