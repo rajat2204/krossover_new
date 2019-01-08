@@ -13,6 +13,7 @@
 					<div class="form-group">
 							<label>Main Category</label>
 							<select class="form-control" name="cat_id">
+								<option value="">Select Main Category</option>
 								@foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach

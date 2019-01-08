@@ -5,37 +5,39 @@
 		</div>
 	</div><!--/.row-->
 	<div class="panel panel-default">
-						<div class="panel-body">
-							<div class="col-md-6">
-								<form role="add-childcategory" data-request="enable-enter" method="POST" class="form-horizontal form-label-left">
-									{{csrf_field()}}
-									<div class="form-group">
-											<label>Main Category</label>
-											<select class="form-control">
-												<option>Option 1</option>
-												<option>Option 2</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Sub Category</label>
-											<select class="form-control">
-												<option>Option 1</option>
-												<option>Option 2</option>
-											</select>
-										</div>
-									<div class="form-group">
-										<label>Category Display Name:</label>
-										<input class="form-control" placeholder="E.g. Men's Clothing">
-									</div>
-									<div class="form-group">
-										<label>Category URL Slug:</label>
-										<input class="form-control" placeholder="E.g. men's clothing">
-									</div>
-										<button type="button" class="btn btn-success btn-block add_childcategory" data-request="ajax-submit" data-target='[role="add-childcategory"]'>Add Child Category</button>
-									</div>
-								</form>
-							</div>
+		<div class="panel-body">
+			<div class="col-md-6">
+				<form role="add-childcategory" data-request="enable-enter" action="{!! action('Admin\ChildcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
+					{{csrf_field()}}
+						<div class="form-group">
+							<label>Main Category:</label>
+							<select class="form-control" name="cat_id">
+								<option value="">Select Main Category</option>
+									@foreach($categories as $category)
+	                                    <option value="{{$category->id}}">{{$category->name}}</option>
+	                                @endforeach
+							</select>
 						</div>
+						<div class="form-group">
+							<label>Sub Category:</label>
+							<select class="form-control" name="sub_id">
+								<option value="">Select Sub Category</option>
+
+							</select>
+						</div>
+					<div class="form-group">
+						<label>Category Display Name:</label>
+						<input class="form-control" name="name" placeholder="E.g. Men's Clothing">
+					</div>
+					<div class="form-group">
+						<label>Category URL Slug:</label>
+						<input class="form-control" name= "slug" placeholder="E.g. men's clothing">
+					</div>
+						<button type="button" class="btn btn-success btn-block add_childcategory" data-request="ajax-submit" data-target='[role="add-childcategory"]'>Add Child Category</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 

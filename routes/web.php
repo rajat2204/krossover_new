@@ -33,14 +33,13 @@ Route::resource('categories', 'CategoryController');
 /***********************Sub-Category-Section****************************/
 
 Route::resource('subcategories', 'SubcategoryController');
-Route::group(['prefix' => 'categories'],function(){
+	Route::group(['prefix' => 'subcategories'],function(){
 		Route::post('/status', 'SubcategoryController@changeStatus');
 	});
 
 /***********************Child-Category-Section****************************/
 Route::resource('childcategories', 'ChildcategoryController');
+	Route::group(['prefix' => 'subcategories'],function(){
+		Route::post('/status', 'SubcategoryController@changeStatus');
+	});
 });
-
-// /***********************Admin-Section****************************/
-// Route::get('admin/login','Admin\LoginController@login');
-// Route::post('admin/login','Admin\LoginController@authentication');

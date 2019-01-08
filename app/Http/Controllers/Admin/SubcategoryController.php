@@ -132,8 +132,7 @@ class SubcategoryController extends Controller
         $data['view'] = 'admin.subcategoryedit';
         $id = ___decrypt($id);
         $data['subcategories'] = _arefy(Subcategories::where('id',$id)->first());
-        // $category = Subcategories::findOrFail($id);
-        // dd($data['subcategories']);
+        $data['categories'] = Category::where('status','=','active')->get();
         return view('admin.home',$data);
     }
 
@@ -146,7 +145,22 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = ___decrypt($id);
+        $validation = new Validations($request);
+        $validator  = $validation->createSubCategory('edit');
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $category = Subcategories::findOrFail($id);
+            $input = $request->all();
+            $category->update($input);
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Sub-Category has been Updated successfully.";
+            $this->redirect = url('admin/subcategories');
+        }
+        return $this->populateresponse();
     }
 
     /**

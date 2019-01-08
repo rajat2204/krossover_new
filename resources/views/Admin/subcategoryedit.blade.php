@@ -16,12 +16,13 @@
 							<input type="hidden" id="id" name="id" class="form-control" value="{{$subcategories['id']}}">
 						</div>
 					</div>
+
 					<div class="form-group">
+						
 							<label>Main Category</label>
 							<select class="form-control" name="cat_id">
-								<option value="">Select Main Category</option>
-                                    @foreach($subcategories as $cat)
-                                        @if($cat->id == $category->id)
+                                    @foreach($categories as $cat)
+                                        @if($cat->id == $subcategories['cat_id'])
                                             <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
                                         @else
                                             <option value="{{$cat->id}}">{{$cat->name}}</option>
