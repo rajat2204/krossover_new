@@ -11,7 +11,7 @@
 					{{csrf_field()}}
 						<div class="form-group">
 							<label>Main Category:</label>
-							<select class="form-control" name="cat_id">
+							<select class="form-control" name="cat_id" id="main">
 								<option value="">Select Main Category</option>
 									@foreach($categories as $category)
 	                                    <option value="{{$category->id}}">{{$category->name}}</option>
@@ -20,7 +20,7 @@
 						</div>
 						<div class="form-group">
 							<label>Sub Category:</label>
-							<select class="form-control" name="sub_id">
+							<select class="form-control" name="sub_id" id="subcategory">
 								<option value="">Select Sub Category</option>
 
 							</select>
@@ -52,3 +52,5 @@
     }); 
 },100);
 </script>
+@section('requirejs')
+@endsection

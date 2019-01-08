@@ -83,7 +83,6 @@ class SubcategoryController extends Controller
         $data['view'] = 'admin.subcategoryadd';
         return view('admin.home',$data);
     }
-
     /**
      * Store a newly created resource in storage.
      *
