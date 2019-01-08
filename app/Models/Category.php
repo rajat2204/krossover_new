@@ -8,6 +8,4 @@ class Category extends Model
 {
 	protected $table = 'categories';
     protected $fillable = ['name','slug','status','created_at','updated_at'];
-    public $timestamps = false;
-    public static $withoutAppends = false;
 }

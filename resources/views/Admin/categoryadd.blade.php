@@ -15,11 +15,11 @@
 				{{csrf_field()}}
 				<div class="form-group">
 					<label>Category Display Name:</label>
-					<input class="form-control" name="name" placeholder="E.g. Men's Clothing">
+					<input class="form-control" id="name" name="name" placeholder="E.g. Men's Clothing">
 				</div>
 				<div class="form-group">
 					<label>Category URL Slug:</label>
-					<input class="form-control" name="slug" placeholder="E.g. men's clothing">
+					<input class="form-control" id="slug" name="slug" placeholder="E.g. men's clothing">
 				</div>
 					<button type="button" class="btn btn-success btn-block add_category" data-request="ajax-submit" data-target='[role="add-category"]'>Add Main Category</button>
 				</div>
