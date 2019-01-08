@@ -39,7 +39,7 @@
                           <li class="nav-item">
                             <a class="nav-link" href="category.html">{{$submenu->name}}</a>
                             <ul class="dropdown-submenu">
-                              @foreach(\App\Models\Childcategories::where('sid',$submenu->id)->where('status','active')->get() as $childmenu)
+                              @foreach(\App\Models\Childcategories::where('sub_id',$submenu->id)->where('status','active')->get() as $childmenu)
                               
                               <li class="nav-item"><a class="nav-link" href="category.html">{{$childmenu->name}}</a></li>
                               @endforeach

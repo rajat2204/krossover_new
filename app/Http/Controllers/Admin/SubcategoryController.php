@@ -83,6 +83,13 @@ class SubcategoryController extends Controller
         $data['view'] = 'admin.subcategoryadd';
         return view('admin.home',$data);
     }
+
+    public function getSubCategories(Request $request, $id){
+        if($request->ajax()){
+          $subcategory = Subcategories::find($id);
+          return Response::json( $subcategory->category );
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *

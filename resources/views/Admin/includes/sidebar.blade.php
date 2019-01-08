@@ -16,7 +16,7 @@
 				</div>
 			</form>
 			<ul class="nav menu">
-				<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+				<li class="active"><a href="{{('home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 				<li><a href="{{('categories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Main Categories</a></li>
 				<li><a href="{{('subcategories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Sub Categories</a></li>
 				<li><a href="{{('childcategories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Child Categories</a></li>

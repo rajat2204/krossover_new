@@ -53,4 +53,19 @@
 },100);
 </script>
 @section('requirejs')
+<script type="text/javascript">
+	$("#main").change(function(){
+    $.get("getSubCategories/"+ $(this).val(), function(data){
+
+        var $element = $("#subcategory");
+        $element.removeAttr('disabled');
+        alert($element);
+        $(data).each(function(){
+          $element.append("<option value='"+ this.id +"'>"+ this.name +"</option>");
+        });
+
+    });
+
+  })
+</script>
 @endsection
