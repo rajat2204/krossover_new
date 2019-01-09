@@ -42,4 +42,7 @@ Route::resource('childcategories', 'ChildcategoryController');
 	Route::group(['prefix' => 'subcategories'],function(){
 		Route::post('/status', 'SubcategoryController@changeStatus');
 	});
+
+/***********************Product-Section****************************/
+Route::resource('products', 'ProductController');
 });
