@@ -100,52 +100,52 @@ class Validate
         return $validator;		
 	}
 
-	// public function createProduct($action='add'){
-	// 	$validations = [
-	// 		'title'						=> $this->validation('name'),
-	// 		// 'mainid'					=> $this->validation('name'),
-	// 		// 'subid'						=> $this->validation('name'),
-	// 		// 'childid'					=> $this->validation('name'),
-	// 		'photo'						=> $this->validation('photo'),
-	// 		'gallery'					=> $this->validation('id'),
-	// 		'gallery.*'					=> $this->validation('gallery'),
-	// 		'sizes'						=> $this->validation('name'),
-	// 		// 'description'			=> $this->validation('description'),
-	// 		'price'						=> $this->validation('price'),
-	// 		'previous_price'			=> $this->validation('price'),
-	// 		'retailer_price'			=> $this->validation('price'),
-	// 		'retailer_previous_price'	=> $this->validation('price'),
-	// 		'stock'						=> $this->validation('price'),
-	// 		// 'policy'				=> $this->validation('name'),
-	// 	];
-	// 	if($action == 'edit'){
-	// 		$validations['photo'] 	= $this->validation('photo_null');
-	// 		$validations['gallery'] = $this->validation('gallery_null');
-	// 	}
-	// 	$validator = \Validator::make($this->data->all(), $validations,[
-	// 		'title.required' 				=>  'Product Name is required.',
-	// 		'mainid.required' 				=>  'Main Category is required.',
-	// 		'subid.required' 				=>  'Sub Category is required.',
-	// 		'childid.required' 				=>  'Child Category is required.',
-	// 		'photo.required' 				=>  'Image is required.',
-	// 		'photo.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
-	// 		'gallery.*.required' 			=>  'Product Image is required.',
-	// 		'gallery.*.mimes' 				=>  'Gallery Images should be in jpg,jpeg,png format.',
-	// 		'sizes.required'				=>  'Size field is required',
-	// 		// 'description.required' 			=>  'Product Description is required.',
-	// 		'price.required' 				=>  'Price for User is required.',
-	// 		'previous_price.required' 		=>  'Previous Price for User is required.',
-	// 		'retailer_price.required' 		=>  'Current Price for Retailer is required.',
-	// 		'retailer_previous_price.required' 		=>  'Previous Price for Retailer is required.',
-	// 		'stock.required' 				=>  'Stock is required.',
-	// 		// 'policy.required' 				=>  'Product Buy/Return Policy is required.',
-	// 	]);
-	// 	if(!empty($this->data->pallow) && empty($this->data->sizes)){
-	// 	    $validator->after(function ($validator){
-	// 			   $validator->errors()->add('sizes', 'The Sizes should be X,XL,XXL,M,L,S');
-	// 		});
-	// 	}
+	public function createProduct($action='add'){
+		$validations = [
+			'title'						=> $this->validation('name'),
+			// 'mainid'					=> $this->validation('name'),
+			// 'subid'						=> $this->validation('name'),
+			// 'childid'					=> $this->validation('name'),
+			// 'photo'						=> $this->validation('photo'),
+			// 'gallery'					=> $this->validation('id'),
+			// 'gallery.*'					=> $this->validation('gallery'),
+			// 'sizes'						=> $this->validation('name'),
+			// // 'description'			=> $this->validation('description'),
+			// 'price'						=> $this->validation('price'),
+			// 'previous_price'			=> $this->validation('price'),
+			// 'retailer_price'			=> $this->validation('price'),
+			// 'retailer_previous_price'	=> $this->validation('price'),
+			// 'stock'						=> $this->validation('price'),
+			// 'policy'				=> $this->validation('name'),
+		];
+		// if($action == 'edit'){
+		// 	$validations['photo'] 	= $this->validation('photo_null');
+		// 	$validations['gallery'] = $this->validation('gallery_null');
+		// }
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'title.required' 				=>  'Product Name is required.',
+			'mainid.required' 				=>  'Main Category is required.',
+			'subid.required' 				=>  'Sub Category is required.',
+			'childid.required' 				=>  'Child Category is required.',
+			'photo.required' 				=>  'Image is required.',
+			'photo.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			'gallery.*.required' 			=>  'Product Image is required.',
+			'gallery.*.mimes' 				=>  'Gallery Images should be in jpg,jpeg,png format.',
+			'sizes.required'				=>  'Size field is required',
+			// 'description.required' 			=>  'Product Description is required.',
+			'price.required' 				=>  'Price for User is required.',
+			'previous_price.required' 		=>  'Previous Price for User is required.',
+			'retailer_price.required' 		=>  'Current Price for Retailer is required.',
+			'retailer_previous_price.required' 		=>  'Previous Price for Retailer is required.',
+			'stock.required' 				=>  'Stock is required.',
+			// 'policy.required' 				=>  'Product Buy/Return Policy is required.',
+		]);
+		if(!empty($this->data->pallow) && empty($this->data->sizes)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('sizes', 'The Sizes should be X,XL,XXL,M,L,S');
+			});
+		}
 
- //        return $validator;	
-	// }
+        return $validator;	
+	}
 }

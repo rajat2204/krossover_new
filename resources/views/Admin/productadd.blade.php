@@ -12,27 +12,24 @@
 				{{csrf_field()}}
 				<div class="form-group">
 					<label>Product Name:</label>
-					<input class="form-control" id="name" name="name" placeholder="E.g. Men's Clothing">
+					<input class="form-control" id="name" name="title" placeholder="E.g. Men's Clothing">
 				</div>
 				<div class="form-group">
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
-					<select class="form-control">
-						<option>Option 1</option>
-						<option>Option 2</option>
+					<select class="form-control" name="" id="">
+                        <option value="">Select Main Category</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-					<select class="form-control">
-						<option>Option 1</option>
-						<option>Option 2</option>
+					<select class="form-control" name="" id="">
+                        <option value="">Select Sub Category</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Child Category:</label>
-					<select class="form-control">
-						<option>Option 1</option>
-						<option>Option 2</option>
+					<select class="form-control" name="" id="">
+                        <option value="">Select Child Category</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -70,14 +67,14 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea name="" id="" class="form-control" rows="6" required></textarea>
+                        <textarea name="description" id="" class="form-control" rows="6" required></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for User</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
+                        <input class="form-control col-md-7 col-xs-12" name="price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
@@ -85,7 +82,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
+                        <input class="form-control col-md-7 col-xs-12" name="previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
@@ -93,7 +90,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for Retailer</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
+                        <input class="form-control col-md-7 col-xs-12" name="retailer_price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
@@ -101,7 +98,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for Retailer</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
+                        <input class="form-control col-md-7 col-xs-12" name="retailer_previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
@@ -109,7 +106,7 @@
                 <div class="item form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Stock</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
+                        <input class="form-control col-md-7 col-xs-12" name="stock" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
                     </div>
                 </div>
 
