@@ -78,6 +78,7 @@
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugin/nicEdit.js')}}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>

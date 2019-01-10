@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use App\Models\Subcategories;
+use App\Models\Childcategories;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -79,6 +81,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $data['categories'] = Category::where('status', '=', 'active')->get();
         $data['view'] = 'admin.productadd';
         return view('admin.home',$data);
     }
