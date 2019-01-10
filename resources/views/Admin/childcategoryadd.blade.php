@@ -11,7 +11,7 @@
 					{{csrf_field()}}
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
-							<select class="form-control" name="cat_id" id="main">
+							<select class="form-control select_block" name="cat_id" id="main">
 								<option value="">Select Main Category</option>
 									@foreach($categories as $category)
 	                                    <option value="{{$category->id}}">{{$category->name}}</option>
@@ -20,7 +20,7 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-							<select class="form-control" id="subcategory" name="subcategory" >
+							<select id="subcategory" class="form-control select_block" name="subcategory" >
 								<option value="">Select Sub Category</option>
 							</select>
 						</div>
@@ -46,13 +46,12 @@
 	$(document).ready(function(){
         $('#main').on('change',function(){
             var value = $(this).val();
-        	
             $.ajax({
                 url:"{{url('admin/subcategories/ajaxcategory?id=')}}"+value,
                 type:'POST',
-                
                 success:function(data){
                     $('#subcategory').html(data);
+                    $('#subcategory').prev('.select_block').css("display","block");
                 }
             });
         });
