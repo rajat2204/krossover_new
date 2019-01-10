@@ -84,18 +84,13 @@ class SubcategoryController extends Controller
         return view('admin.home',$data);
     }
 
-    public function getSubCategories(Request $request, $id){
-        if($request->ajax()){
-          $subcategory = Subcategories::find($id);
-          return Response::json( $subcategory->category );
-        }
-    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
         $validation = new Validations($request);

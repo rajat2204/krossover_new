@@ -130,6 +130,15 @@ class ChildcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function ajaxchildCategory(Request $request)
+    {
+        $id = $request->id;
+        $subcategory = Subcategories::where('cat_id',$id)->get();
+        $childCategory = view('admin.template.ajaxchildcategory',compact('subcategory'));
+        return Response($childCategory);
+    }
+
     public function destroy($id)
     {
         //

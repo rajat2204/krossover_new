@@ -31,7 +31,6 @@ Route::resource('categories', 'CategoryController');
 	});
 
 /***********************Sub-Category-Section****************************/
-Route::get('/getSubCategories/{id}', 'SubcategoryController@getSubCategories');
 Route::resource('subcategories', 'SubcategoryController');
 	Route::group(['prefix' => 'subcategories'],function(){
 		Route::post('/status', 'SubcategoryController@changeStatus');
@@ -40,6 +39,7 @@ Route::resource('subcategories', 'SubcategoryController');
 /***********************Child-Category-Section****************************/
 Route::resource('childcategories', 'ChildcategoryController');
 	Route::group(['prefix' => 'subcategories'],function(){
+Route::post('ajaxcategory', 'ChildcategoryController@ajaxchildCategory');
 		Route::post('/status', 'SubcategoryController@changeStatus');
 	});
 

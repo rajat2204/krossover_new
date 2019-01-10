@@ -10,7 +10,7 @@
 				<form role="add-childcategory" data-request="enable-enter" action="{!! action('Admin\ChildcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 						<div class="form-group">
-							<label>Main Category:</label>
+							<label class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
 							<select class="form-control" name="cat_id" id="main">
 								<option value="">Select Main Category</option>
 									@foreach($categories as $category)
@@ -19,18 +19,17 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Sub Category:</label>
-							<select class="form-control" name="sub_id" id="subcategory">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
+							<select class="form-control" id="subcategory" name="subcategory" >
 								<option value="">Select Sub Category</option>
-
 							</select>
 						</div>
 					<div class="form-group">
-						<label>Category Display Name:</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Category Display Name:</label>
 						<input class="form-control" name="name" placeholder="E.g. Men's Clothing">
 					</div>
 					<div class="form-group">
-						<label>Category URL Slug:</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Category URL Slug:</label>
 						<input class="form-control" name= "slug" placeholder="E.g. men's clothing">
 					</div>
 						<button type="button" class="btn btn-success btn-block add_childcategory" data-request="ajax-submit" data-target='[role="add-childcategory"]'>Add Child Category</button>
@@ -41,7 +40,24 @@
 	</div>
 </div>
 
+
+@section('requirejs')
 <script type="text/javascript">
+	$(document).ready(function(){
+        $('#main').on('change',function(){
+            var value = $(this).val();
+        	
+            $.ajax({
+                url:"{{url('admin/subcategories/ajaxcategory?id=')}}"+value,
+                type:'POST',
+                
+                success:function(data){
+                    $('#subcategory').html(data);
+                }
+            });
+        });
+    });
+
     setTimeout(function(){
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
         e.preventDefault();
@@ -51,21 +67,5 @@
         }
     }); 
 },100);
-</script>
-@section('requirejs')
-<script type="text/javascript">
-	$("#main").change(function(){
-    $.get("getSubCategories/"+ $(this).val(), function(data){
-
-        var $element = $("#subcategory");
-        $element.removeAttr('disabled');
-        alert($element);
-        $(data).each(function(){
-          $element.append("<option value='"+ this.id +"'>"+ this.name +"</option>");
-        });
-
-    });
-
-  })
 </script>
 @endsection
