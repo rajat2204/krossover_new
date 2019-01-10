@@ -14,7 +14,7 @@ class Childcategories extends Model
         $table_childcategory = \DB::table('childcategories');
         if(!empty($data)){
             $table_childcategory->where('id','=',$userID);
-            $isUpdated = $table_childcategory->update($data); 
+            $isUpdated = $table_childcategory->update($data);
         }
         return (bool)$isUpdated;
     }
