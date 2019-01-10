@@ -17,7 +17,7 @@
         <title>Kross-Over</title>
         
         
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/assets/global/plugins/datatables/media/images/favicon.ico')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('/img/logo.ico')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/linearicons.css')}}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
   {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css') }}"> --}}
@@ -59,8 +59,8 @@
   <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
   <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
-  <script src="{{asset('assets/js/countdown.js')}}"></script>
   <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{asset('assets/js/countdown.js')}}"></script>
   <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>

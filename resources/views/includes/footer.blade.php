@@ -41,16 +41,13 @@
       </div>
       <div class="col-lg-3  col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
-          <h6 class="mb-20">Instragram Feed</h6>
-          <ul class="instafeed d-flex flex-wrap">
-            <li><img src="{{url('img/i1.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i2.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i3.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i4.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i5.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i6.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i7.jpg')}}" alt=""></li>
-            <li><img src="{{url('img/i8.jpg')}}" alt=""></li>
+          <h6 class="mb-20">More Links</h6>
+
+          <ul class="instafeed static_links">
+            <li><a href="javascript:void(0)" >About Us</a></li>
+            <li><a href="javascript:void(0)" >Contact Us</a></li>
+            <li><a href="javascript:void(0)" >Terms and condition</a></li>
+            <li><a href="javascript:void(0)" >Privacy policy</a></li>
           </ul>
         </div>
       </div>

@@ -50,11 +50,11 @@ $(document).ready(function(){
     ==================================*/
     $(".active-banner-slider").owlCarousel({
         items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
+        autoplay:true,
+        autoplayTimeout: 3000,
         loop:true,
         nav:true,
-        navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
+        // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
         dots:false
     });
 
