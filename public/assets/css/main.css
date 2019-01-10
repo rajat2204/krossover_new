@@ -11,7 +11,7 @@
 }
 
 .section_gap {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 @media (max-width: 991px) {
@@ -1349,6 +1349,7 @@ h1, h2, h3, h4, h5, h6 {
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+    z-index: 111;
 }
 
 .header_area .navbar {
@@ -1398,6 +1399,13 @@ a.navbar-brand:hover {
 
     .header_area .navbar .navbar-collapse .nav-item {
         padding: 10px;
+    }
+    .sticky-wrapper {
+        position: static;
+    }
+
+    .header_area {
+        position: static !important;
     }
 }
 
@@ -1571,7 +1579,7 @@ a.navbar-brand:hover {
 .header_area .navbar .nav.navbar-nav.navbar-right li span {
     color: #222222;
     line-height: 80px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .header_area .navbar .nav.navbar-nav.navbar-right .search {
@@ -1657,19 +1665,19 @@ a.navbar-brand:hover {
     background-size: cover;
     position: relative;
     padding-top: 80px;
-    padding-bottom: 180px;
+    padding-bottom: 30px;
 }
 
 @media (max-width: 768px) {
     .banner-area .fullscreen {
-        height: 650px !important;
+        height: 350px !important;
     }
 }
 
 .banner-area .active-banner-slider .owl-nav {
     position: absolute;
     right: 0;
-    bottom: -200px;
+    bottom: -100px;
 }
 
 @media (max-width: 1920px) {
@@ -1715,7 +1723,7 @@ a.navbar-brand:hover {
 }
 
 .banner-area .banner-content h1 {
-    font-size: 60px;
+    font-size: 48px;
     line-height: 66px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -1870,7 +1878,7 @@ a.navbar-brand:hover {
 ============================================================================================ */
 @media (max-width: 768px) {
     .features-area {
-        padding-top: 0;
+        padding-top: 30px;
     }
 }
 
@@ -1895,7 +1903,7 @@ a.navbar-brand:hover {
 
 .single-features {
     text-align: center;
-    border-right: 1px solid #eeeeee;
+    padding: 0 10px;
 }
 
 @media (max-width: 991px) {
@@ -1906,7 +1914,9 @@ a.navbar-brand:hover {
 }
 
 .single-features .f-icon {
-    margin-bottom: 20px;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto 20px;
 }
 
 .single-features .f-icon img {
@@ -2225,8 +2235,8 @@ a.navbar-brand:hover {
 }
 
 .exclusive-deal-area .exclusive-left {
-    position: realtive;
-    background: url(../img/exclusive.jpg) center no-repeat;
+    position: relative;
+    background: url(../../img/exclusive.jpg) center no-repeat;
     background-size: cover;
     text-align: center;
     padding: 275px 0;
@@ -2235,6 +2245,12 @@ a.navbar-brand:hover {
 @media (max-width: 1024px) {
     .exclusive-deal-area .exclusive-left {
         padding: 175px 0;
+    }
+    .header_area .main_menu .main_box {
+        margin: 0 20px;
+    }
+    .is-sticky .header_area .main_menu .main_box {
+        margin: 0;
     }
 }
 
@@ -2801,7 +2817,7 @@ a.navbar-brand:hover {
 
 .category-list .single-product {
     margin-top: 30px;
-    border: 1px solid #eee;
+    transition: .2s ease-in-out 0s;
 }
 
 .related-product-area .container {
@@ -4911,6 +4927,7 @@ label {
 .pixel-radio {
     border-radius: 50%;
     top: 6px;
+    border-color: #ffba00;
 }
 
 .pixel-radio::after {
@@ -4922,7 +4939,7 @@ label {
 }
 
 .price-range-area .noUi-target {
-    background: #eee;
+    background: #ffba0070;
     border-radius: 0px;
     border: 0px;
     box-shadow: none;
@@ -4933,7 +4950,7 @@ label {
 }
 
 .price-range-area .noUi-connect {
-    background: #eee;
+    background: #ffba00;
     border-radius: 0px;
     box-shadow: none;
 }
@@ -4969,7 +4986,7 @@ label {
 
 .price-range-area .value-wrapper {
     margin-top: 20px;
-    color: #cccccc;
+    color: #000;
 }
 
 .price-range-area .value-wrapper .to {
@@ -8052,7 +8069,7 @@ label {
 /* End Contact Success and error Area css
 ============================================================================================ */
 .footer-area {
-    padding-top: 100px;
+    padding-top: 60px;
     background-color: #222222;
 }
 
@@ -8077,15 +8094,24 @@ label {
     margin: -5px;
 }
 
-.instafeed li {
+.instafeed.static_links li {
     overflow: hidden;
-    width: 25%;
+    width: 100%;
 }
 
 .instafeed li img {
     margin: 5px;
 }
+.instafeed.static_links li a {
+    color: #fff;
+    letter-spacing: 1px;
+    padding-left: 3px;
+}
 
+.instafeed.static_links li a:hover {
+    color: #ffba00;
+    letter-spacing: 1.5px;
+}
 .footer-social a {
     padding-right: 25px;
     -webkit-transition: all 0.3s ease 0s;
@@ -8237,10 +8263,66 @@ label {
     .footer-text {
         padding-top: 40px;
     }
+    button.navbar-toggler {
+        float: right;
+        z-index: 1;
+    }
+
+    a.navbar-brand {
+        position: static;
+        width: 100px;
+        padding: 5px;
+        margin-left: 0;
+    }
+    .banner-area .banner-content h1 {
+        font-size: 36px;
+        line-height: 52px;
+    }
+    div.popular {
+        padding: 30px 0 40px;
+    }
+
+    .course_boxes {
+        margin-top: 30px;
+    }
+
+    .course_box {
+        margin-bottom: 30px;
+    }
+
+    .section_gap {
+        padding: 40px 0;
+    }
+
+    .section-title h1 {
+        font-size: 32px;
+    }
+
+    .exclusive-deal-area .exclusive-right .active-exclusive-product-slider .single-exclusive-slider {
+        padding-bottom: 0;
+    }
+    .header_area .main_menu .main_box {
+        margin: 0;
+    }
+
 }
 
+
+@media (max-width: 480px) {
+    
+    .active-product-area .owl-nav div,
+    .active-product-area .owl-nav .owl-next {
+        margin-top: -30px;
+    }
+    .banner-area {
+        padding-top: 20px;
+    }
+}
 .footer-text a, .footer-text i {
     color: #ffba00;
+}
+.single-features .f-icon img {
+    max-width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

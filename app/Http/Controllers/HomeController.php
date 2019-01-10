@@ -21,13 +21,13 @@ class HomeController extends Controller
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
-    public function category(Request $request)
+    public function category(Request $request,$slug)
     {
     	$data['view']='front.category';
 		return view('front_home',$data);
     }
 
-    public function productView(Request $request)
+    public function productView(Request $request,$slug)
     {
     	$data['view']='front.single-product';
 		return view('front_home',$data);
