@@ -7,7 +7,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="add-childcategory" data-request="enable-enter" action="{!! action('Admin\ChildcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
+				<form role="add-childcategory" data-request="enable-enter" action="{!! action('admin\ChildcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
@@ -50,8 +50,8 @@
                 url:"{{url('admin/subcategories/ajaxcategory?id=')}}"+value,
                 type:'POST',
                 success:function(data){
-                    $('#subcategory').html(data);
-                    $('#subcategory').prev('.select_block').css("display","block");
+                    $('#subcategory').html(data).prev().css("display","block");
+                    // $('#subcategory').prev('.select_block').css("display","block");
                 }
             });
         });
