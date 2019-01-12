@@ -114,6 +114,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function ajaxProduct(Request $request)
+    {
+        $id = $request->id;
+        $subcategoryProduct = Childcategories::where('sub_id',$id)->get();
+        $subProduct = view('admin.template.ajaxproduct',compact('subproduct'));
+        return Response($subProduct);
+    }
+
+
     public function edit($id)
     {
         //

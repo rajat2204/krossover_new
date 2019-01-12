@@ -45,4 +45,5 @@ Route::post('ajaxcategory', 'ChildcategoryController@ajaxchildCategory');
 
 /***********************Product-Section****************************/
 Route::resource('products', 'ProductController');
+Route::post('product', 'ProductController@ajaxProduct');
 });

@@ -17,7 +17,7 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
-        					<select class="form-control" name="" id="">
+        					<select class="form-control" name="cat_id" id="main">
                                 <option value="">Select Main Category</option>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -27,14 +27,14 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-        					<select class="form-control" name="" id="">
+        					<select class="form-control select_block" name="subproduct" id="sub_cat">
                                 <option value="">Select Sub Category</option>
         					</select>
         				</div>
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Child Category:</label>
-        					<select class="form-control" name="" id="">
+        					<select class="form-control" name="child" id="child_id">
                                 <option value="">Select Child Category</option>
         					</select>
         				</div>
@@ -171,6 +171,20 @@
     $("#allow").change(function () {
            $("#pSizes").toggle();
         });
+
+    $(document).ready(function(){
+        $('#main').on('change',function(){
+            var value = $(this).val();
+            $.ajax({
+                url:"{{url('admin/product?id=')}}"+value,
+                type:'POST',
+                success:function(data){
+                    $('#subproduct').html(data);
+                    $('#subproduct').prev('.select_block').css("display","block");
+                }
+            });
+        });
+    });
 </script>
 
 @endsection
