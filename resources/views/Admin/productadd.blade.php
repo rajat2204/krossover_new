@@ -17,7 +17,7 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
-        					<select class="form-control" name="cat_id" id="main">
+        					<select class="form-control" name="main_id" id="main_id">
                                 <option value="">Select Main Category</option>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -27,15 +27,8 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-        					<select class="form-control select_block" name="subproduct" id="sub_cat">
+        					<select class="form-control select_block" name="sub_id" id="sub_id">
                                 <option value="">Select Sub Category</option>
-        					</select>
-        				</div>
-
-        				<div class="item form-group">
-        					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Child Category:</label>
-        					<select class="form-control" name="child" id="child_id">
-                                <option value="">Select Child Category</option>
         					</select>
         				</div>
 
@@ -46,15 +39,6 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
-                            </div>
-                        </div>
-
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12"> Product Gallery Images</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" accept="" name="photo" multiple/>
-                                <br>
-                                <p class="small-label">Multiple Image Allowed</p>
                             </div>
                         </div>
 
@@ -168,23 +152,24 @@
             }
         }
 
-    $("#allow").change(function () {
+        $("#allow").change(function () {
            $("#pSizes").toggle();
         });
 
-    $(document).ready(function(){
-        $('#main').on('change',function(){
-            var value = $(this).val();
-            $.ajax({
-                url:"{{url('admin/product?id=')}}"+value,
-                type:'POST',
-                success:function(data){
-                    $('#subproduct').html(data);
-                    $('#subproduct').prev('.select_block').css("display","block");
-                }
+
+        $('#main_id').on('change',function(e){
+            console.log(e);
+            var main_id =  e.target.value;
+
+            //ajax
+            $.get('/sub_id?main_id =' + main_id,{"_token":$("input[name='_token']").val()}, function(data));
+            //success data
+            $.each(data, function(upload_form, product_cat){
+                $('sub_id').empty();
+                $('sub_id').append('<option value="'+ product_cat.id +'">'+ product_cat.product_hierarchy +'</option>');
             });
         });
-    });
+        
 </script>
 
 @endsection

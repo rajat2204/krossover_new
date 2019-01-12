@@ -19,7 +19,7 @@
 				<li class="active"><a href="{{url('admin/home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 				<li><a href="{{url('admin/categories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Main Categories</a></li>
 				<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-list-alt">&nbsp;</i>Sub Categories</a></li>
-				<li><a href="{{url('admin/childcategories')}}"><i class="fa fa-fw fa-tags">&nbsp;</i>Child Categories</a></li>
+				<!-- <li><a href="{{url('admin/childcategories')}}"><i class="fa fa-fw fa-tags">&nbsp;</i>Child Categories</a></li> -->
 				<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
 			</ul>
 	</div>

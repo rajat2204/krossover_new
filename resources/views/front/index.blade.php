@@ -1,104 +1,104 @@
 
 <!-- start banner Area -->
-  <section class="banner-area">
-    <div class="container">
-      <div class="row fullscreen align-items-center justify-content-start">
-        <div class="col-lg-12">
-          <div class="active-banner-slider owl-carousel">
-            <!-- single-slide -->
-            <div class="row single-slide align-items-center d-flex">
-              <div class="col-lg-5 col-md-6">
-                <div class="banner-content">
-                  <h1>Frisbee</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                  {{-- <div class="add-bag d-flex align-items-center">
-                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                    <span class="add-text text-uppercase">Add to Bag</span>
-                  </div> --}}
+    <section class="banner-area">
+        <div class="container">
+          <div class="row fullscreen align-items-center justify-content-start">
+            <div class="col-lg-12">
+              <div class="active-banner-slider owl-carousel">
+                <!-- single-slide -->
+                <div class="row single-slide align-items-center d-flex">
+                  <div class="col-lg-5 col-md-6">
+                    <div class="banner-content">
+                      <h1>Frisbee</h1>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                      {{-- <div class="add-bag d-flex align-items-center">
+                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+                        <span class="add-text text-uppercase">Add to Bag</span>
+                      </div> --}}
+                    </div>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="banner-img">
+                      <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="banner-img">
-                  <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
-                </div>
-              </div>
-            </div>
-            <!-- single-slide -->
-            <div class="row single-slide">
-              <div class="col-lg-5">
-                <div class="banner-content">
-                  <h1>Bayer Promotional <br>Gifts!</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                  {{-- <div class="add-bag d-flex align-items-center">
-                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                    <span class="add-text text-uppercase">Add to Bag</span>
-                  </div> --}}
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="banner-img">
-                  <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
+                <!-- single-slide -->
+                <div class="row single-slide">
+                  <div class="col-lg-5">
+                    <div class="banner-content">
+                      <h1>Bayer Promotional <br>Gifts!</h1>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                      {{-- <div class="add-bag d-flex align-items-center">
+                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+                        <span class="add-text text-uppercase">Add to Bag</span>
+                      </div> --}}
+                    </div>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="banner-img">
+                      <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 <!-- End banner Area -->
 
-  <!-- start features Area -->
-  <section class="features-area section_gap white_bg">
-    <div class="container">
-     
-      <div class="section-title  text-center">
-        <h1>Why Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.</p>
-      </div>
+<!-- start features Area -->
+    <section class="features-area section_gap white_bg">
+        <div class="container">
+         
+          <div class="section-title  text-center">
+            <h1>Why Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.</p>
+          </div>
 
-      <div class="row features-inner">
-        <!-- single features -->
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="single-features">
-            <div class="f-icon">
-              <img src="{{url('img/features/result.png')}}" alt="">
+          <div class="row features-inner">
+            <!-- single features -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="single-features">
+                <div class="f-icon">
+                  <img src="{{url('img/features/result.png')}}" alt="">
+                </div>
+                <h6>Result Obsession</h6>
+                <p>Our results driven team offers the best solutions enabling the client to meet their organizational communication strategies</p>
+              </div>
             </div>
-            <h6>Result Obsession</h6>
-            <p>Our results driven team offers the best solutions enabling the client to meet their organizational communication strategies</p>
+            <!-- single features -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="single-features">
+                <div class="f-icon">
+                  <img src="{{url('img/features/f-icon2.png')}}" alt="">
+                </div>
+                <h6>Hallmark Creativity</h6>
+                <p>At Krossover, we believe that the most effective solution has a big element of surprise. It needs to be fresh and different and new or it will never break through the clutter.</p>
+              </div>
+            </div>
+            <!-- single features -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="single-features">
+                <div class="f-icon">
+                  <img src="{{url('img/features/f-icon3.png')}}" alt="">
+                </div>
+                <h6>Efficiency</h6>
+                <p>Our handpicked best in the service team deliver solutions that bring your dreams to reality .</p>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- single features -->
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="single-features">
-            <div class="f-icon">
-              <img src="{{url('img/features/f-icon2.png')}}" alt="">
-            </div>
-            <h6>Hallmark Creativity</h6>
-            <p>At Krossover, we believe that the most effective solution has a big element of surprise. It needs to be fresh and different and new or it will never break through the clutter.</p>
-          </div>
-        </div>
-        <!-- single features -->
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="single-features">
-            <div class="f-icon">
-              <img src="{{url('img/features/f-icon3.png')}}" alt="">
-            </div>
-            <h6>Efficiency</h6>
-            <p>Our handpicked best in the service team deliver solutions that bring your dreams to reality .</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end features Area -->
+    </section>
+<!-- end features Area -->
 
 
 <!-- what we do -->
-  <section id="program">
+  <!-- <section id="program">
     <div class="popular page_section">
       <div class="container">
         <div class="row">
@@ -109,10 +109,10 @@
           </div>
         </div>
 
-        <div class="row course_boxes">
+        <div class="row course_boxes"> -->
           
           <!-- Popular Course Item -->
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
+          <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
             <div class="card">
               <img class="card-img-top" src="img/course_1.jpg" alt="">
               <div class="overlay_blue">
@@ -128,16 +128,16 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div class="card-title">Events</div>
+                <div class="card-title">Events</div> -->
                 <!-- <div class="card-text"></div> -->
-              </div>
+              <!-- </div>
               
             </div>
             
-          </div>
+          </div> -->
 
           <!-- Popular Course Item -->
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
+<!--           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
             <div class="card">
               <img class="card-img-top" src="img/course_2.jpg" alt="">
               <div class="overlay_blue">
@@ -150,15 +150,15 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div class="card-title">Field Marketing</div>
+                <div class="card-title">Field Marketing</div> -->
                 <!-- <div class="card-text"></div> -->
-              </div>
+              <!-- </div>
               
             </div>
-          </div>
+          </div> -->
 
           <!-- Popular Course Item -->
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
+          <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 course_box">
             <div class="card">
               <img class="card-img-top" src="img/course_3.jpg" alt="">
               <div class="overlay_blue">
@@ -169,20 +169,20 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div class="card-title">Gifts & Premium</div>
+                <div class="card-title">Gifts & Premium</div> -->
                 <!-- <div class="card-text"></div> -->
-              </div>
+              <!-- </div>
               
             </div>
           </div>
         </div>
       </div>    
     </div>
-  </section>
-  <!-- what we do ends-->
+  </section> -->
+<!-- what we do ends-->
 
-  <!-- Start category Area -->
-  <section class="category-area section_gap white_bg">
+<!-- Start category Area -->
+<section class="category-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -255,8 +255,9 @@
         </div>
       </div>
     </div>
-  </section>
-  <!-- End category Area -->
+</section>
+<!-- End category Area -->
+
   <!-- start product Area -->
   <section class="owl-carousel active-product-area section_gap">
     <!-- single product slide -->
@@ -545,7 +546,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
             <div class="section-title">
-              <h1>Coming Products</h1>
+              <h1>Latest Products</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore
                 magna aliqua.</p>
@@ -823,8 +824,8 @@
   </section>
   <!-- end product Area -->
 
-  <!-- Start exclusive deal Area -->
-    <section class="exclusive-deal-area section_gap">
+<!-- Start exclusive deal Area -->
+    <!-- <section class="exclusive-deal-area section_gap">
       <div class="container-fluid">
         <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -833,8 +834,8 @@
            
           </div>
         </div>
-      </div>
-        <div class="row justify-content-center align-items-center">
+      </div> -->
+        <!-- <div class="row justify-content-center align-items-center">
           <div class="col-lg-6 no-padding exclusive-left">
             <div class="row clock_sec clockdiv" id="clockdiv">
               <div class="col-lg-12">
@@ -850,8 +851,8 @@
                   <div class="col clockinner clockinner1">
                     <h1 class="hours">23</h1>
                     <span class="smalltext">Hours</span>
-                  </div>
-                  <div class="col clockinner clockinner1">
+                  </div> -->
+                  <!-- <div class="col clockinner clockinner1">
                     <h1 class="minutes">47</h1>
                     <span class="smalltext">Mins</span>
                   </div>
@@ -861,13 +862,13 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             
-          </div>
+          <!-- </div>
           <div class="col-lg-6 no-padding exclusive-right">
-            <div class="active-exclusive-product-slider">
+            <div class="active-exclusive-product-slider"> -->
               <!-- single exclusive carousel -->
-              <div class="single-exclusive-slider">
+              <!-- <div class="single-exclusive-slider">
                 <img class="img-fluid" src="{{url('img/product/e-p1.png')}}" alt="">
                 <div class="product-details">
                   <div class="price">
@@ -875,15 +876,15 @@
                     <h6 class="l-through">$210.00</h6>
                   </div>
                   <h4>addidas New Hammer sole
-                    for Sports person</h4>
+                    for Sports person</h4> -->
                  {{--  <div class="add-bag d-flex align-items-center justify-content-center">
                     <a class="add-btn" href=""><span class="ti-bag"></span></a>
                     <span class="add-text text-uppercase">Add to Bag</span>
                   </div> --}}
-                </div>
-              </div>
+                <!-- </div>
+              </div> -->
               <!-- single exclusive carousel -->
-              <div class="single-exclusive-slider">
+              <!-- <div class="single-exclusive-slider">
                 <img class="img-fluid" src="img/product/e-p1.png" alt="">
                 <div class="product-details">
                   <div class="price">
@@ -891,55 +892,104 @@
                     <h6 class="l-through">$210.00</h6>
                   </div>
                   <h4>addidas New Hammer sole
-                    for Sports person</h4>
+                    for Sports person</h4> -->
                   {{-- <div class="add-bag d-flex align-items-center justify-content-center">
                     <a class="add-btn" href=""><span class="ti-bag"></span></a>
                     <span class="add-text text-uppercase">Add to Bag</span>
                   </div> --}}
-                </div>
+                <!-- </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  <!-- End exclusive deal Area -->
+    </section> -->
+<!-- End exclusive deal Area -->
 
-  <!-- Start brand Area -->
-  <section class="brand-area section_gap">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 text-center">
-          <div class="section-title">
-            <h1>OUR CLIENTS</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.</p>
+<!-- Start brand Area -->
+    <section class="brand-area section_gap">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+              <div class="section-title">
+                <h1>OUR CLIENTS</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- clients logo slider -->
+            <div class="active-exclusive-product-slider">
+                  <!-- single exclusive carousel -->
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
+                    </a>
+                  </div>
+                  <!-- single exclusive carousel -->
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
+                    </a>
+                  </div>
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
+                    </a>
+                  </div>
+                  <!-- single exclusive carousel -->
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
+                    </a>
+                  </div>
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
+                    </a>
+                  </div>
+                  <!-- single exclusive carousel -->
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
+                    </a>
+                  </div>
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
+                    </a>
+                  </div>
+                  <!-- single exclusive carousel -->
+                  <div class="single-exclusive-slider">
+                    <a class="col single-img" href="#">
+                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
+                    </a>
+                  </div>
+            </div>
+            <!-- clients logo slider ends here -->
+            <!-- <a class="col single-img" href="#">
+              <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
+            </a>
+            <a class="col single-img" href="#">
+              <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
+            </a>
+            <a class="col single-img" href="#">
+              <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
+            </a>
+            <a class="col single-img" href="#">
+              <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
+            </a>
+            <a class="col single-img" href="#">
+              <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
+            </a> -->
           </div>
         </div>
-      </div>
-      <div class="row">
-        <a class="col single-img" href="#">
-          <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
-        </a>
-        <a class="col single-img" href="#">
-          <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
-        </a>
-        <a class="col single-img" href="#">
-          <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
-        </a>
-        <a class="col single-img" href="#">
-          <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
-        </a>
-        <a class="col single-img" href="#">
-          <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- End brand Area -->
+    </section>
+<!-- End brand Area -->
 
-  <!-- Start related-product Area -->
-  <section class="related-product-area section_gap_bottom">
+<!-- Start related-product Area -->
+<section class="related-product-area section_gap_bottom">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -1072,8 +1122,8 @@
         </div>
       </div>
     </div>
-  </section>
-  <!-- End related-product Area -->
+</section>
+<!-- End related-product Area -->
 
   
  

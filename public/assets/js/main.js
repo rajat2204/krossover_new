@@ -87,9 +87,9 @@ $(document).ready(function(){
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider").owlCarousel({
-        items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
+        items:5,
+        autoplay:true,
+        autoplayTimeout: 3000,
         loop:true,
         nav:true,
         navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
