@@ -109,7 +109,12 @@ class ChildcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['view'] = 'admin.childcategoryedit';
+        $id = ___decrypt($id);
+        $data['childcategories'] = _arefy(Childcategories::where('id',$id)->first());
+        // dd($data['childcategories']);
+        $data['categories'] = Category::where('status','=','active')->get();
+        return view('admin.home',$data);
     }
 
     /**

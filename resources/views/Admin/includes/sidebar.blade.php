@@ -18,9 +18,8 @@
 			<ul class="nav menu">
 				<li class="active"><a href="{{url('admin/home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 				<li><a href="{{url('admin/categories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Main Categories</a></li>
-				<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Sub Categories</a></li>
-				<li><a href="{{url('admin/childcategories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Child Categories</a></li>
+				<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-list-alt">&nbsp;</i>Sub Categories</a></li>
+				<li><a href="{{url('admin/childcategories')}}"><i class="fa fa-fw fa-tags">&nbsp;</i>Child Categories</a></li>
 				<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
-				<!-- <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li> -->
 			</ul>
 	</div>
