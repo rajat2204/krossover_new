@@ -163,7 +163,6 @@ class ProductController extends Controller
     public function ajaxProduct(Request $request)
     {
         $id = $request->id;
-        $subcategoryProduct = Childcategories::where('sub_id',$id)->get();
         $subProduct = view('admin.template.ajaxproduct',compact('subproduct'));
         return Response($subProduct);
     }
@@ -171,7 +170,14 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        //
+        $data['view'] = 'admin.productedit';
+        $id = ___decrypt($id);
+        $data['product'] = _arefy(Products::where('id',$id)->first());
+        $where = 'status != "trashed"';
+        $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
+        $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
+        // dd($data['subcategory']);
+        return view('admin.home',$data);
     }
 
     /**
