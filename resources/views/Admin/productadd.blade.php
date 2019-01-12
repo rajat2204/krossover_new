@@ -3,7 +3,7 @@
     	<div class="col-lg-12">
     		<h1 class="page-header">Add Product</h1>
     	</div>
-    </div><!--/.row-->
+    </div>
 
     <div class="panel panel-default">
     	<div class="panel-body">
@@ -27,8 +27,8 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-        					<select class="form-control select_block" name="sub_id" id="sub_id">
-                                <option value="">Select Sub Category</option>
+        					<select class="form-control select_block" name="subcategory" id="subcategory">
+                                <option value=" ">Select Sub Category</option>
         					</select>
         				</div>
 
@@ -80,22 +80,6 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" name="previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                                       title="Price must be a numeric or up to 2 decimal places." type="number">
-                            </div>
-                        </div>
-
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for Retailer</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12" name="retailer_price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                                       title="Price must be a numeric or up to 2 decimal places." type="number">
-                            </div>
-                        </div>
-
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for Retailer</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12" name="retailer_previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                        title="Price must be a numeric or up to 2 decimal places." type="number">
                             </div>
                         </div>
@@ -157,18 +141,19 @@
         });
 
 
-        $('#main_id').on('change',function(e){
-            console.log(e);
-            var main_id =  e.target.value;
-
-            //ajax
-            $.get('/sub_id?main_id =' + main_id,{"_token":$("input[name='_token']").val()}, function(data));
-            //success data
-            $.each(data, function(upload_form, product_cat){
-                $('sub_id').empty();
-                $('sub_id').append('<option value="'+ product_cat.id +'">'+ product_cat.product_hierarchy +'</option>');
+        $(document).ready(function(){
+        $('#main_id').on('change',function(){
+            var value = $(this).val();
+            $.ajax({
+                url:"{{url('admin/subcategories/ajaxsubcategory?id=')}}"+value,
+                type:'POST',
+                success:function(data){
+                    $('#subcategory').html(data).prev().css("display","block");
+                }
             });
         });
+    });
+
         
 </script>
 

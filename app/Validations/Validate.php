@@ -103,16 +103,13 @@ class Validate
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name'),
-			// 'mainid'					=> $this->validation('name'),
-			// 'subid'					=> $this->validation('name'),
-			// 'childid'				=> $this->validation('name'),
+			'main_id'					=> $this->validation('name'),
+			'subcategory'				=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
-			'image'						=> $this->validation('photo'),
+			'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
 			'price'						=> $this->validation('price'),
 			'previous_price'			=> $this->validation('price'),
-			'retailer_price'			=> $this->validation('price'),
-			'retailer_previous_price'	=> $this->validation('price'),
 			'stock'						=> $this->validation('name'),
 			'policy'					=> $this->validation('name'),
 		];
@@ -122,18 +119,14 @@ class Validate
 		// }
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
-			// 'mainid.required' 				=>  'Main Category is required.',
-			// 'subid.required' 				=>  'Sub Category is required.',
-			// 'childid.required' 				=>  'Child Category is required.',
-			'feature_image.required' 			=>  'Image is required.',
+			'main_id.required' 					=>  'Main Category is required.',
+			'subcategory.required' 				=>  'Sub Category is required.',
+			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
-			'image.required' 					=>  'Image is required.',
-			'image.mimes' 						=>  'Image should be in jpg,jpeg,png format.',
+			'sizes.required'					=>  'Size field is required',
 			'description.required' 				=>  'Product Description is required.',
 			'price.required' 					=>  'Price for User is required.',
 			'previous_price.required' 			=>  'Previous Price for User is required.',
-			'retailer_price.required' 			=>  'Current Price for Retailer is required.',
-			'retailer_previous_price.required' 	=>  'Previous Price for Retailer is required.',
 			'stock.required' 					=>  'Stock is required.',
 			'policy.required' 					=>  'Product Buy/Return Policy is required.',
 		]);

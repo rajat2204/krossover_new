@@ -85,6 +85,14 @@ class ProductController extends Controller
         return view('admin.home',$data);
     }
 
+    public function ajaxsubCategory(Request $request)
+    {
+        $id = $request->id;
+        $subcategory = Subcategories::where('cat_id',$id)->get();
+        $subCategoryview = view('admin.template.ajaxproduct',compact('subcategory'));
+        return Response($subCategoryview);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -93,8 +101,40 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validation = new Validations($request);
+        $validator  = $validation->createProduct();
+        if ($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data = new Products();
+            $data->fill($request->all());
+            $data->category = $request->main_id.",".$request->subcategory;
+
+            if ($file = $request->file('feature_image')){
+                $photo_name = time().$request->file('feature_image')->getClientOriginalName();
+                $file->move('assets/images/products',$photo_name);
+                $data['feature_image'] = $photo_name;
+            }
+
+            if ($request->featured == 1){
+            $data->featured = 1;
+            }
+
+            if ($request->pallow == ""){
+                $data->sizes = null;
+            }
+
+            $data->save();
+            $lastid = $data->id;
+
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Product has been Added successfully.";
+            $this->redirect = url('admin/products');
+            }
+        return $this->populateresponse();
+        }
 
     /**
      * Display the specified resource.

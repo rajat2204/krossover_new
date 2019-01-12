@@ -35,7 +35,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 @section('requirejs')
 {!! $html->scripts()!!}
 @endsection
