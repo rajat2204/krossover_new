@@ -31,8 +31,9 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
   </head>
     <body class="page-md login">
-        
+        <div class="wrapper">
                 @yield('content')
+        </div>
 
   
   <script src="{{asset('assets/js/jquery-1.11.1.min.js')}}"></script>
@@ -43,8 +44,9 @@
   <script src="{{asset('assets/js/easypiechart-data.js')}}"></script>
   <script src="{{asset('assets/js/easypiechart.js')}}"></script>
  
-  <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugin/nicEdit.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
+  <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
