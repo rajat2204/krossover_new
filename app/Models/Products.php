@@ -7,5 +7,57 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     protected $table = 'products';
-    protected $fillable = ['title','category','description','price','previous_price','stock','sizes','feature_image','policy','featured','views','approved','status','created_at','updated_at'];
+    protected $fillable = ['title','main_id','sub_id','description','price','previous_price','stock','sizes','feature_image','policy','featured','views','approved','status','created_at','updated_at'];
+
+
+    public function category(){
+        return $this->hasOne('App\Models\Category','id','main_id');
+    }
+
+    public function subcategory()
+    {
+        return $this->hasOne('App\Models\Subcategories','id','sub_id');  
+    }
+
+    public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
+        $table_products = self::select($keys)
+        ->with([
+            'category' => function($q){
+                $q->select('id','name');
+            },
+            'subcategory' => function($q){
+                $q->select('id','name');
+            },
+        ]);
+        if($where){
+            $table_products->whereRaw($where);
+        }
+                
+        if(!empty($order)){
+            $order = explode('-', $order);
+            $table_products->orderBy($order[0],$order[1]);
+        }
+        if($fetch === 'array'){
+            $list = $table_products->get();
+            return json_decode(json_encode($list ), true );
+        }else if($fetch === 'obj'){
+            return $table_products->limit($limit)->get();                
+        }else if($fetch === 'single'){
+            return $table_products->get()->first();
+        }else if($fetch === 'count'){
+            return $table_products->get()->count();
+        }else{
+            return $table_products->limit($limit)->get();
+        }
+    }
+    
+    public static function change($userID,$data){
+        $isUpdated = false;
+        $table_product = \DB::table('products');
+        if(!empty($data)){
+            $table_product->where('id','=',$userID);
+            $isUpdated = $table_product->update($data); 
+        }
+        return (bool)$isUpdated;
+    }
 }

@@ -104,7 +104,7 @@ class Validate
 		$validations = [
 			'title'						=> $this->validation('name'),
 			'main_id'					=> $this->validation('name'),
-			'subcategory'				=> $this->validation('name'),
+			'sub_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
 			'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
@@ -120,7 +120,7 @@ class Validate
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
 			'main_id.required' 					=>  'Main Category is required.',
-			'subcategory.required' 				=>  'Sub Category is required.',
+			'sub_id.required' 				=>  'Sub Category is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
 			'sizes.required'					=>  'Size field is required',

@@ -21,35 +21,21 @@
 						<option>Option 2</option>
 					</select>
 				</div>
+
 				<div class="form-group">
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
 					<select class="form-control">
-						<option>Option 1</option>
-						<option>Option 2</option>
 					</select>
 				</div>
-				<div class="form-group">
-					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Child Category:</label>
-					<select class="form-control">
-						<option>Option 1</option>
-						<option>Option 2</option>
-					</select>
-				</div>
+
 				<div class="form-group">
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <input onchange="readURL(this)" id="uploadFile" accept="" name="" type="file">
                     </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Product Gallery Images</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="file" accept="" name="" multiple/>
-                        <br>
-                        <p class="small-label">Multiple Image Allowed</p>
-                    </div>
-                </div>
-               <!--  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -58,6 +44,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="item form-group" id="pSizes" style="display: none;">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Product Sizes<span class="required">*</span>
                         <p class="small-label">(Write your own size Separated by Comma[,])</p>
@@ -65,7 +52,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input class="form-control col-md-7 col-xs-12" name="sizes" value="X,XL,XXL,M,L,S" data-role="tagsinput"/>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
@@ -90,22 +77,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for Retailer</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                               title="Price must be a numeric or up to 2 decimal places." type="number">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for Retailer</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                               title="Price must be a numeric or up to 2 decimal places." type="number">
-                    </div>
-                </div>
-
                 <div class="item form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Stock</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -119,7 +90,7 @@
                         <textarea name="policy" id="" class="form-control" rows="6"></textarea>
                     </div>
                 </div>
-					<button type="button" class="btn btn-success btn-block edit_product" data-request="ajax-submit" data-target='[role="edit-product"]'>Add Product</button>
+					<button type="button" class="btn btn-success btn-block edit_product" data-request="ajax-submit" data-target='[role="edit-product"]'>Edit Product</button>
 				</div>
 			</form>
 		</div>

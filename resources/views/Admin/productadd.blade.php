@@ -27,7 +27,7 @@
 
         				<div class="item form-group">
         					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-        					<select class="form-control select_block" name="subcategory" id="subcategory">
+        					<select class="form-control select_block" name="sub_id" id="subcategory">
                                 <option value=" ">Select Sub Category</option>
         					</select>
         				</div>

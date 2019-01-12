@@ -27,6 +27,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/datepicker3.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
+
   <link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
   </head>
@@ -49,6 +50,7 @@
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
+<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
 <script type="text/javascript">
 $(function () {

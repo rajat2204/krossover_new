@@ -39,6 +39,7 @@ Route::resource('subcategories', 'SubcategoryController');
 /***********************Product-Section****************************/
 Route::resource('products', 'ProductController');
 	Route::group(['prefix' => 'subcategories'],function(){
+		Route::post('/status', 'ProductController@changeStatus');
 		Route::post('ajaxsubcategory', 'ProductController@ajaxsubCategory');
 	});
 });

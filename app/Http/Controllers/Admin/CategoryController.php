@@ -25,12 +25,14 @@ class CategoryController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'admin.categorylist';
+        $data['view'] = 'Admin.categorylist';
         
         $category  = _arefy(Category::where('status','!=','trashed')->get());
+       
         if ($request->ajax()) {
             return DataTables::of($category)
             ->editColumn('action',function($item){
+                
                 $html    = '<div class="edit_details_box">';
                 $html   .= '<a href="'.url(sprintf('admin/categories/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
                 if($item['status'] == 'active'){
