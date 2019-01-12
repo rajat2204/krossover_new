@@ -94,9 +94,11 @@ class ProductController extends Controller
 
     public function ajaxsubCategory(Request $request)
     {
+        //pp($request->id);
         $id = $request->id;
         $subcategory = Subcategories::where('cat_id',$id)->get();
         $subCategoryview = view('admin.template.ajaxproduct',compact('subcategory'));
+       
         return Response($subCategoryview);
     }
 
@@ -160,13 +162,6 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function ajaxProduct(Request $request)
-    {
-        $id = $request->id;
-        $subProduct = view('admin.template.ajaxproduct',compact('subproduct'));
-        return Response($subProduct);
-    }
-
 
     public function edit($id)
     {
@@ -176,7 +171,6 @@ class ProductController extends Controller
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
-        // dd($data['subcategory']);
         return view('admin.home',$data);
     }
 

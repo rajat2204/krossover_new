@@ -19,11 +19,7 @@
 					<select class="form-control" name="main_id" id="main_id">
                         <option value="">Select Main Category</option>
                         @foreach($categories as $categoriess)
-                            @if($categoriess['id'] == $product['main_id'])
-                                <option value="{{$product['main_id']}}" selected>{{$categoriess['name']}}</option>
-                            @else
-                                <option value="{{$product['main_id']}}">{{$categoriess['name']}}</option>
-                            @endif
+                            <option value="{{$categoriess['id']}}" @if($categoriess['id'] == $product['main_id']) selected @endif >{{$categoriess['name']}}</option>
                         @endforeach
 					</select>
 				</div>
@@ -172,7 +168,7 @@
            $("#pSizes").toggle();
         });
 
-        $(document).ready(function(){
+    $(document).ready(function(){
         $('#main_id').on('change',function(){
             var value = $(this).val();
             $.ajax({
