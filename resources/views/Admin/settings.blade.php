@@ -43,7 +43,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Current Logo
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <img class="col-md-6" src="../assets/images/logo/{{$setting[0]->logo}}">
+                                        <img class="col-md-6" src="">
                                     </div>
                                 </div><br>
                                 <!-- <input type="hidden" name="id" value="1"> -->
@@ -72,7 +72,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Current Favicon
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <img class="col-md-3" src="../assets/images/{{$setting[0]->favicon}}">
+                                        <img class="col-md-3" src="">
                                     </div>
 
                                 </div><br>
@@ -106,55 +106,10 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Website Title <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="title" placeholder="Website Title" required="required" type="text" value="{{$setting[0]->title}}">
+                                        <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="title" placeholder="Website Title" required="required" type="text" value="">
                                     </div>
                                 </div>
                                 
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <!--  <button type="submit" class="btn btn-primary">Cancel</button> -->
-                                        <button type="submit" id="website_update" class="btn btn-success btn-block">Update Settings</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="tab-pane" id="payment">
-                            <p class="lead">Payment Informations</p>
-
-                            <div class="ln_solid"></div>
-                            <form method="POST" action="settings/payment" class="form-horizontal form-label-left" id="website_form">
-                                {{csrf_field()}}
-                                <div class="item form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="title"> Paypal Business Account <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" name="paypal" placeholder="Paypal Business" required="required" type="text" value="{{$setting[0]->paypal_business}}">
-                                    </div>
-                                </div>
-                                <div class="item form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="title"> Stripe Key <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" name="stripe_key" placeholder="Stripe Key" required="required" type="text" value="{{$setting[0]->stripe_key}}">
-                                    </div>
-                                </div>
-                                <div class="item form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="title"> Stripe Secret Key <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" name="stripe_secret" placeholder="Stripe Secret Key" required="required" type="text" value="{{$setting[0]->stripe_secret}}">
-                                    </div>
-                                </div>
-                                <div class="item form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="title"> Withdraw Fee(USD) <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" name="withdraw_fee"  pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                                               title="Shipping Cost must be numeric or up to 2 decimal places." placeholder="Shipping Cost" required="required" type="text" value="{{$setting[0]->withdraw_fee}}">
-                                    </div>
-                                </div>
-
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-3">
@@ -173,7 +128,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Current Background Image
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <img class="col-md-10" src="../assets/images/{{$setting[0]->background}}">
+                                        <img class="col-md-10" src="">
                                     </div>
 
                                 </div><br>
@@ -204,7 +159,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="about"> About Us Text <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea rows="10" cols="60" id="aboutpnael" class="form-control" name="about">{{$setting[0]->about}}</textarea>
+                                        <textarea rows="10" cols="60" id="aboutpnael" class="form-control" name="about"></textarea>
                                     </div>
                                 </div>
 
@@ -226,28 +181,28 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address"> Street Address <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea rows="3" cols="60" class="form-control col-md-7 col-xs-12" name="address" required="required">{{$setting[0]->address}}</textarea>
+                                        <textarea rows="3" cols="60" class="form-control col-md-7 col-xs-12" name="address" required="required"></textarea>
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="phone" placeholder="Phone Number" required="required" type="text" value="{{$setting[0]->phone}}">
+                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="phone" placeholder="Phone Number" required="required" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fax"> Fax <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="fax" placeholder="Fax" required="required" type="text" value="{{$setting[0]->fax}}">
+                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="fax" placeholder="Fax" required="required" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email"> Email <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="email" placeholder="Email Address" required="required" type="text" value="{{$setting[0]->email}}">
+                                        <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="email" placeholder="Email Address" required="required" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
@@ -268,7 +223,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="footer"> Footer Text <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea rows="2" cols="60" id="footerpnael" class="form-control" name="footer" required="required">{{$setting[0]->footer}}</textarea>
+                                        <textarea rows="2" cols="60" id="footerpnael" class="form-control" name="footer" required="required"></textarea>
                                     </div>
                                 </div>
 
@@ -284,5 +239,5 @@
                     </div>
                 </div>
 			</div>
-	</div>		
+	   </div>		
 </div>

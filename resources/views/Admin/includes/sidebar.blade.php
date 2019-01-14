@@ -21,7 +21,7 @@
 				<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-list-alt">&nbsp;</i>Sub Categories</a></li>
 				<!-- <li><a href="{{url('admin/childcategories')}}"><i class="fa fa-fw fa-tags">&nbsp;</i>Child Categories</a></li> -->
 				<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
-				<li><a href="{{url('admin/sliders')}}"><i class="fa fa-fw fa-photo">&nbsp;</i>Slider Settings</a></li>
+				<li><a href="{{url('admin/sliders')}}"><i class="fa fa-fw fa-sliders">&nbsp;</i>Slider Settings</a></li>
 				<li><a href="{{url('admin/settings')}}"><i class="fa fa-fw fa-cogs">&nbsp;</i>General Settings</a></li>
 			</ul>
 	</div>
