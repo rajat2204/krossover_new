@@ -40,6 +40,22 @@ Route::resource('subcategories', 'SubcategoryController');
 Route::resource('products', 'ProductController');
 	Route::group(['prefix' => 'subcategories'],function(){
 		Route::post('/status', 'ProductController@changeStatus');
-		Route::post('ajaxsubcategory', 'ProductController@ajaxsubCategory');
+			Route::post('ajaxsubcategory', 'ProductController@ajaxsubCategory');
 	});
+
+/***********************Slider-Section****************************/
+Route::resource('sliders', 'SliderController');
+	Route::group(['prefix' => 'sliders'],function(){
+		Route::post('/status', 'SliderController@changeStatus');
+	});
+
+/***********************Settings-Section****************************/
+Route::post('settings/title', 'SettingsController@title');
+Route::post('settings/about', 'SettingsController@about');
+Route::post('settings/address', 'SettingsController@address');
+Route::post('settings/footer', 'SettingsController@footer');
+Route::post('settings/logo', 'SettingsController@logo');
+Route::post('settings/favicon', 'SettingsController@favicon');
+Route::post('settings/background', 'SettingsController@background');
+Route::resource('settings', 'SettingsController');
 });

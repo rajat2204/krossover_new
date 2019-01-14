@@ -9,7 +9,7 @@
                 <div class="row single-slide align-items-center d-flex">
                   <div class="col-lg-5 col-md-6">
                     <div class="banner-content">
-                      <h1>Frisbee</h1>
+                      <a href="{{url('/')}}"><h1>Frisbee</h1></a>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                       {{-- <div class="add-bag d-flex align-items-center">
@@ -28,7 +28,7 @@
                 <div class="row single-slide">
                   <div class="col-lg-5">
                     <div class="banner-content">
-                      <h1>Bayer Promotional <br>Gifts!</h1>
+                      <a href="{{url('/')}}"><h1>Bayer Promotional <br>Gifts!</h1></a>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                       {{-- <div class="add-bag d-flex align-items-center">

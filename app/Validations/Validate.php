@@ -48,6 +48,7 @@ class Validate
 			'start_from'		=> ['required'],
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
+			'photo_null'		=> ['nullable'],
 
 		];
 		return $validation[$key];
@@ -100,6 +101,27 @@ class Validate
         return $validator;		
 	}
 
+	public function addslider($action='add'){
+		$validations = [
+        	'image' 				=> $this->validation('photo'),
+        	'title' 				=> $this->validation('name'),
+        	'text' 					=> $this->validation('name'),
+    	];
+		if($action == 'edit'){
+			$validations['image']	= $this->validation('photomimes');
+	        $validations['title'] 	= $this->validation('name');
+	        $validations['text'] 	= $this->validation('name');
+		}
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'image.required' 				=>  'Slider Image is required.',
+			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			// 'imagess.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
+			'title.required'				=>	'Slider Title is required.',
+			'text.required'					=>	'Slider Text is required.',
+		]);
+		return $validator;
+	}
+
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name'),
@@ -113,10 +135,9 @@ class Validate
 			'stock'						=> $this->validation('name'),
 			'policy'					=> $this->validation('name'),
 		];
-		// if($action == 'edit'){
-		// 	$validations['photo'] 	= $this->validation('photo_null');
-		// 	$validations['gallery'] = $this->validation('gallery_null');
-		// }
+		if($action == 'edit'){
+			$validations['feature_image'] 	= $this->validation('photo_null');
+		}
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
 			'main_id.required' 					=>  'Main Category is required.',
