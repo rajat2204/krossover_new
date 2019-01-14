@@ -101,6 +101,27 @@ class Validate
         return $validator;		
 	}
 
+	public function createBrand($action='add'){
+        $validations = [
+        	'category_id' 		=> $this->validation('name'),
+            'brand_name' 		=> $this->validation('name'),
+			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+    	];
+    	
+		if($action='edit'){
+			$validations['slug'] = array_merge($this->validation('slug_cat'),[
+				Rule::unique('categories')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+		}
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'category_id.required' 		=>  'Main Category is required',
+    		'brand_name'				=>  'Brand Name is required',
+    	]);
+        return $validator;		
+	}
+
 	public function addslider($action='add'){
 		$validations = [
         	'image' 				=> $this->validation('photo'),
@@ -127,6 +148,7 @@ class Validate
 			'title'						=> $this->validation('name'),
 			'main_id'					=> $this->validation('name'),
 			'sub_id'					=> $this->validation('name'),
+			'brand_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
 			'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
@@ -141,7 +163,8 @@ class Validate
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
 			'main_id.required' 					=>  'Main Category is required.',
-			'sub_id.required' 				=>  'Sub Category is required.',
+			'sub_id.required' 					=>  'Sub Category is required.',
+			'brand_id.required' 				=>  'Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
 			'sizes.required'					=>  'Size field is required',

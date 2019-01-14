@@ -49,6 +49,18 @@ Route::resource('sliders', 'SliderController');
 		Route::post('/status', 'SliderController@changeStatus');
 	});
 
+/***********************Brand-Section****************************/
+Route::resource('brands', 'BrandsController');
+	Route::group(['prefix' => 'brands'],function(){
+		Route::post('/status', 'BrandsController@changeStatus');
+	});
+
+/***********************Color-Section****************************/
+Route::resource('colors', 'ColorsController');
+	Route::group(['prefix' => 'colors'],function(){
+		Route::post('/status', 'ColorsController@changeStatus');
+	});
+
 /***********************Settings-Section****************************/
 Route::post('settings/title', 'SettingsController@title');
 Route::post('settings/about', 'SettingsController@about');

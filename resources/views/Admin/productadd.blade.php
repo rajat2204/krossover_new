@@ -1,9 +1,21 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
-    	<div class="col-lg-12">
-    		<h1 class="page-header">Add Product</h1>
-    	</div>
-    </div>
+        <ol class="breadcrumb">
+            <li><a href="#">
+                <em class="fa fa-home"></em>
+            </a></li>
+            <li class="active">Add Product</li>
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add Product</h1>
+            <div class="pull-right">
+                <a href="{!! url('admin/products') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
+        </div>
+    </div><!--/.row-->
 
     <div class="panel panel-default">
     	<div class="panel-body">
@@ -26,9 +38,27 @@
         				</div>
 
         				<div class="item form-group">
-        					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
-        					<select class="form-control select_block" name="sub_id" id="subcategory">
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
+                            <select class="form-control select_block" name="sub_id" id="subcategory">
                                 <option value=" ">Select Sub Category</option>
+                            </select>
+                        </div>
+
+                        <div class="item form-group">
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Brand:</label>
+                            <select class="form-control select_block" name="brand_id" id="brandid">
+                                <option value=" ">Select Brand</option>
+                                @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="item form-group">
+        					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
+        					<select class="form-control select_block" name="color_id" id="colorid">
+                                <option value=" ">Select Color</option>
+                                
         					</select>
         				</div>
 

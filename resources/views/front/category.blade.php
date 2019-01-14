@@ -80,16 +80,20 @@
 					<div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
+
+							@if(\App\Models\Brands::where('status','active')->count() >0)
+				              @php
+				                $brand = \App\Models\Brands::where('status','active')->get();
+				              @endphp
 							<div class="head">Brands</div>
 							<form action="#">
 								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+				                @foreach($brand as $brands)
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{$brands->brand_name}}</label></li>
+								@endforeach
 								</ul>
 							</form>
+						@endif
 						</div>
 						<div class="common-filter">
 							<div class="head">Color</div>

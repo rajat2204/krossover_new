@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use App\Models\Subcategories;
 use App\Models\Products;
+use App\Models\Brands;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -88,13 +89,14 @@ class ProductController extends Controller
     public function create()
     {
         $data['categories'] = Category::where('status', '=', 'active')->get();
+        $data['brands'] = Brands::where('status', '=', 'active')->get();
+        // dd($data['brands']);
         $data['view'] = 'admin.productadd';
         return view('admin.home',$data);
     }
 
     public function ajaxsubCategory(Request $request)
     {
-        //pp($request->id);
         $id = $request->id;
         $subcategory = Subcategories::where('cat_id',$id)->get();
         $subCategoryview = view('admin.template.ajaxproduct',compact('subcategory'));
@@ -169,6 +171,7 @@ class ProductController extends Controller
         $data['product'] = _arefy(Products::where('id',$id)->first());
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
+        $data['brands'] = _arefy(Brands::where('status', '=', 'active')->get());
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         return view('admin.home',$data);
     }

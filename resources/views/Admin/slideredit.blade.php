@@ -11,6 +11,9 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Edit Slider</h1>
+			<div class="pull-right">
+                <a href="{!! url('admin/sliders') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
 		</div>
 	</div><!--/.row-->
 	<div class="panel panel-default">
