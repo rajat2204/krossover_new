@@ -178,7 +178,6 @@ class SubcategoryController extends Controller
     public function changeStatus(Request $request){
         $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
         $isUpdated               = Subcategories::change($request->id,$userData);
-
         if($isUpdated){
             if($request->status == 'trashed'){
                 $this->message = 'Deleted Sub-Category successfully.';

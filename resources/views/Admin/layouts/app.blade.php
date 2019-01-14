@@ -17,7 +17,7 @@
         <title>Kross-Over</title>
         
   
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/assets/global/plugins/datatables/media/images/favicon.ico')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('/img/logo.ico')}}">
   
   <!--Custom Font-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
