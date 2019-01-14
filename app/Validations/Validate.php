@@ -122,6 +122,26 @@ class Validate
         return $validator;		
 	}
 
+	public function addcolor($action='add'){
+        $validations = [
+        	'color_name' 		=> $this->validation('name'),
+        	'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+    	];
+    	
+		// if($action='edit'){
+		// 	$validations['slug'] = array_merge($this->validation('slug_cat'),[
+		// 		Rule::unique('categories')->where(function($query){
+		// 			$query->where('id','!=',$this->data->id);
+		// 		})
+		// 	]);
+		// }
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'color_name'				=>  'Color Name is required',
+    		'slug'						=>  'Slug is required',
+    	]);
+        return $validator;		
+	}
+
 	public function addslider($action='add'){
 		$validations = [
         	'image' 				=> $this->validation('photo'),

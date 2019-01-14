@@ -35,7 +35,7 @@ class ColorsController extends Controller
             ->editColumn('action',function($item){
                 
                 $html    = '<div class="edit_details_box">';
-                // $html   .= '<a href="'.url(sprintf('admin/categories/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '<a href="'.url(sprintf('admin/categories/%s/edit',___encrypt($item['id']))).'"  title="Delete Color"><i class="fa fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/colors/status/?id=%s&status=inactive',$item['id'])).'" 
@@ -56,8 +56,8 @@ class ColorsController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('name',function($item){
-                return ucfirst($item['name']);
+             ->editColumn('color_name',function($item){
+                return ucfirst($item['color_name']);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -67,7 +67,7 @@ class ColorsController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Category Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'color_name', 'name' => 'color_name','title' => 'Color Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
@@ -93,7 +93,23 @@ class ColorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = new Validations($request);
+        $validator  = $validation->addcolor();
+        if ($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $color = new Colors();
+            $color->fill($request->all());
+
+            $color->save();
+
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Color has been Added successfully.";
+            $this->redirect = url('admin/colors');
+        }
+        return $this->populateresponse();
     }
 
     /**
