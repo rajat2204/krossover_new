@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Subcategories;
 use App\Models\Products;
 use App\Models\Brands;
+use App\Models\Colors;
+use App\Models\Product_Colors;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -90,7 +92,8 @@ class ProductController extends Controller
     {
         $data['categories'] = Category::where('status', '=', 'active')->get();
         $data['brands'] = Brands::where('status', '=', 'active')->get();
-        // dd($data['brands']);
+        $data['color'] = Colors::where('status','=','active')->get();
+        // dd($data['color']);
         $data['view'] = 'admin.productadd';
         return view('admin.home',$data);
     }
@@ -136,6 +139,11 @@ class ProductController extends Controller
 
             $data->save();
             $lastid = $data->id;
+                foreach ($request->input("color_name") as $colors){
+                    $add_color = new Product_Colors;
+                    $add_color->color_id = $colors;
+                    $add_color->product_id = $lastid;
+                    $add_color->save();
 
             $this->status   = true;
             $this->modal    = true;
@@ -143,6 +151,7 @@ class ProductController extends Controller
             $this->message  = "Product has been Added successfully.";
             $this->redirect = url('admin/products');
             }
+        }
         return $this->populateresponse();
         }
 

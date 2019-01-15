@@ -54,14 +54,6 @@
                             </select>
                         </div>
 
-                        <div class="item form-group">
-        					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
-        					<select class="form-control select_block" name="color_id" id="colorid">
-                                <option value=" ">Select Color</option>
-                                
-        					</select>
-        				</div>
-
         				<div class="item form-group">
                             <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -70,6 +62,15 @@
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
                             </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
+                            @foreach($color as $colors)
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}"> {{$colors->color_name}}
+                                </label>
+                            @endforeach  
                         </div>
 
                         <div class="item form-group">
@@ -125,6 +126,16 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Buy/Return Policy</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <textarea name="policy" id="policy" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">
+                            </label>
+                            <div class="col-md-9 col-sm-6 col-xs-12" data-toggle="buttons">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="id" name="featured" value="1"> Add to featured Products
+                                </label>
                             </div>
                         </div>
 
