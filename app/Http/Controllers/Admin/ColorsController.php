@@ -35,7 +35,11 @@ class ColorsController extends Controller
             ->editColumn('action',function($item){
                 
                 $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/categories/%s/edit',___encrypt($item['id']))).'"  title="Delete Color"><i class="fa fa-trash"></i></a> | ';
+                $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/colors/status/?id=%s&status=trashed',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/colors/status/?id=%s&status=inactive',$item['id'])).'" 
@@ -155,5 +159,22 @@ class ColorsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus(Request $request){
+        $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
+        $isUpdated               = Colors::change($request->id,$userData);
+
+        if($isUpdated){
+            if($request->status == 'trashed'){
+                $this->message = 'Deleted Color successfully.';
+            }else{
+                $this->message = 'Updated Color successfully.';
+            }
+            $this->status = true;
+            $this->redirect = true;
+            $this->jsondata = [];
+        }
+        return $this->populateresponse();
     }
 }

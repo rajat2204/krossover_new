@@ -63,7 +63,7 @@
 				              @endphp
 				                @foreach($category as $categories)
 							<li class="main-nav-list">
-								<a data-toggle="collapse" href="#{{$categories->name}}{{$categories->id}}" aria-expanded="false" aria-controls="{{$categories->name}}{{$categories->id}}">{{$categories->name}}<span class="number">({{ \App\Models\Subcategories::where('cat_id',$categories->id)->count() }})</span></a>
+								<a data-toggle="collapse" href="#{{$categories->name}}{{$categories->id}}" aria-expanded="false" aria-controls="{{$categories->name}}{{$categories->id}}">{{$categories->name}}<span class="number">({{ \App\Models\Products::where('main_id',$categories->id)->count() }})</span></a>
 								@if(\App\Models\Subcategories::where('cat_id',$categories->id)->where('status','active')->count() >0)
 								<ul class="collapse" id="{{$categories->name}}{{$categories->id}}" data-toggle="collapse" aria-expanded="false" aria-controls="{{$categories->name}}{{$categories->id}}">
 									@foreach(\App\Models\Subcategories::where('cat_id',$categories->id)->where('status','active')->get() as $submenu)
@@ -96,18 +96,19 @@
 						@endif
 						</div>
 						<div class="common-filter">
+							@if(\App\Models\Colors::where('status','active')->count() >0)
+				              @php
+				                $color = \App\Models\Colors::where('status','active')->get();
+				              @endphp
 							<div class="head">Color</div>
 							<form action="#">
 								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-											Leather<span>(29)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-											with red<span>(19)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
+								@foreach($color as $colors)
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color_name"><label for="black">{{$colors->color_name}}</label></li>
+								@endforeach
 								</ul>
 							</form>
+						@endif
 						</div>
 						<div class="common-filter">
 							<div class="head">Price</div>
@@ -131,14 +132,10 @@
 						<div class="sorting">
 							<select>
 								<option value="1">Default sorting</option>
-								<option value="1">Default sorting</option>
-								<option value="1">Default sorting</option>
 							</select>
 						</div>
 						<div class="sorting mr-auto">
 							<select>
-								<option value="1">Show 12</option>
-								<option value="1">Show 12</option>
 								<option value="1">Show 12</option>
 							</select>
 						</div>
@@ -159,201 +156,27 @@
 							<!-- single product -->
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p8.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
+									@if(\App\Models\Products::where('status','active')->where('main_id',$cat['id'])->orWhere('sub_id',$cat['id'])->count() >0)
+					                  @php
+					                    $product = \App\Models\Products::where('status','active')->where('main_id',$cat['id'])->orWhere('sub_id',$cat['id'])->get();
+					                    
+					                  @endphp
+										@foreach($product as $products)
+											<img class="img-fluid" src="{{url('assets/images/products')}}/{{$products->feature_image}}" style="height: 320px;" alt="Product Image" />
+											<div class="product-details">
+												<h6>{{$products->title}}</h6>
+												<div class="price">
+													<h6>{{$products->price}}</h6>
+													<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products->previous_price}}</h6>
+												</div>
+											</div>
+										@endforeach
+										@else
+										<h3>No Product Found in this Category.</h3>
+									@endif
 								</div>
 							</div>
 							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p2.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
-								</div>
-							</div>
-							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p3.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
-								</div>
-							</div>
-							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p4.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
-								</div>
-							</div>
-							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p5.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
-								</div>
-							</div>
-							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
-									<img class="img-fluid" src="{{url('img/product/p6.jpg')}}" alt="">
-									<div class="product-details">
-										<h6>addidas New Hammer sole
-											for Sports person</h6>
-										<div class="price">
-											<h6>$150.00</h6>
-											<h6 class="l-through">$210.00</h6>
-										</div>
-										{{-- <div class="prd-bottom">
-
-											<a href="" class="social-info">
-												<span class="ti-bag"></span>
-												<p class="hover-text">add to bag</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-heart"></span>
-												<p class="hover-text">Wishlist</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-sync"></span>
-												<p class="hover-text">compare</p>
-											</a>
-											<a href="" class="social-info">
-												<span class="lnr lnr-move"></span>
-												<p class="hover-text">view more</p>
-											</a>
-										</div> --}}
-									</div>
-								</div>
-							</div>
 						</div>
 					</section>
 					<!-- End Best Seller -->
@@ -361,8 +184,6 @@
 					<div class="filter-bar d-flex flex-wrap align-items-center">
 						<div class="sorting mr-auto">
 							<select>
-								<option value="1">Show 12</option>
-								<option value="1">Show 12</option>
 								<option value="1">Show 12</option>
 							</select>
 						</div>

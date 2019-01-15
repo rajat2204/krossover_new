@@ -34,6 +34,11 @@ class BrandsController extends Controller
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
                 $html   .= '<a href="'.url(sprintf('admin/brands/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/brands/status/?id=%s&status=trashed',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/brands/status/?id=%s&status=inactive',$item['id'])).'" 

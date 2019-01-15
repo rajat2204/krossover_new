@@ -10,6 +10,16 @@ class Products extends Model
     protected $fillable = ['title','main_id','sub_id','brand_id','description','price','previous_price','stock','sizes','feature_image','policy','featured','views','approved','status','created_at','updated_at'];
 
 
+    public static function change($userID,$data){
+        $isUpdated = false;
+        $table_product = \DB::table('products');
+        if(!empty($data)){
+            $table_product->where('id','=',$userID);
+            $isUpdated = $table_product->update($data); 
+        }
+        return (bool)$isUpdated;
+    }
+
     public function category(){
         return $this->hasOne('App\Models\Category','id','main_id');
     }
@@ -49,15 +59,5 @@ class Products extends Model
         }else{
             return $table_products->limit($limit)->get();
         }
-    }
-    
-    public static function change($userID,$data){
-        $isUpdated = false;
-        $table_product = \DB::table('products');
-        if(!empty($data)){
-            $table_product->where('id','=',$userID);
-            $isUpdated = $table_product->update($data); 
-        }
-        return (bool)$isUpdated;
     }
 }

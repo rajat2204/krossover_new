@@ -35,7 +35,11 @@ class SliderController extends Controller
                 
                 $html    = '<div class="edit_details_box">';
                 $html   .= '<a href="'.url(sprintf('admin/sliders/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                
+                $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=trashed',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=inactive',$item['id'])).'" 
@@ -49,7 +53,6 @@ class SliderController extends Controller
                         data-ask_image="'.url('/images/active-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a> | ';
                 }
-                $html   .= '<a href="'.url(sprintf('admin/sliders/%s/edit',___encrypt($item['id']))).'"  title="Delete Slider"><i class="fa fa-trash"></i></a> ';
                 $html   .= '</div>';
                                 
                 return $html;
