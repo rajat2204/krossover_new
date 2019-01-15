@@ -21,13 +21,13 @@
               @endphp
                 @foreach($menus as $menu)
                   <li class="nav-item submenu dropdown">
-                    <a href="{{url('/category')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
+                    <a href="{{url('/category/main')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
                    
                     @if(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->count() >0)
                       <ul class="dropdown-menu">
                         @foreach(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->get() as $submenu)
                           <li class="nav-item">
-                            <a class="nav-link dropdown-toggle" href="{{url('/category')}}/{{$submenu->slug}}">{{$submenu->name}}</a>
+                            <a class="nav-link dropdown-toggle" href="{{url('/category/sub')}}/{{$submenu->slug}}">{{$submenu->name}}</a>
                            {{--  <ul class="dropdown-menu sub-dropdown">
                               @foreach(\App\Models\Childcategories::where('sid',$submenu->id)->where('status','active')->get() as $childmenu)
                               

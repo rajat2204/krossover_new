@@ -36,3 +36,15 @@
 			</div>
 		</div>		
 </div>
+
+<script type="text/javascript">
+    setTimeout(function(){
+        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+        e.preventDefault();
+        if (e.which == 13) {
+        $('[data-request="enable-enter"]').find('.add_category').trigger('click');
+        return false;   
+        }
+    }); 
+},100);
+</script>

@@ -13,7 +13,7 @@
 
 /***********************Front-Section****************************/
 Route::get('/','HomeController@index');
-Route::get('category/{category_slug}','HomeController@category');
+Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{product_slug}','HomeController@productView');
 
 

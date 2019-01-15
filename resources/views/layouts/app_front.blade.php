@@ -35,6 +35,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
         <!-- [ DEFAULT STYLESHEET ] 
         =========================================================================================================================-->
     </head>
@@ -66,6 +67,7 @@
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
   <script src="{{asset('assets/js/script.js')}}"></script>
   <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>

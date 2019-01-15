@@ -29,7 +29,7 @@ class Products extends Model
         return $this->hasOne('App\Models\Subcategories','id','sub_id');  
     }
 
-    public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
+    public static function list($fetch='array',$where='',$cat_id='',$sub_id='',$keys=['*'],$order='id-desc'){
         $table_products = self::select($keys)
         ->with([
             'category' => function($q){
@@ -41,6 +41,12 @@ class Products extends Model
         ]);
         if($where){
             $table_products->whereRaw($where);
+        }
+        if(!empty($cat_id)){
+            $table_products->where('main_id',$cat_id);
+        }
+        if(!empty($sub_id)){
+            $table_products->where('sub_id',$sub_id);
         }
                 
         if(!empty($order)){
