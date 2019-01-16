@@ -44,10 +44,10 @@
           <h6 class="mb-20">More Links</h6>
 
           <ul class="instafeed static_links">
-            <li><a href="javascript:void(0)" >About Us</a></li>
-            <li><a href="javascript:void(0)" >Contact Us</a></li>
-            <li><a href="javascript:void(0)" >Terms and condition</a></li>
-            <li><a href="javascript:void(0)" >Privacy policy</a></li>
+            <li><a href="{{url('pages/aboutus')}}" >About Us</a></li>
+            <li><a href="{{url('/contactus')}}" >Contact Us</a></li>
+            <li><a href="{{url('pages/termsandconditions')}}" >Terms and condition</a></li>
+            <li><a href="{{url('pages/privacypolicy')}}" >Privacy policy</a></li>
           </ul>
         </div>
       </div>

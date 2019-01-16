@@ -9,6 +9,7 @@ use Redirect;
 use App\Models\Category;
 use App\Models\Subcategories;
 use App\Models\Products;
+use App\Models\StaticPages;
 
 class HomeController extends Controller
 {
@@ -24,11 +25,31 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
-    public function aboutUs(Request $request)
+    public function staticPage(Request $request,$slug)
     {
-        $data['view']='front.aboutus';
+        $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
+        // dd($data['staticpage']);
+        $data['view']='front.static';
         return view('front_home',$data);
     }
+    
+    public function contactUs(Request $request)
+    {
+        $data['view']='front.contactus';
+        return view('front_home',$data);
+    }
+
+    // public function termsandConditions(Request $request)
+    // {
+    //     $data['view']='front.termsandconditions';
+    //     return view('front_home',$data);
+    // }
+
+    // public function privacyPolicy(Request $request)
+    // {
+    //     $data['view']='front.privacypolicy';
+    //     return view('front_home',$data);
+    // }
 
     public function category(Request $request,$type,$slug)
     {

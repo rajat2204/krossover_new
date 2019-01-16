@@ -126,7 +126,31 @@ class Validate
     		'category_id.required' 		=>  'Main Category is required',
     		'brand_name.required'		=>  'Brand Name is required',
     		'slug.required'				=>  'Brand Slug is required',
-    		'slug.unique'			=>  'This Brand Slug has already been taken.',
+    		'slug.unique'				=>  'This Brand Slug has already been taken.',
+    	]);
+        return $validator;		
+	}
+
+	public function createstaticpage($action='edit'){
+        $validations = [
+        	'title' 		=> $this->validation('name'),
+			// 'slug'  		=> array_merge($this->validation('slug_cat'),[Rule::unique('static_pages')]),
+            'description' 	=> $this->validation('name'),
+    	];
+    	
+  //   	if($action =='edit'){
+		// 	$validations['slug'] = array_merge($this->validation('slug_cat'),[
+		// 		Rule::unique('static_pages')->where(function($query){
+		// 			$query->where('id','!=',$this->data->id);
+		// 		})
+		// 	]);
+		// }
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'title.required' 			=>  'Title is required',
+    		// 'slug.required'				=>  'Slug is required',
+    		// 'slug.unique'				=>  'This Slug has already been taken.',
+    		'description.required'		=>  'Description is required',
     	]);
         return $validator;		
 	}

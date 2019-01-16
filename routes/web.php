@@ -13,8 +13,8 @@
 
 /***********************Front-Section****************************/
 Route::get('/','HomeController@index');
-Route::get('aboutus','HomeController@aboutUs');
-// Route::get('contactus','HomeController@contactUs');
+Route::get('pages/{slug}','HomeController@staticPage');
+Route::get('contactus','HomeController@contactUs');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
 
@@ -64,12 +64,8 @@ Route::resource('colors', 'ColorsController');
 	});
 
 /***********************Settings-Section****************************/
-Route::post('settings/title', 'SettingsController@title');
-Route::post('settings/about', 'SettingsController@about');
-Route::post('settings/address', 'SettingsController@address');
-Route::post('settings/footer', 'SettingsController@footer');
-Route::post('settings/logo', 'SettingsController@logo');
-Route::post('settings/favicon', 'SettingsController@favicon');
-Route::post('settings/background', 'SettingsController@background');
-Route::resource('settings', 'SettingsController');
+Route::resource('staticpages', 'StaticPageController');
+	Route::group(['prefix' => 'staticpages'],function(){
+		Route::post('/status', 'StaticPageController@changeStatus');
+	});
 });

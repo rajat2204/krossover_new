@@ -23,6 +23,6 @@
 			<li><a href="{{url('admin/brands')}}"><i class="fa fa-bitbucket">&nbsp;</i>Brands</a></li>
 			<li><a href="{{url('admin/colors')}}"><i class="fa fa-bitbucket">&nbsp;</i>Colors</a></li>
 			<li><a href="{{url('admin/sliders')}}"><i class="fa fa-fw fa-sliders">&nbsp;</i>Slider Settings</a></li>
-			<li><a href="javascript:void(0);"><i class="fa fa-fw fa-cogs">&nbsp;</i>General Settings</a></li>
+			<li><a href="{{url('admin/staticpages')}}"><i class="fa fa-fw fa-cogs">&nbsp;</i>Static Pages</a></li>
 		</ul>
 	</div>
