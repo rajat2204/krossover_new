@@ -92,7 +92,7 @@
 								</ul>
 							</form>
 						</div>
-						<div class="common-filter">
+						<!-- <div class="common-filter">
 							<div class="head">Color</div>
 							<form action="#">
 								<ul>
@@ -100,7 +100,7 @@
                                    	</li>
 								</ul>
 							</form>
-						</div>
+						</div> -->
 						<div class="common-filter">
 							<div class="head">Price</div>
 							<div class="price-range-area">

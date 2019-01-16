@@ -44,6 +44,7 @@ class HomeController extends Controller
 
         $where = 'status = "active"';
         $data['product'] = _arefy(Products::list('array',$where,$cat_id,$sub_id));
+        $product = \App\Models\Products::paginate(15);
 		return view('front_home',$data);
     }
 
