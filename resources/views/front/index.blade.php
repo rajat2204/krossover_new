@@ -51,7 +51,7 @@
 <!-- End banner Area -->
 
 <!-- start features Area -->
-    <section class="features-area section_gap white_bg">
+    <section id="one" class="features-area section_gap white_bg">
         <div class="container">
          
           <div class="section-title  text-center">
@@ -182,7 +182,7 @@
 <!-- what we do ends-->
 
 <!-- Start category Area -->
-<section class="category-area section_gap white_bg">
+<section id="two" class="category-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -989,7 +989,7 @@
 <!-- End brand Area -->
 
 <!-- Start related-product Area -->
-<section class="related-product-area section_gap_bottom">
+<section id="three" class="related-product-area section_gap_bottom">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -1003,13 +1003,13 @@
       <div class="row">
         <div class="col-lg-9">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-              <div class="single-related-product d-flex">
                 @if(\App\Models\Products::where('status','active')->count() >0)
                   @php
                     $popular_product = \App\Models\Products::where('featured','1')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+              <div class="single-related-product d-flex">
                 <a href="#"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
                 <div class="desc">
                   <a href="#" class="title">{{$popular_products->title}}</a>
@@ -1018,10 +1018,10 @@
                     <h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->previous_price}}</h6>
                   </div>
                 </div>
-                @endforeach
-              @endif
               </div>
             </div>
+                @endforeach
+              @endif
           </div>
         </div>
         <div class="col-lg-3">

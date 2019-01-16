@@ -138,7 +138,6 @@ class BrandsController extends Controller
         $id = ___decrypt($id);
         $data['categories'] = Category::where('status','=','active')->get();
         $data['brand'] = _arefy(Brands::where('id',$id)->first());
-        // dd($data['categories']);
         return view('admin.home',$data);
     }
 
@@ -157,9 +156,9 @@ class BrandsController extends Controller
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-            $category = Brands::findOrFail($id);
+            $brand = Brands::findOrFail($id);
             $input = $request->all();
-            $category->update($input);
+            $brand->update($input);
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;

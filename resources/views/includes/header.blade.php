@@ -14,8 +14,28 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+              <li class="nav-item active"><a class="nav-link" href="{{url('/aboutus')}}">About Us</a></li>
+              <li class="nav-item active"><a class="nav-link" href="#one">Why Us</a></li>
+              <li class="nav-item active"><a class="nav-link" href="#two">Gallery</a></li>
+              <li class="nav-item active"><a class="nav-link" href="#three">Most Popular</a></li>
+              <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Catalogue</a></li>
+              <li class="nav-item submenu dropdown"><a class="nav-link" href="{{url('/')}}">Products</a>
+                @if(\App\Models\Category::where('status','active')->count() >0)
+                  @php
+                    $menus = \App\Models\Category::where('status','active')->get();
+                  @endphp
+                  <ul class="dropdown-menu">
+                    @foreach($menus as $menu)
+                      <li class="nav-item">
+                      <a href="{{url('/category/main')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
+                      </li>
+                    @endforeach
+                </ul>
+                @endif
+              </li>
+              <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Contact Us</a></li>
              
-              @if(\App\Models\Category::where('status','active')->count() >0)
+              <!-- @if(\App\Models\Category::where('status','active')->count() >0)
               @php
                 $menus = \App\Models\Category::where('status','active')->get();
               @endphp
@@ -40,7 +60,7 @@
                     @endif
                   </li>
                 @endforeach
-              @endif
+              @endif -->
               {{-- <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false">Blog</a>
