@@ -53,7 +53,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 col-lg-4 col-md-5">
-					<div class="sidebar-categories">
+					<!-- <div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
 							
@@ -75,41 +75,32 @@
 							@endforeach
 							@endif
 						</ul>
-
-					</div>
+					</div> -->
 					<div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
-
-							@if(\App\Models\Brands::where('status','active')->count() >0)
-				              @php
-				                $brand = \App\Models\Brands::where('status','active')->get();
-				              @endphp
 							<div class="head">Brands</div>
 							<form action="#">
 								<ul>
-				                @foreach($brand as $brands)
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{$brands->brand_name}}</label></li>
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="apple">All</label></li>
+				               @foreach($product as $products)
+				              @php
+				                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
+				              @endphp
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{$brand->brand_name}}</label></li>
 								@endforeach
 								</ul>
 							</form>
-						@endif
 						</div>
-						<div class="common-filter">
-							@if(\App\Models\Colors::where('status','active')->count() >0)
-				              @php
-				                $color = \App\Models\Colors::where('status','active')->get();
-				              @endphp
+						<!-- <div class="common-filter">
 							<div class="head">Color</div>
 							<form action="#">
 								<ul>
-								@foreach($color as $colors)
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color_name"><label for="black">{{$colors->color_name}}</label></li>
-								@endforeach
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="color_name"><label for="black">All</label></li>
+                                   	</li>
 								</ul>
 							</form>
-						@endif
-						</div>
+						</div> -->
 						<div class="common-filter">
 							<div class="head">Price</div>
 							<div class="price-range-area">
@@ -156,18 +147,15 @@
 							<!-- single product -->
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									@if(\App\Models\Products::where('status','active')->where('main_id',$cat['id'])->orWhere('sub_id',$cat['id'])->count() >0)
-					                  @php
-					                    $product = \App\Models\Products::where('status','active')->where('main_id',$cat['id'])->orWhere('sub_id',$cat['id'])->get();
-					                    
-					                  @endphp
+									@if(!empty($product))
 										@foreach($product as $products)
-											<img class="img-fluid" src="{{url('assets/images/products')}}/{{$products->feature_image}}" style="height: 320px;" alt="Product Image" />
+											<img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" />
 											<div class="product-details">
-												<h6>{{$products->title}}</h6>
+												<h6>{{$products['title']}}</h6>
 												<div class="price">
-													<h6>{{$products->price}}</h6>
-													<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products->previous_price}}</h6>
+													<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
+													<h6>{{$products['price']}}</h6>
+													<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
 												</div>
 											</div>
 										@endforeach
