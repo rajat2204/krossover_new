@@ -14,11 +14,11 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-              <li class="nav-item active"><a class="nav-link" href="{{url('/aboutus')}}">About Us</a></li>
-              <li class="nav-item active"><a class="nav-link" href="#one">Why Us</a></li>
-              <li class="nav-item active"><a class="nav-link" href="#two">Gallery</a></li>
-              <li class="nav-item active"><a class="nav-link" href="#three">Most Popular</a></li>
-              <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Catalogue</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{url('/aboutus')}}">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#one" class="page-scroll">Why Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#two" class="page-scroll">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="#three" class="page-scroll">Most Popular</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Catalogue</a></li>
               <li class="nav-item submenu dropdown"><a class="nav-link" href="{{url('/')}}">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
@@ -33,7 +33,7 @@
                 </ul>
                 @endif
               </li>
-              <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Contact Us</a></li>
              
               <!-- @if(\App\Models\Category::where('status','active')->count() >0)
               @php

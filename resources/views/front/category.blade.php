@@ -1,54 +1,21 @@
 
 	<!-- Start Banner Area -->
-	<section class="banner-area">
-	    <div class="container">
-	      <div class="row fullscreen align-items-center justify-content-start">
-	        <div class="col-lg-12">
-	          <div class="active-banner-slider owl-carousel">
-	            <!-- single-slide -->
-	            <div class="row single-slide align-items-center d-flex">
-	              <div class="col-lg-5 col-md-6">
-	                <div class="banner-content">
-	                  <h1>Frisbee</h1>
-	                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-	                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-	                  {{-- <div class="add-bag d-flex align-items-center">
-	                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-	                    <span class="add-text text-uppercase">Add to Bag</span>
-	                  </div> --}}
-	                </div>
-	              </div>
-	              <div class="col-lg-7">
-	                <div class="banner-img">
-	                  <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
-	                </div>
-	              </div>
-	            </div>
-	            <!-- single-slide -->
-	            <div class="row single-slide">
-	              <div class="col-lg-5">
-	                <div class="banner-content">
-	                  <h1>Bayer Promotional <br>Gifts!</h1>
-	                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-	                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-	                  {{-- <div class="add-bag d-flex align-items-center">
-	                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-	                    <span class="add-text text-uppercase">Add to Bag</span>
-	                  </div> --}}
-	                </div>
-	              </div>
-	              <div class="col-lg-7">
-	                <div class="banner-img">
-	                  <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Shop Category page</h1>
+					<nav class="d-flex align-items-center">
+						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">Fashon Category</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- End Banner Area -->
+	
 	<section class="section_gap">
 		<div class="container">
 			<div class="row">
@@ -139,21 +106,21 @@
 										@foreach($product as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-											<img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" />
-											<div class="product-details">
-												<h6>{{$products['title']}}</h6>
-												<div class="price">
-													<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
-													<h6>{{$products['price']}}</h6>
-													<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
-												</div>
-											</div>
+									<a href="{{url('/product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<div class="product-details">
+										<h6>{{$products['title']}}</h6>
+										<div class="price">
+											<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
+											<h6>{{$products['price']}}</h6>
+											<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
+										</div>
+									</div>
 								</div>
 							</div>
-										@endforeach
-										@else
-										<h3>No Product Found in this category.</h3>
-									@endif
+								@endforeach
+								@else
+								<h3>No Product Found in this category.</h3>
+							@endif
 							<!-- single product -->
 						</div>
 					</section>

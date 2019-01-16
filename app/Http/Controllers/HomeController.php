@@ -55,8 +55,11 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
-    public function productView(Request $request,$slug)
+    public function productView(Request $request,$id)
     {
+        $data['productdata'] = Products::findOrFail($id);
+        $data['category'] = _arefy(Category::where('id',$id)->first());
+        // dd($data['category']);
     	$data['view']='front.single-product';
 		return view('front_home',$data);
     }
