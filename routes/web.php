@@ -15,6 +15,7 @@
 Route::get('/','HomeController@index');
 Route::get('pages/{slug}','HomeController@staticPage');
 Route::get('contactus','HomeController@contactUs');
+Route::post('contactussubmission','HomeController@contactUsForm');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
 

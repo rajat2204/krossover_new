@@ -190,6 +190,24 @@ class Validate
 		return $validator;
 	}
 
+	public function createContactUs($action='add'){
+        $validations = [
+        	'name' 				=> $this->validation('name'),
+			'email'  			=> array_merge($this->validation('req_email'),[Rule::unique('contactus')]),
+            'subject' 		    => $this->validation('name'),
+            'message' 		    => $this->validation('name'),
+    	];
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 		=>  'Name is required.',
+    		'email.required' 		=>  'E-mail is required.',
+    		'subject.required' 		=>  'Subject is required.',
+    		'message.unique' 		=>  'Message is required.',
+
+    	]);
+        return $validator;		
+	}
+
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name'),
