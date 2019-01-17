@@ -768,6 +768,37 @@ a.label:hover, a.label:focus {
   padding: 10px 0 0 0;
   margin: 10px 10px 20px 10px; }
 
+.brand-area .owl-prev,.brand-area .owl-next {
+    position: absolute;
+    bottom: 0;
+    right: 75px;
+    opacity: .3;
+}
+.brand-area .owl-prev:hover, 
+.brand-area .owl-next:hover {
+    opacity: 1;
+}
+.brand-area .owl-next {
+    right: 0;
+}
+
+.brand-area .owl-controls {
+    padding-top: 20px;
+}
+
+.single-img:after,.single-img:before {
+    display: table;
+    content: "";
+}
+
+.single-img:after {
+    clear: both;
+}
+
+.single-exclusive-slider {
+    padding: 10px;
+}  
+
 @media (min-width: 768px) {
   .sidebar {
     display: block;
