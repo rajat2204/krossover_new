@@ -96,7 +96,7 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea name="description" id="description" class="form-control" rows="6" required></textarea>
+                                <textarea name="description" id="contentDescription" class="form-control" rows="6" required></textarea>
                             </div>
                         </div>
 
@@ -126,7 +126,7 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Buy/Return Policy</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea name="policy" id="policy" class="form-control" rows="6"></textarea>
+                                <textarea name="policy" id="contentPolicy" class="form-control" rows="6"></textarea>
                             </div>
                         </div>
 
@@ -197,6 +197,11 @@
     });
 
         
+</script>
+
+<script>
+    CKEDITOR.replace( ' contentDescription  ' );
+    CKEDITOR.replace( ' contentPolicy  ' );
 </script>
 
 @endsection

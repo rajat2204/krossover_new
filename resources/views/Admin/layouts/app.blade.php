@@ -44,9 +44,9 @@
   <script src="{{asset('assets/js/bootstrap-datepicker.js')}}"></script>
   <script src="{{asset('assets/js/easypiechart-data.js')}}"></script>
   <script src="{{asset('assets/js/easypiechart.js')}}"></script>
- 
-  <script src="{{ asset('assets/js/plugin/nicEdit.js')}}"></script>
-<link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
+  <script src="https://cdn.ckeditor.com/4.11.1/standard-all/ckeditor.js"></script>
+<script src="{{ asset('assets/js/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+  <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>

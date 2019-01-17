@@ -43,9 +43,9 @@
 	                    </div>
                 	</div>
 
-					<div class="form-group">
+					<div class="item form-group">
 						<label>Description:</label>
-						<textarea name="description" id="description" class="form-control" rows="6" required>{{$staticpage['description']}}</textarea>
+						<textarea name="description" id="description" class="form-control" rows="6">{{$staticpage['description']}}</textarea>
 					</div>
 						<button type="button" class="btn btn-success btn-block edit_staticpages" data-request="ajax-submit" data-target='[role="edit-staticpages"]'>Edit Static Pages</button>
 					</div>
@@ -54,7 +54,11 @@
 		</div>
 	</div>		
 </div>
+
+@section('requirejs')
 <script type="text/javascript">
+    CKEDITOR.replace( 'description' );
+
     setTimeout(function(){
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
         e.preventDefault();
@@ -64,11 +68,6 @@
         }
     }); 
 },100);
-
-    bkLib.onDomLoaded(function() {
-            new nicEditor().panelInstance('description');
-            new nicEditor().panelInstance('policy');
-        });
 
     function readURL(input) {
 
@@ -83,3 +82,5 @@
             }
         }
 </script>
+
+@endsection

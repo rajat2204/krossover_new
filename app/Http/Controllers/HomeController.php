@@ -36,7 +36,9 @@ class HomeController extends Controller
     
     public function contactUs(Request $request)
     {
-
+        // $id = ___decrypt($id);
+        $data['title'] = 'Contact Us';
+        // dd($data['contactus']);
         $data['view']='front.contactus';
         return view('front_home',$data);
     }

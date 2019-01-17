@@ -918,40 +918,40 @@
             <div class="active-exclusive-product-slider">
                   <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
                       </a>
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
                       </a>
                     </div>
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
                       </a>
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
                       </a>
                     </div>
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
                       </a>
                     </div>
                     <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
                       </a>
                     </div>
                     <div class="single-exclusive-slider">
-                      <a class="col single-img" href="#">
+                      <a class="col single-img" href="javascript:void(0);">
                         <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
                       </a>
                     </div>
@@ -1000,9 +1000,9 @@
                     @foreach($popular_product as $popular_products)
             <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
               <div class="single-related-product d-flex">
-                <a href="#"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+                <a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
                 <div class="desc">
-                  <a href="#" class="title">{{$popular_products->title}}</a>
+                  <a href="javascript:void(0);" class="title">{{$popular_products->title}}</a>
                   <div class="price">
                     <h6>${{$popular_products->price}}</h6>
                     <h6 class="l-through">${{$popular_products->previous_price}}</h6>

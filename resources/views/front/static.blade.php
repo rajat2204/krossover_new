@@ -3,11 +3,11 @@
     <div class="container">
       <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
         <div class="col-first">
-          <h1>Shop Category page</h1>
+          <h1>{{$staticpage['title']}}</h1>
           <nav class="d-flex align-items-center">
             <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-            <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
-            <a href="javascript:void(0);">Fashon Category</a>
+            <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
+            <a href="">{{$staticpage['title']}}</a>
           </nav>
         </div>
       </div>
@@ -29,8 +29,8 @@
           <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12"> 
-            <div class="static-description">
-              <p>{{$staticpage['description']}}</p>
+            <div class="static-descriptionssss">
+              <p>{{strip_tags($staticpage['description'])}}</p>
             </div>
         </div>
         @elseif(empty($staticpage['description']))
@@ -41,8 +41,8 @@
         </div>
         @else
         <div class="col-lg-12 col-md-12 col-sm-12"> 
-            <div class="static-description">
-              <p>{{$staticpage['description']}}</p>
+            <div class="static-descriptionss">
+              <p>{{strip_tags($staticpage['description'])}}</p>
             </div>
         </div>
         @endif

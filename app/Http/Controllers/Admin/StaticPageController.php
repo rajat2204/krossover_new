@@ -136,6 +136,7 @@ class StaticPageController extends Controller
             $this->message = $validator->errors();
         }else{
             $staticpage = StaticPages::findOrFail($id);
+            // dd($request->all());
             $input = $request->all();
 
             if ($file = $request->file('image')){

@@ -17,6 +17,12 @@ $(document).on('click','[data-request="ajax-submit"]',function(){
     $('.alert').remove(); 
     $(".has-error").removeClass('has-error');
     $('.help-block').remove();
+    if($('#description').attr('name')!=undefined){
+        $( "#description" ).val(CKEDITOR.instances.description.getData());
+    }
+    if($('#contentPolicy').attr('name')!=undefined){
+        $( "#contentPolicy" ).val(CKEDITOR.instances.contentPolicy.getData());
+    }
     var $this       = $(this);
     var $target     = $this.data('target');
     var $url        = $($target).attr('action');
