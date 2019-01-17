@@ -87,13 +87,27 @@ $(document).ready(function(){
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider").owlCarousel({
-        items:5,
+        items:4,
         autoplay:true,
         autoplayTimeout: 3000,
-        loop:false,
+        loop:true,
         nav:true,
         navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
-        dots:false
+        dots:false,
+        responsive: {
+              0: {
+                  items: 1
+              },
+              480: {
+                  items: 2,
+              },
+              768: {
+                  items: 3,
+              },
+              1200:{
+                items:4,
+              }
+          }
     });
 
     //--------- Accordion Icon Change ---------//
