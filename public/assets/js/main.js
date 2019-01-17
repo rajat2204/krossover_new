@@ -90,7 +90,7 @@ $(document).ready(function(){
         items:5,
         autoplay:true,
         autoplayTimeout: 3000,
-        loop:true,
+        loop:false,
         nav:true,
         navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:false

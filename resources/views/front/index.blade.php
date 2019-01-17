@@ -922,49 +922,44 @@
             <!-- clients logo slider -->
             <div class="active-exclusive-product-slider">
                   <!-- single exclusive carousel -->
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
-                    </a>
-                  </div>
-                  <!-- single exclusive carousel -->
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
-                    </a>
-                  </div>
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
-                    </a>
-                  </div>
-                  <!-- single exclusive carousel -->
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
-                    </a>
-                  </div>
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
-                    </a>
-                  </div>
-                  <!-- single exclusive carousel -->
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
-                    </a>
-                  </div>
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
-                    </a>
-                  </div>
-                  <!-- single exclusive carousel -->
-                  <div class="single-exclusive-slider">
-                    <a class="col single-img" href="#">
-                      <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
-                    </a>
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
+                      </a>
+                    </div>
+                    <!-- single exclusive carousel -->
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
+                      </a>
+                    </div>
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
+                      </a>
+                    </div>
+                    <!-- single exclusive carousel -->
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
+                      </a>
+                    </div>
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
+                      </a>
+                    </div>
+                    <!-- single exclusive carousel -->
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
+                      </a>
+                    </div>
+                    <div class="single-exclusive-slider">
+                      <a class="col single-img" href="#">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
+                      </a>
+                    </div>
                   </div>
             </div>
             <!-- clients logo slider ends here -->
