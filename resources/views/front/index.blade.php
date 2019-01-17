@@ -1009,8 +1009,8 @@
                 <div class="desc">
                   <a href="#" class="title">{{$popular_products->title}}</a>
                   <div class="price">
-                    <h6><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->price}}</h6>
-                    <h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->previous_price}}</h6>
+                    <h6>${{$popular_products->price}}</h6>
+                    <h6 class="l-through">${{$popular_products->previous_price}}</h6>
                   </div>
                 </div>
               </div>

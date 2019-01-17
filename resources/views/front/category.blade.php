@@ -110,10 +110,8 @@
 									<a href="{{url('/product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
 									<div class="product-details">
 										<h6>{{$products['title']}}</h6>
-										<div class="price">
-											<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
-											<h6>{{$products['price']}}</h6>
-											<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
+										<div class="price"><h6>${{$products['price']}}</h6>
+											<h6 class="l-through">${{$products['previous_price']}}</h6>
 										</div>
 									</div>
 								</div>
