@@ -1,81 +1,38 @@
 
 	<!-- Start Banner Area -->
-	<section class="banner-area">
-	    <div class="container">
-	      <div class="row fullscreen align-items-center justify-content-start">
-	        <div class="col-lg-12">
-	          <div class="active-banner-slider owl-carousel">
-	            <!-- single-slide -->
-	            <div class="row single-slide align-items-center d-flex">
-	              <div class="col-lg-5 col-md-6">
-	                <div class="banner-content">
-	                  <h1>Frisbee</h1>
-	                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-	                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-	                  {{-- <div class="add-bag d-flex align-items-center">
-	                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-	                    <span class="add-text text-uppercase">Add to Bag</span>
-	                  </div> --}}
-	                </div>
-	              </div>
-	              <div class="col-lg-7">
-	                <div class="banner-img">
-	                  <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
-	                </div>
-	              </div>
-	            </div>
-	            <!-- single-slide -->
-	            <div class="row single-slide">
-	              <div class="col-lg-5">
-	                <div class="banner-content">
-	                  <h1>Bayer Promotional <br>Gifts!</h1>
-	                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-	                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-	                  {{-- <div class="add-bag d-flex align-items-center">
-	                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-	                    <span class="add-text text-uppercase">Add to Bag</span>
-	                  </div> --}}
-	                </div>
-	              </div>
-	              <div class="col-lg-7">
-	                <div class="banner-img">
-	                  <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Shop Category page</h1>
+					<nav class="d-flex align-items-center">
+						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">Fashon Category</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- End Banner Area -->
+	
 	<section class="section_gap">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 col-lg-4 col-md-5">
-					<!-- <div class="sidebar-categories">
+					<div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
-							
-							@if(\App\Models\Category::where('status','active')->count() >0)
-				              @php
-				                $category = \App\Models\Category::where('status','active')->get();
-				              @endphp
-				                @foreach($category as $categories)
 							<li class="main-nav-list">
-								<a data-toggle="collapse" href="#{{$categories->name}}{{$categories->id}}" aria-expanded="false" aria-controls="{{$categories->name}}{{$categories->id}}">{{$categories->name}}<span class="number">({{ \App\Models\Products::where('main_id',$categories->id)->count() }})</span></a>
-								@if(\App\Models\Subcategories::where('cat_id',$categories->id)->where('status','active')->count() >0)
-								<ul class="collapse" id="{{$categories->name}}{{$categories->id}}" data-toggle="collapse" aria-expanded="false" aria-controls="{{$categories->name}}{{$categories->id}}">
-									@foreach(\App\Models\Subcategories::where('cat_id',$categories->id)->where('status','active')->get() as $submenu)
-									<li class="main-nav-list child"><a href="{{url('/category')}}/{{$submenu->slug}}">{{$submenu->name}}</a></li>
-									@endforeach
-									@endif
-								</ul>
+								@foreach($product as $products)
+				              @php
+				                $subcategory = \App\Models\Subcategories::where('status','active')->where('id',$products['sub_id'])->get()->first();
+				              @endphp
+				              <a href="{{url('/category/sub')}}/{{$subcategory->slug}}" class="nav-link">{{$subcategory->name}}</a>
+				              @endforeach
 							</li>
-							@endforeach
-							@endif
 						</ul>
-					</div> -->
+					</div>
 					<div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
@@ -141,33 +98,35 @@
 						</div>
 					</div>
 					<!-- End Filter Bar -->
+
 					<!-- Start Best Seller -->
 					<section class="lattest-product-area pb-40 category-list">
 						<div class="row">
 							<!-- single product -->
-							<div class="col-lg-4 col-md-6">
-								<div class="single-product">
 									@if(!empty($product))
 										@foreach($product as $products)
-											<img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" />
-											<div class="product-details">
-												<h6>{{$products['title']}}</h6>
-												<div class="price">
-													<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
-													<h6>{{$products['price']}}</h6>
-													<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
-												</div>
-											</div>
-										@endforeach
-										@else
-										<h3>No Product Found in this Category.</h3>
-									@endif
+							<div class="col-lg-4 col-md-6">
+								<div class="single-product">
+									<a href="{{url('/product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<div class="product-details">
+										<h6>{{$products['title']}}</h6>
+										<div class="price">
+											<img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">
+											<h6>{{$products['price']}}</h6>
+											<h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$products['previous_price']}}</h6>
+										</div>
+									</div>
 								</div>
 							</div>
+								@endforeach
+								@else
+								<h3>No Product Found in this category.</h3>
+							@endif
 							<!-- single product -->
 						</div>
 					</section>
 					<!-- End Best Seller -->
+					
 					<!-- Start Filter Bar -->
 					<div class="filter-bar d-flex flex-wrap align-items-center">
 						<div class="sorting mr-auto">

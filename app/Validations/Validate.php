@@ -31,7 +31,7 @@ class Validate
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],
 			'specifications'    => ['nullable','string','max:1500'],
-			'description'       => ['nullable','string','max:1500'],
+			'description'       => ['required','string','max:1500'],
 			'required_description'  => ['required','string','max:1500'],
 			'slug_cat'				=> ['required','max:255'],
 			'title'             => ['required','string'],
@@ -69,14 +69,18 @@ class Validate
             'name' 		        => $this->validation('name'),
 			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('categories')]),
     	];
-		if($action='edit'){
+		if($action =='edit'){
 			$validations['slug'] = array_merge($this->validation('slug_cat'),[
 				Rule::unique('categories')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
 			]);
 		}
-        $validator = \Validator::make($this->data->all(), $validations,[]);
+        $validator = \Validator::make($this->data->all(), $validations,[
+        	'name.required'     			=> 'Category Name is Required.',
+        	'slug.required'     			=> 'Category Slug is Required.',
+        	'slug.unique'     				=> 'This Category Slug has already been taken.',
+        ]);
         return $validator;		
 	}
 
@@ -87,15 +91,18 @@ class Validate
 			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
     	];
     	
-		if($action='edit'){
+		if($action =='edit'){
 			$validations['slug'] = array_merge($this->validation('slug_cat'),[
-				Rule::unique('categories')->where(function($query){
+				Rule::unique('subcategories')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
 			]);
 		}
         $validator = \Validator::make($this->data->all(), $validations,[
-    		'cat_id.required' 		=>  'Main Category is required',
+    		'cat_id.required' 		=>  'Please Select the Main Category.',
+    		'name.required' 		=>  'Sub-Category Name is required.',
+    		'slug.required' 		=>  'Sub-Category Slug is required.',
+    		'slug.unique' 			=>  'This Sub-Category Slug has already been taken.',
 
     	]);
         return $validator;		
@@ -105,19 +112,45 @@ class Validate
         $validations = [
         	'category_id' 		=> $this->validation('name'),
             'brand_name' 		=> $this->validation('name'),
-			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('brand')]),
     	];
     	
-		if($action='edit'){
+		if($action =='edit'){
 			$validations['slug'] = array_merge($this->validation('slug_cat'),[
-				Rule::unique('categories')->where(function($query){
+				Rule::unique('brand')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
 			]);
 		}
         $validator = \Validator::make($this->data->all(), $validations,[
     		'category_id.required' 		=>  'Main Category is required',
-    		'brand_name'				=>  'Brand Name is required',
+    		'brand_name.required'		=>  'Brand Name is required',
+    		'slug.required'				=>  'Brand Slug is required',
+    		'slug.unique'				=>  'This Brand Slug has already been taken.',
+    	]);
+        return $validator;		
+	}
+
+	public function createstaticpage($action='edit'){
+        $validations = [
+        	'title' 		=> $this->validation('name'),
+			// 'slug'  		=> array_merge($this->validation('slug_cat'),[Rule::unique('static_pages')]),
+            'description' 	=> $this->validation('name'),
+    	];
+    	
+  //   	if($action =='edit'){
+		// 	$validations['slug'] = array_merge($this->validation('slug_cat'),[
+		// 		Rule::unique('static_pages')->where(function($query){
+		// 			$query->where('id','!=',$this->data->id);
+		// 		})
+		// 	]);
+		// }
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'title.required' 			=>  'Title is required',
+    		// 'slug.required'				=>  'Slug is required',
+    		// 'slug.unique'				=>  'This Slug has already been taken.',
+    		'description.required'		=>  'Description is required',
     	]);
         return $validator;		
 	}
@@ -125,19 +158,13 @@ class Validate
 	public function addcolor($action='add'){
         $validations = [
         	'color_name' 		=> $this->validation('name'),
-        	'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+        	'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('color')]),
     	];
     	
-		// if($action='edit'){
-		// 	$validations['slug'] = array_merge($this->validation('slug_cat'),[
-		// 		Rule::unique('categories')->where(function($query){
-		// 			$query->where('id','!=',$this->data->id);
-		// 		})
-		// 	]);
-		// }
         $validator = \Validator::make($this->data->all(), $validations,[
-    		'color_name'				=>  'Color Name is required',
-    		'slug'						=>  'Slug is required',
+    		'color_name.required'				=>  'Color Name is required.',
+    		'slug.required'						=>  'Color Slug is required.',
+    		'slug.unique'						=>  'This Color Slug has already been taken.',
     	]);
         return $validator;		
 	}
@@ -163,6 +190,24 @@ class Validate
 		return $validator;
 	}
 
+	public function createContactUs($action='add'){
+        $validations = [
+        	'name' 				=> $this->validation('name'),
+			'email'  			=> $this->validation('req_email'),
+            'subject' 		    => $this->validation('name'),
+            'message' 		    => $this->validation('name'),
+    	];
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 		=>  'Name is required.',
+    		'email.required' 		=>  'E-mail is required.',
+    		'subject.required' 		=>  'Subject is required.',
+    		'message.unique' 		=>  'Message is required.',
+
+    	]);
+        return $validator;		
+	}
+
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name'),
@@ -170,7 +215,7 @@ class Validate
 			'sub_id'					=> $this->validation('name'),
 			'brand_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
-			'sizes'						=> $this->validation('name'),
+			// 'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
 			'price'						=> $this->validation('price'),
 			'previous_price'			=> $this->validation('price'),
@@ -184,14 +229,14 @@ class Validate
 			'title.required' 					=>  'Product Name is required.',
 			'main_id.required' 					=>  'Main Category is required.',
 			'sub_id.required' 					=>  'Sub Category is required.',
-			'brand_id.required' 				=>  'Brand is required.',
+			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
-			'sizes.required'					=>  'Size field is required',
+			// 'sizes.required'					=>  'Size field is required',
 			'description.required' 				=>  'Product Description is required.',
-			'price.required' 					=>  'Price for User is required.',
+			'price.required' 					=>  'Current Price for User is required.',
 			'previous_price.required' 			=>  'Previous Price for User is required.',
-			'stock.required' 					=>  'Stock is required.',
+			'stock.required' 					=>  'Product Stock is required.',
 			'policy.required' 					=>  'Product Buy/Return Policy is required.',
 		]);
 		if(!empty($this->data->pallow) && empty($this->data->sizes)){

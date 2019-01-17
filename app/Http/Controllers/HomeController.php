@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Validations\Validate as Validations;
-use App\Http\Controllers\Controller;
 use Redirect;
-use App\Models\Category;
-use App\Models\Subcategories;
 use App\Models\Products;
+use App\Models\Category;
+use App\Models\StaticPages;
+use App\Models\Subcategories;
+use App\Models\ContactUs;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Validations\Validate as Validations;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,55 @@ class HomeController extends Controller
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
+
+    public function staticPage(Request $request,$slug)
+    {
+        $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
+        // dd($data['staticpage']);
+        $data['view']='front.static';
+        return view('front_home',$data);
+    }
+    
+    public function contactUs(Request $request)
+    {
+
+        $data['view']='front.contactus';
+        return view('front_home',$data);
+    }
+
+    public function contactUsForm(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createContactUs();
+        if($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['subject']             =!empty($request->subject)?$request->subject:'';
+            $data['message']           =!empty($request->message)?$request->message:'';
+            
+            $inserId = ContactUs::add($data);
+            if($inserId){
+               $emailData               = ___email_settings();
+               $emailData['name']       = !empty($request->name)?$request->name:'';
+               $emailData['email']      = !empty($request->email)?$request->email:'';
+               $emailData['subject']    = !empty($request->subject)?$request->subject:'';
+               $emailData['message']    = !empty($request->message)?$request->message:'';
+               $emailData['date']       = date('Y-m-d H:i:s');
+
+               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
+               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
+
+                $this->status   = true;
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Enquiry has been submitted successfully.";
+                $this->redirect = url('/');
+            } 
+        } 
+        return $this->populateresponse();
+    }
+
     public function category(Request $request,$type,$slug)
     {
       
@@ -48,8 +99,11 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
-    public function productView(Request $request,$slug)
+    public function productView(Request $request,$id)
     {
+        $data['productdata'] = Products::findOrFail($id);
+        $data['category'] = _arefy(Category::where('id',$id)->first());
+        // dd($data['category']);
     	$data['view']='front.single-product';
 		return view('front_home',$data);
     }

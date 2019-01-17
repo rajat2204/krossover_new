@@ -148,7 +148,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   $id = ___decrypt($id);
+    {   
+        $id = ___decrypt($id);
         $validation = new Validations($request);
         $validator  = $validation->createCategory('edit');
         if ($validator->fails()) {

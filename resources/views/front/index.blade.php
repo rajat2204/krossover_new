@@ -4,45 +4,40 @@
         <div class="container">
           <div class="row fullscreen align-items-center justify-content-start">
             <div class="col-lg-12">
+                @for ($i = 0; $i < count($sliders); $i++)
+                @if($i == 0)
               <div class="active-banner-slider owl-carousel">
                 <!-- single-slide -->
                 <div class="row single-slide align-items-center d-flex">
                   <div class="col-lg-5 col-md-6">
                     <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>Frisbee</h1></a>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                      {{-- <div class="add-bag d-flex align-items-center">
-                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                        <span class="add-text text-uppercase">Add to Bag</span>
-                      </div> --}}
+                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
+                      <p>{{$sliders[$i]->text}}</p>
                     </div>
                   </div>
                   <div class="col-lg-7">
                     <div class="banner-img">
-                      <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
+                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
                     </div>
                   </div>
                 </div>
+                @else
                 <!-- single-slide -->
                 <div class="row single-slide">
                   <div class="col-lg-5">
                     <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>Bayer Promotional <br>Gifts!</h1></a>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                      {{-- <div class="add-bag d-flex align-items-center">
-                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                        <span class="add-text text-uppercase">Add to Bag</span>
-                      </div> --}}
+                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
+                      <p>{{$sliders[$i]->text}}</p>
                     </div>
                   </div>
                   <div class="col-lg-7">
                     <div class="banner-img">
-                      <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
+                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
                     </div>
                   </div>
                 </div>
+              @endif
+            @endfor
               </div>
             </div>
           </div>
@@ -51,7 +46,7 @@
 <!-- End banner Area -->
 
 <!-- start features Area -->
-    <section class="features-area section_gap white_bg">
+    <section id="one" class="features-area section_gap white_bg">
         <div class="container">
          
           <div class="section-title  text-center">
@@ -182,7 +177,7 @@
 <!-- what we do ends-->
 
 <!-- Start category Area -->
-<section class="category-area section_gap white_bg">
+<section id="two" class="category-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -984,7 +979,7 @@
 <!-- End brand Area -->
 
 <!-- Start related-product Area -->
-<section class="related-product-area section_gap_bottom">
+<section id="three" class="related-product-area section_gap_bottom">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -998,13 +993,13 @@
       <div class="row">
         <div class="col-lg-9">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-              <div class="single-related-product d-flex">
                 @if(\App\Models\Products::where('status','active')->count() >0)
                   @php
                     $popular_product = \App\Models\Products::where('featured','1')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+              <div class="single-related-product d-flex">
                 <a href="#"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
                 <div class="desc">
                   <a href="#" class="title">{{$popular_products->title}}</a>
@@ -1013,10 +1008,10 @@
                     <h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->previous_price}}</h6>
                   </div>
                 </div>
-                @endforeach
-              @endif
               </div>
             </div>
+                @endforeach
+              @endif
           </div>
         </div>
         <div class="col-lg-3">

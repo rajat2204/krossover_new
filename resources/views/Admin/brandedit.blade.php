@@ -19,7 +19,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="add-brand" data-request="enable-enter" action="{{url('admin/brands/'.___encrypt($brand['id']))}}" method="POST" class="form-horizontal form-label-left">
+					<form role="edit-brand" data-request="enable-enter" action="{{url('admin/brands/'.___encrypt($brand['id']))}}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}
 						<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
@@ -47,7 +47,7 @@
 							<label>Brand URL Slug:</label>
 							<input class="form-control" name="slug" value="{{$brand['slug']}}" placeholder="E.g. men's clothing">
 						</div>
-							<button type="button" class="btn btn-success btn-block edit_brand" data-request="ajax-submit" data-target='[role="edit-brand"]'>Add Brand</button>
+							<button type="button" class="btn btn-success btn-block edit_brand" data-request="ajax-submit" data-target='[role="edit-brand"]'>Edit Brand</button>
 						</div>
 					</form>
 				</div>
