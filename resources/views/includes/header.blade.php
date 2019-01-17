@@ -15,9 +15,13 @@
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#one" class="page-scroll">Why Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#two" class="page-scroll">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="#three" class="page-scroll">Most Popular</a></li>
+              @if(Request::segment(1)=='')
+              
+             
+              <li class="nav-item"><a class="nav-link" href="#whyus" class="page-scroll">Why Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#gallery" class="page-scroll">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
+              @endif
               <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Catalogue</a></li>
               <li class="nav-item submenu dropdown"><a class="nav-link" href="{{url('/')}}">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
