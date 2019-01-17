@@ -61,6 +61,7 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+                                <p>Please add only square image of size more than 80 X 80.</p>
                             </div>
                         </div>
 

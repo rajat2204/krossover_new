@@ -98,6 +98,7 @@
 						</div>
 					</div>
 					<!-- End Filter Bar -->
+
 					<!-- Start Best Seller -->
 					<section class="lattest-product-area pb-40 category-list">
 						<div class="row">
@@ -125,6 +126,7 @@
 						</div>
 					</section>
 					<!-- End Best Seller -->
+					
 					<!-- Start Filter Bar -->
 					<div class="filter-bar d-flex flex-wrap align-items-center">
 						<div class="sorting mr-auto">

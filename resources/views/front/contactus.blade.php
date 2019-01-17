@@ -24,7 +24,7 @@
             <div class="col-md-6 col-lg-6 col-sm-12">
               <div class="contact-block">
                 <h2>Contact Form</h2>
-                <form id="contactForm" role="contactus" action="{{url('contactussubmission')}}" method="POST">
+                <form role="contactus" action="{{url('contactussubmission')}}" method="POST">
                   {{csrf_field()}}
                   <div class="row">
                     <div class="col-md-6">
@@ -47,7 +47,7 @@
                         <textarea class="form-control" id="message" placeholder="Your Message" name="message" rows="5"></textarea>
                       </div>
                       <div class="submit-button">
-                        <button class="btn btn-common" id="submit" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
+                        <button class="btn btn-common" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
                       </div>
                     </div>
                   </div>            

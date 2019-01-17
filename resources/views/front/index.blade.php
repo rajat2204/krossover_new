@@ -4,45 +4,40 @@
         <div class="container">
           <div class="row fullscreen align-items-center justify-content-start">
             <div class="col-lg-12">
+                @for ($i = 0; $i < count($sliders); $i++)
+                @if($i == 0)
               <div class="active-banner-slider owl-carousel">
                 <!-- single-slide -->
                 <div class="row single-slide align-items-center d-flex">
                   <div class="col-lg-5 col-md-6">
                     <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>Frisbee</h1></a>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                      {{-- <div class="add-bag d-flex align-items-center">
-                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                        <span class="add-text text-uppercase">Add to Bag</span>
-                      </div> --}}
+                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
+                      <p>{{$sliders[$i]->text}}</p>
                     </div>
                   </div>
                   <div class="col-lg-7">
                     <div class="banner-img">
-                      <img class="img-fluid" src="{{url('img/banner/5.jpg')}}" alt="">
+                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
                     </div>
                   </div>
                 </div>
+                @else
                 <!-- single-slide -->
                 <div class="row single-slide">
                   <div class="col-lg-5">
                     <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>Bayer Promotional <br>Gifts!</h1></a>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                      {{-- <div class="add-bag d-flex align-items-center">
-                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                        <span class="add-text text-uppercase">Add to Bag</span>
-                      </div> --}}
+                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
+                      <p>{{$sliders[$i]->text}}</p>
                     </div>
                   </div>
                   <div class="col-lg-7">
                     <div class="banner-img">
-                      <img class="img-fluid" src="{{url('img/banner/3.jpg')}}" alt="">
+                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
                     </div>
                   </div>
                 </div>
+              @endif
+            @endfor
               </div>
             </div>
           </div>

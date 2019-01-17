@@ -193,7 +193,7 @@ class Validate
 	public function createContactUs($action='add'){
         $validations = [
         	'name' 				=> $this->validation('name'),
-			'email'  			=> array_merge($this->validation('req_email'),[Rule::unique('contactus')]),
+			'email'  			=> $this->validation('req_email'),
             'subject' 		    => $this->validation('name'),
             'message' 		    => $this->validation('name'),
     	];
