@@ -151,6 +151,9 @@
     opacity: .3;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     line-height: 24px;
     font-size: 14px;
@@ -159,7 +162,6 @@ body {
     color: #777777;
     background: #fff;
 }
-
 html, body {
     height: 100%;
 }
@@ -1784,7 +1786,7 @@ a.navbar-brand:hover {
     background-size: cover;
     padding-top: 130px;
     padding-bottom: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 991px) {
@@ -2456,7 +2458,7 @@ a.navbar-brand:hover {
 }
 
 .single-img img {
-    opacity: .2;
+    opacity: .6;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2470,7 +2472,8 @@ a.navbar-brand:hover {
 }
 
 .single-img img:hover {
-    opacity: .8;
+    opacity: 1;
+    box-shadow: 5px 5px 5px #aba7a7;
 }
 
 .single-related-product {
@@ -8308,6 +8311,41 @@ label {
 }
 
 
+@media (max-width: 767px) {
+
+    div.contact-form-area {
+        margin: 0;
+        padding: 20px 5px;
+    }
+
+    .primary-btn {
+        padding: 0 20px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .footer-right-area {
+        padding-top: 35px;
+    }
+
+    div.footer-right-contact .single-contact {
+        margin: 20px 10px;
+        padding: 0 10px 0 55px;
+        min-height: 40px;
+    }
+
+    .footer-right-contact .single-contact:first-child {
+        margin: 10px;
+    }
+
+    .footer-right-contact .single-contact p {
+        display: inline-block;
+        vertical-align: -webkit-baseline-middle;
+    }
+    .breadcrumb-banner {
+        padding: 20px 0 0;
+    }
+}
 @media (max-width: 480px) {
     
     .active-product-area .owl-nav div,

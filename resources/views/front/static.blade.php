@@ -20,16 +20,18 @@
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
-          <div class="section-title">
+          <div class="section-title static_head">
             <h3>{{$staticpage['title']}}</h3>
           </div>
         </div>
         @if(!empty($staticpage['image']))
         <div class="col-lg-4 col-md-4 col-sm-12"> 
-          <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
+          <div class="about_img">
+            <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
+          </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12"> 
-            <div class="static-description">
+            <div class="static-description p-l-40">
               <p>{{$staticpage['description']}}</p>
             </div>
         </div>
