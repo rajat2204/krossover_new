@@ -5,9 +5,9 @@
         <div class="col-first">
           <h1>Shop Category page</h1>
           <nav class="d-flex align-items-center">
-            <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-            <a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-            <a href="category.html">Fashon Category</a>
+            <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+            <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
+            <a href="javascript:void(0);">Fashon Category</a>
           </nav>
         </div>
       </div>
@@ -33,6 +33,12 @@
         <div class="col-lg-8 col-md-8 col-sm-12"> 
             <div class="static-description p-l-40">
               <p>{{$staticpage['description']}}</p>
+            </div>
+        </div>
+        @elseif(empty($staticpage['description']))
+        <div class="col-lg-12 col-md-12 col-sm-12"> 
+            <div class="static-image">
+              <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
             </div>
         </div>
         @else

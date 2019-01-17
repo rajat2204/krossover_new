@@ -5,9 +5,9 @@
 				<div class="col-first">
 					<h1>Shop Category page</h1>
 					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">Fashon Category</a>
+						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="javascript:void(0);">Fashon Category</a>
 					</nav>
 				</div>
 			</div>
@@ -62,19 +62,23 @@
                     <div class="contact-icon">
                       <i class="fa fa-map-marker"></i>
                     </div>
-                    <p>A-102 1<sup>st </sup> floor sector 65 Noida , 201301</p>
+                    <p>Dubai Office:
+                      Suite #107, Mandarin Building 
+                      Near Lamcy Plaza 
+                      Oud Metha P.O. Box 242172
+                    </p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-envelope"></i>
                     </div>
-                    <p><a href="mailto:mktgaadinath@gmail.com">mktgaadinath@gmail.com</a></p>
+                    <p><a href="mailto:info@kross-over.net">info@kross-over.net</a></p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-phone"></i>
                     </div>
-                    <p><a href="tel:9650797111">9650797111</a></p>
+                    <p><a href="tel:04 2979798">04 2979798</a></p>
                   </div>
                 </div>
               </div>

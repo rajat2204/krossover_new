@@ -46,7 +46,7 @@
 <!-- End banner Area -->
 
 <!-- start features Area -->
-    <section id="one" class="features-area section_gap white_bg">
+    <section id="whyus" class="features-area section_gap white_bg">
         <div class="container">
          
           <div class="section-title  text-center">
@@ -177,7 +177,7 @@
 <!-- what we do ends-->
 
 <!-- Start category Area -->
-<section id="two" class="category-area section_gap white_bg">
+<section id="gallery" class="category-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -979,7 +979,7 @@
 <!-- End brand Area -->
 
 <!-- Start related-product Area -->
-<section id="three" class="related-product-area section_gap_bottom">
+<section id="popular" class="related-product-area section_gap_bottom">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
@@ -1004,8 +1004,8 @@
                 <div class="desc">
                   <a href="#" class="title">{{$popular_products->title}}</a>
                   <div class="price">
-                    <h6><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->price}}</h6>
-                    <h6 class="l-through"><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$popular_products->previous_price}}</h6>
+                    <h6>${{$popular_products->price}}</h6>
+                    <h6 class="l-through">${{$popular_products->previous_price}}</h6>
                   </div>
                 </div>
               </div>

@@ -13,13 +13,15 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto">
-              <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#one" class="page-scroll">Why Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#two" class="page-scroll">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="#three" class="page-scroll">Most Popular</a></li>
-              <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Catalogue</a></li>
-              <li class="nav-item submenu dropdown"><a class="nav-link" href="{{url('/')}}">Products</a>
+              <li class="nav-item  @if(Request::segment(1)=='') active @endif"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+              <li class="nav-item @if(Request::segment(2)=='aboutus') active @endif"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
+              @if(Request::segment(1)=='')
+              <li class="nav-item"><a class="nav-link" href="#whyus" class="page-scroll">Why Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#gallery" class="page-scroll">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
+              @endif
+              <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('pages/catalogue')}}">Catalogue</a></li>
+              <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="{{url('/')}}">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
                     $menus = \App\Models\Category::where('status','active')->get();
@@ -33,7 +35,7 @@
                 </ul>
                 @endif
               </li>
-              <li class="nav-item"><a class="nav-link" href="{{url('/contactus')}}">Contact Us</a></li>
+              <li class="nav-item @if(Request::segment(1)=='contactus') active @endif"><a class="nav-link" href="{{url('/contactus')}}">Contact Us</a></li>
              
               <!-- @if(\App\Models\Category::where('status','active')->count() >0)
               @php
@@ -100,3 +102,15 @@
       </div>
     </div>
 </header>
+
+<script>
+  var header = document.getElementById("navbarSupportedContent");
+  var list = header.getElementsByClassName("nav-item");
+  for (var i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+  }
+</script>
