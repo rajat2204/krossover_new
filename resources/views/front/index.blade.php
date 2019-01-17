@@ -919,7 +919,7 @@
                   <!-- single exclusive carousel -->
                     <div class="single-exclusive-slider">
                       <a class="col single-img" href="#">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
+                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/6.png')}}" alt="">
                       </a>
                     </div>
                     <!-- single exclusive carousel -->

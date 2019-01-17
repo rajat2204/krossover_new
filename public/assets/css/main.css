@@ -147,7 +147,7 @@
 }
 
 .primary-btn:hover:before {
-    left: 180px;
+    left: 300px;
     opacity: .3;
 }
 
@@ -1351,7 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    z-index: 111;
+/*     z-index: 111; */
 }
 
 .header_area .navbar {
@@ -1604,6 +1604,7 @@ a.navbar-brand:hover {
     z-index: 999;
     text-align: center;
     padding: 5px 20px;
+    display: none;
 }
 
 #search_input_box .form-control {
@@ -2007,7 +2008,7 @@ a.navbar-brand:hover {
 ============================================================================================ */
 .active-product-area {
     padding-top: 70px;
-    padding-bottom: 50px;
+    padding-bottom: 0;
 }
 
 .active-product-area .owl-nav div {
@@ -2473,7 +2474,7 @@ a.navbar-brand:hover {
 
 .single-img img:hover {
     opacity: 1;
-    box-shadow: 5px 5px 5px #aba7a7;
+    /*box-shadow: 5px 5px 5px #aba7a7;*/
 }
 
 .single-related-product {
@@ -8074,10 +8075,11 @@ label {
 .footer-area {
     padding-top: 60px;
     background-color: #222222;
+    padding-bottom: 30px;
 }
 
 .footer-area h6 {
-    color: #fff;
+    color: #cccccc;
     margin-bottom: 25px;
     font-size: 18px;
     font-weight: 600;
@@ -8106,7 +8108,7 @@ label {
     margin: 5px;
 }
 .instafeed.static_links li a {
-    color: #fff;
+    color: #cccccc;
     letter-spacing: 1px;
     padding-left: 3px;
 }

@@ -81,7 +81,8 @@ textarea.form-control {
   border: 1px solid #ffb53e; }
 
 .has-error .form-control, .has-error .form-control:focus {
-  border: 1px solid #f9243f; }
+  border: 1px solid #ffaa01;
+  }
 
 .navbar-custom {
   background: #222;
@@ -801,6 +802,9 @@ a.label:hover, a.label:focus {
 
 .single-exclusive-slider {
     padding: 10px;
+    max-width: 200px;
+    margin: 0 auto;
+    max-height: 200px;
 }  
 
 @media (min-width: 768px) {
@@ -1068,7 +1072,9 @@ p.back-link {
   font-size: 12px;
   text-transform: uppercase; }
 .help-block{
-  color:red;
+  color: #ffba00;
+  text-align: left;
+  display: block;
 }
 
 .banner-area .active-banner-slider .owl-nav .owl-prev, 
@@ -1220,12 +1226,12 @@ ul.program-list li small{
 }*/
 
 .static_head {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .static_head h3 {
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     font-size: 30px;
     position: relative;
 }
@@ -1302,7 +1308,9 @@ ul.program-list li small{
 .footer-right-contact .single-contact p a {
   color: #666;
 }
-
+.footer-right-contact .single-contact p a:hover {
+    color: #ffba00;
+}
 .footer-right-contact .contact-icon {
   background: #f5b50b;
   color: #fff;
@@ -1369,4 +1377,7 @@ i.fa {
 
 button {
     outline: none;
+}
+.brand-area .section-title {
+    margin-bottom: 10px;
 }
