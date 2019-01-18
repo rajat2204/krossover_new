@@ -1407,7 +1407,7 @@ a.navbar-brand:hover {
     }
 
     .header_area {
-        position: static !important;
+        /*position: static !important;*/
     }
 }
 
