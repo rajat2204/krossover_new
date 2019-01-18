@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*',function($settings){
             $settings->with('sliders', DB::select('select * from sliders'));
+            $settings->with('clients', DB::select('select * from clients'));
         });
     }
 

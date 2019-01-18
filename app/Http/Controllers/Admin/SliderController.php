@@ -145,7 +145,6 @@ class SliderController extends Controller
         $data['view'] = 'admin.slideredit';
         $id = ___decrypt($id);
         $data['slider'] = _arefy(Sliders::where('id',$id)->first());
-        // dd($data['slider']);
         return view('admin.home',$data);
     }
 

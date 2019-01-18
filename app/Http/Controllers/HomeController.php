@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Redirect;
 use App\Models\Products;
 use App\Models\Category;
+use App\Models\Whyus;
 use App\Models\StaticPages;
 use App\Models\Subcategories;
 use App\Models\ContactUs;
@@ -24,7 +25,8 @@ class HomeController extends Controller
     {
         $where = 'status = "active"';
         $data['latest_product'] = _arefy(Products::list('array',$where));
-        // dd($data['latest_product']);
+        $whereWhyus = 'status = "active"';
+        $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
     	$data['view']='front.index';
 		return view('front_home',$data);
     }

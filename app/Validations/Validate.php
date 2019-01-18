@@ -134,22 +134,11 @@ class Validate
 	public function createstaticpage($action='edit'){
         $validations = [
         	'title' 		=> $this->validation('name'),
-			// 'slug'  		=> array_merge($this->validation('slug_cat'),[Rule::unique('static_pages')]),
             'description' 	=> $this->validation('name'),
     	];
-    	
-  //   	if($action =='edit'){
-		// 	$validations['slug'] = array_merge($this->validation('slug_cat'),[
-		// 		Rule::unique('static_pages')->where(function($query){
-		// 			$query->where('id','!=',$this->data->id);
-		// 		})
-		// 	]);
-		// }
-    	
+
         $validator = \Validator::make($this->data->all(), $validations,[
     		'title.required' 			=>  'Title is required',
-    		// 'slug.required'				=>  'Slug is required',
-    		// 'slug.unique'				=>  'This Slug has already been taken.',
     		'description.required'		=>  'Description is required',
     	]);
         return $validator;		
@@ -183,9 +172,23 @@ class Validate
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'image.required' 				=>  'Slider Image is required.',
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
-			// 'imagess.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
 			'title.required'				=>	'Slider Title is required.',
 			'text.required'					=>	'Slider Text is required.',
+		]);
+		return $validator;
+	}
+
+	public function whyus($action='edit'){
+		$validations = [
+        	// 'image' 				=> $this->validation('photo'),
+        	'title' 				=> $this->validation('name'),
+        	'description' 			=> $this->validation('name'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			// 'image.required' 				=>  'Image is required.',
+			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			'title.required'				=>	'Title is required.',
+			'description.required'			=>	'Description is required.',
 		]);
 		return $validator;
 	}
@@ -200,9 +203,19 @@ class Validate
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'image.required' 				=>  'Client Image is required.',
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
-			// 'imagess.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
-			// 'title.required'				=>	'Slider Title is required.',
-			// 'text.required'					=>	'Slider Text is required.',
+		]);
+		return $validator;
+	}
+
+	public function addgallery($action='edit'){
+		$validations = [
+        	'image' 				=> $this->validation('photomimes'),
+        	'name'					=> $this->validation('name'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'image.required' 				=>  'Client Image is required.',
+			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			'name.required'					=> 	'Image Name is required',
 		]);
 		return $validator;
 	}

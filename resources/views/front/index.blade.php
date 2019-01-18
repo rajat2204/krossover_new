@@ -57,35 +57,17 @@
 
           <div class="row features-inner">
             <!-- single features -->
+            @foreach($whyus as $whyusimages)
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="single-features">
                 <div class="f-icon">
-                  <img src="{{url('img/features/result.png')}}" alt="">
+                  <img src="{{url('assets/images/whyus')}}/{{$whyusimages['image']}}" alt="">
                 </div>
-                <h6>Result Obsession</h6>
-                <p>Our results driven team offers the best solutions enabling the client to meet their organizational communication strategies</p>
+                <h6>{{$whyusimages['title']}}</h6>
+                <p>{{strip_tags($whyusimages['description'])}}</p>
               </div>
             </div>
-            <!-- single features -->
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="single-features">
-                <div class="f-icon">
-                  <img src="{{url('img/features/f-icon2.png')}}" alt="">
-                </div>
-                <h6>Hallmark Creativity</h6>
-                <p>At Krossover, we believe that the most effective solution has a big element of surprise. It needs to be fresh and different and new or it will never break through the clutter.</p>
-              </div>
-            </div>
-            <!-- single features -->
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="single-features">
-                <div class="f-icon">
-                  <img src="{{url('img/features/f-icon3.png')}}" alt="">
-                </div>
-                <h6>Efficiency</h6>
-                <p>Our handpicked best in the service team deliver solutions that bring your dreams to reality .</p>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
     </section>
@@ -669,47 +651,26 @@
           <div class="row">
             <!-- clients logo slider -->
             <div class="active-exclusive-product-slider">
-                  <!-- single exclusive carousel -->
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">
-                      </a>
-                    </div>
-                    <!-- single exclusive carousel -->
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/2.png')}}" alt="">
-                      </a>
-                    </div>
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/3.png')}}" alt="">
-                      </a>
-                    </div>
-                    <!-- single exclusive carousel -->
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
-                      </a>
-                    </div>
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
-                      </a>
-                    </div>
-                    <!-- single exclusive carousel -->
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/4.png')}}" alt="">
-                      </a>
-                    </div>
-                    <div class="single-exclusive-slider">
-                      <a class="col single-img" href="javascript:void(0);">
-                        <img class="img-fluid d-block mx-auto" src="{{url('img/brand/5.png')}}" alt="">
-                      </a>
-                    </div>
-                  </div>
+              @for ($j = 0; $i < count($clients); $i++)
+                @if($j == 0)
+              <!-- single exclusive carousel -->
+                <div class="single-exclusive-slider">
+                  <a class="col single-img" href="javascript:void(0);">
+                    <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients[$i]->image}}" alt="">
+                  </a>
+                </div>
+                @else
+                <!-- single exclusive carousel -->
+                <div class="single-exclusive-slider">
+                  <a class="col single-img" href="javascript:void(0);">
+                    <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients[$i]->image}}" alt="">
+                  </a>
+                </div>
+              </div>
+              @endif
+              @endfor
             </div>
+
             <!-- clients logo slider ends here -->
             <!-- <a class="col single-img" href="#">
               <img class="img-fluid d-block mx-auto" src="{{url('img/brand/1.png')}}" alt="">

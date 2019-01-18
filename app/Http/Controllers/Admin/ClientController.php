@@ -18,6 +18,12 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(Request $request)
+    {
+        parent::__construct($request);
+    }
+    
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.clientlist';
         

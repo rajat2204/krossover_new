@@ -72,9 +72,15 @@ Route::resource('staticpages', 'StaticPageController');
 		Route::post('/status', 'StaticPageController@changeStatus');
 	});
 
-/***********************Color-Section****************************/
+/***********************Clients-Section****************************/
 Route::resource('clients', 'ClientController');
 	Route::group(['prefix' => 'clients'],function(){
 		Route::post('/status', 'ClientController@changeStatus');
 	});
+
+/***********************Why-Us-Section****************************/
+Route::resource('whyus', 'WhyusController');
+
+/***********************Inspirationla Gallery-Section****************************/
+Route::resource('gallery', 'GalleryController');
 });
