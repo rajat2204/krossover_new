@@ -27,7 +27,7 @@ class LoginController extends Controller
         }else{
 			 if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-               if(Auth::user()->user_type == 'super_admin'){
+               if(Auth::user()->user_type == 'super-admin'){
 
             		$this->status   = true;
                     $this->modal    = true;

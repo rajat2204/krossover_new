@@ -25,7 +25,7 @@ class StaticPageController extends Controller
 
     
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'Admin.staticpagelist';
+        $data['view'] = 'admin.staticpagelist';
         
         $staticpage  = _arefy(StaticPages::where('status','!=','trashed')->get());
        

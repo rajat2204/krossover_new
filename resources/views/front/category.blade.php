@@ -4,11 +4,11 @@
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>Shop Category</h1>
+					<h1>{{$cats['name']}}</h1>
 					<nav class="d-flex align-items-center">
 						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">Fashon Category</a>
+						<!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
+						<a href="javascript:void(0);">{{$cats['name']}}</a>
 					</nav>
 				</div>
 			</div>
@@ -23,14 +23,19 @@
 					<div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
-							<li class="main-nav-list">
-								@foreach($product as $products)
-				              @php
-				                $subcategory = \App\Models\Subcategories::where('status','active')->where('id',$products['sub_id'])->get()->first();
-				              @endphp
-				              <a href="{{url('/category/sub')}}/{{$subcategory->slug}}" class="nav-link">{{$subcategory->name}}</a>
-				              @endforeach
-							</li>
+							@php
+							
+				            	$subcategory = \App\Models\Subcategories::where('status','active')->where('cat_id',$cats['cat_id'])->get();
+							if(!empty($subcategory)){
+								foreach($subcategory as $subcat){
+								@endphp
+									<li class="main-nav-list">
+						              <a href="{{url('/category/sub')}}/{{$subcat->slug}}" class="nav-link">{{$subcat->name}}</a>
+									</li>
+							@php	
+							}
+							}
+				            @endphp
 						</ul>
 					</div>
 					<div class="sidebar-filter mt-50">
@@ -39,12 +44,14 @@
 							<div class="head">Brands</div>
 							<form action="#">
 								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="apple">All</label></li>
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="all">All</label></li>
+								@php	$i = 0; @endphp
 				               @foreach($product as $products)
 				              @php
 				                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
 				              @endphp
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{$brand->brand_name}}</label></li>
+									<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brand"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
+				              	@php $i++; @endphp
 								@endforeach
 								</ul>
 							</form>
@@ -107,7 +114,7 @@
 										@foreach($product as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									<a href="{{url('/product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<a href="javascript:void(0);"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
 									<div class="product-details">
 										<h6>{{$products['title']}}</h6>
 										<div class="price"><h6>${{$products['price']}}</h6>
@@ -118,7 +125,9 @@
 							</div>
 								@endforeach
 								@else
-								<h3>No Product Found in this category.</h3>
+								<div class="no_product_found">
+									<h3>No Product Found in this category.</h3>
+								</div>
 							@endif
 							<!-- single product -->
 						</div>

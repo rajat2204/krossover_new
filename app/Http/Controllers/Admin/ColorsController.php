@@ -26,7 +26,7 @@ class ColorsController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'Admin.colorlist';
+        $data['view'] = 'admin.colorlist';
         
         $color  = _arefy(Colors::where('status','!=','trashed')->get());
        

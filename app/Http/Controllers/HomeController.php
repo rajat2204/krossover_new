@@ -83,15 +83,18 @@ class HomeController extends Controller
         $cat_id='';
         $sub_id='';
         if($type == 'sub'){
-            $data['sub_cat'] = _arefy(Subcategories::where('slug',$slug)->first());
-            $sub_id = $data['sub_cat']['id'];
-            $data['cat']=$data['sub_cat']['cat_id'];
+            $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
+            $sub_id = $data['cats']['id'];
+            $data['cat']=$data['cats']['cat_id'];
+            //$data['cats'] = _arefy(Category::where('slug',$slug)->first());
             // dd($sub_id);
         }else{
 
-            $data['cat'] = _arefy(Category::where('slug',$slug)->first());
-            $cat_id = $data['cat']['id'];
+            $data['cats'] = _arefy(Category::where('slug',$slug)->first());
+            // dd($data['cat']);
+            $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
+            $data['cats']['cat_id']=$cat_id;
             // dd($cat_id);
         }
 

@@ -58,7 +58,7 @@ input.form-control {
   border: 1px solid #ddd;
   box-shadow: none;
   height: 40px;
-  font-size: .8rem;
+  font-size: 14px;
   }
 textarea.form-control {
     font-size: .8rem;
@@ -1380,4 +1380,16 @@ button {
 }
 .brand-area .section-title {
     margin-bottom: 10px;
+}
+
+.no_product_found {
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    color: #ffab00;
+}
+
+.no_product_found h3 {
+    color: #ffab00;
 }

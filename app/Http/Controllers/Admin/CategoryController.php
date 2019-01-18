@@ -25,7 +25,7 @@ class CategoryController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'Admin.categorylist';
+        $data['view'] = 'admin.categorylist';
         
         $category  = _arefy(Category::where('status','!=','trashed')->get());
        

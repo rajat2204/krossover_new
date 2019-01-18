@@ -25,7 +25,7 @@ class SliderController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'Admin.sliderlist';
+        $data['view'] = 'admin.sliderlist';
         
         $slider  = _arefy(Sliders::where('status','!=','trashed')->get());
        
