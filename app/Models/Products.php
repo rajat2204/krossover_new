@@ -29,6 +29,11 @@ class Products extends Model
         return $this->hasOne('App\Models\Subcategories','id','sub_id');  
     }
 
+    public function productColor()
+    {
+        return $this->hasMany('App\Models\Product_Colors','product_id','id');  
+    }
+
     public static function list($fetch='array',$where='',$cat_id='',$sub_id='',$keys=['*'],$order='id-desc'){
         $table_products = self::select($keys)
         ->with([
@@ -37,6 +42,9 @@ class Products extends Model
             },
             'subcategory' => function($q){
                 $q->select('id','name');
+            },
+            'productColor' => function($q){
+                $q->select('id','color_id','product_id');
             },
         ]);
         if($where){

@@ -182,13 +182,13 @@ class ProductController extends Controller
     public function edit($id){
         $data['view'] = 'admin.productedit';
         $id = ___decrypt($id);
-        $data['product'] = _arefy(Products::where('id',$id)->first());
+        $whereProduct = ' id = '.$id;
+        $data['product'] = _arefy(Products::list('single',$whereProduct));
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
         $data['brands'] = _arefy(Brands::where('status', '=', 'active')->get());
         $data['color'] = Colors::where('status','=','active')->get();
-        $data['product_color'] = Product_Colors::where('product_id',$id)->get();
-        // dd($data['product_color']);
+        // dd($data['product']);
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         return view('admin.home',$data);
     }

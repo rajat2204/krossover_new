@@ -74,9 +74,7 @@
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
                     @foreach($color as $colors)
                         <label class="checkbox-inline">
-                        @foreach($product_color as $product_colors)
-                            <input type="checkbox" id="id" name="color_name[]" @php if($product_colors->color_id==$colors->id){ echo "checked"; } @endphp value="{{$colors->id}}"> {{$colors->color_name}}
-                        @endforeach    
+                            <input type="checkbox" id="id" name="" value="{{$colors->id}}"> {{$colors->color_name}}
                         </label>
                     @endforeach
                 </div>
