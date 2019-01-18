@@ -24,5 +24,6 @@
 			<li><a href="{{url('admin/colors')}}"><i class="fa fa-bitbucket">&nbsp;</i>Colors</a></li>
 			<li><a href="{{url('admin/sliders')}}"><i class="fa fa-fw fa-sliders">&nbsp;</i>Slider Settings</a></li>
 			<li><a href="{{url('admin/staticpages')}}"><i class="fa fa-fw fa-cogs">&nbsp;</i>Static Pages</a></li>
+			<li><a href="{{url('admin/clients')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Our Clients</a></li>
 		</ul>
 	</div>

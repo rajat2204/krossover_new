@@ -22,6 +22,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        $where = 'status = "active"';
+        $data['latest_product'] = _arefy(Products::list('array',$where));
+        // dd($data['latest_product']);
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -29,7 +32,6 @@ class HomeController extends Controller
     public function staticPage(Request $request,$slug)
     {
         $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
-        // dd($data['staticpage']);
         $data['view']='front.static';
         return view('front_home',$data);
     }
@@ -108,7 +110,6 @@ class HomeController extends Controller
     {
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
-        // dd($data['category']);
     	$data['view']='front.single-product';
 		return view('front_home',$data);
     }
