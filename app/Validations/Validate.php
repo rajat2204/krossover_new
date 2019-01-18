@@ -190,6 +190,23 @@ class Validate
 		return $validator;
 	}
 
+	public function addclient($action='add'){
+		$validations = [
+        	'image' 				=> $this->validation('photo'),
+    	];
+		if($action == 'edit'){
+			$validations['image']	= $this->validation('photomimes');
+		}
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'image.required' 				=>  'Client Image is required.',
+			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			// 'imagess.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
+			// 'title.required'				=>	'Slider Title is required.',
+			// 'text.required'					=>	'Slider Text is required.',
+		]);
+		return $validator;
+	}
+
 	public function createContactUs($action='add'){
         $validations = [
         	'name' 				=> $this->validation('name'),

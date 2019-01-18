@@ -71,4 +71,10 @@ Route::resource('staticpages', 'StaticPageController');
 	Route::group(['prefix' => 'staticpages'],function(){
 		Route::post('/status', 'StaticPageController@changeStatus');
 	});
+
+/***********************Color-Section****************************/
+Route::resource('clients', 'ClientController');
+	Route::group(['prefix' => 'clients'],function(){
+		Route::post('/status', 'ClientController@changeStatus');
+	});
 });
