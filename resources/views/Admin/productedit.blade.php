@@ -72,10 +72,11 @@
 
                 <div class="item form-group">
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
-                      
-                          <label class="checkbox-inline">
-                            <input type="checkbox" id="id" name="color_name[]" value="">
-                          </label>
+                    @foreach($color as $colors)
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="id" name="" value="{{$colors->id}}"> {{$colors->color_name}}
+                        </label>
+                    @endforeach
                 </div>
 
                 @if($product['sizes'] != null)
