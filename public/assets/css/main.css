@@ -1797,13 +1797,13 @@ a.navbar-brand:hover {
 }
 
 @media (max-width: 767px) {
-    .organic-breadcrumb {
+    /*.organic-breadcrumb {
         background: none;
         background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
         background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
         background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
         background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    }
+    }*/
 }
 
 #category .organic-breadcrumb {
@@ -8266,7 +8266,7 @@ label {
 
 @media (max-width: 991px) {
     .footer-text {
-        padding-top: 40px;
+        /*padding-top: 40px;*/
     }
     button.navbar-toggler {
         float: right;
@@ -8346,6 +8346,10 @@ label {
     }
     .breadcrumb-banner {
         padding: 20px 0 0;
+    }
+    .static-description.p-l-40 {
+        padding-left: 0;
+        padding-top: 30px;
     }
 }
 @media (max-width: 480px) {
