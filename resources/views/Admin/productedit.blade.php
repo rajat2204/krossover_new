@@ -73,8 +73,14 @@
                 <div class="item form-group">
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
                     @foreach($color as $colors)
+                        @foreach($product['product_color'] as $productColors)
+                            @php $id = $productColors['color_id'];@endphp
+                        @endforeach
                         <label class="checkbox-inline">
-                            <input type="checkbox" id="id" name="" value="{{$colors->id}}"> {{$colors->color_name}}
+                            <input type="checkbox" id="id" name="" @php if($colors->id == $id)
+                            { 
+                                echo "checked";
+                            } @endphp value="{{$colors->id}}"> {{$colors->color_name}}
                         </label>
                     @endforeach
                 </div>
