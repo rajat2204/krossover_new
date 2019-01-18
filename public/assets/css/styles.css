@@ -1393,3 +1393,14 @@ button {
 .no_product_found h3 {
     color: #ffab00;
 }
+.static-image {
+    max-width: 100%;
+}
+
+.static-image img {
+    width: 100%;
+}
+.static-description.p-l-40 {
+    padding-left: 0;
+    padding-top: 30px;
+}
