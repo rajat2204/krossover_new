@@ -186,6 +186,9 @@ class ProductController extends Controller
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
         $data['brands'] = _arefy(Brands::where('status', '=', 'active')->get());
+        $data['color'] = Colors::where('status','=','active')->get();
+        $data['product_color'] = Product_Colors::where('product_id',$id)->get();
+        // dd($data['product_color']);
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         return view('admin.home',$data);
     }
