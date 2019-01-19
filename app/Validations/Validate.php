@@ -213,9 +213,18 @@ class Validate
         	'name'					=> $this->validation('name'),
     	];
 		$validator = \Validator::make($this->data->all(), $validations,[
-			'image.required' 				=>  'Client Image is required.',
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
 			'name.required'					=> 	'Image Name is required',
+		]);
+		return $validator;
+	}
+
+	public function addoffer($action='edit'){
+		$validations = [
+        	'image' 				=> $this->validation('photomimes'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
 		]);
 		return $validator;
 	}

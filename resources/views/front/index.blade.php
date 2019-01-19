@@ -176,10 +176,10 @@
             <div class="col-lg-8 col-md-8">
               <div class="single-deal">
                 <div class="overlay"></div>
-                <img class="img-fluid w-100" src="{{url('img/category/c4.jpg')}}" alt="">
-                <a href="{{url('img/category/c4.jpg')}}" class="img-pop-up" target="_blank">
+                <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
+                <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">Sneaker for Sports</h6>
+                    <h6 class="deal-title">{{$gallery[0]['name']}}</h6>
                   </div>
                 </a>
               </div>
@@ -187,10 +187,10 @@
             <div class="col-lg-4 col-md-4">
               <div class="single-deal">
                 <div class="overlay"></div>
-                <img class="img-fluid w-100" src="{{url('img/category/c2.jpg')}}" alt="">
-                <a href="{{url('img/category/c2.jpg')}}" class="img-pop-up" target="_blank">
+                <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" alt="">
+                <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">Sneaker for Sports</h6>
+                    <h6 class="deal-title">{{$gallery[1]['name']}}</h6>
                   </div>
                 </a>
               </div>
@@ -198,10 +198,10 @@
             <div class="col-lg-4 col-md-4">
               <div class="single-deal">
                 <div class="overlay"></div>
-                <img class="img-fluid w-100" src="{{url('img/category/c3.jpg')}}" alt="">
-                <a href="{{url('img/category/c3.jpg')}}" class="img-pop-up" target="_blank">
+                <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[2]['image']}}" alt="">
+                <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">Product for Couple</h6>
+                    <h6 class="deal-title">{{$gallery[2]['name']}}</h6>
                   </div>
                 </a>
               </div>
@@ -209,10 +209,10 @@
             <div class="col-lg-8 col-md-8">
               <div class="single-deal">
                 <div class="overlay"></div>
-                <img class="img-fluid w-100" src="{{url('img/category/c4.jpg')}}" alt="">
-                <a href="{{url('img/category/c4.jpg')}}" class="img-pop-up" target="_blank">
+                <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" alt="">
+                <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">Sneaker for Sports</h6>
+                    <h6 class="deal-title">{{$gallery[3]['name']}}</h6>
                   </div>
                 </a>
               </div>
@@ -222,10 +222,10 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-deal">
             <div class="overlay"></div>
-            <img class="img-fluid w-100" src="{{url('img/category/c5.jpg')}}" alt="">
+            <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
             <a href="{{url('img/category/c5.jpg')}}" class="img-pop-up" target="_blank">
               <div class="deal-details">
-                <h6 class="deal-title">Sneaker for Sports</h6>
+                <h6 class="deal-title">{{$offer[0]['name']}}</h6>
               </div>
             </a>
           </div>
@@ -731,7 +731,7 @@
         <div class="col-lg-3">
           <div class="ctg-right">
             <a href="#" target="_blank">
-              <img class="img-fluid d-block mx-auto" src="{{url('img/category/c5.jpg')}}" alt="">
+              <img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
             </a>
           </div>
         </div>

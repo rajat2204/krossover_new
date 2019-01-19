@@ -83,4 +83,10 @@ Route::resource('whyus', 'WhyusController');
 
 /***********************Inspirationla Gallery-Section****************************/
 Route::resource('gallery', 'GalleryController');
+
+/***********************Offers Section****************************/
+Route::resource('offers', 'OfferController');
+	Route::group(['prefix' => 'offers'],function(){
+		Route::post('/status', 'OfferController@changeStatus');
+	});
 });

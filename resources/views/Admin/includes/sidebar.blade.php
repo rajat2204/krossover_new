@@ -20,5 +20,6 @@
 			<li><a href="{{url('admin/staticpages')}}"><i class="fa fa-fw fa-cogs">&nbsp;</i>Static Pages</a></li>
 			<li><a href="{{url('admin/clients')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Our Clients</a></li><li><a href="{{url('admin/whyus')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Why Us</a></li>
 			<li><a href="{{url('admin/gallery')}}"><i class="fa fa-fw fa-file-image-o">&nbsp;</i>Gallery</a></li>
+			<li><a href="{{url('admin/offers')}}"><i class="fa fa-fw fa-gift">&nbsp;</i>Offers</a></li>
 		</ul>
 	</div>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Redirect;
+use App\Models\Whyus;
+use App\Models\Gallery;
+use App\Models\Offers;
 use App\Models\Products;
 use App\Models\Category;
-use App\Models\Whyus;
+use App\Models\ContactUs;
 use App\Models\StaticPages;
 use App\Models\Subcategories;
-use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validations\Validate as Validations;
@@ -27,6 +29,9 @@ class HomeController extends Controller
         $data['latest_product'] = _arefy(Products::list('array',$where));
         $whereWhyus = 'status = "active"';
         $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
+        $data['gallery'] = _arefy(Gallery::where('status','active')->get());
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
+        // dd($data['offer']);
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -40,9 +45,7 @@ class HomeController extends Controller
     
     public function contactUs(Request $request)
     {
-        // $id = ___decrypt($id);
         $data['title'] = 'Contact Us';
-        // dd($data['contactus']);
         $data['view']='front.contactus';
         return view('front_home',$data);
     }
