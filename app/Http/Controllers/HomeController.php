@@ -4,23 +4,21 @@ namespace App\Http\Controllers;
 
 use Redirect;
 use App\Models\Whyus;
-use App\Models\Gallery;
 use App\Models\Offers;
-use App\Models\Products;
+use App\Models\Gallery;
 use App\Models\Category;
+use App\Models\Products;
 use App\Models\ContactUs;
 use App\Models\StaticPages;
-use App\Models\Subcategories;
 use Illuminate\Http\Request;
+use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
 use Validations\Validate as Validations;
 
 class HomeController extends Controller
 {
 	public function __construct(Request $request){
-
         parent::__construct($request);
-        
     }
 
     public function index(Request $request)
@@ -32,7 +30,6 @@ class HomeController extends Controller
         $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
-        // dd($data['offer']);
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -125,7 +122,6 @@ class HomeController extends Controller
         if(!empty($request->range_from_)) {
             $range_from_ = $request->range_from_;
         }
-        dd($range_from_);
         $range_to = "";
         if(!empty($request->range_to)) {
             $range_to = $request->range_to;
@@ -140,14 +136,14 @@ class HomeController extends Controller
             $category['name'] = "Nothing Found";
             $products = new \stdClass();
         }else{
-                $products = Products::where('status','active')->whereRaw('FIND_IN_SET(?,category)', [$category->id]);
-                 if (!empty($range_from_)){
-                   $products->whereBetween('price', [$range_from_, $range_to]);
-                }
-                
-                $products->orderBy('created_at','desc');
-                $products->take(9);
-                $products = $products->get();
+            $products = Products::where('status','active')->whereRaw('FIND_IN_SET(?,category)', [$category->id]);
+            if (!empty($range_from_)){
+               $products->whereBetween('price', [$range_from_, $range_to]);
+            }
+            
+            $products->orderBy('created_at','desc');
+            $products->take(9);
+            $products = $products->get();
         }
         $output = view('ajaxcatProduct', compact('products','category'));
         return Response($output);

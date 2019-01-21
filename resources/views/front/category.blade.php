@@ -65,12 +65,23 @@
 							</form>
 						</div> -->
 						<div class="common-filter">
-							<div class="head">Price</div>
-							<input type="text" class="js-range-slider" name="my_range" />
-						</div>
-						<!-- <div class="common-filter">
-							<div class="head">Price</div>
+						<div class="head">Price</div>
+						<div class="price-range-area">
+						<!-- <div class="price-range-area">
+							<div id="price-range"></div>
+							<div class="value-wrapper d-flex">
+								<div class="price">Price:</div>
+								<span>$</span>
+								<div id="lower-value"></div>
+								<div class="to">to</div>
+								<span>$</span>
+								<div id="upper-value"></div>
+							</div>
 						</div> -->
+						<!-- <input type="text" id="demo" class="js-range-slider" name="my_range" /> -->
+						<input id="js-range-slider" type="text" name="" value="" class="js-range-slider" tabindex="-1" readonly="">
+						</div>
+					</div>
 					</div>
 				</div>
 				<div class="col-xl-9 col-lg-8 col-md-7">
@@ -111,7 +122,6 @@
 										<h6>{{$products['title']}}</h6>
 										<div class="price"><h6>${{$products['price']}}</h6>
 											<h6 class="l-through">${{$products['previous_price']}}</h6>
-											
 										</div>
 									</div>
 								</div>
@@ -357,12 +367,12 @@
 
 @section('requirejs')
 <script type="text/javascript">
-$(".js-range-slider").ionRangeSlider({
+/*$(".js-range-slider").ionRangeSlider({
         type: "double",
-        min: "{{!empty($lowPrice['price'])?$lowPrice['price']:''}}",
-        max:  "{{!empty($highPrice['price'])?$highPrice['price']:''}}",
-        from: "{{!empty($lowPrice['price'])?$lowPrice['price']:''}}",
-        to: "{{!empty($highPrice['price'])?$highPrice['price']:''}}",
+        min: "0",
+        max:  "100",
+        from: "0",
+        to: "100",
         showLabels: true,
         isRange : true,
         onChange: function (data) {
@@ -377,6 +387,16 @@ $(".js-range-slider").ionRangeSlider({
                 }
             });
         },
+    });*/
+    $("#js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: -1000,
+        max: 1000,
+        from: -500,
+        to: 500,
+        isRange : true,
+        showLabels: true
     });
 </script>
 @endsection
