@@ -24,7 +24,6 @@
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
 							@php
-							
 				            	$subcategory = \App\Models\Subcategories::where('status','active')->where('cat_id',$cats['cat_id'])->get();
 							if(!empty($subcategory)){
 								foreach($subcategory as $subcat){
@@ -33,7 +32,7 @@
 						              <a href="{{url('/category/sub')}}/{{$subcat->slug}}" class="nav-link">{{$subcat->name}}</a>
 									</li>
 							@php	
-							}
+								}
 							}
 				            @endphp
 						</ul>
@@ -67,18 +66,11 @@
 						</div> -->
 						<div class="common-filter">
 							<div class="head">Price</div>
-							<div class="price-range-area">
-								<div id="price-range"></div>
-								<div class="value-wrapper d-flex">
-									<div class="price">Price:</div>
-									<span>$</span>
-									<div id="lower-value"></div>
-									<div class="to">to</div>
-									<span>$</span>
-									<div id="upper-value"></div>
-								</div>
-							</div>
+							<input type="text" class="js-range-slider" name="my_range" />
 						</div>
+						<!-- <div class="common-filter">
+							<div class="head">Price</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-xl-9 col-lg-8 col-md-7">
@@ -119,6 +111,7 @@
 										<h6>{{$products['title']}}</h6>
 										<div class="price"><h6>${{$products['price']}}</h6>
 											<h6 class="l-through">${{$products['previous_price']}}</h6>
+											
 										</div>
 									</div>
 								</div>
@@ -361,5 +354,31 @@
 			</div>
 		</div>
 	</div>
+
+@section('requirejs')
+<script type="text/javascript">
+$(".js-range-slider").ionRangeSlider({
+        type: "double",
+        min: "{{!empty($lowPrice['price'])?$lowPrice['price']:''}}",
+        max:  "{{!empty($highPrice['price'])?$highPrice['price']:''}}",
+        from: "{{!empty($lowPrice['price'])?$lowPrice['price']:''}}",
+        to: "{{!empty($highPrice['price'])?$highPrice['price']:''}}",
+        showLabels: true,
+        isRange : true,
+        onChange: function (data) {
+            var range_from = data.from;
+            var range_to = data.to;
+            $.ajax({
+                url:"{{url('/ajaxcategory')}}/{{$cats['slug']}}",
+                type:'GET',
+                data:{range_from_ :range_from,range_to:range_to},
+                success:function(data){
+                    $('#products').html(data);
+                }
+            });
+        },
+    });
+</script>
+@endsection
 
 

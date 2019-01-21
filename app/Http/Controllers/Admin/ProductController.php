@@ -98,7 +98,6 @@ class ProductController extends Controller
         $data['categories'] = Category::where('status', '=', 'active')->get();
         $data['brands'] = Brands::where('status', '=', 'active')->get();
         $data['color'] = Colors::where('status','=','active')->get();
-        // dd($data['color']);
         $data['view'] = 'admin.productadd';
         return view('admin.home',$data);
     }

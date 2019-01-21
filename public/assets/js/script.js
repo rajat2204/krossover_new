@@ -20,8 +20,8 @@ $(document).on('click','[data-request="ajax-submit"]',function(){
     if($('#description').attr('name')!=undefined){
         $( "#description" ).val(CKEDITOR.instances.description.getData());
     }
-    if($('#contentPolicy').attr('name')!=undefined){
-        $( "#contentPolicy" ).val(CKEDITOR.instances.contentPolicy.getData());
+    if($('#policy').attr('name')!=undefined){
+        $( "#policy" ).val(CKEDITOR.instances.policy.getData());
     }
     var $this       = $(this);
     var $target     = $this.data('target');

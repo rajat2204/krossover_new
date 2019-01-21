@@ -26,7 +26,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $where = 'status = "active"';
-        $data['latest_product'] = _arefy(Products::list('array',$where));
+        $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
+        $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
         $whereWhyus = 'status = "active"';
         $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
@@ -119,4 +120,36 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
+    public function ajaxProduct(Request $request,$slug){
+        $range_from_ = "";
+        if(!empty($request->range_from_)) {
+            $range_from_ = $request->range_from_;
+        }
+        dd($range_from_);
+        $range_to = "";
+        if(!empty($request->range_to)) {
+            $range_to = $request->range_to;
+        }
+       
+        $products = Products::where('status','active');
+            if (!empty($range_from_)){
+                $products->whereBetween('price', [$range_from_, $range_to]);
+            }
+        $category = Category::where('slug',$slug)->first();
+        if ($category === null) {
+            $category['name'] = "Nothing Found";
+            $products = new \stdClass();
+        }else{
+                $products = Products::where('status','active')->whereRaw('FIND_IN_SET(?,category)', [$category->id]);
+                 if (!empty($range_from_)){
+                   $products->whereBetween('price', [$range_from_, $range_to]);
+                }
+                
+                $products->orderBy('created_at','desc');
+                $products->take(9);
+                $products = $products->get();
+        }
+        $output = view('ajaxcatProduct', compact('products','category'));
+        return Response($output);
+    }
 }

@@ -43,6 +43,10 @@ class GalleryController extends Controller
             ->editColumn('name',function($item){
                 return ucfirst($item['name']);
             })
+            ->editColumn('image',function($item){
+                $url=asset("assets/images/gallery/".$item['image']);
+                return html_entity_decode("<img src='".$url."'>");
+            })
             ->rawColumns(['action'])
             ->make(true);
         }

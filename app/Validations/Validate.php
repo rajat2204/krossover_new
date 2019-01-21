@@ -57,9 +57,7 @@ class Validate
         $validations = [
             'email' 		       => $this->validation('email'),
 			'password'       	   => $this->validation('password')
-			
     	];
-
         $validator = \Validator::make($this->data->all(), $validations,[]);
         return $validator;		
 	}
@@ -214,7 +212,7 @@ class Validate
     	];
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
-			'name.required'					=> 	'Image Name is required',
+			'name.required'					=> 	'Gallery Image Name is required',
 		]);
 		return $validator;
 	}
@@ -266,11 +264,11 @@ class Validate
 		}
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
-			'main_id.required' 					=>  'Main Category is required.',
-			'sub_id.required' 					=>  'Sub Category is required.',
+			'main_id.required' 					=>  'Products Main Category is required.',
+			'sub_id.required' 					=>  'Products Sub Category is required.',
 			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
-			'feature_image.mimes' 				=>  'Image should be in jpg,jpeg,png format.',
+			'feature_image.mimes' 				=>  'Product Image should be in jpg,jpeg,png format.',
 			// 'sizes.required'					=>  'Size field is required',
 			'description.required' 				=>  'Product Description is required.',
 			'price.required' 					=>  'Current Price for User is required.',

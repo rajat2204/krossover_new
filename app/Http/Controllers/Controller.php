@@ -21,7 +21,7 @@ class Controller extends BaseController
         $this->redirect         = false;
         $this->modal            = false;
         $this->alert            = false;
-        $this->successimage     = asset('images/success.png');
+        $this->successimage     = asset('assets/images/success.png');
         $this->ajax             = 'api';
         
         if($request->ajax()){
