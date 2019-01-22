@@ -21,8 +21,7 @@ class HomeController extends Controller
         parent::__construct($request);
     }
 
-    public function index(Request $request)
-    {
+    public function index(Request $request){
         $where = 'status = "active"';
         $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
         $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
@@ -34,15 +33,13 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
-    public function staticPage(Request $request,$slug)
-    {
+    public function staticPage(Request $request,$slug){
         $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['view']='front.static';
         return view('front_home',$data);
     }
     
-    public function contactUs(Request $request)
-    {
+    public function contactUs(Request $request){
         $data['title'] = 'Contact Us';
         $data['view']='front.contactus';
         return view('front_home',$data);
@@ -81,26 +78,26 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function category(Request $request,$type,$slug)
-    {
+    public function category(Request $request,$type,$slug){
         $data['view']='front.category';
+        $data['type'] = $type;
         $cat_id='';
         $sub_id='';
         if($type == 'sub'){
             $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
             $sub_id = $data['cats']['id'];
+            $data['subcatid'] = $sub_id;
             $data['cat']=$data['cats']['cat_id'];
         }else{
-
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
             $data['cats']['cat_id']=$cat_id;
         }
-        $lowPrice = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+        $data['lowPrice'] = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
                 ->orderBy('price','asc')
                 ->first();
-        $highPrice = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+        $data['highPrice'] = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
                 ->orderBy('price','desc')
                 ->first();
         $where = 'status = "active"';
@@ -109,16 +106,25 @@ class HomeController extends Controller
 		return view('front_home',$data);
     }
 
-    public function productView(Request $request,$id)
-    {
+    public function ajaxProduct(Request $request,$type,$slug){
+        $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
+        if(!empty($request->subcatid)){
+            $data['products']->where('sub_id',$request->subcatid);
+        }
+        if(!empty($request->brandid) && ($request->brandid!='all')){
+                $data['products']->where('brand_id',$request->brandid);
+        }
+        $data['products']->orderBy('created_at','asc');
+        $data['products']->take(9);
+        $data['product'] = $data['products']->get();
+        $html = view('front.ajaxcategoryProduct',$data);
+        return Response($html);
+    }
+
+    public function productView(Request $request,$id){
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
 		return view('front_home',$data);
-    }
-
-    public function ajaxProduct(Request $request,$slug)
-    {
-        
     }
 }
