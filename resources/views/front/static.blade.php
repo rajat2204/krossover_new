@@ -24,8 +24,8 @@
   </section>
   <!-- End Banner Area -->
 
-<!-- Start About-Us Area -->
-<section class="aboutus-area section_gap white_bg">
+<!-- Start Static Area -->
+<section class="static-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
@@ -39,7 +39,7 @@
         </div>
         @if(!empty($staticpage['image']))
         <div class="col-lg-4 col-md-4 col-sm-12"> 
-          <div class="about_img">
+          <div class="static_img">
             <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
           </div>
         </div>
@@ -64,4 +64,4 @@
       </div>
     </div>
 </section>
-<!-- End About-Us Area -->
+<!-- End Static Area -->
