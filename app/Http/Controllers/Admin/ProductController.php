@@ -98,7 +98,6 @@ class ProductController extends Controller
         $data['categories'] = Category::where('status', '=', 'active')->get();
         $data['brands'] = Brands::where('status', '=', 'active')->get();
         $data['color'] = Colors::where('status','=','active')->get();
-        // dd($data['color']);
         $data['view'] = 'admin.productadd';
         return view('admin.home',$data);
     }
@@ -188,7 +187,6 @@ class ProductController extends Controller
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
         $data['brands'] = _arefy(Brands::where('status', '=', 'active')->get());
         $data['color'] = Colors::where('status','=','active')->get();
-        // dd($data['product']);
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         return view('admin.home',$data);
     }

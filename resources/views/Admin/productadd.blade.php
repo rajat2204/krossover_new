@@ -94,10 +94,8 @@
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea name="description" id="contentDescription" class="form-control" rows="6" required></textarea>
-                            </div>
+                            <label>Product Description:</label>
+                            <textarea name="description" id="description" class="form-control" rows="6"></textarea>
                         </div>
 
                         <div class="item form-group">
@@ -124,10 +122,8 @@
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Buy/Return Policy</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea name="policy" id="contentPolicy" class="form-control" rows="6"></textarea>
-                            </div>
+                            <label>Product Buy/Return Policy:</label>
+                            <textarea name="policy" id="policy" class="form-control" rows="6"></textarea>
                         </div>
 
                         <div class="item form-group">
@@ -150,10 +146,9 @@
 
 @section('requirejs')
 <script type="text/javascript">
-    bkLib.onDomLoaded(function() {
-            new nicEditor().panelInstance('description');
-            new nicEditor().panelInstance('policy');
-        });
+    
+    CKEDITOR.replace( 'description');
+    CKEDITOR.replace( 'policy');
 
     setTimeout(function(){
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
@@ -197,11 +192,6 @@
     });
 
         
-</script>
-
-<script>
-    CKEDITOR.replace( ' contentDescription  ' );
-    CKEDITOR.replace( ' contentPolicy  ' );
 </script>
 
 @endsection

@@ -24,7 +24,6 @@
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
 							@php
-							
 				            	$subcategory = \App\Models\Subcategories::where('status','active')->where('cat_id',$cats['cat_id'])->get();
 							if(!empty($subcategory)){
 								foreach($subcategory as $subcat){
@@ -33,7 +32,7 @@
 						              <a href="{{url('/category/sub')}}/{{$subcat->slug}}" class="nav-link">{{$subcat->name}}</a>
 									</li>
 							@php	
-							}
+								}
 							}
 				            @endphp
 						</ul>
@@ -66,18 +65,10 @@
 							</form>
 						</div> -->
 						<div class="common-filter">
-							<div class="head">Price</div>
-							<div class="price-range-area">
-								<div id="price-range"></div>
-								<div class="value-wrapper d-flex">
-									<div class="price">Price:</div>
-									<span>$</span>
-									<div id="lower-value"></div>
-									<div class="to">to</div>
-									<span>$</span>
-									<div id="upper-value"></div>
-								</div>
-							</div>
+						<div class="head">Price</div>
+						<div class="price-range-area">
+							<input type="text" class="js-range-slider" name="my_range" value="" />
+						</div>
 						</div>
 					</div>
 				</div>
@@ -114,7 +105,7 @@
 										@foreach($product as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									<a href="javascript:void(0);"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<a href="{{url('product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
 									<div class="product-details">
 										<h6>{{$products['title']}}</h6>
 										<div class="price"><h6>${{$products['price']}}</h6>
@@ -361,5 +352,39 @@
 			</div>
 		</div>
 	</div>
+
+@section('requirejs')
+<script type="text/javascript">
+/*$(".js-range-slider").ionRangeSlider({
+        type: "double",
+        min: "0",
+        max:  "100",
+        from: "0",
+        to: "100",
+        showLabels: true,
+        isRange : true,
+        onChange: function (data) {
+            var range_from = data.from;
+            var range_to = data.to;
+            $.ajax({
+                url:"{{url('/ajaxcategory')}}/{{$cats['slug']}}",
+                type:'GET',
+                data:{range_from_ :range_from,range_to:range_to},
+                success:function(data){
+                    $('#products').html(data);
+                }
+            });
+        },
+    });*/
+    $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 500,
+        grid: true
+    });
+</script>
+@endsection
 
 

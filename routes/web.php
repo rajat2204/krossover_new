@@ -18,7 +18,7 @@ Route::get('contactus','HomeController@contactUs');
 Route::post('contactussubmission','HomeController@contactUsForm');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
-
+Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
 /***********************Front-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
@@ -70,5 +70,23 @@ Route::resource('colors', 'ColorsController');
 Route::resource('staticpages', 'StaticPageController');
 	Route::group(['prefix' => 'staticpages'],function(){
 		Route::post('/status', 'StaticPageController@changeStatus');
+	});
+
+/***********************Clients-Section****************************/
+Route::resource('clients', 'ClientController');
+	Route::group(['prefix' => 'clients'],function(){
+		Route::post('/status', 'ClientController@changeStatus');
+	});
+
+/***********************Why-Us-Section****************************/
+Route::resource('whyus', 'WhyusController');
+
+/***********************Inspirationla Gallery-Section****************************/
+Route::resource('gallery', 'GalleryController');
+
+/***********************Offers Section****************************/
+Route::resource('offers', 'OfferController');
+	Route::group(['prefix' => 'offers'],function(){
+		Route::post('/status', 'OfferController@changeStatus');
 	});
 });

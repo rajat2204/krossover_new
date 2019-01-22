@@ -26,8 +26,8 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ion.rangeSlider.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ion.rangeSlider.skinFlat.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/rangeSlider/css/ion.rangeSlider.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/rangeSlider/css/ion.rangeSlider.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/availability-calendar.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}">
@@ -68,14 +68,17 @@
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
   <script src="{{asset('assets/js/script.js')}}"></script>
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
-<script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+  <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
   <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+  <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.js')}}"></script>
+  <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- [ SLIDER SCRIPT ] -->
     </body>
 </html>

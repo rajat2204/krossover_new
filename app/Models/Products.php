@@ -34,7 +34,7 @@ class Products extends Model
         return $this->hasMany('App\Models\Product_Colors','product_id','id');  
     }
 
-    public static function list($fetch='array',$where='',$cat_id='',$sub_id='',$keys=['*'],$order='id-desc'){
+    public static function list($fetch='array',$where='',$cat_id='',$sub_id='',$keys=['*'],$order='id-desc',$limit='',$offset=''){
         $table_products = self::select($keys)
         ->with([
             'category' => function($q){
@@ -60,6 +60,12 @@ class Products extends Model
         if(!empty($order)){
             $order = explode('-', $order);
             $table_products->orderBy($order[0],$order[1]);
+        }
+        if (!empty($offset)) {
+            $table_products->offset($offset);
+        }
+        if (!empty($limit)) {
+            $table_products->limit($limit);
         }
         if($fetch === 'array'){
             $list = $table_products->get();

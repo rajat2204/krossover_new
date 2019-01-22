@@ -3,25 +3,33 @@
 namespace App\Http\Controllers;
 
 use Redirect;
-use App\Models\Products;
+use App\Models\Whyus;
+use App\Models\Offers;
+use App\Models\Gallery;
 use App\Models\Category;
-use App\Models\StaticPages;
-use App\Models\Subcategories;
+use App\Models\Products;
 use App\Models\ContactUs;
+use App\Models\StaticPages;
 use Illuminate\Http\Request;
+use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
 use Validations\Validate as Validations;
 
 class HomeController extends Controller
 {
 	public function __construct(Request $request){
-
         parent::__construct($request);
-        
     }
 
     public function index(Request $request)
     {
+        $where = 'status = "active"';
+        $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
+        $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
+        $whereWhyus = 'status = "active"';
+        $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
+        $data['gallery'] = _arefy(Gallery::where('status','active')->get());
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -29,16 +37,13 @@ class HomeController extends Controller
     public function staticPage(Request $request,$slug)
     {
         $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
-        // dd($data['staticpage']);
         $data['view']='front.static';
         return view('front_home',$data);
     }
     
     public function contactUs(Request $request)
     {
-        // $id = ___decrypt($id);
         $data['title'] = 'Contact Us';
-        // dd($data['contactus']);
         $data['view']='front.contactus';
         return view('front_home',$data);
     }
@@ -108,9 +113,7 @@ class HomeController extends Controller
     {
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
-        // dd($data['category']);
     	$data['view']='front.single-product';
 		return view('front_home',$data);
     }
-
 }
