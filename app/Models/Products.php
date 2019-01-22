@@ -70,6 +70,10 @@ class Products extends Model
         if($fetch === 'array'){
             $list = $table_products->get();
             return json_decode(json_encode($list ), true );
+        }
+        elseif($fetch === 'paginate'){
+            $list = $table_products->paginate(1);
+            return json_decode(json_encode($list ), true );
         }else if($fetch === 'obj'){
             return $table_products->limit($limit)->get();                
         }else if($fetch === 'single'){

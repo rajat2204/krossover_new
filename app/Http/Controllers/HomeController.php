@@ -88,31 +88,42 @@ class HomeController extends Controller
             $sub_id = $data['cats']['id'];
             $data['subcatid'] = $sub_id;
             $data['cat']=$data['cats']['cat_id'];
+            $data['lowPrice'] = Products::where('status','active')->where('sub_id',$sub_id)
+                ->orderBy('price','asc')
+                ->first();
+            $data['highPrice'] = Products::where('status','active')->where('sub_id', $sub_id)
+                ->orderBy('price','desc')
+                ->first();
         }else{
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
             $data['cats']['cat_id']=$cat_id;
-        }
-        $data['lowPrice'] = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+            $data['lowPrice'] = Products::where('status','active')->where('main_id',$cat_id)
                 ->orderBy('price','asc')
                 ->first();
-        $data['highPrice'] = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+            $data['highPrice'] = Products::where('status','active')->where('main_id', $cat_id)
                 ->orderBy('price','desc')
                 ->first();
+        }
+        
         $where = 'status = "active"';
-        $data['product'] = _arefy(Products::list('array',$where,$cat_id,$sub_id));
-        $product = \App\Models\Products::paginate(15);
+        $data['product'] = _arefy(Products::list('paginate',$where,$cat_id,$sub_id));
+        // dd($data['product']);
 		return view('front_home',$data);
     }
 
     public function ajaxProduct(Request $request,$type,$slug){
+        // pp($request->all());
         $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
         if(!empty($request->subcatid)){
             $data['products']->where('sub_id',$request->subcatid);
         }
         if(!empty($request->brandid) && ($request->brandid!='all')){
-                $data['products']->where('brand_id',$request->brandid);
+            $data['products']->where('brand_id',$request->brandid);
+        }
+        if (!empty($request->minPrice) && ($request->maxPrice)){
+            $data['products']->whereBetween('price', array($request->minPrice, $request->maxPrice));
         }
         $data['products']->orderBy('created_at','asc');
         $data['products']->take(9);

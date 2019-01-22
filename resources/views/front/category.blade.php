@@ -1,4 +1,5 @@
 <!-- Start Banner Area -->
+{{dd($product)}}
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -46,7 +47,7 @@
 									<ul>
 										<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brandFilter" value="all"><label for="all">All</label></li>
 										@php	$i = 0; @endphp
-						               @foreach($product as $products)
+						               @foreach($product['data'] as $products)
 						              @php
 						                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
 						              @endphp
@@ -103,8 +104,8 @@
 					<section class="lattest-product-area pb-40 category-list" id="products">
 						<div class="row">
 							<!-- single product -->
-									@if(!empty($product))
-										@foreach($product as $products)
+									@if(!empty($product['data']))
+										@foreach($product['data'] as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
 									<a href="{{url('product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
@@ -135,7 +136,7 @@
 							</select>
 						</div>
 						<div class="pagination">
-							<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+							<a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 							<a href="#" class="active">1</a>
 							<a href="#">2</a>
 							<a href="#">3</a>
@@ -354,8 +355,6 @@
 		</div>
 	</div>
 <!-- Modal Quick Product View Ends-->
-
-
 @section('requirejs')
 <script type="text/javascript">
 	$(function(){
@@ -366,40 +365,54 @@
             $.ajax({
                 url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
                 type:'GET',
-                // data:'sort =' +value,
                 data: {brandid: brandid, catId: catId, subcatid:subcatid },
-
                 success:function(data){
                     $('#products').html(data);
                 }
             });
         });
     });
-
     $(function(){
         if(document.getElementById("price-range")){
         var nonLinearSlider = document.getElementById('price-range');
+        var maxvalue = "{{!empty($highPrice->price)?($highPrice->price):0}}";
+        var minvalue = "{{!empty($lowPrice->price)?($lowPrice->price):0}}";
         noUiSlider.create(nonLinearSlider, {
             connect: true,
             behaviour: 'tap',
-            start: [ 500, 4000 ],
+
+            start: [parseInt(minvalue) , parseInt(maxvalue)],
             range: {
-                // Starting at 500, step the value by 500,
-                // until 4000 is reached. From there, step by 1000.
-                'min': [ 0 ],
-                '10%': [ 500, 500 ],
-                '50%': [ 4000, 1000 ],
-                'max': [ 10000 ]
+                'min': [parseInt(minvalue)],
+               
+                'max': [parseInt(maxvalue)]
             }
         });
         var nodes = [
-            document.getElementById('lower-value'), // 0
-            document.getElementById('upper-value')  // 1
+            document.getElementById('lower-value'),
+            document.getElementById('upper-value')
         ];
-        // Display the slider value and how far the handle moved
-        // from the left edge of the slider.
         nonLinearSlider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+
             nodes[handle].innerHTML = values[handle];
+            nonLinearSlider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+            var minPrice = values[0];
+            var maxPrice = values[1];
+            var catId = $('#catid').val();
+            var subcatid = $('#subcatid').val();
+			// directionSlider.noUiSlider.on('update', function( values, handle ) {
+			// cadc.value = directionSlider.noUiSlider.get();
+			// cadConvert();
+			// });
+            $.ajax({
+                url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
+                type:'GET',
+                data: {minPrice: minPrice ,maxPrice: maxPrice, catId: catId, subcatid:subcatid},
+                success:function(data){
+                    $('#products').html(data);
+                }
+            });
+             });
         });
         }
 
