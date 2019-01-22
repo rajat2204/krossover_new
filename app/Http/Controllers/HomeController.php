@@ -83,26 +83,26 @@ class HomeController extends Controller
 
     public function category(Request $request,$type,$slug)
     {
-      
-    	$data['view']='front.category';
+        $data['view']='front.category';
         $cat_id='';
         $sub_id='';
         if($type == 'sub'){
             $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
             $sub_id = $data['cats']['id'];
             $data['cat']=$data['cats']['cat_id'];
-            //$data['cats'] = _arefy(Category::where('slug',$slug)->first());
-            // dd($sub_id);
         }else{
 
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
-            // dd($data['cat']);
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
             $data['cats']['cat_id']=$cat_id;
-            // dd($cat_id);
         }
-
+        $lowPrice = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+                ->orderBy('price','asc')
+                ->first();
+        $highPrice = Products::where('status','active')->whereRaw('FIND_IN_SET(?,main_id)', [$cat_id])
+                ->orderBy('price','desc')
+                ->first();
         $where = 'status = "active"';
         $data['product'] = _arefy(Products::list('array',$where,$cat_id,$sub_id));
         $product = \App\Models\Products::paginate(15);
@@ -115,5 +115,10 @@ class HomeController extends Controller
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
 		return view('front_home',$data);
+    }
+
+    public function ajaxProduct(Request $request,$slug)
+    {
+        
     }
 }

@@ -49,6 +49,7 @@
 				              @php
 				                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
 				              @endphp
+
 									<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brand"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
 				              	@php $i++; @endphp
 								@endforeach
@@ -369,35 +370,48 @@
 
 @section('requirejs')
 <script type="text/javascript">
-// $(".js-range-slider").ionRangeSlider({
-//         type: "double",
-//         min: "0",
-//         max:  "100",
-//         from: "0",
-//         to: "100",
-//         showLabels: true,
-//         isRange : true,
-//         onChange: function (data) {
-//             var range_from = data.from;
-//             var range_to = data.to;
-//             $.ajax({
-//                 url:"{{url('/ajaxcategory')}}/{{$cats['slug']}}",
-//                 type:'GET',
-//                 data:{range_from_ :range_from,range_to:range_to},
-//                 success:function(data){
-//                     $('#products').html(data);
-//                 }
-//             });
-//         },
-//     });
-    // $(".js-range-slider").ionRangeSlider({
-    //     type: "double",
-    //     min: 0,
-    //     max: 1000,
-    //     from: 200,
-    //     to: 500,
-    //     grid: true
-    // });
+	$(document).ready(function(){
+        $('input[type=radio][name=sortby]').on('change',function(){
+            var value = $(this).val();
+            $.ajax({
+                url:"{{url('/ajaxcategory')}}/{{$subcat->slug}}",
+                type:'GET',
+                data:'brand =' +value,
+                success:function(data){
+                    $('#products').html(data);
+                }
+            });
+        });
+    });
+
+	$(function(){
+        if(document.getElementById("price-range")){
+        var nonLinearSlider = document.getElementById('price-range');
+        noUiSlider.create(nonLinearSlider, {
+            connect: true,
+            behaviour: 'tap',
+            start: [ from, to ],
+            range: {
+                // Starting at 500, step the value by 500,
+                // until 4000 is reached. From there, step by 1000.
+                min: "{{!empty($lowPrice->price)?$lowPrice->price:''}}",
+                max: "{{!empty($highPrice->price)?$highPrice->price:''}}",
+                from: "{{!empty($lowPrice->price)?$lowPrice->price:''}}",
+        		to: "{{!empty($highPrice->price)?$highPrice->price:''}}",
+            }
+        });
+        var nodes = [
+            document.getElementById('lower-value'), // 0
+            document.getElementById('upper-value')  // 1
+        ];
+        // Display the slider value and how far the handle moved
+        // from the left edge of the slider.
+        nonLinearSlider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+            nodes[handle].innerHTML = values[handle];
+        });
+        }
+
+    });
 </script>
 @endsection
 
