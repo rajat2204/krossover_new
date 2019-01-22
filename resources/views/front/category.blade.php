@@ -41,20 +41,22 @@
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
 							<div class="head">Brands</div>
-							<form action="#">
-								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="all">All</label></li>
-								@php	$i = 0; @endphp
-				               @foreach($product as $products)
-				              @php
-				                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
-				              @endphp
+							<div id="brandFilter">
+								<form action="#">
+									<ul>
+										<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="all">All</label></li>
+									@php	$i = 0; @endphp
+					               @foreach($product as $products)
+					              @php
+					                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
+					              @endphp
 
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brand"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
-				              	@php $i++; @endphp
-								@endforeach
-								</ul>
-							</form>
+										<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brand"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
+					              	@php $i++; @endphp
+									@endforeach
+									</ul>
+								</form>
+							</div>
 						</div>
 						<!-- <div class="common-filter">
 							<div class="head">Color</div>
@@ -371,7 +373,7 @@
 @section('requirejs')
 <script type="text/javascript">
 	$(document).ready(function(){
-        $('input[type=radio][name=sortby]').on('change',function(){
+        $('input[type=radio][name=brandFilter]').on('change',function(){
             var value = $(this).val();
             $.ajax({
                 url:"{{url('/ajaxcategory')}}/{{$subcat->slug}}",
