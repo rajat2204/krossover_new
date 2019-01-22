@@ -64,11 +64,25 @@
 								</ul>
 							</form>
 						</div> -->
+						<!-- <div class="common-filter">
+							<div class="head">Price</div>
+							<div class="price-range-area">
+								<input type="text" class="js-range-slider" name="my_range" value="" />
+							</div>
+						</div> -->
 						<div class="common-filter">
-						<div class="head">Price</div>
-						<div class="price-range-area">
-							<input type="text" class="js-range-slider" name="my_range" value="" />
-						</div>
+							<div class="head">Price</div>
+							<div class="price-range-area">
+								<div id="price-range"></div>
+								<div class="value-wrapper d-flex">
+									<div class="price">Price:</div>
+									<span>$</span>
+									<div id="lower-value"></div>
+									<div class="to">to</div>
+									<span>$</span>
+									<div id="upper-value"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -355,35 +369,35 @@
 
 @section('requirejs')
 <script type="text/javascript">
-/*$(".js-range-slider").ionRangeSlider({
-        type: "double",
-        min: "0",
-        max:  "100",
-        from: "0",
-        to: "100",
-        showLabels: true,
-        isRange : true,
-        onChange: function (data) {
-            var range_from = data.from;
-            var range_to = data.to;
-            $.ajax({
-                url:"{{url('/ajaxcategory')}}/{{$cats['slug']}}",
-                type:'GET',
-                data:{range_from_ :range_from,range_to:range_to},
-                success:function(data){
-                    $('#products').html(data);
-                }
-            });
-        },
-    });*/
-    $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        min: 0,
-        max: 1000,
-        from: 200,
-        to: 500,
-        grid: true
-    });
+// $(".js-range-slider").ionRangeSlider({
+//         type: "double",
+//         min: "0",
+//         max:  "100",
+//         from: "0",
+//         to: "100",
+//         showLabels: true,
+//         isRange : true,
+//         onChange: function (data) {
+//             var range_from = data.from;
+//             var range_to = data.to;
+//             $.ajax({
+//                 url:"{{url('/ajaxcategory')}}/{{$cats['slug']}}",
+//                 type:'GET',
+//                 data:{range_from_ :range_from,range_to:range_to},
+//                 success:function(data){
+//                     $('#products').html(data);
+//                 }
+//             });
+//         },
+//     });
+    // $(".js-range-slider").ionRangeSlider({
+    //     type: "double",
+    //     min: 0,
+    //     max: 1000,
+    //     from: 200,
+    //     to: 500,
+    //     grid: true
+    // });
 </script>
 @endsection
 
