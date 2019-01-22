@@ -68,7 +68,7 @@
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
   <script src="{{asset('assets/js/script.js')}}"></script>
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
-<script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+  <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
   <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
   <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.js')}}"></script>
   <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.min.js')}}"></script>
@@ -77,6 +77,8 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- [ SLIDER SCRIPT ] -->
     </body>
 </html>

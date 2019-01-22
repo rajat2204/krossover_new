@@ -67,21 +67,9 @@
 						<div class="common-filter">
 						<div class="head">Price</div>
 						<div class="price-range-area">
-						<!-- <div class="price-range-area">
-							<div id="price-range"></div>
-							<div class="value-wrapper d-flex">
-								<div class="price">Price:</div>
-								<span>$</span>
-								<div id="lower-value"></div>
-								<div class="to">to</div>
-								<span>$</span>
-								<div id="upper-value"></div>
-							</div>
-						</div> -->
-						<!-- <input type="text" id="demo" class="js-range-slider" name="my_range" /> -->
-						<input id="js-range-slider" type="text" name="" value="" class="js-range-slider" tabindex="-1" readonly="">
+							<input type="text" class="js-range-slider" name="my_range" value="" />
 						</div>
-					</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-xl-9 col-lg-8 col-md-7">
@@ -117,7 +105,7 @@
 										@foreach($product as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									<a href="javascript:void(0);"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<a href="{{url('product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
 									<div class="product-details">
 										<h6>{{$products['title']}}</h6>
 										<div class="price"><h6>${{$products['price']}}</h6>
@@ -388,15 +376,13 @@
             });
         },
     });*/
-    $("#js-range-slider").ionRangeSlider({
+    $(".js-range-slider").ionRangeSlider({
         type: "double",
-        grid: true,
-        min: -1000,
+        min: 0,
         max: 1000,
-        from: -500,
+        from: 200,
         to: 500,
-        isRange : true,
-        showLabels: true
+        grid: true
     });
 </script>
 @endsection

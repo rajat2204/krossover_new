@@ -7,7 +7,7 @@
 					<nav class="d-flex align-items-center">
 						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
 						<a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">Fashon Category</a>
+						<a href="javascript:void(0);">Fashion Category</a>
 					</nav>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
 					<h3>{{$productdata['title']}}</h3>
-					<h2><img src="{{URL::asset('assets/images/rupee.png')}}" style="width: 15px">{{$productdata['price']}}</h2>
+					<h2>${{$productdata['price']}}</h2>
 					<ul class="list">
 						<li><a class="active" href="#"><span>Category:</span>{{$category['name']}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
