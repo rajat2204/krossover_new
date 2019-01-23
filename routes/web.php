@@ -13,6 +13,7 @@
 
 /***********************Front-Section****************************/
 Route::get('/','HomeController@index');
+Route::get('search','HomeController@search');
 Route::get('pages/{slug}','HomeController@staticPage');
 Route::get('contactus','HomeController@contactUs');
 Route::post('contactussubmission','HomeController@contactUsForm');

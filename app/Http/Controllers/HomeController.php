@@ -31,6 +31,7 @@ class HomeController extends Controller
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['products'] = Products::where('status', 'active')->get();
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -146,5 +147,12 @@ class HomeController extends Controller
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
 		return view('front_home',$data);
+    }
+
+  public function search(Request $request)
+    {
+        $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
+        $html = view('front.suggestion',$data);
+        return Response($html);
     }
 }

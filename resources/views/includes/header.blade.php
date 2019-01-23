@@ -95,10 +95,18 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" name="search_input" id="search_input" placeholder="Search Here" onkeyup="search_func(this.value);">
+          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Search Here">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+          
         </form>
+          <ul id="suggestion">
+            @if(!empty($products))
+              @foreach($products as $product)
+              <li><a href="{{url('product')}}/{{$product->id}}">{{$product->title}}</a></li>
+              @endforeach
+            @endif
+          </ul>
       </div>
     </div>
 </header>
@@ -114,22 +122,16 @@
     });
   }
 
-  $(function(){
-    $(document).ready(function(){
-     $("#sample_search").keyup(function()
-     {
+  function getSuggestion(q){
+    $.ajax({
+      type: "GET",
+      url: "{{url('search')}}",
+      data: {item:q},
+      success:function(data){
+      
+        $("#suggestion").html(data);
+      }
+    });
 
-         $.ajax({
-            type: "GET",
-            url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
-            data: {'search_keyword' : value},
-            dataType: "text",
-            success: function(msg)
-            {
-                 //Receiving the result of search here
-            }
-         });
-     });
-  });
-});
+  }
 </script>
