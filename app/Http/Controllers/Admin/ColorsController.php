@@ -38,19 +38,19 @@ class ColorsController extends Controller
                 $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/colors/status/?id=%s&status=trashed',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/delete.png').'"
                         data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/colors/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/inactive-user.png').'"
                         data-ask="Would you like to change '.$item['color_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/colors/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/active-user.png').'"
+                        data-ask_image="'.url('assets/images/active-user.png').'"
                         data-ask="Would you like to change '.$item['color_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';

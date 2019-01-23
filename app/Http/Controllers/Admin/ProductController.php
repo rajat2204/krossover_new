@@ -33,6 +33,7 @@ class ProductController extends Controller
         
         $where = 'status != "trashed"';
         $product  = _arefy(Products::list('array',$where));
+
         if ($request->ajax()) {
             return DataTables::of($product)
             ->editColumn('action',function($item){
@@ -41,19 +42,19 @@ class ProductController extends Controller
                 $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/delete.png').'"
                         data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/inactive-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/categories/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/active-user.png').'"
+                        data-ask_image="'.url('assets/images/active-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
@@ -65,12 +66,18 @@ class ProductController extends Controller
             })
              ->editColumn('title',function($item){
                 return ucfirst($item['title']);
-            })->editColumn('main_id',function($item){
+            })
+             ->editColumn('main_id',function($item){
                 return ucfirst($item['category']['name']);
-            })->editColumn('sub_id',function($item){
+            })
+             ->editColumn('sub_id',function($item){
                 return ucfirst($item['subcategory']['name']);
             })
-            ->rawColumns(['action'])
+             ->editColumn('feature_image',function($item){
+                $imageurl = asset("assets/images/products/".$item['feature_image']);
+                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+            })
+            ->rawColumns(['feature_image', 'action'])
             ->make(true);
         }
 
@@ -78,7 +85,7 @@ class ProductController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'id', 'name' => 'id','title' => 'ID#','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
