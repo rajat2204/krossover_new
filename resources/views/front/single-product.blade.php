@@ -6,7 +6,6 @@
 					<h1>Shop Category</h1>
 					<nav class="d-flex align-items-center">
 						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
 						<a href="javascript:void(0);">Fashion Category</a>
 					</nav>
 				</div>
