@@ -28,7 +28,6 @@ class SliderController extends Controller
         $data['view'] = 'admin.sliderlist';
         
         $slider  = _arefy(Sliders::where('status','!=','trashed')->get());
-       
         if ($request->ajax()) {
             return DataTables::of($slider)
             ->editColumn('action',function($item){
@@ -38,24 +37,25 @@ class SliderController extends Controller
                 $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=trashed',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/delete.png').'"
                         data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/inactive-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/active-user.png').'"
+                        data-ask_image="'.url('assets/images/active-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
                 return $html;
+
             })
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
@@ -63,7 +63,11 @@ class SliderController extends Controller
             ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
-            ->rawColumns(['action'])
+            ->editColumn('image',function($item){
+                $imageurl = asset("assets/images/sliders/".$item['image']);
+                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+            })
+            ->rawColumns(['image', 'action'])
             ->make(true);
         }
 
@@ -71,7 +75,7 @@ class SliderController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'image', 'name' => 'image','title' => 'Slider Image','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'image', 'name' => 'image',"render"=>'data','title' => 'Slider Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title','name' => 'title','title' => 'Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'text','name' => 'text','title' => 'Text','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])

@@ -36,7 +36,7 @@
 						@endif
 					</a></li>
 					</ul>
-					<p>{{$productdata['description']}}</p>
+					<p>{{strip_tags($productdata['description'])}}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
@@ -47,8 +47,6 @@
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<a class="primary-btn" href="javascript:void(0)">Get QUOTES</a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
 					</div>
 				</div>
 			</div>

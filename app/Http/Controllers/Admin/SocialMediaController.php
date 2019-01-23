@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Whyus;
+use App\Models\Social;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -11,7 +11,7 @@ use Yajra\DataTables\Html\Builder;
 use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
 
-class WhyusController extends Controller
+class SocialMediaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,14 +25,14 @@ class WhyusController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-        $data['view'] = 'admin.whyuslist';
+        $data['view'] = 'admin.socialmedialist';
         
-        $whyus  = _arefy(Whyus::where('status','!=','trashed')->get());
+        $social  = _arefy(Social::where('status','!=','trashed')->get());
         if ($request->ajax()) {
-            return DataTables::of($whyus)
+            return DataTables::of($social)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/whyus/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a>';
+                $html   .= '<a href="'.url(sprintf('admin/social/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a>';
                 $html   .= '</div>';
                                 
                 return $html;
@@ -40,17 +40,10 @@ class WhyusController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-            ->editColumn('description',function($item){
-                return strip_tags($item['description']);
+            ->editColumn('url',function($item){
+                return ($item['url']);
             })
-             ->editColumn('title',function($item){
-                return ucfirst($item['title']);
-            })
-             ->editColumn('image',function($item){
-                $imageurl = asset("assets/images/whyus/".$item['image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
-            })
-            ->rawColumns(['image', 'action'])
+            ->rawColumns(['action'])
             ->make(true);
         }
 
@@ -58,9 +51,7 @@ class WhyusController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'image', 'name' => 'image','render' =>'data','title' => 'Image','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Title','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'description','name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'url','name' => 'url','title' => 'URL','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
@@ -106,9 +97,9 @@ class WhyusController extends Controller
      */
     public function edit($id)
     {
-        $data['view'] = 'admin.whyusedit';
+        $data['view'] = 'admin.socialmediaedit';
         $id = ___decrypt($id);
-        $data['whyus'] = _arefy(Whyus::where('id',$id)->first());
+        $data['social'] = _arefy(Social::where('id',$id)->first());
         return view('admin.home',$data);
     }
 
@@ -123,26 +114,19 @@ class WhyusController extends Controller
     {
         $id = ___decrypt($id);
         $validation = new Validations($request);
-        $validator  = $validation->whyus('edit');
+        $validator  = $validation->addsocialmedia('edit');
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-            $whyus = Whyus::findOrFail($id);
+            $social = Social::findOrFail($id);
             $input = $request->all();
-
-            if ($file = $request->file('image')){
-                $photo_name = time().$request->file('image')->getClientOriginalName();
-                $file->move('assets/images/whyus',$photo_name);
-                $input['image'] = $photo_name;
-            }
-
-            $whyus->update($input);
+            $social->update($input);
 
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;
-            $this->message  = "Why Us has been Updated successfully.";
-            $this->redirect = url('admin/whyus');
+            $this->message  = "Social Media has been Updated successfully.";
+            $this->redirect = url('admin/social');
         }
         return $this->populateresponse();
     }

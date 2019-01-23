@@ -62,7 +62,7 @@
   <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
   <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-  <script src="{{asset('assets/js/countdown.js')}}"></script>
+  <!-- <script src="{{asset('assets/js/countdown.js')}}"></script> -->
   <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
@@ -80,5 +80,6 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- [ SLIDER SCRIPT ] -->
+    @yield('requirejs')
     </body>
 </html>

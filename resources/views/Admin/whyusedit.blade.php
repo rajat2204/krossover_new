@@ -1,5 +1,5 @@
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-8 col-sm-offset-4 col-lg-9 col-lg-offset-3 main">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#">
@@ -47,7 +47,7 @@
 
 					<div class="form-group">
 						<label>Title:</label>
-						<input class="form-control" name="title" value="{{$whyus['title']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" name="title" value="{{!empty($whyus['title'])?$whyus['title']:''}}" placeholder="E.g. Men's Clothing">
 					</div>
 
 					<div class="item form-group">

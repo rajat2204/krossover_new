@@ -57,10 +57,9 @@
           <h6>Follow Us</h6>
           <p>Let us be social</p>
           <div class="footer-social d-flex align-items-center">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-behance"></i></a>
+            <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
           </div>
         </div>
       </div>

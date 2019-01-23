@@ -4,13 +4,13 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active"> Offers</li>
+				<li class="active"> Social Media</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header"> Offers</h1>
+				<h1 class="page-header"> Social Media</h1>
 			</div>
 		</div><!--/.row-->
 		<div class="page-content">

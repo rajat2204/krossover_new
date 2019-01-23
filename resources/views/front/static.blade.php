@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12"> 
             <div class="static-description p-l-40">
-              <p>{{strip_tags($staticpage['description'])}}</p>
+              <p>{!!($staticpage['description'])!!}</p>
             </div>
         </div>
         @elseif(empty($staticpage['description']))
@@ -57,7 +57,7 @@
         @else
         <div class="col-lg-12 col-md-12 col-sm-12"> 
             <div class="static-description">
-              <p>{{strip_tags($staticpage['description'])}}</p>
+              <p>{!!($staticpage['description'])!!}</p>
             </div>
         </div>
         @endif

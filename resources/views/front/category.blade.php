@@ -1,5 +1,4 @@
-
-	<!-- Start Banner Area -->
+<!-- Start Banner Area -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,7 +13,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- End Banner Area -->
+<!-- End Banner Area -->
 	
 	<section class="section_gap">
 		<div class="container">
@@ -23,15 +22,16 @@
 					<div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
+			            	<input type="hidden" id="catid" name="cat_id" value="{{$cats['cat_id']}}">
+			            	<input type="hidden" id="subcatid" name="cat_id" value="{{!empty($subcatid)?$subcatid:''}}">
 							@php
 				            	$subcategory = \App\Models\Subcategories::where('status','active')->where('cat_id',$cats['cat_id'])->get();
 							if(!empty($subcategory)){
 								foreach($subcategory as $subcat){
 								@endphp
-									<li class="main-nav-list">
-						              <a href="{{url('/category/sub')}}/{{$subcat->slug}}" class="nav-link">{{$subcat->name}}</a>
+									<li class="main-nav-list"><a href="{{url('/category/sub')}}/{{$subcat->slug}}" class="nav-link">{{$subcat->name}}</a>
 									</li>
-							@php	
+								@php	
 								}
 							}
 				            @endphp
@@ -41,36 +41,23 @@
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
 							<div class="head">Brands</div>
-							<form action="#">
-								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brand"><label for="all">All</label></li>
-								@php	$i = 0; @endphp
-				               @foreach($product as $products)
-				              @php
-				                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
-				              @endphp
+							<div id="brandFilter">
+								<form action="#">
+									<ul>
+										<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brandFilter" value="all"><label for="all">All</label></li>
+										@php	$i = 0; @endphp
+						               @foreach($product['data'] as $products)
+						              @php
+						                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
+						              @endphp
 
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brand"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
-				              	@php $i++; @endphp
-								@endforeach
-								</ul>
-							</form>
-						</div>
-						<!-- <div class="common-filter">
-							<div class="head">Color</div>
-							<form action="#">
-								<ul>
-									<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="color_name"><label for="black">All</label></li>
-                                   	</li>
-								</ul>
-							</form>
-						</div> -->
-						<!-- <div class="common-filter">
-							<div class="head">Price</div>
-							<div class="price-range-area">
-								<input type="text" class="js-range-slider" name="my_range" value="" />
+										<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brandFilter" value="{{$brand['id']}}"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
+					              	@php $i++; @endphp
+									@endforeach
+									</ul>
+								</form>
 							</div>
-						</div> -->
+						</div>
 						<div class="common-filter">
 							<div class="head">Price</div>
 							<div class="price-range-area">
@@ -101,7 +88,7 @@
 							</select>
 						</div>
 						<div class="pagination">
-							<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+							<a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 							<a href="#" class="active">1</a>
 							<a href="#">2</a>
 							<a href="#">3</a>
@@ -113,11 +100,10 @@
 					<!-- End Filter Bar -->
 
 					<!-- Start Best Seller -->
-					<section class="lattest-product-area pb-40 category-list">
+					<section class="lattest-product-area pb-40 category-list" id="products">
 						<div class="row">
-							<!-- single product -->
-									@if(!empty($product))
-										@foreach($product as $products)
+							@if(!empty($product['data']))
+								@foreach($product['data'] as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
 									<a href="{{url('product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
@@ -130,12 +116,11 @@
 								</div>
 							</div>
 								@endforeach
-								@else
+							@else
 								<div class="no_product_found">
 									<h3>No Product Found in this category.</h3>
 								</div>
 							@endif
-							<!-- single product -->
 						</div>
 					</section>
 					<!-- End Best Seller -->
@@ -148,7 +133,7 @@
 							</select>
 						</div>
 						<div class="pagination">
-							<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+							<a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 							<a href="#" class="active">1</a>
 							<a href="#">2</a>
 							<a href="#">3</a>
@@ -162,7 +147,8 @@
 			</div>
 		</div>
 	</section>
-	<!-- Start related-product Area -->
+
+<!-- Start related-product Area -->
 	<section class="related-product-area section_gap">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -177,114 +163,25 @@
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="row">
+						@if(\App\Models\Products::where('status','active')->count() >0)
+                  @php
+                    $popular_product = \App\Models\Products::where('featured','1')->get();
+                  @endphp
+                    @foreach($popular_product as $popular_products)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r1.jpg')}}" alt=""></a>
+								<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
 								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
+									<a href="#" class="title">{{$popular_products->title}}</a>
 									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
+										<h6>${{$popular_products->price}}</h6>
+										<h6 class="l-through">${{$popular_products->previous_price}}</h6>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r2.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r3.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r5.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r6.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r7.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r9.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r10.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{url('img/r11.jpg')}}" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
+						@endforeach
+              			@endif
 					</div>
 				</div>
 				<div class="col-lg-3">
@@ -297,11 +194,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- End related-product Area -->
+<!-- End related-product Area -->
 
-	
-
-	<!-- Modal Quick Product View -->
+<!-- Modal Quick Product View -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="container relative">
@@ -367,47 +262,65 @@
 			</div>
 		</div>
 	</div>
-
+<!-- Modal Quick Product View Ends-->
 @section('requirejs')
 <script type="text/javascript">
-	$(document).ready(function(){
-        $('input[type=radio][name=sortby]').on('change',function(){
-            var value = $(this).val();
+	$(function(){
+        $('input[type=radio][name=brandFilter]').on('change',function(){
+            var brandid = $(this).val();
+            var catId = $('#catid').val();
+            var subcatid = $('#subcatid').val();
             $.ajax({
-                url:"{{url('/ajaxcategory')}}/{{$subcat->slug}}",
+                url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
                 type:'GET',
-                data:'brand =' +value,
+                data: {brandid: brandid, catId: catId, subcatid:subcatid },
                 success:function(data){
                     $('#products').html(data);
                 }
             });
         });
     });
-
-	$(function(){
+    $(function(){
         if(document.getElementById("price-range")){
         var nonLinearSlider = document.getElementById('price-range');
+        var maxvalue = "{{!empty($highPrice->price)?($highPrice->price):0}}";
+        var minvalue = "{{!empty($lowPrice->price)?($lowPrice->price):0}}";
         noUiSlider.create(nonLinearSlider, {
             connect: true,
             behaviour: 'tap',
-            start: [ from, to ],
+
+            start: [parseInt(minvalue) , parseInt(maxvalue)],
             range: {
-                // Starting at 500, step the value by 500,
-                // until 4000 is reached. From there, step by 1000.
-                min: "{{!empty($lowPrice->price)?$lowPrice->price:''}}",
-                max: "{{!empty($highPrice->price)?$highPrice->price:''}}",
-                from: "{{!empty($lowPrice->price)?$lowPrice->price:''}}",
-        		to: "{{!empty($highPrice->price)?$highPrice->price:''}}",
+                'min': [parseInt(minvalue)],
+               
+                'max': [parseInt(maxvalue)]
             }
         });
         var nodes = [
-            document.getElementById('lower-value'), // 0
-            document.getElementById('upper-value')  // 1
+            document.getElementById('lower-value'),
+            document.getElementById('upper-value')
         ];
-        // Display the slider value and how far the handle moved
-        // from the left edge of the slider.
         nonLinearSlider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+
             nodes[handle].innerHTML = values[handle];
+            nonLinearSlider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+            var minPrice = values[0];
+            var maxPrice = values[1];
+            var catId = $('#catid').val();
+            var subcatid = $('#subcatid').val();
+			// directionSlider.noUiSlider.on('update', function( values, handle ) {
+			// cadc.value = directionSlider.noUiSlider.get();
+			// cadConvert();
+			// });
+            $.ajax({
+                url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
+                type:'GET',
+                data: {minPrice: minPrice ,maxPrice: maxPrice, catId: catId, subcatid:subcatid},
+                success:function(data){
+                    $('#products').html(data);
+                }
+            });
+             });
         });
         }
 

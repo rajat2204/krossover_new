@@ -36,19 +36,19 @@ class ClientController extends Controller
                 $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/clients/status/?id=%s&status=trashed',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/delete.png').'"
                         data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/clients/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/inactive-user.png').'"
+                        data-ask_image="'.url('assets/images/inactive-user.png').'"
                         data-ask="Would you like to change status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/clients/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
-                        data-ask_image="'.url('/images/active-user.png').'"
+                        data-ask_image="'.url('assets/images/active-user.png').'"
                         data-ask="Would you like to change status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
@@ -58,6 +58,10 @@ class ClientController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
+            ->editColumn('image',function($item){
+                $imageurl = asset("assets/images/clients/".$item['image']);
+                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+            })
             ->editColumn('title',function($item){
                 if ($item['title'] == '') {
                     return 'N/A';
@@ -66,7 +70,7 @@ class ClientController extends Controller
                     return ucfirst($item['title']);
                 }
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['image', 'action'])
             ->make(true);
         }
 
@@ -74,7 +78,7 @@ class ClientController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'image', 'name' => 'image','title' => 'Client Image','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'image', 'name' => 'image','render' => 'data','title' => 'Client Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);

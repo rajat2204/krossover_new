@@ -44,10 +44,10 @@ class GalleryController extends Controller
                 return ucfirst($item['name']);
             })
             ->editColumn('image',function($item){
-                $url=asset("assets/images/gallery/".$item['image']);
-                return html_entity_decode("<img src='".$url."'>");
+                $imageurl = asset("assets/images/gallery/".$item['image']);
+                return '<img src="'.$imageurl.'" height="60px" width="80px">';
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['image','action'])
             ->make(true);
         }
 
@@ -55,7 +55,7 @@ class GalleryController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'image', 'name' => 'image','title' => 'Image','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'image', 'name' => 'image','render' => 'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name','name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
