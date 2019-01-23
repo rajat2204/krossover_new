@@ -95,7 +95,7 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" name="search_input" id="search_input" placeholder="Search Here" onkeyup="search_func(this.value);">
+          <input type="text" class="form-control" name="search_input" id="search_input" placeholder="Search Here">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
         </form>
@@ -113,23 +113,4 @@
     this.className += " active";
     });
   }
-
-  $(function(){
-    $(document).ready(function(){
-     $("#sample_search").keyup(function()
-     {
-
-         $.ajax({
-            type: "GET",
-            url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
-            data: {'search_keyword' : value},
-            dataType: "text",
-            success: function(msg)
-            {
-                 //Receiving the result of search here
-            }
-         });
-     });
-  });
-});
 </script>
