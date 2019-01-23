@@ -15,8 +15,7 @@
 	</section>
 <!-- End Banner Area -->
 
-<!-- Start About-Us Area -->
-<section class="aboutus-area section_gap white_bg">
+<section class="contactus-area section_gap white_bg">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
@@ -24,7 +23,7 @@
             <div class="col-md-6 col-lg-6 col-sm-12">
               <div class="contact-block">
                 <h2>Contact Form</h2>
-                <form role="contactus" action="{{url('contactussubmission')}}" method="POST">
+                <form role="contactus" data-request="enable-enter" action="{{url('contactussubmission')}}" method="POST" >
                   {{csrf_field()}}
                   <div class="row">
                     <div class="col-md-6">
@@ -47,7 +46,7 @@
                         <textarea class="form-control" id="message" placeholder="Your Message" name="message" rows="5"></textarea>
                       </div>
                       <div class="submit-button">
-                        <button class="btn primary-btn" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
+                        <button class="btn primary-btn contact_us" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
                       </div>
                     </div>
                   </div>            
@@ -92,4 +91,15 @@
       </div>
     </div>
 </section>
-<!-- End About-Us Area -->
+
+<script type="text/javascript">
+    setTimeout(function(){
+        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+        e.preventDefault();
+        if (e.which == 13) {
+        $('[data-request="enable-enter"]').find('.contact_us').trigger('click');
+        return false;   
+        }
+    }); 
+},100);
+</script>

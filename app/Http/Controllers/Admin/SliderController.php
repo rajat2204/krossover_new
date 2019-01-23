@@ -60,6 +60,9 @@ class SliderController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
+            ->editColumn('image',function($item){
+                return ucfirst($item['image']);
+            })
             ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })

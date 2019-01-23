@@ -49,6 +49,7 @@ class Validate
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'		=> ['nullable'],
+			'url' 				=> ['required','url'],
 
 		];
 		return $validation[$key];
@@ -187,6 +188,16 @@ class Validate
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
 			'title.required'				=>	'Title is required.',
 			'description.required'			=>	'Description is required.',
+		]);
+		return $validator;
+	}
+
+	public function addsocialmedia($action ='edit'){
+		$validations = [
+        	'url' 				=> $this->validation('url'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'url.required'			=>	'Social Media URL is required.',
 		]);
 		return $validator;
 	}

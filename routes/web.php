@@ -89,4 +89,7 @@ Route::resource('offers', 'OfferController');
 	Route::group(['prefix' => 'offers'],function(){
 		Route::post('/status', 'OfferController@changeStatus');
 	});
+
+/***********************Social Media Section****************************/
+Route::resource('social', 'SocialMediaController');
 });

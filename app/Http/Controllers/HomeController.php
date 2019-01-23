@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Redirect;
 use App\Models\Whyus;
 use App\Models\Offers;
+use App\Models\Social;
 use App\Models\Gallery;
 use App\Models\Category;
 use App\Models\Products;
@@ -29,17 +30,20 @@ class HomeController extends Controller
         $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
+        $data['social'] = _arefy(Social::where('status','active')->get());
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
 
     public function staticPage(Request $request,$slug){
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['view']='front.static';
         return view('front_home',$data);
     }
     
     public function contactUs(Request $request){
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['title'] = 'Contact Us';
         $data['view']='front.contactus';
         return view('front_home',$data);
@@ -78,7 +82,9 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function category(Request $request,$type,$slug){
+    public function category(Request $request,$type,$slug)
+    {
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.category';
         $data['type'] = $type;
         $cat_id='';
@@ -109,12 +115,12 @@ class HomeController extends Controller
         
         $where = 'status = "active"';
         $data['product'] = _arefy(Products::list('paginate',$where,$cat_id,$sub_id));
-        // dd($data['product']);
 		return view('front_home',$data);
     }
 
-    public function ajaxProduct(Request $request,$type,$slug){
-        // pp($request->all());
+    public function ajaxProduct(Request $request,$type,$slug)
+    {
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
         if(!empty($request->subcatid)){
             $data['products']->where('sub_id',$request->subcatid);
@@ -133,6 +139,7 @@ class HomeController extends Controller
     }
 
     public function productView(Request $request,$id){
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
