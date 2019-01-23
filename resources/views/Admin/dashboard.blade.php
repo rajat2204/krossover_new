@@ -365,6 +365,8 @@
 			</div>
 		</div><!--/.row-->
 	</div>
+
+@section('requirejs')
 	<script type="text/javascript">
 		window.onload = function () {
 		var chart1 = document.getElementById("line-chart").getContext("2d");
@@ -376,3 +378,4 @@
 		});
 		};
 	</script>
+@endsection

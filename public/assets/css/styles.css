@@ -284,7 +284,15 @@ a.btn:active, button:active {
     color: #1b3548;
     background-color: #e9ecf2;
 }
-
+.swal2-confirm{
+    background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+}
+div#swal2-content {
+    text-align: center;
+}
 a.bg-primary:hover {
     background-color: #e9ecf2;
 }

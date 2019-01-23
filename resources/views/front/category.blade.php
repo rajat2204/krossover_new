@@ -187,7 +187,7 @@
 				<div class="col-lg-3">
 					<div class="ctg-right">
 						<a href="#" target="_blank">
-							<img class="img-fluid d-block mx-auto" src="img/category/c5.jpg" alt="">
+							<img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
 						</a>
 					</div>
 				</div>
@@ -197,7 +197,7 @@
 <!-- End related-product Area -->
 
 <!-- Modal Quick Product View -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="container relative">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -261,8 +261,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 <!-- Modal Quick Product View Ends-->
+
 @section('requirejs')
 <script type="text/javascript">
 	$(function(){

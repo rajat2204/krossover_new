@@ -45,6 +45,8 @@
 			</div>
 	</div>		
 </div>
+
+@section('requirejs')
 <script type="text/javascript">
     setTimeout(function(){
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
@@ -56,3 +58,4 @@
     }); 
 },100);
 </script>
+@endsection

@@ -21,7 +21,7 @@
               <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
               @endif
               <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('pages/catalogue')}}">Catalogue</a></li>
-              <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="{{url('/')}}">Products</a>
+              <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="javascipt:void(0);">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
                     $menus = \App\Models\Category::where('status','active')->get();
@@ -95,7 +95,7 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+          <input type="text" class="form-control" name="search_input" id="search_input" placeholder="Search Here" onkeyup="search_func(this.value);">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
         </form>
@@ -113,4 +113,23 @@
     this.className += " active";
     });
   }
+
+  $(function(){
+    $(document).ready(function(){
+     $("#sample_search").keyup(function()
+     {
+
+         $.ajax({
+            type: "GET",
+            url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
+            data: {'search_keyword' : value},
+            dataType: "text",
+            success: function(msg)
+            {
+                 //Receiving the result of search here
+            }
+         });
+     });
+  });
+});
 </script>
