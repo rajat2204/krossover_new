@@ -335,3 +335,11 @@ Object.size = function(obj) {
     }
     return size;
 };
+
+
+
+
+// admin panel js
+$('.navbar-custom.navbar-fixed-top .navbar-toggle').on('click', function(){
+  $('#sidebar-collapse').slideToggle('slow');
+});
