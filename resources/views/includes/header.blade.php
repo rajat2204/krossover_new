@@ -101,6 +101,9 @@
           
         </form>
           <ul id="suggestion">
+            @php
+              $products = \App\Models\Products::where('status', 'active')->get();
+            @endphp
             @if(!empty($products))
               @foreach($products as $product)
               <li><a href="{{url('product')}}/{{$product->id}}">{{$product->title}}</a></li>

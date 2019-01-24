@@ -31,7 +31,7 @@ class HomeController extends Controller
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
-        $data['products'] = Products::where('status', 'active')->get();
+        
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
