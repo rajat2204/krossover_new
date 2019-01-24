@@ -11,10 +11,10 @@ class Products extends Model
 
     public static function change($userID,$data){
         $isUpdated = false;
-        $table_product = \DB::table('products');
+        $table_products = \DB::table('products');
         if(!empty($data)){
-            $table_product->where('id','=',$userID);
-            $isUpdated = $table_product->update($data); 
+            $table_products->where('id','=',$userID);
+            $isUpdated = $table_products->update($data); 
         }
         return (bool)$isUpdated;
     }

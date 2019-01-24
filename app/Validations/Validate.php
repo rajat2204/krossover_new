@@ -157,7 +157,7 @@ class Validate
         return $validator;		
 	}
 
-	public function addslider($action='add'){
+	public function addslider($action = 'add'){
 		$validations = [
         	'image' 				=> $this->validation('photo'),
         	'title' 				=> $this->validation('name'),
@@ -177,14 +177,12 @@ class Validate
 		return $validator;
 	}
 
-	public function whyus($action='edit'){
+	public function whyus($action = 'edit'){
 		$validations = [
-        	// 'image' 				=> $this->validation('photo'),
         	'title' 				=> $this->validation('name'),
         	'description' 			=> $this->validation('name'),
     	];
 		$validator = \Validator::make($this->data->all(), $validations,[
-			// 'image.required' 				=>  'Image is required.',
 			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
 			'title.required'				=>	'Title is required.',
 			'description.required'			=>	'Description is required.',
@@ -192,10 +190,11 @@ class Validate
 		return $validator;
 	}
 
-	public function addsocialmedia($action ='edit'){
+	public function addsocialmedia(){
 		$validations = [
         	'url' 				=> $this->validation('url'),
     	];
+    	
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'url.required'			=>	'Social Media URL is required.',
 		]);

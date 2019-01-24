@@ -259,9 +259,9 @@ class ProductController extends Controller
 
         if($isUpdated){
             if($request->status == 'trashed'){
-                $this->message = 'Deleted Product successfully.';
+                $this->message = 'Deleted Products successfully.';
             }else{
-                $this->message = 'Updated Product successfully.';
+                $this->message = 'Updated Products successfully.';
             }
             $this->status = true;
             $this->redirect = true;

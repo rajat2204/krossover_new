@@ -22,6 +22,6 @@
 		<li><a href="{{url('admin/gallery')}}"><i class="fa fa-fw fa-file-image-o">&nbsp;</i>Gallery</a></li>
 		<li><a href="{{url('admin/offers')}}"><i class="fa fa-fw fa-gift">&nbsp;</i>Offers</a></li>
 		<li><a href="{{url('admin/social')}}"><i class="fa fa-fw fa-gift">&nbsp;</i>Social Media</a></li>
-		<li><a href="{{url('admin/login')}}"><i class="fa fa-fw fa-sign-out">&nbsp;</i>Logout</a></li>
+		<li><a href="{{url('admin/logout')}}"><i class="fa fa-fw fa-sign-out">&nbsp;</i>Logout</a></li>
 	</ul>
 </div>

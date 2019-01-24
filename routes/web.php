@@ -24,8 +24,9 @@ Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 /***********************Front-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/login','Admin\LoginController@authentication');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*,'middleware'=>'adminAuth'*/],function(){
-Route::get('home','LoginController@home');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin'],function(){
+	Route::get('logout','LoginController@logout');
+	Route::get('home','LoginController@home');
 
 /***********************Category-Section****************************/
 
@@ -42,12 +43,12 @@ Route::resource('subcategories', 'SubcategoryController');
 
 /***********************Product-Section****************************/
 Route::resource('products', 'ProductController');
-	Route::group(['prefix' => 'products'],function(){
-		Route::post('/status', 'ProductController@changeStatus');
-	});	
 	Route::group(['prefix' => 'subcategories'],function(){
 			Route::post('ajaxsubcategory', 'ProductController@ajaxsubCategory');
 	});
+	Route::group(['prefix' => 'products'],function(){
+		Route::post('/status', 'ProductController@changeStatus');
+	});	
 
 /***********************Slider-Section****************************/
 Route::resource('sliders', 'SliderController');
