@@ -20,7 +20,7 @@
 		<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-staticpage" data-request="enable-enter" action="{{url('admin/staticpages/'.___encrypt($staticpage['id']))}}" method="POST" class="form-horizontal form-label-left">
+				<form role="edit-staticpage" data-request="enable-enter" method="POST" action="{{url('admin/staticpages/'.___encrypt($staticpage['id']))}}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
@@ -47,7 +47,7 @@
 						<label>Description:</label>
 						<textarea name="description" id="description" class="form-control" rows="6">{{$staticpage['description']}}</textarea>
 					</div>
-						<button type="button" class="btn btn-success btn-block edit_staticpages" data-request="ajax-submit" data-target='[role="edit-staticpage"]'>Edit Static Pages</button>
+						<button type="button" class="btn btn-success btn-block edit_staticpages" data-request="ajax-submit" data-target='[role="edit-staticpage"]'>Edit Slider</button>
 					</div>
 				</form>
 			</div>
