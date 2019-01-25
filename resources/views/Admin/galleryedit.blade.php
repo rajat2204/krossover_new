@@ -20,7 +20,7 @@
 		<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-gallery" data-request="enable-enter" action="{{url('admin/gallery/'.___encrypt($gallery['id']))}}" method="POST" class="form-horizontal form-label-left">
+				<form role="edit-gallery" action="{{url('admin/gallery/'.___encrypt($gallery['id']))}}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
@@ -50,7 +50,7 @@
 						<input class="form-control" name="name" value="{{$gallery['name']}}" placeholder="E.g. Men's Clothing">
 					</div>
 
-						<button type="button" class="btn btn-success btn-block edit_gallery" data-request="ajax-submit" data-target='[role="edit-gallery"]'>Edit Whyus</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-gallery"]'>Edit Whyus</button>
 					</div>
 				</form>
 			</div>
@@ -60,16 +60,6 @@
 
 @section('requirejs')
 <script type="text/javascript">
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_gallery').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 

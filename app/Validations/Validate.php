@@ -272,10 +272,11 @@ class Validate
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
 		}
+		
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
-			'main_id.required' 					=>  'Products Main Category is required.',
-			'sub_id.required' 					=>  'Products Sub Category is required.',
+			'main_id.required' 					=>  'Product Main Category is required.',
+			'sub_id.required' 					=>  'Product Sub Category is required.',
 			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Product Image should be in jpg,jpeg,png format.',

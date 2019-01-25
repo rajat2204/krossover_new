@@ -19,7 +19,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="add-client" data-request="enable-enter" method="POST" action="{!! action('Admin\ClientController@store') !!}" class="form-horizontal form-label-left">
+				<form role="add-client" method="POST" action="{!! action('Admin\ClientController@store') !!}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="item form-group">
                         <label  class="control-label col-md-3 col-sm-3 col-xs-12">Client Image:</label>
@@ -34,7 +34,7 @@
 						<label>Client Title:</label>
 						<input class="form-control" id="title" name="title" placeholder="Title">
 					</div>
-						<button type="button" class="btn btn-success btn-block add_client" data-request="ajax-submit" data-target='[role="add-client"]'>Add Client</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-client"]'>Add Client</button>
 					</div>
 				</form>
 			</div>
@@ -44,16 +44,6 @@
 
 @section('requirejs')
 <script type="text/javascript">
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.add_client').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 

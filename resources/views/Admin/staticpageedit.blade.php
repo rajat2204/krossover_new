@@ -20,7 +20,7 @@
 		<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-staticpage" data-request="enable-enter" method="POST" action="{{url('admin/staticpages/'.___encrypt($staticpage['id']))}}" class="form-horizontal form-label-left">
+				<form role="edit-staticpage" method="POST" action="{{url('admin/staticpages/'.___encrypt($staticpage['id']))}}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
@@ -47,7 +47,7 @@
 						<label>Description:</label>
 						<textarea name="description" id="description" class="form-control" rows="6">{{$staticpage['description']}}</textarea>
 					</div>
-						<button type="button" class="btn btn-success btn-block edit_staticpages" data-request="ajax-submit" data-target='[role="edit-staticpage"]'>Edit Slider</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-staticpage"]'>Edit Slider</button>
 					</div>
 				</form>
 			</div>
@@ -58,16 +58,6 @@
 @section('requirejs')
 <script type="text/javascript">
     CKEDITOR.replace( 'description' );
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_staticpages').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 
