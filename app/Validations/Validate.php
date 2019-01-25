@@ -50,14 +50,15 @@ class Validate
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'		=> ['nullable'],
 			'url' 				=> ['required','url'],
+			'slug_no_space'		=> ['required','alpha_dash','max:255']
 
 		];
 		return $validation[$key];
 	}
 	public function login(){
         $validations = [
-            'email' 		       => $this->validation('email'),
-			'password'       	   => $this->validation('password')
+            'email' 		       => $this->validation('req_email'),
+			'password'       	   => $this->validation('password'),
     	];
         $validator = \Validator::make($this->data->all(), $validations,[]);
         return $validator;		
@@ -66,10 +67,10 @@ class Validate
 	public function createCategory($action='add'){
         $validations = [
             'name' 		        => $this->validation('name'),
-			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('categories')]),
+			'slug'  			=> array_merge($this->validation('slug_no_space'),[Rule::unique('categories')]),
     	];
 		if($action =='edit'){
-			$validations['slug'] = array_merge($this->validation('slug_cat'),[
+			$validations['slug'] = array_merge($this->validation('slug_no_space'),[
 				Rule::unique('categories')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
@@ -79,6 +80,7 @@ class Validate
         	'name.required'     			=> 'Category Name is Required.',
         	'slug.required'     			=> 'Category Slug is Required.',
         	'slug.unique'     				=> 'This Category Slug has already been taken.',
+        	'slug.alpha_dash'     			=> 'No spaces allowed in category slug.The Slug may only contain letters, numbers, dashes and underscores.',
         ]);
         return $validator;		
 	}
@@ -87,11 +89,11 @@ class Validate
         $validations = [
         	'cat_id' 			=> $this->validation('name'),
             'name' 		        => $this->validation('name'),
-			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('subcategories')]),
+			'slug'  			=> array_merge($this->validation('slug_no_space'),[Rule::unique('subcategories')]),
     	];
     	
 		if($action =='edit'){
-			$validations['slug'] = array_merge($this->validation('slug_cat'),[
+			$validations['slug'] = array_merge($this->validation('slug_no_space'),[
 				Rule::unique('subcategories')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
@@ -102,6 +104,7 @@ class Validate
     		'name.required' 		=>  'Sub-Category Name is required.',
     		'slug.required' 		=>  'Sub-Category Slug is required.',
     		'slug.unique' 			=>  'This Sub-Category Slug has already been taken.',
+    		'slug.alpha_dash'     	=> 	'No spaces allowed in sub-category slug.The Slug may only contain letters, numbers, dashes and underscores.',
 
     	]);
         return $validator;		
@@ -111,11 +114,11 @@ class Validate
         $validations = [
         	'category_id' 		=> $this->validation('name'),
             'brand_name' 		=> $this->validation('name'),
-			'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('brand')]),
+			'slug'  			=> array_merge($this->validation('slug_no_space'),[Rule::unique('brand')]),
     	];
     	
 		if($action =='edit'){
-			$validations['slug'] = array_merge($this->validation('slug_cat'),[
+			$validations['slug'] = array_merge($this->validation('slug_no_space'),[
 				Rule::unique('brand')->where(function($query){
 					$query->where('id','!=',$this->data->id);
 				})
@@ -126,6 +129,7 @@ class Validate
     		'brand_name.required'		=>  'Brand Name is required',
     		'slug.required'				=>  'Brand Slug is required',
     		'slug.unique'				=>  'This Brand Slug has already been taken.',
+    		'slug.alpha_dash'     		=> 'No spaces allowed in brand slug.The Slug may only contain letters, numbers, dashes and underscores.',
     	]);
         return $validator;		
 	}
@@ -146,13 +150,14 @@ class Validate
 	public function addcolor($action='add'){
         $validations = [
         	'color_name' 		=> $this->validation('name'),
-        	'slug'  			=> array_merge($this->validation('slug_cat'),[Rule::unique('color')]),
+        	'slug'  			=> array_merge($this->validation('slug_no_space'),[Rule::unique('color')]),
     	];
     	
         $validator = \Validator::make($this->data->all(), $validations,[
     		'color_name.required'				=>  'Color Name is required.',
     		'slug.required'						=>  'Color Slug is required.',
     		'slug.unique'						=>  'This Color Slug has already been taken.',
+    		'slug.alpha_dash'     				=> 'No spaces allowed in color slug.The Slug may only contain letters, numbers, dashes and underscores.',
     	]);
         return $validator;		
 	}

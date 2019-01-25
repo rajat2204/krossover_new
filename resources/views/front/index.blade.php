@@ -1,43 +1,25 @@
-
 <!-- start banner Area -->
     <section class="banner-area">
         <div class="container">
           <div class="row fullscreen align-items-center justify-content-start">
             <div class="col-lg-12">
-                @for ($i = 0; $i < count($sliders); $i++)
-                @if($i == 0)
               <div class="active-banner-slider owl-carousel">
+              @foreach($slider as $sliders)
                 <!-- single-slide -->
                 <div class="row single-slide align-items-center d-flex">
                   <div class="col-lg-5 col-md-6">
                     <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
-                      <p>{{$sliders[$i]->text}}</p>
+                      <a href="{{url('/')}}"><h1>{{$sliders['title']}}</h1></a>
+                      <p>{{$sliders['text']}}</p>
                     </div>
                   </div>
                   <div class="col-lg-7">
                     <div class="banner-img">
-                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
+                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                     </div>
                   </div>
                 </div>
-                @else
-                <!-- single-slide -->
-                <div class="row single-slide">
-                  <div class="col-lg-5">
-                    <div class="banner-content">
-                      <a href="{{url('/')}}"><h1>{{$sliders[$i]->title}}</h1></a>
-                      <p>{{$sliders[$i]->text}}</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="banner-img">
-                      <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders[$i]->image}}" alt="">
-                    </div>
-                  </div>
-                </div>
-              @endif
-            @endfor
+            @endforeach
               </div>
             </div>
           </div>
@@ -404,24 +386,15 @@
           <div class="row">
             <!-- clients logo slider -->
             <div class="active-exclusive-product-slider">
-              @for ($j = 0; $i < count($clients); $i++)
-                @if($j == 0)
+              @foreach($client as $clients)
               <!-- single exclusive carousel -->
                 <div class="single-exclusive-slider">
                   <a class="col single-img" href="javascript:void(0);">
-                    <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients[$i]->image}}" alt="">
+                    <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients['image']}}" alt="">
                   </a>
                 </div>
-                @else
-                <!-- single exclusive carousel -->
-                <div class="single-exclusive-slider">
-                  <a class="col single-img" href="javascript:void(0);">
-                    <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients[$i]->image}}" alt="">
-                  </a>
-                </div>
+              @endforeach
               </div>
-              @endif
-              @endfor
             </div>
 
             <!-- clients logo slider ends here -->
@@ -462,7 +435,7 @@
           <div class="row">
                 @if(\App\Models\Products::where('status','active')->count() >0)
                   @php
-                    $popular_product = \App\Models\Products::where('featured','1')->get();
+                    $popular_product = \App\Models\Products::where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
             <div class="col-lg-4 col-md-4 col-sm-6 mb-20">

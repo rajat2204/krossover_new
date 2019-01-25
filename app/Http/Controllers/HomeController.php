@@ -7,7 +7,9 @@ use App\Models\Whyus;
 use App\Models\Offers;
 use App\Models\Social;
 use App\Models\Gallery;
+use App\Models\Clients;
 use App\Models\Category;
+use App\Models\Sliders;
 use App\Models\Products;
 use App\Models\ContactUs;
 use App\Models\StaticPages;
@@ -31,6 +33,8 @@ class HomeController extends Controller
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['slider'] = _arefy(Sliders::where('status','active')->get());
+        $data['client'] = _arefy(Clients::where('status','active')->get());
         
     	$data['view']='front.index';
 		return view('front_home',$data);

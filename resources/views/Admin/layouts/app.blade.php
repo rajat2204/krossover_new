@@ -60,8 +60,19 @@ $(function () {
         },isLocal: false
     });
 });  
-</script>
 
+$(function(){
+
+    var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+        $('.nav_active_menu a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).parent().addClass('active');
+            }
+        });
+
+});
+</script>
 @yield('requirejs')
     <!-- [ SLIDER SCRIPT ] -->
     </body>
