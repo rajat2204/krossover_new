@@ -16,6 +16,8 @@ use App\Models\StaticPages;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Html\Builder;
 use Validations\Validate as Validations;
 
 class HomeController extends Controller
@@ -35,6 +37,7 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
+        $data['staticpage'] = _arefy(StaticPages::where('slug','aboutus')->first());
         
     	$data['view']='front.index';
 		return view('front_home',$data);
@@ -87,7 +90,7 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function category(Request $request,$type,$slug)
+    public function category(Request $request,Builder $builder,$type,$slug)
     {
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
@@ -119,9 +122,69 @@ class HomeController extends Controller
                 ->first();
         }
         
-        $where = 'status = "active"';
-        $data['product'] = _arefy(Products::list('paginate',$where,$cat_id,$sub_id));
-		return view('front_home',$data);
+        $where = 'status != "trashed"';
+        $data['product']=[];
+        $product  = _arefy(Products::list('array',$where));
+        if ($request->ajax()) {
+            return DataTables::of($product)
+            ->editColumn('action',function($item){
+                $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/products/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('assets/images/delete.png').'"
+                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
+                if($item['status'] == 'active'){
+                    $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('assets/images/inactive-user.png').'"
+                        data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                }elseif($item['status'] == 'inactive'){
+                    $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('assets/images/active-user.png').'"
+                        data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                }
+                $html   .= '</div>';
+                                
+                return $html;
+            })
+            ->editColumn('status',function($item){
+                return ucfirst($item['status']);
+            })
+             ->editColumn('title',function($item){
+                return ucfirst($item['title']);
+            })
+             ->editColumn('main_id',function($item){
+                return ucfirst($item['category']['name']);
+            })
+             ->editColumn('sub_id',function($item){
+                return ucfirst($item['subcategory']['name']);
+            })
+             ->editColumn('feature_image',function($item){
+                $imageurl = asset("assets/images/products/".$item['feature_image']);
+                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+            })
+            ->rawColumns(['feature_image', 'action'])
+            ->make(true);
+        }
+
+        $data['html'] = $builder
+            ->parameters([
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
+            ])
+            ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'sub_id','name' => 'sub_id','title' => 'Sub Category','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+        
+		return view('front_home')->with($data);
     }
 
     public function ajaxProduct(Request $request,$type,$slug)

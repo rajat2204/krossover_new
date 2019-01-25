@@ -43,18 +43,7 @@
 							<div class="head">Brands</div>
 							<div id="brandFilter">
 								<form action="#">
-									<ul>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="all" name="brandFilter" value="all"><label for="all">All</label></li>
-										@php	$i = 0; @endphp
-						               @foreach($product['data'] as $products)
-						              @php
-						                $brand = \App\Models\Brands::where('status','active')->where('id',$products['brand_id'])->get()->first();
-						              @endphp
-
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="brand{{$i}}" name="brandFilter" value="{{$brand['id']}}"><label for="brand{{$i}}">{{$brand->brand_name}}</label></li>
-					              	@php $i++; @endphp
-									@endforeach
-									</ul>
+									
 								</form>
 							</div>
 						</div>
@@ -102,25 +91,14 @@
 					<!-- Start Best Seller -->
 					<section class="lattest-product-area pb-40 category-list" id="products">
 						<div class="row">
-							@if(!empty($product['data']))
-								@foreach($product['data'] as $products)
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
-									<a href="{{url('product')}}/{{$products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$products['feature_image']}}" style="height: 320px;" alt="Product Image" /></a>
+									<a href=""><img class="img-fluid" src="" style="height: 320px;" alt="Product Image" /></a>
 									<div class="product-details">
-										<h6>{{$products['title']}}</h6>
-										<div class="price"><h6>${{$products['price']}}</h6>
-											<h6 class="l-through">${{$products['previous_price']}}</h6>
-										</div>
+										{!!$html->table()!!}
 									</div>
 								</div>
 							</div>
-								@endforeach
-							@else
-								<div class="no_product_found">
-									<h3>No Product Found in this category.</h3>
-								</div>
-							@endif
 						</div>
 					</section>
 					<!-- End Best Seller -->
@@ -165,7 +143,7 @@
 					<div class="row">
 						@if(\App\Models\Products::where('status','active')->count() >0)
                   @php
-                    $popular_product = \App\Models\Products::where('featured','1')->get();
+                    $popular_product = \App\Models\Products::where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
@@ -265,6 +243,7 @@
 <!-- Modal Quick Product View Ends-->
 
 @section('requirejs')
+{!! $html->scripts()!!}
 <script type="text/javascript">
 	$(function(){
         $('input[type=radio][name=brandFilter]').on('change',function(){
@@ -327,6 +306,7 @@
 
     });
 </script>
+
 @endsection
 
 

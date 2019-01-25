@@ -32,6 +32,8 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
   </head>
     <body class="page-md login">
+      <div id="cover"></div>
+
         <div class="wrapper">
                 @yield('content')
         </div>
@@ -46,7 +48,6 @@
   <script src="{{asset('assets/js/easypiechart.js')}}"></script>
   <script src="https://cdn.ckeditor.com/4.11.1/standard-all/ckeditor.js"></script>
 <script src="{{ asset('assets/js/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-  <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
@@ -60,6 +61,12 @@ $(function () {
         },isLocal: false
     });
 });  
+
+$(window).load(function(){
+    setTimeout(function(){
+        $('#cover').fadeOut(500);
+    },1000)
+});
 
 $(function(){
 

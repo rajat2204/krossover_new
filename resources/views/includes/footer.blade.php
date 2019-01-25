@@ -4,10 +4,7 @@
       <div class="col-lg-6  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>About Us</h6>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
-            magna aliqua.
-          </p>
+          <p>{!!str_limit($staticpage['description'],200)!!}</p><span><a href="{{url('pages/aboutus')}}">Read More....</a></span>
         </div>
       </div>
       <!-- <div class="col-lg-4  col-md-6 col-sm-6">

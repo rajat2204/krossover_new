@@ -8,7 +8,7 @@
         <meta content="" name="author"/>
 
         
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="_token" content="{{ csrf_token() }}">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
@@ -23,11 +23,10 @@
   {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
-  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/rangeSlider/css/ion.rangeSlider.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/rangeSlider/css/ion.rangeSlider.min.css')}}"> -->
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/availability-calendar.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}">
@@ -35,20 +34,12 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
-  <link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/> -->
-        <!-- [ DEFAULT STYLESHEET ] 
-        =========================================================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
+<!-- ====================================[ DEFAULT STYLESHEET ]==================================== -->
     </head>
     <body class="page-md login">
-        <div class="preloader">
-          <div class="loader theme_background_color">
-          <span></span>
-
-          </div>
-        </div>
+        <div id="cover"></div>
         <div class="wrapper">
-
                 @yield('content')
         </div>
         
@@ -62,7 +53,6 @@
   <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
   <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-  <!-- <script src="{{asset('assets/js/countdown.js')}}"></script> -->
   <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
   <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
   <script src="{{asset('assets/js/parallax.min.js')}}"></script>
@@ -70,16 +60,28 @@
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
   <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
-  <!-- <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.js')}}"></script>
-  <script src="{{asset('assets/rangeSlider/js/ion.rangeSlider.min.js')}}"></script> -->
+  <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- [ SLIDER SCRIPT ] -->
+    <script type="text/javascript">
+$(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        },isLocal: false
+    });
+}); 
+
+$(window).load(function(){
+                setTimeout(function(){
+                    $('#cover').fadeOut(500);
+                },500)
+            });
+</script>
     @yield('requirejs')
     </body>
 </html>
