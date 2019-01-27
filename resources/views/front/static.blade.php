@@ -56,7 +56,7 @@
         </div>
         @else
         <div class="col-lg-12 col-md-12 col-sm-12"> 
-            <div class="static-descriptionss">
+            <div class="static-description">
               <p>{!!($staticpage['description'])!!}</p>
             </div>
         </div>

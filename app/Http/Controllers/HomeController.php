@@ -31,6 +31,7 @@ class HomeController extends Controller
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['products'] = Products::where('status', 'active')->get();
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -84,6 +85,7 @@ class HomeController extends Controller
 
     public function category(Request $request,$type,$slug)
     {
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.category';
         $data['type'] = $type;
@@ -139,10 +141,18 @@ class HomeController extends Controller
     }
 
     public function productView(Request $request,$id){
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
 		return view('front_home',$data);
+    }
+
+  public function search(Request $request)
+    {
+        $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
+        $html = view('front.suggestion',$data);
+        return Response($html);
     }
 }

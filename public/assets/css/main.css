@@ -86,7 +86,15 @@
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
 }
-
+.swal2-confirm{
+    background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+}
+div#swal2-content {
+    text-align: center;
+}
 .gradient-bg-reverse, #search_input_box {
     background: -webkit-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
     background: -moz-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
@@ -7716,6 +7724,9 @@ label {
 
 .single-post-area .navigation-area .nav-left:hover .thumb img {
     opacity: .5;
+}
+header ul.navbar-right {
+    margin-top: 0;
 }
 
 @media (max-width: 767px) {

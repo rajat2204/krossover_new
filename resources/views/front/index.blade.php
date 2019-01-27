@@ -255,7 +255,9 @@
           @foreach($latest_product as $latest_products)
           <div class="col-lg-3 col-md-6">
             <div class="single-product">
-              <img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt="">
+              <div class="product_img">
+                <img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt="">
+              </div>
               <div class="product-details">
                 <h6>{{$latest_products['title']}}</h6>
                 <div class="price">

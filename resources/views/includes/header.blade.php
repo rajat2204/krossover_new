@@ -21,7 +21,7 @@
               <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
               @endif
               <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('pages/catalogue')}}">Catalogue</a></li>
-              <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="{{url('/')}}">Products</a>
+              <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="javascipt:void(0);">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
                     $menus = \App\Models\Category::where('status','active')->get();
@@ -95,10 +95,18 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Search Here">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+          
         </form>
+          <ul id="suggestion">
+            @if(!empty($products))
+              @foreach($products as $product)
+              <li><a href="{{url('product')}}/{{$product->id}}">{{$product->title}}</a></li>
+              @endforeach
+            @endif
+          </ul>
       </div>
     </div>
 </header>
@@ -112,5 +120,18 @@
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
     });
+  }
+
+  function getSuggestion(q){
+    $.ajax({
+      type: "GET",
+      url: "{{url('search')}}",
+      data: {item:q},
+      success:function(data){
+      
+        $("#suggestion").html(data);
+      }
+    });
+
   }
 </script>
