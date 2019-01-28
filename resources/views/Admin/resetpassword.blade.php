@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Kross-Over | Login</title>
+	<title>Kross-Over | Reset-Password</title>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
@@ -43,25 +43,17 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Log in to enter</h3>
-						<form role="login" class="row login_form" action="{{url('admin/login')}}" data-request="enable-enter" method="post">
+						<h3>Reset Password</h3>
+						<form role="resetpassword" class="row login_form" action="{{url('admin/login')}}" data-request="enable-enter" method="post">
 							{{ csrf_field() }}
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+								<input type="text" class="form-control" id="name" name="password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'New Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-								<input type="hidden" name="not_exists">
+								<input type="text" class="form-control" id="name" name="password" placeholder="Confirm New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm New Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Keep me logged in</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="primary-btn login">Log In</button>
-								<a href="{{url('admin/forgotpassword')}}">Forgot Password?</a>
+								<button type="button" data-request="ajax-submit" data-target='[role="resetpassword"]' class="primary-btn reset_password">Reset my password</button>
 							</div>
 						</form>
 					</div>
@@ -74,7 +66,7 @@
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
         e.preventDefault();
         if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.login').trigger('click');
+        $('[data-request="enable-enter"]').find('.reset_password').trigger('click');
         return false;   
         }
     }); 

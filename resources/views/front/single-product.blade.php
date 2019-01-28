@@ -55,7 +55,23 @@
 						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" href="javascript:void(0)">Get QUOTES</a>
+						<!-- <a class="primary-btn" href="#">Get QUOTES</a> -->
+						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
+					</div>
+					<div class="modal fade" id="myModal" role="dialog">
+					    <div class="modal-dialog">
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4 class="modal-title">Product Enquiry</h4>
+					        </div>
+					        <div class="modal-body">
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+					      </div>
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -127,7 +143,6 @@
 		</div>
 	</div>
 </section>
-<!-- End related-product Area -->
 
 	
 

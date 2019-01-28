@@ -77,10 +77,10 @@ $(function () {
 }); 
 
 $(window).load(function(){
-                setTimeout(function(){
-                    $('#cover').fadeOut(500);
-                },500)
-            });
+  setTimeout(function(){
+      $('#cover').fadeOut(500);
+  },500)
+});
 </script>
     @yield('requirejs')
     </body>

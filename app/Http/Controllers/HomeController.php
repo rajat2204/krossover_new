@@ -8,8 +8,8 @@ use App\Models\Offers;
 use App\Models\Social;
 use App\Models\Gallery;
 use App\Models\Clients;
-use App\Models\Category;
 use App\Models\Sliders;
+use App\Models\Category;
 use App\Models\Products;
 use App\Models\ContactUs;
 use App\Models\StaticPages;
@@ -37,7 +37,7 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
-        $data['staticpage'] = _arefy(StaticPages::where('slug','aboutus')->first());
+        
         
     	$data['view']='front.index';
 		return view('front_home',$data);
@@ -90,8 +90,7 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function category(Request $request,Builder $builder,$type,$slug)
-    {
+    public function category(Request $request,Builder $builder,$type,$slug){
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.category';
@@ -187,8 +186,7 @@ class HomeController extends Controller
 		return view('front_home')->with($data);
     }
 
-    public function ajaxProduct(Request $request,$type,$slug)
-    {
+    public function ajaxProduct(Request $request,$type,$slug){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
         if(!empty($request->subcatid)){
@@ -211,13 +209,13 @@ class HomeController extends Controller
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
+        // dd($data['productdata']);
         $data['category'] = _arefy(Category::where('id',$id)->first());
     	$data['view']='front.single-product';
 		return view('front_home',$data);
     }
 
-  public function search(Request $request)
-    {
+    public function search(Request $request){
         $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
         $html = view('front.suggestion',$data);
         return Response($html);

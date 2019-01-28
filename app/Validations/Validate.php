@@ -25,7 +25,7 @@ class Validate
 			'date_of_birth' 	=> ['nullable','string'],
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
-			'mobile_number' 	=> ['nullable','numeric'],
+			'mobile_number' 	=> ['required','numeric'],
 			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
@@ -143,6 +143,21 @@ class Validate
         $validator = \Validator::make($this->data->all(), $validations,[
     		'title.required' 			=>  'Title is required',
     		'description.required'		=>  'Description is required',
+    	]);
+        return $validator;		
+	}
+
+	public function productenquiry(){
+        $validations = [
+        	'name' 		=> $this->validation('name'),
+            'email' 	=> $this->validation('req_email'),
+            'mobile' 	=> $this->validation('mobile_number'),
+    	];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 			=>  'Name is required',
+    		'email.required'			=>  'E-mail is required',
+    		'mobile.required'			=>  'Mobile Number is required',
     	]);
         return $validator;		
 	}

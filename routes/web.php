@@ -21,8 +21,10 @@ Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
 Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
-/***********************Front-Section****************************/
+/***********************Admin-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
+Route::get('admin/forgotpassword','Admin\LoginController@forgotPassword');
+Route::get('admin/resetpassword','Admin\LoginController@resetPassword');
 Route::post('admin/login','Admin\LoginController@authentication');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin'],function(){
 	Route::get('logout','LoginController@logout');

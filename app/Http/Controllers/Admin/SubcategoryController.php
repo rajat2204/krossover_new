@@ -105,7 +105,6 @@ class SubcategoryController extends Controller
         }else{
             $category = new Subcategories;
             $category->fill($request->all());
-            // $category['role'] = "sub";
             $category->save();
             $this->status   = true;
             $this->modal    = true;
