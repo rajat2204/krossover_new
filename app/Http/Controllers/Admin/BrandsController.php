@@ -195,4 +195,19 @@ class BrandsController extends Controller
         }
         return $this->populateresponse();
     }
+
+    public function changePassword()
+    {
+        $data['view'] = 'admin.changepassword';
+        return view('admin.home',$data);
+    }
+
+    public function changePwd(Request $request)
+    {
+        $validation = new Validations($request);
+        $validator  = $validation->changepassword();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }
+    }
 }

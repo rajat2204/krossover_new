@@ -62,13 +62,22 @@
 					    <div class="modal-dialog">
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <button type="button" class="close" data-dismiss="modal">&times;</button>
 					          <h4 class="modal-title">Product Enquiry</h4>
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
 					        </div>
 					        <div class="modal-body">
+					        	<div>
+					        		<input type="text" name="name" placeholder="Enter your name">
+					        	</div>
+					        	<div>
+					        		<input type="email" name="email" placeholder="Enter your E-mail">
+					        	</div>
+					        	<div>
+					        		<input type="text" name="mobile" placeholder="Enter your Mobile Number">
+					        	</div>
 					        </div>
 					        <div class="modal-footer">
-					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
 					        </div>
 					      </div>
 					    </div>
