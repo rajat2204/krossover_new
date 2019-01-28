@@ -26,7 +26,7 @@ class Validate
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
 			'mobile_number' 	=> ['required','numeric'],
-			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric'],
+			'req_mobile_number' => ['required','required_with:phone_code','numeric'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],

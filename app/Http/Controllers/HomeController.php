@@ -222,17 +222,25 @@ class HomeController extends Controller
     }
 
     public function productEnquiry(Request $request){
-        // pp($request->all());
         $validation = new Validations($request);
         $validator  = $validation->productenquiry();
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
+            $data['product_id']          =!empty($request->product_id)?$request->product_id:'';
             $data['name']               =!empty($request->name)?$request->name:'';
             $data['email']              =!empty($request->email)?$request->email:'';
             $data['mobile']             =!empty($request->mobile)?$request->mobile:'';
 
             $enquiry = Enquiry::add($data);
+
+            if($enquiry){
+                $this->status   = true;
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Enquiry has been submitted successfully.";
+                $this->redirect = url('/');
+            }
         }
         return $this->populateresponse();    
     }

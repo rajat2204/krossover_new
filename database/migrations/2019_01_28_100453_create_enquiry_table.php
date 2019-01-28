@@ -18,7 +18,7 @@ class CreateEnquiryTable extends Migration
             $table->integer('product_id');
             $table->string('name');
             $table->string('email');
-            $table->integer('mobile')->length(20);
+            $table->string('mobile');
             $table->timestamps();
         });
     }

@@ -74,7 +74,7 @@
 					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="id" name="id" class="form-control" value="{{$productdata['id']}}">
+											<input type="hidden" id="id" name="product_id" class="form-control" value="{{$productdata['id']}}">
 										</div>
 									</div>
 	                                  	<label for="usr">Product Name:</label>
@@ -90,7 +90,7 @@
 	                                </div>
 						        	<div class="form-group">
 	                                  	<label for="usr">Mobile Number:</label>
-	                                  	<input name="phone" placeholder="Enter Phone" class="form-control" type="text">
+	                                  	<input name="mobile" placeholder="Enter Mobile Number" class="form-control" type="text">
 	                                </div>
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
