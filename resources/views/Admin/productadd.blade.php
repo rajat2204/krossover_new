@@ -55,11 +55,11 @@
                         </div>
 
         				<div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <label> Current Featured Image</label>
+                            {{-- <div class="col-md-3 col-sm-6 col-xs-12">
                                <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            </div> --}}
+                            <div>
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
                                 <p>Please add only square image of size more than 80 X 80.</p>
                             </div>

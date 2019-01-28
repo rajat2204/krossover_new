@@ -67,23 +67,23 @@
 					<!-- Start Filter Bar -->
 					<div class="filter-bar d-flex flex-wrap align-items-center">
 						<div class="sorting">
-							<select>
+							{{-- <select>
 								<option value="1">Default sorting</option>
-							</select>
+							</select> --}}
 						</div>
 						<div class="sorting mr-auto">
-							<select>
+							{{-- <select>
 								<option value="1">Show 12</option>
-							</select>
+							</select> --}}
 						</div>
 						<div class="pagination">
-							<a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+							{{-- <a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 							<a href="#" class="active">1</a>
 							<a href="#">2</a>
 							<a href="#">3</a>
 							<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
 							<a href="#">6</a>
-							<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+							<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> --}}
 						</div>
 					</div>
 					<!-- End Filter Bar -->
@@ -91,7 +91,7 @@
 					<!-- Start Best Seller -->
 					<section class="lattest-product-area pb-40 category-list" id="products">
 						<div class="row">
-							<div class="col-lg-4 col-md-6">
+							<div class="col-lg-12 col-md-6">
 								<div class="single-product">
 									{{-- <a href=""><img class="img-fluid" src="" style="height: 320px;" alt="Product Image" /></a> --}}
 									<div class="product-details">
@@ -104,7 +104,7 @@
 					<!-- End Best Seller -->
 					
 					<!-- Start Filter Bar -->
-					<div class="filter-bar d-flex flex-wrap align-items-center">
+					{{-- <div class="filter-bar d-flex flex-wrap align-items-center">
 						<div class="sorting mr-auto">
 							<select>
 								<option value="1">Show 12</option>
@@ -119,7 +119,7 @@
 							<a href="#">6</a>
 							<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 						</div>
-					</div>
+					</div> --}}
 					<!-- End Filter Bar -->
 				</div>
 			</div>
