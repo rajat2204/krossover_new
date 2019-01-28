@@ -984,9 +984,11 @@ a.label:hover, a.label:focus {
 }
 
 .brand-area .owl-controls {
-    padding-top: 20px;
+    margin-top: 40px;
 }
-
+.back-admin {
+    margin-bottom: 10px;
+}
 .single-img:after,.single-img:before {
     display: table;
     content: "";

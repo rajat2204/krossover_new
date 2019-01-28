@@ -2055,6 +2055,9 @@ a.navbar-brand:hover {
 .edit_details_box i.fa {
     font-size: 15px;
 }
+.white_box_wrapper thead {
+    display: none;
+}
 @media (max-width: 1440px) {
     .active-product-area .owl-nav div {
         left: 30%;
@@ -2870,14 +2873,31 @@ a.navbar-brand:hover {
 }
 
 .category-list .single-product:hover {
-    box-shadow: 10px 10px 10px rgba(153, 153, 153, 0.4);
+    /*box-shadow: 10px 10px 10px rgba(153, 153, 153, 0.4);*/
     border: none;
 }
-
+.white_box_wrapper ~ .row{
+    /*display: none;*/
+}
+.product-details .table-responsive{
+    overflow: unset;
+}
 label {
     margin-bottom: 0;
 }
-
+.white_box_wrapper td.sorting_1 img {
+    width: 220px;
+    height: 200px;
+}
+.product-details #dataTableBuilder_wrapper>div>div ~ div{
+    display: none;
+}
+/*.product-details tbody{
+    clear: both;
+}
+.product-details tr {
+    float: left;
+}*/
 .view-btn {
     border-radius: 0px;
     box-shadow: none;
