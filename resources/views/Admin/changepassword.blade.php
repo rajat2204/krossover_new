@@ -11,15 +11,15 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Change Password</h1>
-				<div class="pull-right">
-                    <a href="{!! url('admin/changepassword') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+				<div class="pull-right back-admin">
+                    <a href="{!! url('admin/changepassword') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
 			</div>
 		</div><!--/.row-->
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="changepwd" data-request="enable-enter" action="{!! action('Admin\BrandsController@changepassword') !!}" method="POST" class="form-horizontal form-label-left">
+					<form role="changepwd" data-request="enable-enter" action="{!! action('Admin\BrandsController@adminchangePass') !!}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}						
 						<div class="form-group">
 							<label>Current Password:</label>
