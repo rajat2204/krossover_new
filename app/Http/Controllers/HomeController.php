@@ -8,6 +8,7 @@ use App\Models\Offers;
 use App\Models\Social;
 use App\Models\Gallery;
 use App\Models\Clients;
+use App\Models\Enquiry;
 use App\Models\Sliders;
 use App\Models\Category;
 use App\Models\Products;
@@ -55,39 +56,6 @@ class HomeController extends Controller
         $data['title'] = 'Contact Us';
         $data['view']='front.contactus';
         return view('front_home',$data);
-    }
-
-    public function contactUsForm(Request $request){
-        $validation = new Validations($request);
-        $validator  = $validation->createContactUs();
-        if($validator->fails()){
-            $this->message = $validator->errors();
-        }else{
-            $data['name']               =!empty($request->name)?$request->name:'';
-            $data['email']              =!empty($request->email)?$request->email:'';
-            $data['subject']             =!empty($request->subject)?$request->subject:'';
-            $data['message']           =!empty($request->message)?$request->message:'';
-            
-            $inserId = ContactUs::add($data);
-            if($inserId){
-               $emailData               = ___email_settings();
-               $emailData['name']       = !empty($request->name)?$request->name:'';
-               $emailData['email']      = !empty($request->email)?$request->email:'';
-               $emailData['subject']    = !empty($request->subject)?$request->subject:'';
-               $emailData['message']    = !empty($request->message)?$request->message:'';
-               $emailData['date']       = date('Y-m-d H:i:s');
-
-               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
-               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
-
-                $this->status   = true;
-                $this->modal    = true;
-                $this->alert    = true;
-                $this->message  = "Enquiry has been submitted successfully.";
-                $this->redirect = url('/');
-            } 
-        } 
-        return $this->populateresponse();
     }
 
     public function category(Request $request,Builder $builder,$type,$slug){
@@ -183,7 +151,7 @@ class HomeController extends Controller
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         
-		return view('front_home')->with($data);
+        return view('front_home')->with($data);
     }
 
     public function ajaxProduct(Request $request,$type,$slug){
@@ -209,10 +177,9 @@ class HomeController extends Controller
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
-        // dd($data['productdata']);
         $data['category'] = _arefy(Category::where('id',$id)->first());
-    	$data['view']='front.single-product';
-		return view('front_home',$data);
+        $data['view']='front.single-product';
+        return view('front_home',$data);
     }
 
     public function search(Request $request){
@@ -220,4 +187,54 @@ class HomeController extends Controller
         $html = view('front.suggestion',$data);
         return Response($html);
     }
+
+    public function contactUsForm(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createContactUs();
+        if($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['subject']            =!empty($request->subject)?$request->subject:'';
+            $data['message']            =!empty($request->message)?$request->message:'';
+            
+            $inserId = ContactUs::add($data);
+            if($inserId){
+               $emailData               = ___email_settings();
+               $emailData['name']       = !empty($request->name)?$request->name:'';
+               $emailData['email']      = !empty($request->email)?$request->email:'';
+               $emailData['subject']    = !empty($request->subject)?$request->subject:'';
+               $emailData['message']    = !empty($request->message)?$request->message:'';
+               $emailData['date']       = date('Y-m-d H:i:s');
+
+               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
+               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
+
+                $this->status   = true;
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Enquiry has been submitted successfully.";
+                $this->redirect = url('/');
+            } 
+        } 
+        return $this->populateresponse();
+    }
+
+    public function productEnquiry(Request $request){
+        // pp($request->all());
+        $validation = new Validations($request);
+        $validator  = $validation->productenquiry();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['mobile']             =!empty($request->mobile)?$request->mobile:'';
+
+            $enquiry = Enquiry::add($data);
+        }
+        return $this->populateresponse();    
+    }
 }
+

@@ -14,6 +14,16 @@
     padding: 60px 0;
 }
 
+#cover {
+    background: url("../images/balls_loader.gif") no-repeat scroll center center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background-color: #000;
+    background-size: 300px;
+}
+
 @media (max-width: 991px) {
     .section_gap {
         padding: 80px 0;
