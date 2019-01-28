@@ -2035,7 +2035,36 @@ a.navbar-brand:hover {
     top: 7%;
     opacity: .3;
 }
-
+.popupmodal-body {
+    padding: 30px 50px;
+}
+.popupmodal-body div label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.modal-header-btm{
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #17a2b8;
+}
+.modalWrapper .modal-header{
+    border: none;
+}
+.modalWrapper .modal-header .close{
+    padding: .5rem .5rem 0;
+}
+.modalWrapper input.form-control{
+    border: 1px solid #17a2b8;
+}
+.modalWrapper .modal-content{
+    border: 1px solid #17a2b8;
+}
+.modalWrapper .modal-footer{
+    border-top: 2px solid #17a2b8;
+}
+.edit_details_box i.fa {
+    font-size: 15px;
+}
 @media (max-width: 1440px) {
     .active-product-area .owl-nav div {
         left: 30%;
