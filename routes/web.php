@@ -59,7 +59,8 @@ Route::resource('sliders', 'SliderController');
 	});
 
 /***********************Brand-Section****************************/
-Route::get('changepassword', 'BrandsController@changePassword');
+Route::get('changepassword', 'BrandsController@changepassword');
+Route::post('/changepassword','BrandsController@changePasswordAdmin');
 Route::resource('brands', 'BrandsController');
 	Route::group(['prefix' => 'brands'],function(){
 		Route::post('/status', 'BrandsController@changeStatus');

@@ -275,23 +275,23 @@ class Validate
         return $validator;		
 	}
 
-	public function changepassword(){
-		$validations = [
-        	'name' 				=> $this->validation('name'),
-			'email'  			=> $this->validation('req_email'),
-            'subject' 		    => $this->validation('name'),
-            'message' 		    => $this->validation('name'),
-    	];
+	// public function changepassword(){
+	// 	$validations = [
+ //        	'' 				=> $this->validation('name'),
+	// 		'email'  			=> $this->validation('req_email'),
+ //            'subject' 		    => $this->validation('name'),
+ //            'message' 		    => $this->validation('name'),
+ //    	];
     	
-        $validator = \Validator::make($this->data->all(), $validations,[
-    		'name.required' 		=>  'Name is required.',
-    		'email.required' 		=>  'E-mail is required.',
-    		'subject.required' 		=>  'Subject is required.',
-    		'message.unique' 		=>  'Message is required.',
+ //        $validator = \Validator::make($this->data->all(), $validations,[
+ //    		'name.required' 		=>  'Name is required.',
+ //    		'email.required' 		=>  'E-mail is required.',
+ //    		'subject.required' 		=>  'Subject is required.',
+ //    		'message.unique' 		=>  'Message is required.',
 
-    	]);
-        return $validator;
-	}
+ //    	]);
+ //        return $validator;
+	// }
 
 	public function createProduct($action='add'){
 		$validations = [
