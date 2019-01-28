@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Add Product</h1>
-            <div class="pull-right">
+            <div class="pull-right back-admin">
                 <a href="{!! url('admin/products') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
@@ -28,7 +28,7 @@
         				</div>
 
         				<div class="item form-group">
-        					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
+        					<label>Main Category:</label>
         					<select class="form-control" name="main_id" id="main_id">
                                 <option value="">Select Main Category</option>
                                 @foreach($categories as $category)
@@ -38,14 +38,14 @@
         				</div>
 
         				<div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
+                            <label>Sub Category:</label>
                             <select class="form-control select_block" name="sub_id" id="subcategory">
                                 <option value=" ">Select Sub Category</option>
                             </select>
                         </div>
 
                         <div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Brand:</label>
+                            <label>Product Brand:</label>
                             <select class="form-control select_block" name="brand_id" id="brandid">
                                 <option value=" ">Select Brand</option>
                                 @foreach($brands as $brand)
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
+                            <label>Product Color:</label>
                             @foreach($color as $colors)
                                 <label class="checkbox-inline">
                                     <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}"> {{$colors->color_name}}
@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            <label for="name">
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="checkbox">
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="item form-group" id="pSizes" style="display: none;">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Product Sizes<span class="required">*</span>
+                            <label for="name">Product Sizes<span class="required">*</span>
                                 <p class="small-label">(Write your own size Separated by Comma[,])</p>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -94,12 +94,12 @@
                         </div>
 
                         <div class="item form-group">
-                            <label>Product Description:</label>
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Description:</label>
                             <textarea name="description" id="description" class="form-control" rows="6"></textarea>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for User</label>
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for User</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" name="price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                        title="Price must be a numeric or up to 2 decimal places." type="number">
@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
+                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" name="previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                        title="Price must be a numeric or up to 2 decimal places." type="number">
