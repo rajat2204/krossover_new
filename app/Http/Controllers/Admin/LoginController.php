@@ -62,8 +62,8 @@ class LoginController extends Controller
         return view('admin.resetpassword');
     }
 
-    public function logout(Request $request) {
+    /*public function logout(Request $request) {
           \Auth::logout();
           return redirect('admin/login');
-    }  
+    }*/
 }

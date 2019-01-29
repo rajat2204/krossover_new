@@ -60,7 +60,7 @@ class ClientController extends Controller
             })
             ->editColumn('image',function($item){
                 $imageurl = asset("assets/images/clients/".$item['image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="100px" width="120px">';
             })
             ->editColumn('title',function($item){
                 if ($item['title'] == '') {

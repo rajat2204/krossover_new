@@ -42,6 +42,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                            <span>max. size 2 MB.</span>
+                            <p>(458X184 pixels)</p>
                         </div>
                     </div>
 

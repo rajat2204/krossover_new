@@ -19,7 +19,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="add-subcategory" data-request="enable-enter" action="{!! action('Admin\SubcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
+					<form role="add-subcategory" action="{!! action('Admin\SubcategoryController@store') !!}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}
 						<div class="form-group">
 								<label>Main Category</label>
@@ -38,24 +38,10 @@
 							<label>Category URL Slug:</label>
 							<input class="form-control" name="slug" placeholder="E.g. men's clothing">
 						</div>
-							<button type="button" class="btn btn-success btn-block add_subcategory" data-request="ajax-submit" data-target='[role="add-subcategory"]'>Add Sub Category</button>
+							<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-subcategory"]'>Add Sub Category</button>
 						</div>
 					</form>
 				</div>
 			</div>
 	</div>		
 </div>
-
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.add_subcategory').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection

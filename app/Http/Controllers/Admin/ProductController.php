@@ -75,7 +75,7 @@ class ProductController extends Controller
             })
              ->editColumn('feature_image',function($item){
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="100px" width="120px">';
             })
             ->rawColumns(['feature_image', 'action'])
             ->make(true);

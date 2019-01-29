@@ -37,11 +37,14 @@
                     </div>
                     <div class="item form-group">
                         <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Image:</label>
+
                         <div class="col-md-3 col-sm-6 col-xs-12">
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                            <span>max. size 2 MB.</span>
+                            <p>(512X512 pixels)</p>
                         </div>
                     </div>
 

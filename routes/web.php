@@ -28,9 +28,11 @@ Route::get('admin/forgotpassword','Admin\LoginController@forgotPassword');
 Route::get('admin/resetpassword','Admin\LoginController@resetPassword');
 Route::post('admin/login','Admin\LoginController@authentication');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin'],function(){
-	Route::get('logout','LoginController@logout');
 	Route::get('home','LoginController@home');
-
+	Route::get('logout',function(){
+		\Auth::logout();
+          return redirect('admin/login');
+	});
 /***********************Category-Section****************************/
 
 Route::resource('categories', 'CategoryController');

@@ -19,7 +19,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="edit-subcategory" data-request="enable-enter" action="{{url('admin/subcategories/'.___encrypt($subcategories['id']))}}" method="POST" class="form-horizontal form-label-left">
+					<form role="edit-subcategory" action="{{url('admin/subcategories/'.___encrypt($subcategories['id']))}}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}
 						<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
@@ -49,7 +49,7 @@
 							<label>Category URL Slug:</label>
 							<input class="form-control" name="slug" value="{{$subcategories['slug']}}" placeholder="E.g. men's clothing">
 						</div>
-							<button type="button" class="btn btn-success btn-block edit_subcategory" data-request="ajax-submit" data-target='[role="edit-subcategory"]'>Edit Sub Category</button>
+							<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-subcategory"]'>Edit Sub Category</button>
 						</div>
 					</form>
 				</div>
@@ -57,17 +57,3 @@
 		</div>
 				
 </div>
-
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_subcategory').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection

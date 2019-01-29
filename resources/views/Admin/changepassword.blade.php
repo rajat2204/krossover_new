@@ -19,7 +19,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="changepwd" data-request="enable-enter" action="{!! action('Admin\BrandsController@adminchangePass') !!}" method="POST" class="form-horizontal form-label-left">
+					<form role="changepwd" action="{!! action('Admin\BrandsController@adminchangePass') !!}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}						
 						<div class="form-group">
 							<label>Current Password:</label>
@@ -33,23 +33,10 @@
 							<label>Confirm New Password:</label>
 							<input class="form-control" type="password" name="confirm_password" placeholder="Confirm New Password">
 						</div>
-							<button type="button" class="btn btn-success btn-block change_pwd" data-request="ajax-submit" data-target='[role="changepwd"]'>Change Password</button>
+							<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="changepwd"]'>Change Password</button>
 						</div>
 					</form>
 				</div>
 			</div>
 	</div>		
 </div>
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.change_pwd').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection
