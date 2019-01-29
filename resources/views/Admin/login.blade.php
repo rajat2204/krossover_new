@@ -60,7 +60,7 @@
 								</div>
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="primary-btn">Log In</button>
+								<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="primary-btn login">Log In</button>
 								<a href="#">Forgot Password?</a>
 							</div>
 						</form>
@@ -69,6 +69,17 @@
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript">
+		setTimeout(function(){
+        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+        e.preventDefault();
+        if (e.which == 13) {
+        $('[data-request="enable-enter"]').find('.login').trigger('click');
+        return false;   
+        }
+    }); 
+},100);
+	</script>
 
 	<script src="{{asset('assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"

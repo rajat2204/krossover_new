@@ -20,12 +20,20 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="col-md-6">
-			<form role="edit-product" data-request="enable-enter" method="POST" class="form-horizontal form-label-left">
+			<form role="edit-product" data-request="enable-enter" method="POST" action="{{url('admin/products/'.___encrypt($product['id']))}}" class="form-horizontal form-label-left">
 				{{csrf_field()}}
+                <input type="hidden" value="PUT" name="_method">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="hidden" id="id" name="id" class="form-control" value="{{$product['id']}}">
+                        </div>
+                    </div>
+
 				<div class="form-group">
 					<label>Product Name:</label>
 					<input class="form-control" id="name" name="title" value="{{$product['title']}}" placeholder="E.g. Men's Clothing">
 				</div>
+
 				<div class="form-group">
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
 					<select class="form-control" name="main_id" id="main_id">
@@ -40,24 +48,18 @@
 					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
 					<select class="form-control" name="sub_id" id="subcategory">
                         <option value="">Select Main Category</option>
-                        @foreach($subcategory as $subcategories)
-                            @if($subcategories['id'] == $product['sub_id'])
-                                <option value="{{$product['sub_id']}}" selected>{{$subcategories['name']}}</option>
-                            @else
-                                <option value="{{$product['sub_id']}}">{{$subcategories['name']}}</option>
-                            @endif
-                        @endforeach
+                            <option value="{{$product['subcategory']['id']}}" @if($product['subcategory']['id'] == $product['sub_id']) selected @endif>{{$product['subcategory']['name']}}</option>
 					</select>
 				</div>
 
                 <div class="form-group">
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Brand:</label>
-                    <select class="form-control" name="brand_id" id="brandid">
-                        <option value="">Select Brand</option>
-                        @foreach($brands as $brand)
-                            <option value="{{$brand['id']}}" @if($brand['id'] == $product['brand_id']) selected @endif >{{$brand['brand_name']}}</option>
-                        @endforeach
-                    </select>
+                        <select class="form-control" name="brand_id" id="brandid">
+                            <option value="">Select Brand</option>
+                            @foreach($brands as $brand)
+                                <option value="{{$brand['id']}}" @if($brand['id'] == $product['brand_id']) selected @endif >{{$brand['brand_name']}}</option>
+                            @endforeach
+                        </select>
                 </div>
 
 				<div class="item form-group">
@@ -73,14 +75,26 @@
                 <div class="item form-group">
                     <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
                     @foreach($color as $colors)
+                        @php $flag = false; @endphp
                         @foreach($product['product_color'] as $productColors)
                             @php $id = $productColors['color_id'];@endphp
+
+                            @if($colors->id == $id)
+                                @php $flag = true; break; @endphp
+                            @else
+                                @php $flag = false; @endphp
+                        
+                            @endif
                         @endforeach
                         <label class="checkbox-inline">
-                            <input type="checkbox" id="id" name="" @php if($colors->id == $id)
-                            { 
-                                echo "checked";
-                            } @endphp value="{{$colors->id}}"> {{$colors->color_name}}
+
+                        @if($flag==true)
+                            
+                            <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}" checked="checked">{{$colors->color_name}}
+                        @else
+                            
+                        <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}">{{$colors->color_name}}
+                        @endif
                         </label>
                     @endforeach
                 </div>

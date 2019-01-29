@@ -19,7 +19,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-client" data-request="enable-enter" method="POST" action="{{url('admin/clients/'.___encrypt($client['id']))}}" class="form-horizontal form-label-left">
+				<form role="edit-client" method="POST" action="{{url('admin/clients/'.___encrypt($client['id']))}}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
@@ -46,7 +46,7 @@
 						<label>Client Title:</label>
 						<input class="form-control" id="title" name="title" value="{{$client['title']}}" placeholder="Title">
 					</div>
-						<button type="button" class="btn btn-success btn-block edit_client" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
 					</div>
 				</form>
 			</div>
@@ -56,16 +56,6 @@
 
 @section('requirejs')
 <script type="text/javascript">
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_client').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 

@@ -114,13 +114,14 @@ class SocialMediaController extends Controller
     {
         $id = ___decrypt($id);
         $validation = new Validations($request);
-        $validator  = $validation->addsocialmedia('edit');
+        $validator  = $validation->addsocialmedia();
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-            $social = Social::findOrFail($id);
+            $socialMedia = Social::findOrFail($id);
             $input = $request->all();
-            $social->update($input);
+
+            $socialMedia->update($input);
 
             $this->status   = true;
             $this->modal    = true;

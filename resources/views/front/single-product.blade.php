@@ -98,7 +98,7 @@
 				<div class="row">
 					@if(\App\Models\Products::where('status','active')->count() >0)
                   @php
-                    $popular_product = \App\Models\Products::where('featured','1')->get();
+                    $popular_product = \App\Models\Products::where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">

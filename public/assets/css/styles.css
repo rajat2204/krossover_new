@@ -10,6 +10,16 @@ p {
     color: #777;
 }
 
+#cover {
+    background: url("../assets/images/balls_loader.gif") no-repeat scroll center center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background-color: #000;
+    background-size: 300px;
+}
+
 a, a:hover, a:focus {
     color: #30a5ff;
 }

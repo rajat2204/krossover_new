@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Colors;
+use App\Models\Brands;
+use App\Models\Products;
 use App\Models\Category;
 use App\Models\Subcategories;
-use App\Models\Products;
-use App\Models\Brands;
-use App\Models\Colors;
 use App\Models\Product_Colors;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
 
@@ -52,7 +52,7 @@ class ProductController extends Controller
                         data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/categories/status/?id=%s&status=active',$item['id'])).'" 
+                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/active-user.png').'"
                         data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
@@ -133,13 +133,11 @@ class ProductController extends Controller
         }else{
             $data = new Products();
             $data->fill($request->all());
-
             if ($file = $request->file('feature_image')){
                 $photo_name = time().$request->file('feature_image')->getClientOriginalName();
                 $file->move('assets/images/products',$photo_name);
                 $data['feature_image'] = $photo_name;
             }
-
             if ($request->featured == 1){
             $data->featured = 1;
             }
@@ -147,7 +145,6 @@ class ProductController extends Controller
             if ($request->pallow == ""){
                 $data->sizes = null;
             }
-
             $data->save();
             $lastid = $data->id;
                 foreach ($request->input("color_name") as $colors){
@@ -192,9 +189,9 @@ class ProductController extends Controller
         $data['product'] = _arefy(Products::list('single',$whereProduct));
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
+        $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         $data['brands'] = _arefy(Brands::where('status', '=', 'active')->get());
         $data['color'] = Colors::where('status','=','active')->get();
-        $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
         return view('admin.home',$data);
     }
 
@@ -207,6 +204,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $id = ___decrypt($id);
         $validation = new Validations($request);
         $validator  = $validation->createProduct('edit');
         if ($validator->fails()) {
@@ -214,25 +212,29 @@ class ProductController extends Controller
         }else{
             $product = Products::findOrFail($id);
             $input = $request->all();
-
-            if ($file = $request->file('feature_image')){
+            if($file = $request->file('feature_image')){
                 $photo_name = time().$request->file('feature_image')->getClientOriginalName();
                 $file->move('assets/images/products',$photo_name);
                 $input['feature_image'] = $photo_name;
             }
-
             if ($request->pallow == ""){
                 $input['sizes'] = null;
             }
-
             if ($request->featured == 1){
                 $input['featured'] = 1;
             }else{
                 $input['featured'] = 0;
             }
-
+            $productcolor = Product_Colors::where('product_id',$id)->delete();
+            if(!empty($request->color_name)){
+                foreach ($request->color_name as $colors){
+                    $add_color = new Product_Colors;
+                    $add_color->color_id = $colors;
+                    $add_color->product_id = $id;
+                    $add_color->save();
+                }
+            }
             $product->update($input);
-            
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;
@@ -259,9 +261,9 @@ class ProductController extends Controller
 
         if($isUpdated){
             if($request->status == 'trashed'){
-                $this->message = 'Deleted Product successfully.';
+                $this->message = 'Deleted Products successfully.';
             }else{
-                $this->message = 'Updated Product successfully.';
+                $this->message = 'Updated Products successfully.';
             }
             $this->status = true;
             $this->redirect = true;
