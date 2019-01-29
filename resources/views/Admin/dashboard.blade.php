@@ -115,7 +115,7 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa fa-user color-blue"></em>
-							<div class="large">{{ \App\Models\Enquiry::count() }}</div>
+							<div class="large">0</div>
 							<div class="text-muted">Total Visitors</div>
 						</div>
 					</div>

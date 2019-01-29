@@ -177,7 +177,7 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
-	
+
   // $(function(){
  //        $('input[type=radio][name=brandFilter]').on('change',function(){
  //            var brandid = $(this).val();
@@ -193,6 +193,14 @@
  //            });
  //        });
  //    });
+
+ 	$(document).on('change','.filter_status',function(){
+	   LaravelDataTables["dataTableBuilder"].on('preXhr.dt', function ( e, settings, data ) {
+		   data.filter_status    = $("#filter_status option:selected").val();
+	   }); 
+
+	   window.LaravelDataTables.dataTableBuilder.draw();
+   	});
 
     $(function(){
         if(document.getElementById("price-range")){
