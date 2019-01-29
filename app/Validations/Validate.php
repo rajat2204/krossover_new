@@ -50,7 +50,9 @@ class Validate
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'		=> ['nullable'],
 			'url' 				=> ['required','url'],
-			'slug_no_space'		=> ['required','alpha_dash','max:255']
+			'slug_no_space'		=> ['required','alpha_dash','max:255'],
+			'password_check'	=> ['required'],
+			'newpassword'		=> ['required','max:10']	
 
 		];
 		return $validation[$key];
@@ -275,23 +277,20 @@ class Validate
         return $validator;		
 	}
 
-	// public function changepassword(){
-	// 	$validations = [
- //        	'' 				=> $this->validation('name'),
-	// 		'email'  			=> $this->validation('req_email'),
- //            'subject' 		    => $this->validation('name'),
- //            'message' 		    => $this->validation('name'),
- //    	];
-    	
- //        $validator = \Validator::make($this->data->all(), $validations,[
- //    		'name.required' 		=>  'Name is required.',
- //    		'email.required' 		=>  'E-mail is required.',
- //    		'subject.required' 		=>  'Subject is required.',
- //    		'message.unique' 		=>  'Message is required.',
+	public function changepassword(array $data){
+	  $messages = [
+	    'password.required' 	=> 'Please enter current password',
+	    'new_password.required' => 'Please enter password',
+	  ];
 
- //    	]);
- //        return $validator;
-	// }
+	  $validator = Validator::make($data, [
+	    'password' 			=> 'required',
+	    'new_password' 		=> 'required|same:password',
+	    'confirm_password' 	=> 'required|same:password',     
+	  ], $messages);
+
+	  return $validator;
+	}
 
 	public function createProduct($action='add'){
 		$validations = [

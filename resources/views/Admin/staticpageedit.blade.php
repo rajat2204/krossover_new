@@ -12,8 +12,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Edit Static Pages</h1>
-				<div class="pull-right">
-                    <a href="{!! url('admin/staticpages') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+				<div class="pull-right back-admin">
+                    <a href="{!! url('admin/staticpages') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
 			</div>
 		</div><!--/.row-->
