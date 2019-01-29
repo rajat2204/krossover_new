@@ -39,14 +39,14 @@
 					</div>
 					<div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
-						<div class="common-filter">
+						<!-- <div class="common-filter">
 							<div class="head">Brands</div>
 							<div id="brandFilter">
 								<form action="#">
 									
 								</form>
 							</div>
-						</div>
+						</div> -->
 						<div class="common-filter">
 							<div class="head">Price</div>
 							<div class="price-range-area">
@@ -94,7 +94,7 @@
 							<div class="col-lg-12 col-md-6">
 								<div class="single-product">
 									{{-- <a href=""><img class="img-fluid" src="" style="height: 320px;" alt="Product Image" /></a> --}}
-									<div class="product-details">
+									<div class="product-details" id="datatable">
 										{!!$html->table()!!}
 									</div>
 								</div>
@@ -260,6 +260,7 @@
             });
         });
     });
+
     $(function(){
         if(document.getElementById("price-range")){
         var nonLinearSlider = document.getElementById('price-range');

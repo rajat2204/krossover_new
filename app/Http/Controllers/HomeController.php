@@ -94,59 +94,61 @@ class HomeController extends Controller
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
             return DataTables::of($product)
-            ->editColumn('action',function($item){
-                $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/products/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/delete.png').'"
-                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
-                if($item['status'] == 'active'){
-                    $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
-                }elseif($item['status'] == 'inactive'){
-                    $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
-                }
-                $html   .= '</div>';
+            // ->editColumn('action',function($item){
+            //     $html    = '<div class="edit_details_box">';
+            //     $html   .= '<a href="'.url(sprintf('admin/products/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+            //     $html   .= '<a href="javascript:void(0);" 
+            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
+            //             data-request="ajax-confirm"
+            //             data-ask_image="'.url('assets/images/delete.png').'"
+            //             data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
+            //     if($item['status'] == 'active'){
+            //         $html   .= '<a href="javascript:void(0);" 
+            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
+            //             data-request="ajax-confirm"
+            //             data-ask_image="'.url('assets/images/inactive-user.png').'"
+            //             data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+            //     }elseif($item['status'] == 'inactive'){
+            //         $html   .= '<a href="javascript:void(0);" 
+            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
+            //             data-request="ajax-confirm"
+            //             data-ask_image="'.url('assets/images/active-user.png').'"
+            //             data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+            //     }
+            //     $html   .= '</div>';
                                 
-                return $html;
-            })
+            //     return $html;
+            // })
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
              ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
-             ->editColumn('main_id',function($item){
-                return ucfirst($item['category']['name']);
+            ->editColumn('price',function($item){
+                return '$'. ucfirst($item['price']);
             })
-             ->editColumn('sub_id',function($item){
-                return ucfirst($item['subcategory']['name']);
+            ->editColumn('previous_price',function($item){
+                return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
             })
              ->editColumn('feature_image',function($item){
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
                 return '<img src="'.$imageurl.'" height="60px" width="80px">';
             })
-            ->rawColumns(['feature_image', 'action'])
+            ->rawColumns(['previous_price', 'feature_image', 'action'])
             ->make(true);
         }
 
         $data['html'] = $builder
-            ->parameters([
+            ->parameters([ 
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
+                "pageLength"=> 6, "aLengthMenu"=> [[6, 24, 48, -1], [6, 24, 48, "All"]], "iDisplayLength"=> 6, 
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'previous_price','name' => 'previous_price',"render"=>'data','title' => 'Previous Price','orderable' => false, 'width' => 120])
+            // ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
             // ->addColumn(['data' => 'sub_id','name' => 'sub_id','title' => 'Sub Category','orderable' => false, 'width' => 120])
             // ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
