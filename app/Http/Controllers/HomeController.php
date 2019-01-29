@@ -89,36 +89,12 @@ class HomeController extends Controller
                 ->first();
         }
         
-        $where = 'status != "trashed"';
+        $where = 'main_id ="'.$cat_id.'"';
+        $where .= ' AND status != "trashed"';
         $data['product']=[];
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
             return DataTables::of($product)
-            // ->editColumn('action',function($item){
-            //     $html    = '<div class="edit_details_box">';
-            //     $html   .= '<a href="'.url(sprintf('admin/products/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-            //     $html   .= '<a href="javascript:void(0);" 
-            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
-            //             data-request="ajax-confirm"
-            //             data-ask_image="'.url('assets/images/delete.png').'"
-            //             data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
-            //     if($item['status'] == 'active'){
-            //         $html   .= '<a href="javascript:void(0);" 
-            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
-            //             data-request="ajax-confirm"
-            //             data-ask_image="'.url('assets/images/inactive-user.png').'"
-            //             data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
-            //     }elseif($item['status'] == 'inactive'){
-            //         $html   .= '<a href="javascript:void(0);" 
-            //             data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
-            //             data-request="ajax-confirm"
-            //             data-ask_image="'.url('assets/images/active-user.png').'"
-            //             data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
-            //     }
-            //     $html   .= '</div>';
-                                
-            //     return $html;
-            // })
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
@@ -132,8 +108,9 @@ class HomeController extends Controller
                 return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
             })
              ->editColumn('feature_image',function($item){
+                $pathUrl = url("product/".$item['id']);
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<a href="'.$pathUrl.'"><img src="'.$imageurl.'" height="60px" width="80px"></a>';
             })
             ->rawColumns(['previous_price', 'feature_image', 'action'])
             ->make(true);
@@ -148,15 +125,12 @@ class HomeController extends Controller
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'previous_price','name' => 'previous_price',"render"=>'data','title' => 'Previous Price','orderable' => false, 'width' => 120])
-            // ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
-            // ->addColumn(['data' => 'sub_id','name' => 'sub_id','title' => 'Sub Category','orderable' => false, 'width' => 120])
-            // ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         
         return view('front_home')->with($data);
     }
 
-    public function ajaxProduct(Request $request,$type,$slug){
+    /*public function ajaxProduct(Request $request,$type,$slug){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
         if(!empty($request->subcatid)){
@@ -173,7 +147,7 @@ class HomeController extends Controller
         $data['product'] = $data['products']->get();
         $html = view('front.ajaxcategoryProduct',$data);
         return Response($html);
-    }
+    }*/
 
     public function productView(Request $request,$id){
         $data['offer'] = _arefy(Offers::where('status','active')->get());
@@ -230,17 +204,28 @@ class HomeController extends Controller
             $this->message = $validator->errors();
         }else{
             $data['product_id']          =!empty($request->product_id)?$request->product_id:'';
-            $data['name']               =!empty($request->name)?$request->name:'';
-            $data['email']              =!empty($request->email)?$request->email:'';
-            $data['mobile']             =!empty($request->mobile)?$request->mobile:'';
+            $data['name']                =!empty($request->name)?$request->name:'';
+            $data['email']               =!empty($request->email)?$request->email:'';
+            $data['mobile']              =!empty($request->mobile)?$request->mobile:'';
+            $data['created_at']          = date('Y-m-d H:i:s');
+            $data['updated_at']          = date('Y-m-d H:i:s');
 
             $enquiry = Enquiry::add($data);
 
             if($enquiry){
+               $emailData               = ___email_settings();
+               $emailData['name']       = !empty($request->name)?$request->name:'';
+               $emailData['email']      = !empty($request->email)?$request->email:'';
+               $emailData['mobile']     = !empty($request->mobile)?$request->mobile:'';
+               $emailData['date']       = date('Y-m-d H:i:s');
+
+               $emailData['custom_text'] = 'Your Product Enquiry has been submitted successfully';
+               ___mail_sender($emailData['email'],$request->name,"product_enquiry_email",$emailData);
+
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
-                $this->message  = "Enquiry has been submitted successfully.";
+                $this->message  = "Product Enquiry has been submitted successfully.";
                 $this->redirect = url('/');
             }
         }

@@ -20,7 +20,7 @@ Route::post('contactussubmission','HomeController@contactUsForm');
 Route::post('enquiry','HomeController@productEnquiry');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
-Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
+// Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
 /***********************Admin-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
