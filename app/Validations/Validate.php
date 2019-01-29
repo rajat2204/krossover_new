@@ -25,8 +25,8 @@ class Validate
 			'date_of_birth' 	=> ['nullable','string'],
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
-			'mobile_number' 	=> ['nullable','numeric'],
-			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric'],
+			'mobile_number' 	=> ['required','numeric'],
+			'req_mobile_number' => ['required','required_with:phone_code','numeric'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],
@@ -50,7 +50,9 @@ class Validate
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'		=> ['nullable'],
 			'url' 				=> ['required','url'],
-			'slug_no_space'		=> ['required','alpha_dash','max:255']
+			'slug_no_space'		=> ['required','alpha_dash','max:255'],
+			'password_check'	=> ['required'],
+			'newpassword'		=> ['required','max:10']	
 
 		];
 		return $validation[$key];
@@ -143,6 +145,21 @@ class Validate
         $validator = \Validator::make($this->data->all(), $validations,[
     		'title.required' 			=>  'Title is required',
     		'description.required'		=>  'Description is required',
+    	]);
+        return $validator;		
+	}
+
+	public function productenquiry(){
+        $validations = [
+        	'name' 		=> $this->validation('name'),
+            'email' 	=> $this->validation('req_email'),
+            'mobile' 	=> $this->validation('mobile_number'),
+    	];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 			=>  'Name is required',
+    		'email.required'			=>  'E-mail is required',
+    		'mobile.required'			=>  'Mobile Number is required',
     	]);
         return $validator;		
 	}
@@ -258,6 +275,21 @@ class Validate
 
     	]);
         return $validator;		
+	}
+
+	public function changepassword(array $data){
+	  $messages = [
+	    'password.required' 	=> 'Please enter current password',
+	    'new_password.required' => 'Please enter password',
+	  ];
+
+	  $validator = Validator::make($data, [
+	    'password' 			=> 'required',
+	    'new_password' 		=> 'required|same:password',
+	    'confirm_password' 	=> 'required|same:password',     
+	  ], $messages);
+
+	  return $validator;
 	}
 
 	public function createProduct($action='add'){

@@ -12,8 +12,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Edit Inspirational Gallery</h1>
-				<div class="pull-right">
-                    <a href="{!! url('admin/gallery') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+				<div class="pull-right back-admin">
+                    <a href="{!! url('admin/gallery') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
 			</div>
 		</div><!--/.row-->
@@ -42,6 +42,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                            <span>max. size 2 MB.</span>
+                            <p>(458X184 pixels)</p>
                         </div>
                     </div>
 

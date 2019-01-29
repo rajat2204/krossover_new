@@ -65,7 +65,7 @@ class SliderController extends Controller
             })
             ->editColumn('image',function($item){
                 $imageurl = asset("assets/images/sliders/".$item['image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="100px" width="150px">';
             })
             ->rawColumns(['image', 'action'])
             ->make(true);

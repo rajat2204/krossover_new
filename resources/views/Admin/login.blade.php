@@ -61,7 +61,7 @@
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="primary-btn login">Log In</button>
-								<a href="#">Forgot Password?</a>
+								<a href="javascript:void(0);">Forgot Password?</a>
 							</div>
 						</form>
 					</div>

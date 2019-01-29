@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
+use Hash;
 use App\Models\Category;
 use App\Models\Brands;
 use Illuminate\Http\Request;
@@ -82,8 +84,7 @@ class BrandsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         $data['categories'] = Category::where('status','=','active')->get();
         $data['view'] = 'admin.brandadd';
         return view('admin.home',$data);
@@ -95,8 +96,7 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $validation = new Validations($request);
         $validator  = $validation->createBrand();
         if ($validator->fails()) {
@@ -112,7 +112,7 @@ class BrandsController extends Controller
             $this->message  = "Brand has been Added successfully.";
             $this->redirect = url('admin/brands');
         }
-         return $this->populateresponse();
+        return $this->populateresponse();
     }
 
     /**
@@ -132,8 +132,7 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
         $data['view'] = 'admin.brandedit';
         $id = ___decrypt($id);
         $data['categories'] = Category::where('status','=','active')->get();
@@ -148,8 +147,7 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $id = ___decrypt($id);
         $validation = new Validations($request);
         $validator  = $validation->createBrand('edit');
@@ -174,9 +172,7 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
     }
 
     public function changeStatus(Request $request){
@@ -194,5 +190,35 @@ class BrandsController extends Controller
             $this->jsondata = [];
         }
         return $this->populateresponse();
+    }
+
+    public function changepassword(){
+        $data['view'] = 'admin.changepassword';
+        return view('admin.home',$data);
+    }
+
+    public function adminchangePass(Request $request)
+    {
+        $request_data = $request->All();
+        $validation = new Validations($request);
+        $validator  = $validation->changepassword($request_data);
+        if ($validator->fails()) {
+            return response()->json(array('error' => $validator->getMessageBag()->toArray()), 400);
+        }else{
+            $current_password = Auth::User()->password;           
+            if(Hash::check($request_data['new_password'], $current_password))
+            {           
+                $user_id = Auth::User()->id;                       
+                $obj_user = User::find($user_id);
+                $obj_user->password = Hash::make($request_data['new_password']);;
+                $obj_user->save(); 
+                return "ok";
+            }
+            else
+            {
+                $error = array('password' => 'Please enter correct current password');
+                return response()->json(array('error' => $error), 400);
+            }
+        }
     }
 }

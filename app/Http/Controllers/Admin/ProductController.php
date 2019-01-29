@@ -64,18 +64,18 @@ class ProductController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('title',function($item){
+            ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
-             ->editColumn('main_id',function($item){
+            ->editColumn('main_id',function($item){
                 return ucfirst($item['category']['name']);
             })
-             ->editColumn('sub_id',function($item){
+            ->editColumn('sub_id',function($item){
                 return ucfirst($item['subcategory']['name']);
             })
-             ->editColumn('feature_image',function($item){
+            ->editColumn('feature_image',function($item){
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="100px" width="120px">';
             })
             ->rawColumns(['feature_image', 'action'])
             ->make(true);

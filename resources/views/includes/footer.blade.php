@@ -1,3 +1,6 @@
+@php
+  $staticpage = _arefy(App\Models\StaticPages::where('slug','aboutus')->first());
+@endphp
 <footer class="footer-area section_gap">
   <div class="container">
     <div class="row">

@@ -11,15 +11,15 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Edit Slider</h1>
-			<div class="pull-right">
-                <a href="{!! url('admin/sliders') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+			<div class="pull-right back-admin">
+                <a href="{!! url('admin/sliders') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
 		</div>
 	</div><!--/.row-->
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-slider" data-request="enable-enter" method="POST" action="{{url('admin/sliders/'.___encrypt($slider['id']))}}" class="form-horizontal form-label-left">
+				<form role="edit-slider" method="POST" action="{{url('admin/sliders/'.___encrypt($slider['id']))}}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
@@ -28,19 +28,22 @@
 							</div>
 						</div>
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Slider Image</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Current Slider Image</label>
+                        	<div>
                                 <img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Slider Image</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label>Change Slider Image</label>
+						<p>(700X450 pixels)</p>
+                        <div>
+                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+							<p>max. size 2 MB.</p>
+                        </div>
+                        <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-                        </div>
+                        
                     </div>
 					<div class="form-group">
 						<label>Slider Title:</label>
@@ -50,7 +53,7 @@
 						<label>Slider Text:</label>
 						<input class="form-control" id="text" name="text" value="{{$slider['text']}}" placeholder="E.g. men's clothing">
 					</div>
-						<button type="button" class="btn btn-success btn-block edit_slider" data-request="ajax-submit" data-target='[role="edit-slider"]'>Edit Slider</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-slider"]'>Edit Slider</button>
 					</div>
 				</form>
 			</div>
@@ -60,17 +63,7 @@
 
 @section('requirejs')
 <script type="text/javascript">
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_slider').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-
+	
     function readURL(input) {
 
             if (input.files && input.files[0]) {

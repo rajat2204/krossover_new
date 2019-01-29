@@ -8,8 +8,9 @@ use App\Models\Offers;
 use App\Models\Social;
 use App\Models\Gallery;
 use App\Models\Clients;
-use App\Models\Category;
+use App\Models\Enquiry;
 use App\Models\Sliders;
+use App\Models\Category;
 use App\Models\Products;
 use App\Models\ContactUs;
 use App\Models\StaticPages;
@@ -37,7 +38,7 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
-        $data['staticpage'] = _arefy(StaticPages::where('slug','aboutus')->first());
+        
         
     	$data['view']='front.index';
 		return view('front_home',$data);
@@ -57,41 +58,7 @@ class HomeController extends Controller
         return view('front_home',$data);
     }
 
-    public function contactUsForm(Request $request){
-        $validation = new Validations($request);
-        $validator  = $validation->createContactUs();
-        if($validator->fails()){
-            $this->message = $validator->errors();
-        }else{
-            $data['name']               =!empty($request->name)?$request->name:'';
-            $data['email']              =!empty($request->email)?$request->email:'';
-            $data['subject']             =!empty($request->subject)?$request->subject:'';
-            $data['message']           =!empty($request->message)?$request->message:'';
-            
-            $inserId = ContactUs::add($data);
-            if($inserId){
-               $emailData               = ___email_settings();
-               $emailData['name']       = !empty($request->name)?$request->name:'';
-               $emailData['email']      = !empty($request->email)?$request->email:'';
-               $emailData['subject']    = !empty($request->subject)?$request->subject:'';
-               $emailData['message']    = !empty($request->message)?$request->message:'';
-               $emailData['date']       = date('Y-m-d H:i:s');
-
-               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
-               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
-
-                $this->status   = true;
-                $this->modal    = true;
-                $this->alert    = true;
-                $this->message  = "Enquiry has been submitted successfully.";
-                $this->redirect = url('/');
-            } 
-        } 
-        return $this->populateresponse();
-    }
-
-    public function category(Request $request,Builder $builder,$type,$slug)
-    {
+    public function category(Request $request,Builder $builder,$type,$slug){
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.category';
@@ -122,73 +89,59 @@ class HomeController extends Controller
                 ->first();
         }
         
-        $where = 'status != "trashed"';
+        $where = 'main_id ="'.$cat_id.'"';
+        $where .= ' AND status != "trashed"';
         $data['product']=[];
+        if(!empty($request->sub_cat_filter)){
+            $where .= 'AND sub_id ="'.$request->sub_cat_filter.'"';
+        }
+
+        if(!empty($request->min_price)){
+            $where .= 'AND price BETWEEN "'.$request->min_price.'" AND "'.$request->max_price.'"';
+        }
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
+            //pp($request->sub_cat_filter);
             return DataTables::of($product)
-            ->editColumn('action',function($item){
-                $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/products/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=trashed',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/delete.png').'"
-                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> | ';
-                if($item['status'] == 'active'){
-                    $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=inactive',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
-                }elseif($item['status'] == 'inactive'){
-                    $html   .= '<a href="javascript:void(0);" 
-                        data-url="'.url(sprintf('admin/products/status/?id=%s&status=active',$item['id'])).'" 
-                        data-request="ajax-confirm"
-                        data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
-                }
-                $html   .= '</div>';
-                                
-                return $html;
-            })
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
              ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
-             ->editColumn('main_id',function($item){
-                return ucfirst($item['category']['name']);
+            ->editColumn('price',function($item){
+                return '$'. ucfirst($item['price']);
             })
-             ->editColumn('sub_id',function($item){
-                return ucfirst($item['subcategory']['name']);
+            ->editColumn('previous_price',function($item){
+                return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
             })
              ->editColumn('feature_image',function($item){
+                $pathUrl = url("product/".$item['id']);
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<a href="'.$pathUrl.'"><img src="'.$imageurl.'" height="60px" width="80px"></a>';
             })
-            ->rawColumns(['feature_image', 'action'])
+            ->rawColumns(['previous_price', 'feature_image', 'action'])
             ->make(true);
         }
 
         $data['html'] = $builder
-            ->parameters([
-                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6 footryyy'p>>",
+
+            ->parameters([ 
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
+                "pageLength"=> 6, "aLengthMenu"=> [[6, 24, 48, -1], [6, 24, 48, "All"]], "iDisplayLength"=> 6, 
+                "example"=>"My Custom Message On Empty Table",
+    
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'main_id','name' => 'main_id','title' => 'Main Category','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'sub_id','name' => 'sub_id','title' => 'Sub Category','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'previous_price','name' => 'previous_price',"render"=>'data','title' => 'Previous Price','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         
-		return view('front_home')->with($data);
+        return view('front_home')->with($data);
     }
 
-    public function ajaxProduct(Request $request,$type,$slug)
-    {
+    /*public function ajaxProduct(Request $request,$type,$slug){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
         if(!empty($request->subcatid)){
@@ -205,21 +158,89 @@ class HomeController extends Controller
         $data['product'] = $data['products']->get();
         $html = view('front.ajaxcategoryProduct',$data);
         return Response($html);
-    }
+    }*/
 
     public function productView(Request $request,$id){
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
         $data['category'] = _arefy(Category::where('id',$id)->first());
-    	$data['view']='front.single-product';
-		return view('front_home',$data);
+        $data['view']='front.single-product';
+        return view('front_home',$data);
     }
 
-  public function search(Request $request)
-    {
+    public function search(Request $request){
         $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
         $html = view('front.suggestion',$data);
         return Response($html);
     }
+
+    public function contactUsForm(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createContactUs();
+        if($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['subject']            =!empty($request->subject)?$request->subject:'';
+            $data['message']            =!empty($request->message)?$request->message:'';
+            
+            $inserId = ContactUs::add($data);
+            if($inserId){
+               $emailData               = ___email_settings();
+               $emailData['name']       = !empty($request->name)?$request->name:'';
+               $emailData['email']      = !empty($request->email)?$request->email:'';
+               $emailData['subject']    = !empty($request->subject)?$request->subject:'';
+               $emailData['message']    = !empty($request->message)?$request->message:'';
+               $emailData['date']       = date('Y-m-d H:i:s');
+
+               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
+               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
+
+                $this->status   = true;
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Enquiry has been submitted successfully.";
+                $this->redirect = url('/');
+            } 
+        } 
+        return $this->populateresponse();
+    }
+
+    public function productEnquiry(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->productenquiry();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $data['product_id']          =!empty($request->product_id)?$request->product_id:'';
+            $data['name']                =!empty($request->name)?$request->name:'';
+            $data['email']               =!empty($request->email)?$request->email:'';
+            $data['mobile']              =!empty($request->mobile)?$request->mobile:'';
+            $data['created_at']          = date('Y-m-d H:i:s');
+            $data['updated_at']          = date('Y-m-d H:i:s');
+
+            $enquiry = Enquiry::add($data);
+
+            if($enquiry){
+               $emailData               = ___email_settings();
+               $emailData['name']       = !empty($request->name)?$request->name:'';
+               $emailData['email']      = !empty($request->email)?$request->email:'';
+               $emailData['mobile']     = !empty($request->mobile)?$request->mobile:'';
+               $emailData['date']       = date('Y-m-d H:i:s');
+
+               $emailData['custom_text'] = 'Your Product Enquiry has been submitted successfully';
+               ___mail_sender($emailData['email'],$request->name,"product_enquiry_email",$emailData);
+
+                $this->status   = true;
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Product Enquiry has been submitted successfully.";
+                $this->redirect = url('/');
+            }
+        }
+        return $this->populateresponse();    
+    }
 }
+

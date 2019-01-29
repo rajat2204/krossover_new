@@ -49,11 +49,21 @@ class LoginController extends Controller
 
     public function home(Request $request) {
         $data['view'] = 'admin.dashboard';
-          return view('admin.home',$data);
+        return view('admin.home',$data);
     }
 
-    public function logout(Request $request) {
+    public function forgotPassword()
+    {
+        return view('admin.forgotpassword');
+    }
+
+    public function resetPassword()
+    {
+        return view('admin.resetpassword');
+    }
+
+    /*public function logout(Request $request) {
           \Auth::logout();
           return redirect('admin/login');
-    }  
+    }*/
 }

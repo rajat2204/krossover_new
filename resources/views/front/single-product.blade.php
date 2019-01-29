@@ -55,7 +55,50 @@
 						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" href="javascript:void(0)">Get QUOTES</a>
+						<!-- <a class="primary-btn" href="#">Get QUOTES</a> -->
+						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
+					</div>
+					<div class="modal modalWrapper fade" id="myModal" role="dialog">
+					    <div class="modal-dialog">
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        </div>
+					        <div class="modal-header-btm">
+					        	<h3 class="modal-title">Product Enquiry</h3>
+					        </div>
+					        <div class="modal-body popupmodal-body">
+								<form role="productenquiry" action="{{url('enquiry')}}" method="POST">
+						        	<div class="form-group">
+						        		{{csrf_field()}}
+					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="hidden" id="id" name="product_id" class="form-control" value="{{$productdata['id']}}">
+										</div>
+									</div>
+	                                  	<label for="usr">Product Name:</label>
+	                                  	<input name="product" {{-- value="{{ old('email') }}" --}} placeholder="" class="form-control" type="text" disabled value="{{$productdata['title']}}">
+	                                </div>
+						        	<div class="form-group">
+	                                  	<label for="usr">Name:</label>
+	                                  	<input name="name" placeholder="Enter Name" class="form-control" type="text">
+	                                </div>
+						        	<div class="form-group">
+	                                  	<label for="usr">Email:</label>
+	                                  	<input name="email" placeholder="Enter Email" class="form-control" type="text">
+	                                </div>
+						        	<div class="form-group">
+	                                  	<label for="usr">Mobile Number:</label>
+	                                  	<input name="mobile" placeholder="Enter Mobile Number" class="form-control" type="text">
+	                                </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
+							        </div>
+						        </form>
+					        </div>
+					      </div>
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -127,7 +170,6 @@
 		</div>
 	</div>
 </section>
-<!-- End related-product Area -->
 
 	
 

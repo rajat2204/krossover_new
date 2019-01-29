@@ -12,15 +12,15 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Edit Categories</h1>
-				<div class="pull-right">
-                    <a href="{!! url('admin/categories') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+				<div class="pull-right back-admin">
+                    <a href="{!! url('admin/categories') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
 			</div>
 		</div><!--/.row-->
 		<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-category" data-request="enable-enter" action="{{url('admin/categories/'.___encrypt($category['id']))}}" method="POST" class="form-horizontal form-label-left">
+				<form role="edit-category" action="{{url('admin/categories/'.___encrypt($category['id']))}}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
@@ -36,23 +36,10 @@
 						<label>Category URL Slug:</label>
 						<input class="form-control" name="slug" value="{{$category['slug']}}" placeholder="E.g. men's clothing">
 					</div>
-						<button type="button" class="btn btn-success btn-block edit_category" data-request="ajax-submit" data-target='[role="edit-category"]'>Edit Main Category</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-category"]'>Edit Main Category</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>		
 </div>
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_category').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection

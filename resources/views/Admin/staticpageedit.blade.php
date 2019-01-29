@@ -12,8 +12,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Edit Static Pages</h1>
-				<div class="pull-right">
-                    <a href="{!! url('admin/staticpages') !!}" class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+				<div class="pull-right back-admin">
+                    <a href="{!! url('admin/staticpages') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
 			</div>
 		</div><!--/.row-->
@@ -34,13 +34,14 @@
 					</div>
 
 					<div class="item form-group">
-	                    <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
-	                    <div class="col-md-3 col-sm-6 col-xs-12">
-	                       <img style="max-width: 250px;" src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}" id="adminimg" alt="No Featured Image Added">
-	                    </div>
-	                    <div class="col-md-3 col-sm-6 col-xs-12">
+	                    <label> Current Featured Image</label>
+	                    <div>
 	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
 	                    </div>
+	                    <div>
+	                       <img style="max-width: 250px;" src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}" id="adminimg" alt="No Featured Image Added">
+	                    </div>
+	                    
                 	</div>
 
 					<div class="item form-group">
