@@ -56,12 +56,13 @@
 
         				<div class="item form-group">
                             <label> Current Featured Image</label>
-                            {{-- <div class="col-md-3 col-sm-6 col-xs-12">
-                               <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                            </div> --}}
+                            
                             <div>
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
                                 <p>Please add only square image of size more than 80 X 80.</p>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                               <img style="max-width: 250px;margin-top: 10px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                             </div>
                         </div>
 
@@ -94,29 +95,29 @@
                         </div>
 
                         <div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Description:</label>
+                            <label>Product Description:</label>
                             <textarea name="description" id="description" class="form-control" rows="6"></textarea>
                         </div>
 
                         <div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for User</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label>Current Price for User</label>
+                            <div>
                                 <input class="form-control col-md-7 col-xs-12" name="price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                        title="Price must be a numeric or up to 2 decimal places." type="number">
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label>Previous Price for User</label>
+                            <div>
                                 <input class="form-control col-md-7 col-xs-12" name="previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                        title="Price must be a numeric or up to 2 decimal places." type="number">
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Stock</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label>Product Stock</label>
+                            <div>
                                 <input class="form-control col-md-7 col-xs-12" name="stock" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
                             </div>
                         </div>

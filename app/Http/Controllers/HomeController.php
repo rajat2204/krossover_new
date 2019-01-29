@@ -141,7 +141,7 @@ class HomeController extends Controller
 
         $data['html'] = $builder
             ->parameters([
-                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-6'i><'col-md-6'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt>",
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])

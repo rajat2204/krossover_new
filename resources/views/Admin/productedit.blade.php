@@ -35,7 +35,7 @@
 				</div>
 
 				<div class="form-group">
-					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Main Category:</label>
+					<label>Main Category:</label>
 					<select class="form-control" name="main_id" id="main_id">
                         <option value="">Select Main Category</option>
                         @foreach($categories as $categoriess)
@@ -45,7 +45,7 @@
 				</div>
 
 				<div class="form-group">
-					<label  class="control-label col-md-3 col-sm-3 col-xs-12">Sub Category:</label>
+					<label>Sub Category:</label>
 					<select class="form-control" name="sub_id" id="subcategory">
                         <option value="">Select Main Category</option>
                             <option value="{{$product['subcategory']['id']}}" @if($product['subcategory']['id'] == $product['sub_id']) selected @endif>{{$product['subcategory']['name']}}</option>
@@ -53,7 +53,7 @@
 				</div>
 
                 <div class="form-group">
-                    <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Brand:</label>
+                    <label>Product Brand:</label>
                         <select class="form-control" name="brand_id" id="brandid">
                             <option value="">Select Brand</option>
                             @foreach($brands as $brand)
@@ -63,17 +63,18 @@
                 </div>
 
 				<div class="item form-group">
-                    <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                       <img style="max-width: 250px;" src="{{url('assets/images/products')}}/{{$product['feature_image']}}" id="adminimg" alt="No Featured Image Added">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
+                    <label> Current Featured Image</label>
+                    
+                    <div>
                         <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                       <img style="max-width: 250px;margin-top: 10px;" src="{{url('assets/images/products')}}/{{$product['feature_image']}}" id="adminimg" alt="No Featured Image Added">
                     </div>
                 </div>
 
                 <div class="item form-group">
-                    <label  class="control-label col-md-3 col-sm-3 col-xs-12">Product Color:</label>
+                    <label>Product Color:</label>
                     @foreach($color as $colors)
                         @php $flag = false; @endphp
                         @foreach($product['product_color'] as $productColors)
@@ -101,9 +102,9 @@
 
                 @if($product['sizes'] != null)
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                    <label for="name">
                     </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div>
                         <div class="checkbox">
                             <label><input type="checkbox" name="pallow" id="allow" value="1"><strong>Allow Product Sizes</strong></label>
                         </div>
@@ -120,9 +121,9 @@
                 </div>
                 @else
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                    <label for="name">
                     </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div>
                         <div class="checkbox">
                             <label><input type="checkbox" name="pallow" id="allow" value="1"><strong>Allow Product Sizes</strong></label>
                         </div>
@@ -145,24 +146,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Current Price for User</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Current Price for User</label>
+                    <div>
                         <input class="form-control col-md-7 col-xs-12" name="price" value="{{$product['price']}}" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Price for User</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Previous Price for User</label>
+                    <div>
                         <input class="form-control col-md-7 col-xs-12" name="previous_price" value="{{$product['previous_price']}}" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
                                title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
 
                 <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Stock</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Product Stock</label>
+                    <div>
                         <input class="form-control col-md-7 col-xs-12" name="stock" value="{{$product['stock']}}" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
                     </div>
                 </div>

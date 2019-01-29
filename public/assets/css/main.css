@@ -2100,7 +2100,7 @@ a.navbar-brand:hover {
     }
     #dataTableBuilder_wrapper div.dataTables_paginate{
         /*position: absolute;*/
-        top: -148px;
+        /*top: -148px;*/
         right: 17px;
     }
 
@@ -2179,9 +2179,11 @@ a.navbar-brand:hover {
 }
 
 .single-product {
-    /*margin-bottom: 50px;*/
+    margin-bottom: 30px;
 }
-
+.product-details #dataTableBuilder_wrapper .nice-select {
+    margin: 0 5px;
+}
 .single-product img {
     margin-bottom: 20px;
     width: 100%;

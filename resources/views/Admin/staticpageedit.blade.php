@@ -34,13 +34,14 @@
 					</div>
 
 					<div class="item form-group">
-	                    <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Current Featured Image</label>
-	                    <div class="col-md-3 col-sm-6 col-xs-12">
-	                       <img style="max-width: 250px;" src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}" id="adminimg" alt="No Featured Image Added">
-	                    </div>
-	                    <div class="col-md-3 col-sm-6 col-xs-12">
+	                    <label> Current Featured Image</label>
+	                    <div>
 	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
 	                    </div>
+	                    <div>
+	                       <img style="max-width: 250px;" src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}" id="adminimg" alt="No Featured Image Added">
+	                    </div>
+	                    
                 	</div>
 
 					<div class="item form-group">

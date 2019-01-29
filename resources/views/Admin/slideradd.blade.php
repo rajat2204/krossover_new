@@ -22,12 +22,13 @@
 				<form role="add-slider" data-request="enable-enter" method="POST" action="{!! action('Admin\SliderController@store') !!}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12"> Slider Image</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label> Slider Image</label>
+                        
+                        <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
