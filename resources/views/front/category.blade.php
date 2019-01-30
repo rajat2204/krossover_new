@@ -182,28 +182,13 @@
 {!! $html->scripts()!!}
 <script type="text/javascript">
 
-  // $(function(){
- //        $('input[type=radio][name=brandFilter]').on('change',function(){
- //            var brandid = $(this).val();
- //            var catId = $('#catid').val();
- //            var subcatid = $('#subcatid').val();
- //            $.ajax({
- //                url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
- //                type:'GET',
- //                data: {brandid: brandid, catId: catId, subcatid:subcatid },
- //                success:function(data){
- //                    $('#products').html(data);
- //                }
- //            });
- //        });
- //    });
+ 
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
 		 	$(document).on('click','#sub_cat_filter'+index,function(){
 		 		var id    = $("#sub_cat_filter_val"+index).val();
 			   LaravelDataTables["dataTableBuilder"].on('preXhr.dt', function ( e, settings, data) {
-				   data.sub_cat_filter    = id;
-				   console.log(data.sub_cat_filter);
+				   data.sub_cat_filter  = id;
 			   });
 			   window.LaravelDataTables.dataTableBuilder.draw();
 		   	});
