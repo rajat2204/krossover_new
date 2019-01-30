@@ -52,6 +52,7 @@
 
 .section_gap_bottom {
     padding-bottom: 100px;
+    padding-top: 30px;
 }
 
 @media (max-width: 991px) {
@@ -2921,6 +2922,14 @@ label {
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+}
+.white_box_wrapper table td:nth-child(4) {
+    /* display: inline-table; */
+    display: inline-block;
+    color: #817e7e;
+}
+.white_box_wrapper table td:nth-child(3) {
+    display: inline-block;
 }
 .product-details #dataTableBuilder_wrapper>div>div ~ div{
     /*display: none;*/
