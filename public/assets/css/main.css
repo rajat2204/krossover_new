@@ -2931,6 +2931,7 @@ label {
     /* display: inline-table; */
     display: inline-block;
     color: #817e7e;
+    padding-left: 0;
 }
 .white_box_wrapper table td:nth-child(3) {
     display: inline-block;
