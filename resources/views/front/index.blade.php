@@ -9,8 +9,8 @@
             <div class="row single-slide align-items-center d-flex">
               <div class="col-lg-5 col-md-6">
                 <div class="banner-content">
-                  <a href="{{url('/')}}"><h1>{{$sliders['title']}}</h1></a>
-                  <p>{{$sliders['text']}}</p>
+                  <a href="{{url('/')}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
+                  <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
                 </div>
               </div>
               <div class="col-lg-7">
@@ -19,7 +19,7 @@
                 </div>
               </div>
             </div>
-        @endforeach
+          @endforeach
           </div>
         </div>
       </div>
@@ -45,8 +45,8 @@
             <div class="f-icon">
               <img src="{{url('assets/images/whyus')}}/{{$whyusimages['image']}}" alt="">
             </div>
-            <h6>{{$whyusimages['title']}}</h6>
-            <p>{{strip_tags($whyusimages['description'])}}</p>
+            <h6>{{!empty($whyusimages['title'])?$whyusimages['title']:''}}</h6>
+            <p>{{strip_tags(!empty($whyusimages['description'])?($whyusimages['description']):'')}}</p>
           </div>
         </div>
         @endforeach
@@ -76,7 +76,7 @@
                 <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
                 <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">{{$gallery[0]['name']}}</h6>
+                    <h6 class="deal-title">{{!empty($gallery[0]['name'])?$gallery[0]['name']:''}}</h6>
                   </div>
                 </a>
               </div>
@@ -87,7 +87,7 @@
                 <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" alt="">
                 <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">{{$gallery[1]['name']}}</h6>
+                    <h6 class="deal-title">{{!empty($gallery[1]['name'])?$gallery[1]['name']:''}}</h6>
                   </div>
                 </a>
               </div>
@@ -98,7 +98,7 @@
                 <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[2]['image']}}" alt="">
                 <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">{{$gallery[2]['name']}}</h6>
+                    <h6 class="deal-title">{{!empty($gallery[2]['name'])?$gallery[2]['name']:''}}</h6>
                   </div>
                 </a>
               </div>
@@ -109,7 +109,7 @@
                 <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" alt="">
                 <a href="javascript:void(0);" class="img-pop-up" target="_blank">
                   <div class="deal-details">
-                    <h6 class="deal-title">{{$gallery[3]['name']}}</h6>
+                    <h6 class="deal-title">{{!empty($gallery[3]['name'])?$gallery[3]['name']:''}}</h6>
                   </div>
                 </a>
               </div>
@@ -122,7 +122,7 @@
             <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
             <a href="{{url('img/category/c5.jpg')}}" class="img-pop-up" target="_blank">
               <div class="deal-details">
-                <h6 class="deal-title">{{$offer[0]['name']}}</h6>
+                <h6 class="deal-title">{{!empty($offer[0]['name'])?$offer[0]['name']:''}}</h6>
               </div>
             </a>
           </div>
@@ -156,10 +156,10 @@
               <a href="{{url('product')}}/{{$latest_products['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt=""></a>
             </div>
             <div class="product-details">
-              <h6>{{$latest_products['title']}}</h6>
+              <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
               <div class="price">
-                <h6>${{$latest_products['price']}}</h6>
-                <h6 class="l-through">${{$latest_products['previous_price']}}</h6>
+                <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
+                <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
               </div>
             </div>
           </div>
@@ -189,10 +189,10 @@
           <div class="single-product">
             <a href="{{url('product')}}/{{$latest_products1['id']}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
             <div class="product-details">
-              <h6>{{$latest_products['title']}}</h6>
+              <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
               <div class="price">
-                <h6>${{$latest_products['price']}}</h6>
-                <h6 class="l-through">${{$latest_products['previous_price']}}</h6>
+                <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
+                <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
               </div>
             </div>
           </div>
@@ -258,10 +258,10 @@
               <div class="single-related-product d-flex">
                 <a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
                 <div class="desc">
-                  <a href="{{url('product')}}/{{$popular_products['id']}}">{{$popular_products->title}}</a>
+                  <a href="{{url('product')}}/{{$popular_products['id']}}">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
                   <div class="price">
-                    <h6>${{$popular_products->price}}</h6>
-                    <h6 class="l-through">${{$popular_products->previous_price}}</h6>
+                    <h6>${{!empty($popular_products->price)?($popular_products->price):''}}</h6>
+                    <h6 class="l-through">${{!empty($popular_products->previous_price)?($popular_products->previous_price):''}}</h6>
                   </div>
                 </div>
               </div>

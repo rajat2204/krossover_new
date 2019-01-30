@@ -25,12 +25,12 @@
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{$staticpage['id']}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($staticpage['id'])?$staticpage['id']:''}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Title:</label>
-						<input class="form-control" name="title" value="{{$staticpage['title']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" name="title" value="{{!empty($staticpage['title'])?$staticpage['title']:''}}" placeholder="E.g. Men's Clothing">
 					</div>
 
 					<div class="item form-group">
@@ -46,7 +46,7 @@
 
 					<div class="item form-group">
 						<label>Description:</label>
-						<textarea name="description" id="description" class="form-control" rows="6">{{$staticpage['description']}}</textarea>
+						<textarea name="description" id="description" class="form-control" rows="6">{{!empty($staticpage['description'])?$staticpage['description']:''}}</textarea>
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-staticpage"]'>Edit Slider</button>
 					</div>

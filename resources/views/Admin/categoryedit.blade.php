@@ -25,16 +25,16 @@
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{$category['id']}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($category['id'])?$category['id']:''}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Category Display Name:</label>
-						<input class="form-control" name="name" value="{{$category['name']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" name="name" value="{{!empty($category['name'])?$category['name']:''}}" placeholder="E.g. Men's Clothing">
 					</div>
 					<div class="form-group">
 						<label>Category URL Slug:</label>
-						<input class="form-control" name="slug" value="{{$category['slug']}}" placeholder="E.g. men's clothing">
+						<input class="form-control" name="slug" value="{{!empty($category['slug'])?$category['slug']:''}}" placeholder="E.g. men's clothing">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-category"]'>Edit Main Category</button>
 					</div>

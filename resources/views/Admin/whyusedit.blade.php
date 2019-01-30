@@ -25,7 +25,7 @@
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{$whyus['id']}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($whyus['id'])?$whyus['id']:''}}">
 						</div>
 					</div>
 
@@ -55,7 +55,7 @@
 
 					<div class="item form-group">
 						<label>Description:</label>
-						<textarea name="description" id="description" class="form-control" rows="6">{{$whyus['description']}}</textarea>
+						<textarea name="description" id="description" class="form-control" rows="6">{{!empty($whyus['description'])?$whyus['description']:''}}</textarea>
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-whyus"]'>Edit Whyus</button>
 					</div>

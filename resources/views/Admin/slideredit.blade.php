@@ -24,7 +24,7 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$slider['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($slider['id'])?$slider['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
@@ -47,11 +47,11 @@
                     </div>
 					<div class="form-group">
 						<label>Slider Title:</label>
-						<input class="form-control" id="title" name="title" value="{{$slider['title']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" id="title" name="title" value="{{!empty($slider['title'])?$slider['title']:''}}" placeholder="E.g. Men's Clothing">
 					</div>
 					<div class="form-group">
 						<label>Slider Text:</label>
-						<input class="form-control" id="text" name="text" value="{{$slider['text']}}" placeholder="E.g. men's clothing">
+						<input class="form-control" id="text" name="text" value="{{!empty($slider['text'])?$slider['text']:''}}" placeholder="E.g. men's clothing">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-slider"]'>Edit Slider</button>
 					</div>

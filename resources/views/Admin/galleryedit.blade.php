@@ -25,7 +25,7 @@
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{$gallery['id']}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($gallery['id'])?$gallery['id']:''}}">
 						</div>
 					</div>
 
@@ -49,7 +49,7 @@
 
 					<div class="form-group">
 						<label>Name:</label>
-						<input class="form-control" name="name" value="{{$gallery['name']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" name="name" value="{{!empty($gallery['name'])?$gallery['name']:''}}" placeholder="Gallery Name">
 					</div>
 
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-gallery"]'>Edit Whyus</button>

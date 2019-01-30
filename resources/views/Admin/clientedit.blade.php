@@ -24,7 +24,7 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$client['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($client['id'])?$client['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
@@ -46,7 +46,7 @@
                     </div>
 					<div class="form-group">
 						<label>Client Title:</label>
-						<input class="form-control" id="title" name="title" value="{{$client['title']}}" placeholder="Title">
+						<input class="form-control" id="title" name="title" value="{{!empty($client['title'])?$client['title']:''}}" placeholder="Title">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
 					</div>
