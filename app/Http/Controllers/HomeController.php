@@ -129,7 +129,7 @@ class HomeController extends Controller
             ->parameters([ 
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
                 "pageLength"=> 6, "aLengthMenu"=> [[6, 24, 48, -1], [6, 24, 48, "All"]], "iDisplayLength"=> 6, 
-                "example"=>"My Custom Message On Empty Table",
+                "example"=>"My Custom Message On Empty Table","searching"=> false,
     
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
