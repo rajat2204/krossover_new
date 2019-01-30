@@ -65,8 +65,8 @@ class HomeController extends Controller
         $data['type'] = $type;
         $cat_id='';
         $sub_id='';
-        if($type == 'sub'){
-            $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
+        if($type == 'main'){
+           /* $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
             $sub_id = $data['cats']['id'];
             $data['subcatid'] = $sub_id;
             $data['cat']=$data['cats']['cat_id'];
@@ -76,7 +76,7 @@ class HomeController extends Controller
             $data['highPrice'] = Products::where('status','active')->where('sub_id', $sub_id)
                 ->orderBy('price','desc')
                 ->first();
-        }else{
+        }else{*/
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;

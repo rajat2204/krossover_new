@@ -186,8 +186,7 @@
 		 	$(document).on('click','#sub_cat_filter'+index,function(){
 		 		var id    = $("#sub_cat_filter_val"+index).val();
 			   LaravelDataTables["dataTableBuilder"].on('preXhr.dt', function ( e, settings, data) {
-				   data.sub_cat_filter    = id;
-				   console.log(data.sub_cat_filter);
+				   data.sub_cat_filter  = id;
 			   });
 			   window.LaravelDataTables.dataTableBuilder.draw();
 		   	});
