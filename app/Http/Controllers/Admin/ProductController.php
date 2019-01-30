@@ -148,18 +148,19 @@ class ProductController extends Controller
             $data->save();
 
             $lastid = $data->id;
+            if(!empty($request->input("color_name"))){
                 foreach ($request->input("color_name") as $colors){
                     $add_color = new Product_Colors;
                     $add_color->color_id = $colors;
                     $add_color->product_id = $lastid;
                     $add_color->save();
-
+                }
+            }
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;
             $this->message  = "Product has been Added successfully.";
             $this->redirect = url('admin/products');
-            }
         }
         return $this->populateresponse();
     }
