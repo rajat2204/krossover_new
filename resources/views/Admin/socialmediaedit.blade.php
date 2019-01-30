@@ -24,12 +24,12 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$social['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($social['id'])?$social['id']:''}}">
 							</div>
 						</div>
 					<div class="form-group">
 						<label>Social Media Url:</label>
-						<input class="form-control" id="url" name="url" value="{{$social['url']}}" placeholder="E.g. http://www.google.com">
+						<input class="form-control" id="url" name="url" value="{{!empty($social['url'])?$social['url']:''}}" placeholder="E.g. http://www.google.com">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-social"]'>Edit Social Media</button>
 					</div>

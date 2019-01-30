@@ -24,7 +24,7 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$client['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($client['id'])?$client['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
@@ -39,13 +39,20 @@
                         <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file" class="image-margin">
                         </div>
+<<<<<<< HEAD
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
+=======
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                            <span>max. size 2 MB.</span>
+                                <p>(125X125 pixels)</p>
+>>>>>>> 1850064f2e6fc3ce0dc7683e0df733da8446788c
                         </div>
                     </div>
 					<div class="form-group">
 						<label>Client Title:</label>
-						<input class="form-control" id="title" name="title" value="{{$client['title']}}" placeholder="Title">
+						<input class="form-control" id="title" name="title" value="{{!empty($client['title'])?$client['title']:''}}" placeholder="Title">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
 					</div>

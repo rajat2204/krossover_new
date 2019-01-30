@@ -45,7 +45,7 @@ class GalleryController extends Controller
             })
             ->editColumn('image',function($item){
                 $imageurl = asset("assets/images/gallery/".$item['image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="80px" width="150px">';
             })
             ->rawColumns(['image','action'])
             ->make(true);

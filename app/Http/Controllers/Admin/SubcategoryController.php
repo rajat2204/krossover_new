@@ -27,7 +27,7 @@ class SubcategoryController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.subcategorylist';
-        
+
         $category  = _arefy(Subcategories::where('status','!=','trashed')->get());
         if ($request->ajax()) {
             return DataTables::of($category)
@@ -59,7 +59,7 @@ class SubcategoryController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('name',function($item){
+            ->editColumn('name',function($item){
                 return ucfirst($item['name']);
             })
             ->rawColumns(['action'])

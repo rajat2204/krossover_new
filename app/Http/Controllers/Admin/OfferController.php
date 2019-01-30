@@ -55,7 +55,7 @@ class OfferController extends Controller
             })
             ->editColumn('image',function($item){
                 $imageurl = asset("assets/images/offers/".$item['image']);
-                return '<img src="'.$imageurl.'" height="60px" width="80px">';
+                return '<img src="'.$imageurl.'" height="100px" width="120px">';
             })
              ->editColumn('name',function($item){
                 if ($item['name'] == '') {

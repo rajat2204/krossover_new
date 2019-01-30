@@ -20,12 +20,12 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="col-md-6">
-			<form role="edit-product" data-request="enable-enter" method="POST" action="{{url('admin/products/'.___encrypt($product['id']))}}" class="form-horizontal form-label-left">
+			<form role="edit-product" method="POST" action="{{url('admin/products/'.___encrypt($product['id']))}}" class="form-horizontal form-label-left">
 				{{csrf_field()}}
                 <input type="hidden" value="PUT" name="_method">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id" class="form-control" value="{{$product['id']}}">
+                            <input type="hidden" id="id" name="id" class="form-control" value="{{!empty($product['id'])?$product['id']:''}}">
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
 					<select class="form-control" name="main_id" id="main_id">
                         <option value="">Select Main Category</option>
                         @foreach($categories as $categoriess)
-                            <option value="{{$categoriess['id']}}" @if($categoriess['id'] == $product['main_id']) selected @endif >{{$categoriess['name']}}</option>
+                            <option value="{{!empty($categoriess['id'])?$categoriess['id']:''}}" @if($categoriess['id'] == $product['main_id']) selected @endif >{{!empty($categoriess['name'])?$categoriess['name']:''}}</option>
                         @endforeach
 					</select>
 				</div>
@@ -48,7 +48,7 @@
 					<label>Sub Category:</label>
 					<select class="form-control" name="sub_id" id="subcategory">
                         <option value="">Select Main Category</option>
-                            <option value="{{$product['subcategory']['id']}}" @if($product['subcategory']['id'] == $product['sub_id']) selected @endif>{{$product['subcategory']['name']}}</option>
+                            <option value="{{!empty($product['subcategory']['id'])?$product['subcategory']['id']:''}}" @if($product['subcategory']['id'] == $product['sub_id']) selected @endif>{{!empty($product['subcategory']['name'])?$product['subcategory']['name']:''}}</option>
 					</select>
 				</div>
 
@@ -57,16 +57,18 @@
                         <select class="form-control" name="brand_id" id="brandid">
                             <option value="">Select Brand</option>
                             @foreach($brands as $brand)
-                                <option value="{{$brand['id']}}" @if($brand['id'] == $product['brand_id']) selected @endif >{{$brand['brand_name']}}</option>
+                                <option value="{{!empty($brand['id'])?$brand['id']:''}}" @if($brand['id'] == $product['brand_id']) selected @endif >{{!empty($brand['brand_name'])?$brand['brand_name']:''}}</option>
                             @endforeach
                         </select>
                 </div>
 
 				<div class="item form-group">
-                    <label> Current Featured Image</label>
+                    <label> Current Featured Image:</label>
                     
                     <div>
                         <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+                        <span>max. size 2 MB.</span>
+                                <p>(225X225 pixels)</p>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                        <img style="max-width: 250px;margin-top: 10px;" src="{{url('assets/images/products')}}/{{$product['feature_image']}}" id="adminimg" alt="No Featured Image Added">
@@ -91,10 +93,10 @@
 
                         @if($flag==true)
                             
-                            <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}" checked="checked">{{$colors->color_name}}
+                            <input type="checkbox" id="id" name="color_name[]" value="{{!empty($colors->id)?$colors->id:''}}" checked="checked">{{!empty($colors->color_name)?$colors->color_name:''}}
                         @else
                             
-                        <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}">{{$colors->color_name}}
+                        <input type="checkbox" id="id" name="color_name[]" value="{{!empty($colors->id)?$colors->id:''}}">{{!empty($colors->color_name)?$colors->color_name:''}}
                         @endif
                         </label>
                     @endforeach
@@ -116,7 +118,7 @@
                         <p class="small-label">(Write your own size Separated by Comma[,])</p>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input class="form-control col-md-7 col-xs-12" name="sizes" value="{{$product['sizes']}}" data-role="tagsinput"/>
+                        <input class="form-control col-md-7 col-xs-12" name="sizes" value="{{!empty($product['sizes'])?$product['sizes']:''}}" data-role="tagsinput"/>
                     </div>
                 </div>
                 @else
@@ -142,35 +144,33 @@
 
                 <div class="form-group">
                     <label>Product Description</label>
-                    <textarea name="description" id="description" class="form-control" rows="6" required>{{$product['description']}}</textarea>
+                    <textarea name="description" id="description" class="form-control" rows="6" required>{{!empty($product['description'])?$product['description']:''}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Current Price for User</label>
                     <div>
-                        <input class="form-control col-md-7 col-xs-12" name="price" value="{{$product['price']}}" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                               title="Price must be a numeric or up to 2 decimal places." type="number">
+                        <input class="form-control col-md-7 col-xs-12" name="price" value="{{!empty($product['price'])?$product['price']:''}}" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Previous Price for User</label>
                     <div>
-                        <input class="form-control col-md-7 col-xs-12" name="previous_price" value="{{$product['previous_price']}}" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                               title="Price must be a numeric or up to 2 decimal places." type="number">
+                        <input class="form-control col-md-7 col-xs-12" name="previous_price" value="{{!empty($product['previous_price'])?$product['previous_price']:''}}" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." type="number">
                     </div>
                 </div>
 
                 <div class="item form-group">
                     <label>Product Stock</label>
                     <div>
-                        <input class="form-control col-md-7 col-xs-12" name="stock" value="{{$product['stock']}}" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
+                        <input class="form-control col-md-7 col-xs-12" name="stock" value="{{!empty($product['stock'])?$product['stock']:''}}" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
                     </div>
                 </div>
 
                 <div class="item form-group">
                     <label>Product Buy/Return Policy</label>
-                        <textarea name="policy" id="policy" class="form-control" rows="6">{{$product['policy']}}</textarea>
+                        <textarea name="policy" id="policy" class="form-control" rows="6">{{!empty($product['policy'])?$product['policy']:''}}</textarea>
                 </div>
 
                 <div class="item form-group">
@@ -190,7 +190,7 @@
                         @endif
                     </div>
                 </div>
-					<button type="button" class="btn btn-success btn-block edit_product" data-request="ajax-submit" data-target='[role="edit-product"]'>Edit Product</button>
+					<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-product"]'>Edit Product</button>
 				</div>
 			</form>
 		</div>
@@ -203,16 +203,6 @@
 <script type="text/javascript">
     CKEDITOR.replace( 'description');
     CKEDITOR.replace( 'policy');
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_product').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 

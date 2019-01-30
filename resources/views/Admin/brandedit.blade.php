@@ -19,12 +19,12 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="edit-brand" data-request="enable-enter" action="{{url('admin/brands/'.___encrypt($brand['id']))}}" method="POST" class="form-horizontal form-label-left">
+					<form role="edit-brand" action="{{url('admin/brands/'.___encrypt($brand['id']))}}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}
 						<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$brand['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($brand['id'])?$brand['id']:''}}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -32,39 +32,25 @@
 								<select class="form-control" name="category_id">
 									@foreach($categories as $cat)
 				                        @if($cat->id == $brand['category_id'])
-				                            <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
+				                            <option value="{{!empty($cat->id)?$cat->id:''}}" selected>{{!empty($cat->name)?$cat->name:''}}</option>
 				                        @else
-				                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+				                            <option value="{{!empty($cat->id)?$cat->id:''}}">{{!empty($cat->name)?$cat->name:''}}</option>
 				                        @endif
 				                    @endforeach
 								</select>
 							</div>
 						<div class="form-group">
 							<label>Brand Name:</label>
-							<input class="form-control" name="brand_name" value="{{$brand['brand_name']}}" placeholder="E.g. Men's Clothing">
+							<input class="form-control" name="brand_name" value="{{!empty($brand['brand_name'])?$brand['brand_name']:''}}" placeholder="E.g. Men's Clothing">
 						</div>
 						<div class="form-group">
 							<label>Brand URL Slug:</label>
-							<input class="form-control" name="slug" value="{{$brand['slug']}}" placeholder="E.g. men's clothing">
+							<input class="form-control" name="slug" value="{{!empty($brand['slug'])?$brand['slug']:''}}" placeholder="E.g. men's clothing">
 						</div>
-							<button type="button" class="btn btn-success btn-block edit_brand" data-request="ajax-submit" data-target='[role="edit-brand"]'>Edit Brand</button>
+							<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-brand"]'>Edit Brand</button>
 						</div>
 					</form>
 				</div>
 			</div>
 	</div>		
 </div>
-
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_brand').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection

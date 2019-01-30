@@ -44,7 +44,7 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Reset Password</h3>
-						<form role="resetpassword" class="row login_form" action="{{url('admin/login')}}" data-request="enable-enter" method="post">
+						<form role="resetpassword" class="row login_form" action="{{url('admin/login')}}" method="post">
 							{{ csrf_field() }}
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'New Password'">
@@ -53,7 +53,7 @@
 								<input type="text" class="form-control" id="name" name="password" placeholder="Confirm New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm New Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="button" data-request="ajax-submit" data-target='[role="resetpassword"]' class="primary-btn reset_password">Reset my password</button>
+								<button type="button" data-request="ajax-submit" data-target='[role="resetpassword"]' class="primary-btn">Reset my password</button>
 							</div>
 						</form>
 					</div>
@@ -61,17 +61,6 @@
 			</div>
 		</div>
 	</section>
-	<script type="text/javascript">
-		setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.reset_password').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-	</script>
 
 	<script src="{{asset('assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"

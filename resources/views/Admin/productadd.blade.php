@@ -20,7 +20,7 @@
     <div class="panel panel-default">
     	<div class="panel-body">
     		<div class="col-md-6">
-    			<form role="add-product" data-request="enable-enter" method="POST" action="{!! action('Admin\ProductController@store') !!}" class="form-horizontal form-label-left">
+    			<form role="add-product" method="POST" action="{!! action('Admin\ProductController@store') !!}" class="form-horizontal form-label-left">
     				{{csrf_field()}}
         				<div class="item form-group">
         					<label>Product Name:</label>
@@ -32,7 +32,7 @@
         					<select class="form-control" name="main_id" id="main_id">
                                 <option value="">Select Main Category</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{!empty($category->id)?$category->id:''}}">{{!empty($category->name)?$category->name:''}}</option>
                                 @endforeach
         					</select>
         				</div>
@@ -49,7 +49,7 @@
                             <select class="form-control select_block" name="brand_id" id="brandid">
                                 <option value=" ">Select Brand</option>
                                 @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                                    <option value="{{!empty($brand->id)?$brand->id:''}}">{{!empty($brand->brand_name)?$brand->brand_name:''}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -59,7 +59,8 @@
                             
                             <div>
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
-                                <p>Please add only square image of size more than 80 X 80.</p>
+                                <span>max. size 2 MB.</span>
+                                <p>(225X225 pixels)</p>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                <img style="max-width: 250px;margin-top: 10px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
@@ -70,7 +71,7 @@
                             <label>Product Color:</label>
                             @foreach($color as $colors)
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="id" name="color_name[]" value="{{$colors->id}}"> {{$colors->color_name}}
+                                    <input type="checkbox" id="id" name="color_name[]" value="{{!empty($colors->id)?$colors->id:''}}"> {{!empty($colors->color_name)?$colors->color_name:''}}
                                 </label>
                             @endforeach  
                         </div>
@@ -137,7 +138,7 @@
                             </div>
                         </div>
 
-    					<button type="button" class="btn btn-success btn-block add_product" data-request="ajax-submit" data-target='[role="add-product"]'>Add Product</button>
+    					<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-product"]'>Add Product</button>
     				</div>
     			</form>
     		</div>
@@ -150,16 +151,6 @@
     
     CKEDITOR.replace( 'description');
     CKEDITOR.replace( 'policy');
-
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.add_product').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
 
     function readURL(input) {
 

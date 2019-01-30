@@ -18,34 +18,42 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-sitemap color-blue"></em>
-							<div class="large">{{ \App\Models\Category::count() }}</div>
-							<div class="text-muted">Categories</div>
-						</div>
+						<a href="{{url('admin/categories')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-sitemap color-blue"></em>
+								<div class="large">{{ \App\Models\Category::count() }}</div>
+								<div class="text-muted">Categories</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-list-alt color-orange"></em>
-							<div class="large">{{ \App\Models\Subcategories::count() }}</div>
-							<div class="text-muted">Sub-Categories</div>
-						</div>
+						<a href="{{url('admin/subcategories')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-list-alt color-orange"></em>
+								<div class="large">{{ \App\Models\Subcategories::count() }}</div>
+								<div class="text-muted">Sub-Categories</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-teal"></em>
-							<div class="large">{{ \App\Models\Products::count() }}</div>
-							<div class="text-muted">Products</div>
-						</div>
+						<a href="{{url('admin/products')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-teal"></em>
+								<div class="large">{{ \App\Models\Products::count() }}</div>
+								<div class="text-muted">Products</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget ">
-						<div class="row no-padding"><em class="fa fa-xl fa-bitbucket color-red"></em>
-							<div class="large">{{ \App\Models\Brands::count() }}</div>
-							<div class="text-muted">Brands</div>
-						</div>
+						<a href="{{url('admin/brands')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-bitbucket color-red"></em>
+								<div class="large">{{ \App\Models\Brands::count() }}</div>
+								<div class="text-muted">Brands</a></div>
+							</div>
+						<a href="{{url('admin/brands')}}">
 					</div>
 				</div>
 			</div><!--/.row-->
@@ -54,34 +62,42 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-sitemap color-blue"></em>
-							<div class="large">{{ \App\Models\Colors::count() }}</div>
-							<div class="text-muted">Colors</div>
-						</div>
+						<a href="{{url('admin/colors')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-sitemap color-blue"></em>
+								<div class="large">{{ \App\Models\Colors::count() }}</div>
+								<div class="text-muted">Colors</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
-							<div class="large">{{ \App\Models\Clients::count() }}</div>
-							<div class="text-muted">Our Clients</div>
-						</div>
+						<a href="{{url('admin/clients')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
+								<div class="large">{{ \App\Models\Clients::count() }}</div>
+								<div class="text-muted">Our Clients</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-file-image-o color-teal"></em>
-							<div class="large">{{ \App\Models\Gallery::count() }}</div>
-							<div class="text-muted">Gallery</div>
-						</div>
+						<a href="{{url('admin/gallery')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-file-image-o color-teal"></em>
+								<div class="large">{{ \App\Models\Gallery::count() }}</div>
+								<div class="text-muted">Gallery</div>
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget ">
-						<div class="row no-padding"><em class="fa fa-xl fa-gift color-red"></em>
-							<div class="large">{{ \App\Models\Offers::count() }}</div>
-							<div class="text-muted">Offers</div>
-						</div>
+						<a href="{{url('admin/offers')}}">
+							<div class="row no-padding"><em class="fa fa-xl fa-gift color-red"></em>
+								<div class="large">{{ \App\Models\Offers::count() }}</div>
+								<div class="text-muted">Offers</div>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div><!--/.row-->
@@ -93,6 +109,14 @@
 						<div class="row no-padding"><em class="fa fa-xl fa-envelope color-blue"></em>
 							<div class="large">{{ \App\Models\Enquiry::count() }}</div>
 							<div class="text-muted">Enquiry</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-teal panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa fa-user color-blue"></em>
+							<div class="large">0</div>
+							<div class="text-muted">Total Visitors</div>
 						</div>
 					</div>
 				</div>

@@ -1,18 +1,18 @@
-	<!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
-		<div class="container">
-			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-				<div class="col-first">
-					<h1>{{$productdata['title']}}</h1>
-					<nav class="d-flex align-items-center">
-						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">{{$productdata['title']}}</a>
-					</nav>
-				</div>
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>{{!empty($productdata['title'])?($productdata['title']):''}}</h1>
+				<nav class="d-flex align-items-center">
+					<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a href="javascript:void(0);">{{!empty($productdata['title'])?($productdata['title']):''}}</a>
+				</nav>
 			</div>
 		</div>
-	</section>
-	<!-- End Banner Area -->
+	</div>
+</section>
+<!-- End Banner Area -->
 
 <!--================Single Product Area =================-->
 <div class="product_image_area">
@@ -36,7 +36,7 @@
 					<h3>{{$productdata['title']}}</h3>
 					<h2>${{$productdata['price']}}</h2>
 					<ul class="list">
-						<li><a class="active" href="#"><span>Category:</span>{{$productdata['category']['name']}}</a></li>
+						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
 							{{$productdata['stock']}}
@@ -45,7 +45,7 @@
 						@endif
 					</a></li>
 					</ul>
-					<p>{{strip_tags($productdata['description'])}}</p>
+					<p>{{strip_tags(!empty($productdata['description'])?$productdata['description']:'')}}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
@@ -74,11 +74,11 @@
 					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="id" name="product_id" class="form-control" value="{{$productdata['id']}}">
+											<input type="hidden" id="id" name="product_id" class="form-control" value="{{!empty($productdata['id'])?$productdata['id']:''}}">
 										</div>
 									</div>
 	                                  	<label for="usr">Product Name:</label>
-	                                  	<input name="product" {{-- value="{{ old('email') }}" --}} placeholder="" class="form-control" type="text" disabled value="{{$productdata['title']}}">
+	                                  	<input name="product" {{-- value="{{ old('email') }}" --}} placeholder="" class="form-control" type="text" disabled value="{{!empty($productdata['title'])?$productdata['title']:''}}">
 	                                </div>
 						        	<div class="form-group">
 	                                  	<label for="usr">Name:</label>
@@ -108,7 +108,7 @@
 <!--================End Single Product Area =================-->
 
 <!--================Product Description Area =================-->
-<section class="product_description_area">
+<!-- <section class="product_description_area">
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
@@ -121,7 +121,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--================End Product Description Area =================-->
 
 <!-- Start related-product Area -->
@@ -146,12 +146,12 @@
                     @foreach($popular_product as $popular_products)
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+							<a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
 							<div class="desc">
-								<a href="#" class="title">{{$popular_products->title}}</a>
+								<a href="{{url('product')}}/{{$popular_products['id']}}" class="title">{{!empty($popular_products->title)?$popular_products->title:''}}</a>
 								<div class="price">
-									<h6>${{$popular_products->price}}</h6>
-									<h6 class="l-through">${{$popular_products->previous_price}}</h6>
+									<h6>${{!empty($popular_products->price)?$popular_products->price:''}}</h6>
+									<h6 class="l-through">${{!empty($popular_products->previous_price)?$popular_products->previous_price:''}}</h6>
 								</div>
 							</div>
 						</div>

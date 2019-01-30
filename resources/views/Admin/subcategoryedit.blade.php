@@ -19,12 +19,12 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="edit-subcategory" data-request="enable-enter" action="{{url('admin/subcategories/'.___encrypt($subcategories['id']))}}" method="POST" class="form-horizontal form-label-left">
+					<form role="edit-subcategory" action="{{url('admin/subcategories/'.___encrypt($subcategories['id']))}}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}
 						<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$subcategories['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($subcategories['id'])?$subcategories['id']:''}}">
 							</div>
 						</div>
 
@@ -34,22 +34,22 @@
 								<select class="form-control" name="cat_id">
 					                    @foreach($categories as $cat)
 					                        @if($cat->id == $subcategories['cat_id'])
-					                            <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
+					                            <option value="{{!empty($cat->id)?$cat->id:''}}" selected>{{!empty($cat->name)?$cat->name:''}}</option>
 					                        @else
-					                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+					                            <option value="{{!empty($cat->id)?$cat->id:''}}">{{!empty($cat->name)?$cat->name:''}}</option>
 					                        @endif
 					                    @endforeach
 								</select>
 							</div>
 						<div class="form-group">
 							<label>Category Display Name:</label>
-							<input class="form-control" name="name" value="{{$subcategories['name']}}" placeholder="E.g. Men's Clothing">
+							<input class="form-control" name="name" value="{{!empty($subcategories['name'])?$subcategories['name']:''}}" placeholder="E.g. Men's Clothing">
 						</div>
 						<div class="form-group">
 							<label>Category URL Slug:</label>
-							<input class="form-control" name="slug" value="{{$subcategories['slug']}}" placeholder="E.g. men's clothing">
+							<input class="form-control" name="slug" value="{{!empty($subcategories['slug'])?$subcategories['slug']:''}}" placeholder="E.g. men's clothing">
 						</div>
-							<button type="button" class="btn btn-success btn-block edit_subcategory" data-request="ajax-submit" data-target='[role="edit-subcategory"]'>Edit Sub Category</button>
+							<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-subcategory"]'>Edit Sub Category</button>
 						</div>
 					</form>
 				</div>
@@ -57,17 +57,3 @@
 		</div>
 				
 </div>
-
-@section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.edit_subcategory').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
-@endsection
