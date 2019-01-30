@@ -22,14 +22,15 @@
 				<form role="add-client" method="POST" action="{!! action('Admin\ClientController@store') !!}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Client Image:</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label>Client Image:</label>
+                        
+                        <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
                                 <p>(125X125 pixels)</p>
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">

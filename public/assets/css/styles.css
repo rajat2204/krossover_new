@@ -65,7 +65,9 @@ h3, h4 {
 .color-orange {
     color: #ffb53e;
 }
-
+.image-margin{
+    margin-bottom: 10px;
+}
 .color-red {
     color: #f9243f;
 }

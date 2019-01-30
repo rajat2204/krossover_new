@@ -30,21 +30,30 @@
 					</div>
 
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Image:</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Current Image:</label>
+                        	<div>
                                 <img src="{!! url('/') !!}/assets/images/whyus/{{$whyus['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
+<<<<<<< HEAD
+                        <label>Change Image:</label>
+                        
+                        <div class="image-margin">
+=======
                         <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Image:</label>
 
                         <div class="col-md-3 col-sm-6 col-xs-12">
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
+>>>>>>> 1850064f2e6fc3ce0dc7683e0df733da8446788c
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
                             <p>(512X512 pixels)</p>
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 
