@@ -146,6 +146,7 @@ class ProductController extends Controller
                 $data->sizes = null;
             }
             $data->save();
+
             $lastid = $data->id;
                 foreach ($request->input("color_name") as $colors){
                     $add_color = new Product_Colors;
@@ -161,7 +162,7 @@ class ProductController extends Controller
             }
         }
         return $this->populateresponse();
-        }
+    }
 
     /**
      * Display the specified resource.
