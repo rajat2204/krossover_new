@@ -28,18 +28,19 @@
 							</div>
 						</div>
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Offer Image:</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Current Offer Image:</label>
+                        	<div>
                                 <img src="{!! url('/') !!}/assets/images/offers/{{$offer['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Offer Image</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label>Change Offer Image</label>
+                        
+                        <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
