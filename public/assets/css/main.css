@@ -64,7 +64,11 @@
 .gray-bg {
     background: #f9f9ff;
 }
-
+.static_img {
+    padding-top: 25px;
+    max-width: 360px;
+    height: 100%;
+}
 /* Section title css
 ============================================================================================ */
 .section-title {
