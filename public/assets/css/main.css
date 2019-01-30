@@ -670,9 +670,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     line-height: 1.82em !important;
 }
-ul#suggestion {
-    text-align: left;
-}
+
 ul#suggestion a {
     color: #fff;
 }
@@ -2079,7 +2077,7 @@ a.navbar-brand:hover {
 }
 #dataTableBuilder_wrapper div.dataTables_paginate{
     position: absolute;
-    top: -112px;
+    top: -82px;
     right: 17px;
 }
 @media (max-width: 1440px) {
