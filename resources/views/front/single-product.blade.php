@@ -108,7 +108,7 @@
 <!--================End Single Product Area =================-->
 
 <!--================Product Description Area =================-->
-<section class="product_description_area">
+<!-- <section class="product_description_area">
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
@@ -121,7 +121,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--================End Product Description Area =================-->
 
 <!-- Start related-product Area -->
@@ -146,9 +146,9 @@
                     @foreach($popular_product as $popular_products)
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+							<a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
 							<div class="desc">
-								<a href="#" class="title">{{$popular_products->title}}</a>
+								<a href="{{url('product')}}/{{$popular_products['id']}}" class="title">{{$popular_products->title}}</a>
 								<div class="price">
 									<h6>${{$popular_products->price}}</h6>
 									<h6 class="l-through">${{$popular_products->previous_price}}</h6>

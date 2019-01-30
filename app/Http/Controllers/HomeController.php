@@ -202,7 +202,7 @@ class HomeController extends Controller
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Enquiry has been submitted successfully.";
-                $this->redirect = url('/');
+                $this->redirect = url('/contactus');
             } 
         } 
         return $this->populateresponse();

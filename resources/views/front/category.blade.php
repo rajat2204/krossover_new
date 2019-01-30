@@ -152,9 +152,9 @@
                     @foreach($popular_product as $popular_products)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+								<a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
 								<div class="desc">
-									<a href="#" class="title">{{$popular_products->title}}</a>
+									<a href="{{url('product')}}/{{$popular_products['id']}}" class="title">{{$popular_products->title}}</a>
 									<div class="price">
 										<h6>${{$popular_products->price}}</h6>
 										<h6 class="l-through">${{$popular_products->previous_price}}</h6>
@@ -181,22 +181,6 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
-
-  // $(function(){
- //        $('input[type=radio][name=brandFilter]').on('change',function(){
- //            var brandid = $(this).val();
- //            var catId = $('#catid').val();
- //            var subcatid = $('#subcatid').val();
- //            $.ajax({
- //                url:"{{url('/ajaxcategory')}}/{{$type}}/{{$subcat->slug}}",
- //                type:'GET',
- //                data: {brandid: brandid, catId: catId, subcatid:subcatid },
- //                success:function(data){
- //                    $('#products').html(data);
- //                }
- //            });
- //        });
- //    });
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
 		 	$(document).on('click','#sub_cat_filter'+index,function(){
