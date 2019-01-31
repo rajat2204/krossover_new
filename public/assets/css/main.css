@@ -623,7 +623,9 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover !important;
     height: 200px;
 }
-
+.contact-map{
+    padding-bottom: 60px;
+}
 .list-style {
     width: 14px;
     height: 14px;
@@ -8504,7 +8506,9 @@ header ul.navbar-right {
         margin: 0;
         padding: 20px 5px;
     }
-
+    .contact-map {
+        padding-bottom: 20px;
+    }
     .primary-btn {
         padding: 0 20px;
         line-height: 40px;
