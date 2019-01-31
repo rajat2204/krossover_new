@@ -56,7 +56,7 @@
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<!-- <a class="primary-btn" href="#">Get QUOTES</a> -->
-						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
+						<button type="button" id="getquotes" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
 					</div>
 					<div class="modal modalWrapper fade" id="myModal" role="dialog">
 					    <div class="modal-dialog">
@@ -79,7 +79,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
+											<input style="display:none;" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -99,7 +99,7 @@
 	                                  	<input name="mobile" placeholder="Enter Mobile Number" class="form-control" type="text">
 	                                </div>
 							        <div class="modal-footer">
-							          <button type="button" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
+							          <button type="button" id="product_enq" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
 							        </div>
 						        </form>
 					        </div>
@@ -112,23 +112,6 @@
 	</div>
 </div>
 <!--================End Single Product Area =================-->
-
-<!--================Product Description Area =================-->
-<!-- <section class="product_description_area">
-	<div class="container">
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
-			</li>
-		</ul>
-		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-				<p>{{strip_tags($productdata['description'])}}</p>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!--================End Product Description Area =================-->
 
 <!-- Start related-product Area -->
 <section class="related-product-area section_gap_bottom">
@@ -179,9 +162,11 @@
 
 @section('requirejs')
 <script type="text/javascript" language="javascript">
-	$(document).ready(function () { 
-	    $('input[name="quantity"]').val('Work!');
-	});
+    $(document).ready(function(){
+    	$('#getquotes').bind("click", function(){
+    		
+    	});
+    });
 </script>
 @endsection
 
