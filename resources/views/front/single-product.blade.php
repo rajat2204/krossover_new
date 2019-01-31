@@ -55,8 +55,7 @@
 						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<!-- <a class="primary-btn" href="#">Get QUOTES</a> -->
-						<button type="button" id="getquotes" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
+						<button type="button" id="getquotes" class="primary-btn" data-toggle="modal" data-target="#myModal">Get Quotes</button>
 					</div>
 					<div class="modal modalWrapper fade" id="myModal" role="dialog">
 					    <div class="modal-dialog">
@@ -79,7 +78,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
+											<input type="hidden" class="form-control" id="quantity" name="quantity" value="">
 										</div>
 									</div>
 									<div class="form-group">
@@ -135,7 +134,7 @@
                     @foreach($popular_product as $popular_products)
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+							<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 							<div class="desc">
 								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?$popular_products->title:''}}</a>
 								<div class="price">
@@ -162,8 +161,8 @@
 
 @section('requirejs')
 <script type="text/javascript" language="javascript">
-	$('#getquotes').click(function() {
-    	$('#quantity').val($(this).val());
+	$('#getquotes').click(function(){
+    	$('#sst').val($(this).val());
 });
 </script>
 @endsection	
