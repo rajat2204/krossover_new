@@ -92,8 +92,11 @@ class HomeController extends Controller
         $where = 'main_id ="'.$cat_id.'"';
         $where .= ' AND status != "trashed"';
         $data['product']=[];
+
         if(!empty($request->sub_cat_filter)){
-            $where .= 'AND sub_id ="'.$request->sub_cat_filter.'"';
+            if($request->sub_cat_filter!="all"){
+                $where .= 'AND sub_id ="'.$request->sub_cat_filter.'"';
+            }
         }
 
         if(!empty($request->min_price)){
@@ -116,7 +119,7 @@ class HomeController extends Controller
                 return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
             })
              ->editColumn('feature_image',function($item){
-                $pathUrl = url("product/".$item['id']);
+                $pathUrl = url("product/".___encrypt($item['id']));
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
                 return '<a href="'.$pathUrl.'"><img src="'.$imageurl.'" height="60px" width="80px"></a>';
             })
@@ -161,6 +164,7 @@ class HomeController extends Controller
     }*/
 
     public function productView(Request $request,$id){
+        $id = ___decrypt($id);
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
@@ -209,6 +213,7 @@ class HomeController extends Controller
     }
 
     public function productEnquiry(Request $request){
+        dd($request->all());
         $validation = new Validations($request);
         $validator  = $validation->productenquiry();
         if ($validator->fails()) {
@@ -218,6 +223,7 @@ class HomeController extends Controller
             $data['name']                =!empty($request->name)?$request->name:'';
             $data['email']               =!empty($request->email)?$request->email:'';
             $data['mobile']              =!empty($request->mobile)?$request->mobile:'';
+            $data['quantity']            =!empty($request->quantity)?$request->quantity:'';
             $data['created_at']          = date('Y-m-d H:i:s');
             $data['updated_at']          = date('Y-m-d H:i:s');
 

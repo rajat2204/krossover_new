@@ -21,6 +21,7 @@
 					<div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
+							<li class="main-nav-list sub_cat_filter" id="sub_cat_filter0"><a href="javascript:void(0);" class="nav-link">All</a></li>
 			            	<input type="hidden" id="catid" name="cat_id" value="{{!empty($cats['cat_id'])?$cats['cat_id']:''}}">
 			            	<input type="hidden" id="subcatid" name="cat_id" value="{{!empty($subcatid)?$subcatid:''}}">
 							@php
@@ -31,9 +32,9 @@
 									$i++;
 									/*{{url('/category/sub')}}/{{$subcat->slug}}*/
 								@endphp
-									<li class="main-nav-list sub_cat_filter" id="sub_cat_filter{{$i-1}}"><a href="javascript:void(0)" class="nav-link">{{!empty($subcat->name)?($subcat->name):''}}</a>
+									<li class="main-nav-list sub_cat_filter" id="sub_cat_filter{{$i}}"><a href="javascript:void(0)" class="nav-link">{{!empty($subcat->name)?($subcat->name):''}}</a>
 									</li>
-									<input type="hidden" name="sub_cat_filter_val" id="sub_cat_filter_val{{$i-1}}" value="{{$subcat->id}}">
+									<input type="hidden" name="sub_cat_filter_val" id="sub_cat_filter_val{{$i}}" value="{{$subcat->id}}">
 								@php	
 								}
 							}
@@ -124,9 +125,9 @@
                     @foreach($popular_product as $popular_products)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
 								<div class="desc">
-									<a href="{{url('product')}}/{{$popular_products['id']}}" class="title">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
+									<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
 									<div class="price">
 										<h6>${{!empty($popular_products->price)?($popular_products->price):''}}</h6>
 										<h6 class="l-through">${{!empty($popular_products->previous_price)?($popular_products->previous_price):''}}</h6>
