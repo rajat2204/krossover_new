@@ -54,13 +54,13 @@
                             </select>
                         </div>
 
-        				<div class="item form-group">
-                            <label> Current Featured Image</label>
+        				<div class="item form-group productWrap">
+                            <label>Current Featured Image</label>
                             
                             <div>
-                                <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+                                <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file" class="product-size">
                                 <span>max. size 2 MB.</span>
-                                <p>(225X225 pixels)</p>
+                                <sapn>(225 X 225 pixels)</span>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                <img style="max-width: 250px;margin-top: 10px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">

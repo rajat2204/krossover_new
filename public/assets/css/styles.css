@@ -91,6 +91,10 @@ input.form-control {
 textarea.form-control {
     font-size: .8rem;
 }
+.product-size{
+    padding-bottom: 5px;
+}
+
 #dataTableBuilder_wrapper div.dataTables_paginate{
     margin-top: 10px;
 }
