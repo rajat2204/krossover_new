@@ -295,7 +295,9 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
-
+.contact-map iframe{
+    min-height: 400px;
+}
 .genric-btn:focus {
     outline: none;
 }
@@ -831,7 +833,10 @@ ul#suggestion {
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
-
+.padding-none{
+    padding-left: 0;
+    padding-right: 0;
+}
 .default-switch input:checked + label {
     left: 19px;
 }
@@ -8506,9 +8511,14 @@ header ul.navbar-right {
         margin: 0;
         padding: 20px 5px;
     }
+    .padding-none{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .contact-map {
         padding-bottom: 20px;
     }
+
     .primary-btn {
         padding: 0 20px;
         line-height: 40px;
@@ -8550,6 +8560,7 @@ header ul.navbar-right {
     .banner-area {
         padding-top: 20px;
     }
+    
 }
 .footer-text a, .footer-text i {
     color: #ffba00;
