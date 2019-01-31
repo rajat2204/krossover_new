@@ -79,7 +79,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="quantity" name="qty" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
+											<input type="hidden" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -176,6 +176,14 @@
 		</div>
 	</div>
 </section>
+
+@section('requirejs')
+<script type="text/javascript" language="javascript">
+	$(document).ready(function () { 
+	    $('input[name="quantity"]').val('Work!');
+	});
+</script>
+@endsection
 
 	
 
