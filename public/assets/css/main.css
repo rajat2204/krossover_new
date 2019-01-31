@@ -2077,7 +2077,7 @@ a.navbar-brand:hover {
 }
 #dataTableBuilder_wrapper div.dataTables_paginate{
     position: absolute;
-    top: -82px;
+    top: -92px;
     right: 17px;
 }
 @media (max-width: 1440px) {

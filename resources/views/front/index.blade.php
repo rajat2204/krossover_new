@@ -256,7 +256,7 @@
                     @foreach($popular_product as $popular_products)
             <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
               <div class="single-related-product d-flex">
-                <a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+                <a href="{{url('product')}}/{{$popular_products['id']}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px; height:80px;" alt=""></a>
                 <div class="desc">
                   <a href="{{url('product')}}/{{$popular_products['id']}}">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
                   <div class="price">
