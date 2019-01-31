@@ -39,7 +39,7 @@
 						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
-							{{$productdata['stock']}}
+							In Stock
 						@else
 						<span>Out of Stock</span>
 						@endif

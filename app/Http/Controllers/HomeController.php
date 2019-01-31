@@ -39,7 +39,6 @@ class HomeController extends Controller
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
         
-        
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -66,17 +65,6 @@ class HomeController extends Controller
         $cat_id='';
         $sub_id='';
         if($type == 'main'){
-           /* $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
-            $sub_id = $data['cats']['id'];
-            $data['subcatid'] = $sub_id;
-            $data['cat']=$data['cats']['cat_id'];
-            $data['lowPrice'] = Products::where('status','active')->where('sub_id',$sub_id)
-                ->orderBy('price','asc')
-                ->first();
-            $data['highPrice'] = Products::where('status','active')->where('sub_id', $sub_id)
-                ->orderBy('price','desc')
-                ->first();
-        }else{*/
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
@@ -104,7 +92,6 @@ class HomeController extends Controller
         }
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
-            //pp($request->sub_cat_filter);
             return DataTables::of($product)
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
@@ -174,7 +161,8 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-        $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
+        $data['products'] = _arefy(Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get());
+        $data['searchkey'] = $request->item;
         $html = view('front.suggestion',$data);
         return Response($html);
     }
@@ -213,7 +201,6 @@ class HomeController extends Controller
     }
 
     public function productEnquiry(Request $request){
-        dd($request->all());
         $validation = new Validations($request);
         $validator  = $validation->productenquiry();
         if ($validator->fails()) {
