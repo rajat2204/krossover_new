@@ -79,7 +79,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input style="display:none;" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
+											<input type="hidden" id="quantity" name="quantity" class="form-control" value="{{!empty($productdata['quantity'])?$productdata['quantity']:''}}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -162,14 +162,8 @@
 
 @section('requirejs')
 <script type="text/javascript" language="javascript">
-    $(document).ready(function(){
-    	$('#getquotes').bind("click", function(){
-    		
-    	});
-    });
+	$('#getquotes').click(function() {
+    	$('#quantity').val($(this).val());
+});
 </script>
-@endsection
-
-	
-
-	
+@endsection	

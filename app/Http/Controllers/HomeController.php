@@ -213,6 +213,7 @@ class HomeController extends Controller
     }
 
     public function productEnquiry(Request $request){
+        dd($request->all());
         $validation = new Validations($request);
         $validator  = $validation->productenquiry();
         if ($validator->fails()) {

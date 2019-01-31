@@ -29,25 +29,19 @@
 						</div>
 					<div class="item form-group">
                         <label>Current Client Image</label>
-                        	<div>
-                                <img src="{!! url('/') !!}/assets/images/clients/{{$client['image']}}" style="max-height: 300px;" alt="No Banner Photo">
-                            </div>
+                    	<div>
+                            <img src="{!! url('/') !!}/assets/images/clients/{{$client['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                        </div>
                     </div>
                     <div class="item form-group">
                         <label>Change Client Image</label>
-                        
                         <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file" class="image-margin">
+                            <span>max. size 2 MB.</span>
+                            <span>(125X125 pixels)</span>
                         </div>
-<<<<<<< HEAD
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-=======
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-                            <span>max. size 2 MB.</span>
-                                <p>(125X125 pixels)</p>
->>>>>>> 1850064f2e6fc3ce0dc7683e0df733da8446788c
                         </div>
                     </div>
 					<div class="form-group">

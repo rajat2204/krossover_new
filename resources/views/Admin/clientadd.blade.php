@@ -27,7 +27,7 @@
                         <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                                <p>(125X125 pixels)</p>
+                            <span>(125X125 pixels)</span>
                         </div>
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
