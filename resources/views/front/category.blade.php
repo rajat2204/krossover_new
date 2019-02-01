@@ -181,7 +181,6 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
-
  
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
