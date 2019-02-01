@@ -48,11 +48,8 @@
 					<p>{{strip_tags(!empty($productdata['description'])?$productdata['description']:'')}}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
-						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-						 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 1 ) result.value--;return false;"
-						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						<input type="number" name="qty" id="qty" maxlength="12" min="1" value="1" title="Quantity:" class="input-text qty">
+						
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<button type="button" id="getquotes" class="primary-btn" data-toggle="modal" data-target="#myModal">Get Quotes</button>
@@ -73,6 +70,11 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<input type="hidden" id="id" name="product_id" class="form-control" value="{{!empty($productdata['id'])?$productdata['id']:''}}">
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="hidden" class="form-control" id="quantity" name="quantity" >
 										</div>
 									</div>
 									<div class="form-group">
@@ -154,4 +156,12 @@
 </section>
 
 @section('requirejs')
+<script type="text/javascript" language="javascript">
+	$(function() {
+		$("#getquotes").on("click", function() {
+			var qty = $("#qty").val();
+			$("#quantity").val(qty);
+		});
+	})
+</script>
 @endsection	
