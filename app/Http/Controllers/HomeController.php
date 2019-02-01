@@ -226,6 +226,17 @@ class HomeController extends Controller
                $emailData['custom_text'] = 'Your Product Enquiry has been submitted successfully';
                ___mail_sender($emailData['email'],$request->name,"product_enquiry_email",$emailData);
 
+               $emailAdmin                  = ___email_settings();
+               $emailAdmin['name']          = !empty($request->name)?$request->name:'';
+               $emailAdmin['email_admin']   = !empty($request->email_admin)?$request->email_admin:'';
+               $emailAdmin['email']         = 'preeti.igniterpro@gmail.com';
+               $emailAdmin['mobile']        = !empty($request->mobile)?$request->mobile:'';
+               $emailAdmin['quantity']      = !empty($request->quantity)?$request->quantity:'';
+               $emailAdmin['date']          = date('Y-m-d H:i:s');
+
+               $emailAdmin['custom_text'] = 'Your Product Enquiry has been submitted successfully';
+               ___mail_sender($emailAdmin['email'],$request->name,"product_enquiry_email_admin",$emailAdmin);
+
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
