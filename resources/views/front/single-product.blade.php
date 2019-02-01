@@ -70,15 +70,9 @@
 								<form role="productenquiry" action="{{url('enquiry')}}" method="POST">
 						        	<div class="form-group">
 						        		{{csrf_field()}}
-					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
 									<div class="col-md-12">
 										<div class="form-group">
 											<input type="hidden" id="id" name="product_id" class="form-control" value="{{!empty($productdata['id'])?$productdata['id']:''}}">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="hidden" class="form-control" id="quantity" name="quantity" value="">
 										</div>
 									</div>
 									<div class="form-group">
@@ -160,9 +154,4 @@
 </section>
 
 @section('requirejs')
-<script type="text/javascript" language="javascript">
-	$('#getquotes').click(function(){
-    	$('#sst').val($(this).val());
-});
-</script>
 @endsection	
