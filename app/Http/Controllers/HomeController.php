@@ -39,7 +39,6 @@ class HomeController extends Controller
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
         
-        
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
@@ -66,17 +65,6 @@ class HomeController extends Controller
         $cat_id='';
         $sub_id='';
         if($type == 'main'){
-           /* $data['cats'] = _arefy(Subcategories::where('slug',$slug)->first());
-            $sub_id = $data['cats']['id'];
-            $data['subcatid'] = $sub_id;
-            $data['cat']=$data['cats']['cat_id'];
-            $data['lowPrice'] = Products::where('status','active')->where('sub_id',$sub_id)
-                ->orderBy('price','asc')
-                ->first();
-            $data['highPrice'] = Products::where('status','active')->where('sub_id', $sub_id)
-                ->orderBy('price','desc')
-                ->first();
-        }else{*/
             $data['cats'] = _arefy(Category::where('slug',$slug)->first());
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
@@ -92,8 +80,11 @@ class HomeController extends Controller
         $where = 'main_id ="'.$cat_id.'"';
         $where .= ' AND status != "trashed"';
         $data['product']=[];
+
         if(!empty($request->sub_cat_filter)){
-            $where .= 'AND sub_id ="'.$request->sub_cat_filter.'"';
+            if($request->sub_cat_filter!="all"){
+                $where .= 'AND sub_id ="'.$request->sub_cat_filter.'"';
+            }
         }
 
         if(!empty($request->min_price)){
@@ -101,7 +92,6 @@ class HomeController extends Controller
         }
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
-            //pp($request->sub_cat_filter);
             return DataTables::of($product)
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
@@ -116,7 +106,7 @@ class HomeController extends Controller
                 return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
             })
              ->editColumn('feature_image',function($item){
-                $pathUrl = url("product/".$item['id']);
+                $pathUrl = url("product/".___encrypt($item['id']));
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
                 return '<a href="'.$pathUrl.'"><img src="'.$imageurl.'" height="60px" width="80px"></a>';
             })
@@ -129,7 +119,7 @@ class HomeController extends Controller
             ->parameters([ 
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
                 "pageLength"=> 6, "aLengthMenu"=> [[6, 24, 48, -1], [6, 24, 48, "All"]], "iDisplayLength"=> 6, 
-                "example"=>"My Custom Message On Empty Table",
+                "example"=>"My Custom Message On Empty Table","searching"=> false,
     
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
@@ -161,6 +151,7 @@ class HomeController extends Controller
     }*/
 
     public function productView(Request $request,$id){
+        $id = ___decrypt($id);
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
@@ -170,7 +161,8 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-        $data['products'] = Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get();
+        $data['products'] = _arefy(Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get());
+        $data['searchkey'] = $request->item;
         $html = view('front.suggestion',$data);
         return Response($html);
     }
@@ -202,7 +194,7 @@ class HomeController extends Controller
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Enquiry has been submitted successfully.";
-                $this->redirect = url('/');
+                $this->redirect = url('/contactus');
             } 
         } 
         return $this->populateresponse();
@@ -218,6 +210,7 @@ class HomeController extends Controller
             $data['name']                =!empty($request->name)?$request->name:'';
             $data['email']               =!empty($request->email)?$request->email:'';
             $data['mobile']              =!empty($request->mobile)?$request->mobile:'';
+            $data['quantity']            =!empty($request->quantity)?$request->quantity:'';
             $data['created_at']          = date('Y-m-d H:i:s');
             $data['updated_at']          = date('Y-m-d H:i:s');
 

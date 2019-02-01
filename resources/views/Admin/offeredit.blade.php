@@ -24,29 +24,30 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$offer['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($offer['id'])?$offer['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Offer Image:</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Current Offer Image:</label>
+                        	<div>
                                 <img src="{!! url('/') !!}/assets/images/offers/{{$offer['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Offer Image</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label>Change Offer Image</label>
+                        
+                        <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                            <p>(360X425 pixels)</p>
+                            <span>(360X425 pixels)</span>
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
 						<label>Offer Title:</label>
-						<input class="form-control" id="name" name="name" value="{{$offer['name']}}" placeholder="Title">
+						<input class="form-control" id="name" name="name" value="{{!empty($offer['name'])?$offer['name']:''}}" placeholder="Title">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-offer"]'>Edit Offer</button>
 					</div>

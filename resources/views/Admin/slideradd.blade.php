@@ -23,10 +23,10 @@
 					{{csrf_field()}}
 					<div class="item form-group">
                         <label> Slider Image</label>
-                        <p>(700X450 pixels)</p>
                         <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-                            <p>max. size 2 MB.</p>
+                            <span>max. size 2 MB.</span>
+                        	<span>(700X450 pixels)</span>
                         </div>
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">

@@ -30,7 +30,6 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/availability-calendar.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/global/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">

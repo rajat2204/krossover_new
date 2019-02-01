@@ -1,18 +1,18 @@
-	<!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
-		<div class="container">
-			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-				<div class="col-first">
-					<h1>{{$productdata['title']}}</h1>
-					<nav class="d-flex align-items-center">
-						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="javascript:void(0);">{{$productdata['title']}}</a>
-					</nav>
-				</div>
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>{{!empty($productdata['title'])?($productdata['title']):''}}</h1>
+				<nav class="d-flex align-items-center">
+					<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a href="javascript:void(0);">{{!empty($productdata['title'])?($productdata['title']):''}}</a>
+				</nav>
 			</div>
 		</div>
-	</section>
-	<!-- End Banner Area -->
+	</div>
+</section>
+<!-- End Banner Area -->
 
 <!--================Single Product Area =================-->
 <div class="product_image_area">
@@ -36,27 +36,23 @@
 					<h3>{{$productdata['title']}}</h3>
 					<h2>${{$productdata['price']}}</h2>
 					<ul class="list">
-						<li><a class="active" href="#"><span>Category:</span>{{$productdata['category']['name']}}</a></li>
+						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
-							{{$productdata['stock']}}
+							In Stock
 						@else
 						<span>Out of Stock</span>
 						@endif
 					</a></li>
 					</ul>
-					<p>{{strip_tags($productdata['description'])}}</p>
+					<p>{{strip_tags(!empty($productdata['description'])?$productdata['description']:'')}}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
-						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-						 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						<input type="number" name="qty" id="qty" maxlength="12" min="1" value="1" title="Quantity:" class="input-text qty">
+						
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<!-- <a class="primary-btn" href="#">Get QUOTES</a> -->
-						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Quotes</button>
+						<button type="button" id="getquotes" class="primary-btn" data-toggle="modal" data-target="#myModal">Get Quotes</button>
 					</div>
 					<div class="modal modalWrapper fade" id="myModal" role="dialog">
 					    <div class="modal-dialog">
@@ -74,11 +70,17 @@
 					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="hidden" id="id" name="product_id" class="form-control" value="{{$productdata['id']}}">
+											<input type="hidden" id="id" name="product_id" class="form-control" value="{{!empty($productdata['id'])?$productdata['id']:''}}">
 										</div>
 									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="hidden" class="form-control" id="quantity" name="quantity" >
+										</div>
+									</div>
+									<div class="form-group">
 	                                  	<label for="usr">Product Name:</label>
-	                                  	<input name="product" {{-- value="{{ old('email') }}" --}} placeholder="" class="form-control" type="text" disabled value="{{$productdata['title']}}">
+	                                  	<input name="product" {{-- value="{{ old('email') }}" --}} placeholder="" class="form-control" type="text" disabled value="{{!empty($productdata['title'])?$productdata['title']:''}}">
 	                                </div>
 						        	<div class="form-group">
 	                                  	<label for="usr">Name:</label>
@@ -93,7 +95,7 @@
 	                                  	<input name="mobile" placeholder="Enter Mobile Number" class="form-control" type="text">
 	                                </div>
 							        <div class="modal-footer">
-							          <button type="button" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
+							          <button type="button" id="product_enq" class="btn btn-info" data-request="ajax-submit" data-target='[role="productenquiry"]'>Submit</button>
 							        </div>
 						        </form>
 					        </div>
@@ -106,23 +108,6 @@
 	</div>
 </div>
 <!--================End Single Product Area =================-->
-
-<!--================Product Description Area =================-->
-<section class="product_description_area">
-	<div class="container">
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
-			</li>
-		</ul>
-		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-				<p>{{strip_tags($productdata['description'])}}</p>
-			</div>
-		</div>
-	</div>
-</section>
-<!--================End Product Description Area =================-->
 
 <!-- Start related-product Area -->
 <section class="related-product-area section_gap_bottom">
@@ -141,17 +126,17 @@
 				<div class="row">
 					@if(\App\Models\Products::where('status','active')->count() >0)
                   @php
-                    $popular_product = \App\Models\Products::where('featured','1')->where('status','active')->get();
+                    $popular_product = \App\Models\Products::take(9)->orderBy('id','DESC')->where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+							<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 							<div class="desc">
-								<a href="#" class="title">{{$popular_products->title}}</a>
+								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?$popular_products->title:''}}</a>
 								<div class="price">
-									<h6>${{$popular_products->price}}</h6>
-									<h6 class="l-through">${{$popular_products->previous_price}}</h6>
+									<h6>${{!empty($popular_products->price)?$popular_products->price:''}}</h6>
+									<h6 class="l-through">${{!empty($popular_products->previous_price)?$popular_products->previous_price:''}}</h6>
 								</div>
 							</div>
 						</div>
@@ -171,6 +156,13 @@
 	</div>
 </section>
 
-	
-
-	
+@section('requirejs')
+<script type="text/javascript" language="javascript">
+	$(function() {
+		$("#getquotes").on("click", function() {
+			var qty = $("#qty").val();
+			$("#quantity").val(qty);
+		});
+	})
+</script>
+@endsection	

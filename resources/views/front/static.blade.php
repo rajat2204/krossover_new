@@ -11,11 +11,11 @@
             <a href="">Catalogue</a>
           </nav>
           @else
-          <h1>{{$staticpage['title']}}</h1>
+          <h1>{{!empty($staticpage['title'])?$staticpage['title']:''}}</h1>
           <nav class="d-flex align-items-center">
             <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
             <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
-            <a href="">{{$staticpage['title']}}</a>
+            <a href="">{{!empty($staticpage['title'])?$staticpage['title']:''}}</a>
           </nav>
           @endif
         </div>
@@ -33,7 +33,7 @@
             @if(empty($staticpage['description']))
             <h3>Catalogue</h3>
             @else
-            <h3>{{$staticpage['title']}}</h3>
+            <h3>{{!empty($staticpage['title'])?$staticpage['title']:''}}</h3>
             @endif
           </div>
         </div>

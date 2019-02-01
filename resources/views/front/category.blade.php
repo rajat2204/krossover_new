@@ -3,11 +3,10 @@
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>{{$cats['name']}}</h1>
+					<h1>{{!empty($cats['name'])?$cats['name']:''}}</h1>
 					<nav class="d-flex align-items-center">
 						<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-						<!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
-						<a href="javascript:void(0);">{{$cats['name']}}</a>
+						<a href="javascript:void(0);">{{!empty($cats['name'])?$cats['name']:''}}</a>
 					</nav>
 				</div>
 			</div>
@@ -22,7 +21,8 @@
 					<div class="sidebar-categories">
 						<div class="head">Browse Categories</div>
 						<ul class="main-categories">
-			            	<input type="hidden" id="catid" name="cat_id" value="{{$cats['cat_id']}}">
+							<li class="main-nav-list sub_cat_filter" id="sub_cat_filter0"><a href="javascript:void(0);" class="nav-link">All</a></li>
+			            	<input type="hidden" id="catid" name="cat_id" value="{{!empty($cats['cat_id'])?$cats['cat_id']:''}}">
 			            	<input type="hidden" id="subcatid" name="cat_id" value="{{!empty($subcatid)?$subcatid:''}}">
 							@php
 				            	$subcategory = \App\Models\Subcategories::where('status','active')->where('cat_id',$cats['cat_id'])->get();
@@ -32,9 +32,9 @@
 									$i++;
 									/*{{url('/category/sub')}}/{{$subcat->slug}}*/
 								@endphp
-									<li class="main-nav-list sub_cat_filter" id="sub_cat_filter{{$i-1}}"><a href="javascript:void(0)" class="nav-link">{{$subcat->name}}</a>
+									<li class="main-nav-list sub_cat_filter" id="sub_cat_filter{{$i}}"><a href="javascript:void(0)" class="nav-link">{{!empty($subcat->name)?($subcat->name):''}}</a>
 									</li>
-									<input type="hidden" name="sub_cat_filter_val" id="sub_cat_filter_val{{$i-1}}" value="{{$subcat->id}}">
+									<input type="hidden" name="sub_cat_filter_val" id="sub_cat_filter_val{{$i}}" value="{{$subcat->id}}">
 								@php	
 								}
 							}
@@ -43,14 +43,6 @@
 					</div>
 					<div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
-						<!-- <div class="common-filter">
-							<div class="head">Brands</div>
-							<div id="brandFilter">
-								<form action="#">
-									
-								</form>
-							</div>
-						</div> -->
 						<div class="common-filter">
 							<div class="head">Price</div>
 							<div class="price-range-area">
@@ -106,25 +98,6 @@
 						</div>
 					</section>
 					<!-- End Best Seller -->
-					
-					<!-- Start Filter Bar -->
-					{{-- <div class="filter-bar d-flex flex-wrap align-items-center">
-						<div class="sorting mr-auto">
-							<select>
-								<option value="1">Show 12</option>
-							</select>
-						</div>
-						<div class="pagination">
-							<a href="" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-							<a href="#" class="active">1</a>
-							<a href="#">2</a>
-							<a href="#">3</a>
-							<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-							<a href="#">6</a>
-							<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-						</div>
-					</div> --}}
-					<!-- End Filter Bar -->
 				</div>
 			</div>
 		</div>
@@ -147,17 +120,17 @@
 					<div class="row">
 						@if(\App\Models\Products::where('status','active')->count() >0)
                   @php
-                    $popular_product = \App\Models\Products::where('featured','1')->where('status','active')->get();
+                    $popular_product = \App\Models\Products::take(9)->orderBy('id','DESC')->where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="javascript:void(0);"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 80px" alt=""></a>
+								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 								<div class="desc">
-									<a href="#" class="title">{{$popular_products->title}}</a>
+									<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
 									<div class="price">
-										<h6>${{$popular_products->price}}</h6>
-										<h6 class="l-through">${{$popular_products->previous_price}}</h6>
+										<h6>${{!empty($popular_products->price)?($popular_products->price):''}}</h6>
+										<h6 class="l-through">${{!empty($popular_products->previous_price)?($popular_products->previous_price):''}}</h6>
 									</div>
 								</div>
 							</div>
@@ -181,7 +154,10 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
+<<<<<<< HEAD
  
+=======
+>>>>>>> 9e9b413093d32b3a6cbf1c3e0050389518274b2f
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
 		 	$(document).on('click','#sub_cat_filter'+index,function(){

@@ -24,7 +24,7 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$slider['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($slider['id'])?$slider['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
@@ -35,10 +35,10 @@
                     </div>
                     <div class="item form-group">
                         <label>Change Slider Image</label>
-						<p>(700X450 pixels)</p>
                         <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-							<p>max. size 2 MB.</p>
+							<span>max. size 2 MB.</span>
+							<span>(700X450 pixels)</span>
                         </div>
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
@@ -47,11 +47,11 @@
                     </div>
 					<div class="form-group">
 						<label>Slider Title:</label>
-						<input class="form-control" id="title" name="title" value="{{$slider['title']}}" placeholder="E.g. Men's Clothing">
+						<input class="form-control" id="title" name="title" value="{{!empty($slider['title'])?$slider['title']:''}}" placeholder="E.g. Men's Clothing">
 					</div>
 					<div class="form-group">
 						<label>Slider Text:</label>
-						<input class="form-control" id="text" name="text" value="{{$slider['text']}}" placeholder="E.g. men's clothing">
+						<input class="form-control" id="text" name="text" value="{{!empty($slider['text'])?$slider['text']:''}}" placeholder="E.g. men's clothing">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-slider"]'>Edit Slider</button>
 					</div>

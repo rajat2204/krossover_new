@@ -25,26 +25,25 @@
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{$whyus['id']}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($whyus['id'])?$whyus['id']:''}}">
 						</div>
 					</div>
 
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Image:</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Current Image:</label>
+                        	<div>
                                 <img src="{!! url('/') !!}/assets/images/whyus/{{$whyus['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Image:</label>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        <label>Change Image:</label>
+                        <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                            <p>(512X512 pixels)</p>
+                            <span>(512X512 pixels)</span>
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 
@@ -55,7 +54,7 @@
 
 					<div class="item form-group">
 						<label>Description:</label>
-						<textarea name="description" id="description" class="form-control" rows="6">{{$whyus['description']}}</textarea>
+						<textarea name="description" id="description" class="form-control" rows="6">{{!empty($whyus['description'])?$whyus['description']:''}}</textarea>
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-whyus"]'>Edit Whyus</button>
 					</div>

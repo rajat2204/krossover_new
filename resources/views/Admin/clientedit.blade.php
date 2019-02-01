@@ -24,29 +24,29 @@
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{$client['id']}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($client['id'])?$client['id']:''}}">
 							</div>
 						</div>
 					<div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Current Client Image</label>
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
-                                <img src="{!! url('/') !!}/assets/images/clients/{{$client['image']}}" style="max-height: 300px;" alt="No Banner Photo">
-                            </div>
+                        <label>Current Client Image</label>
+                    	<div>
+                            <img src="{!! url('/') !!}/assets/images/clients/{{$client['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                        </div>
                     </div>
                     <div class="item form-group">
-                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">Change Client Image</label>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                        <label>Change Client Image</label>
+                        <div>
+                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file" class="image-margin">
                             <span>max. size 2 MB.</span>
-                                <p>(125X125 pixels)</p>
+                            <span>(125X125 pixels)</span>
+                        </div>
+                        <div>
+                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
 						<label>Client Title:</label>
-						<input class="form-control" id="title" name="title" value="{{$client['title']}}" placeholder="Title">
+						<input class="form-control" id="title" name="title" value="{{!empty($client['title'])?$client['title']:''}}" placeholder="Title">
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
 					</div>

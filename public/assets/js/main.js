@@ -194,7 +194,12 @@ $(document).ready(function(){
 
     $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
-    });   
+    });
+    // $(document).ready(function() {
+    //     $('.nice-select').click(function(){
+    //       $('.nice-select .list').css("opacity","1");
+    //     });
+    // });   
 
 
 

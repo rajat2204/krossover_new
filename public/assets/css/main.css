@@ -52,6 +52,7 @@
 
 .section_gap_bottom {
     padding-bottom: 100px;
+    padding-top: 30px;
 }
 
 @media (max-width: 991px) {
@@ -63,7 +64,11 @@
 .gray-bg {
     background: #f9f9ff;
 }
-
+.static_img {
+    padding-top: 25px;
+    max-width: 360px;
+    height: 100%;
+}
 /* Section title css
 ============================================================================================ */
 .section-title {
@@ -290,7 +295,9 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
-
+.contact-map iframe{
+    min-height: 400px;
+}
 .genric-btn:focus {
     outline: none;
 }
@@ -618,7 +625,9 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover !important;
     height: 200px;
 }
-
+.contact-map{
+    padding-bottom: 60px;
+}
 .list-style {
     width: 14px;
     height: 14px;
@@ -666,6 +675,15 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.82em !important;
 }
 
+ul#suggestion a {
+    color: #fff;
+}
+ul#suggestion {
+    text-align: left;
+    position: relative;
+    height: 200px;
+    overflow-y: scroll;
+}
 .ordered-list-alpha li span {
     font-weight: 300;
     color: #777777;
@@ -815,7 +833,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
-
+.padding-none{
+    padding-left: 0;
+    padding-right: 0;
+}
 .default-switch input:checked + label {
     left: 19px;
 }
@@ -1463,6 +1484,8 @@ a.navbar-brand:hover {
 .header_area .navbar .nav .nav-item.submenu ul {
     border: none;
     padding: 0px;
+    overflow-y: scroll;
+    height: 230px;
     border-radius: 0px;
     box-shadow: none;
     margin: 0px;
@@ -2061,7 +2084,7 @@ a.navbar-brand:hover {
 }
 #dataTableBuilder_wrapper div.dataTables_paginate{
     position: absolute;
-    top: -112px;
+    top: -92px;
     right: 17px;
 }
 @media (max-width: 1440px) {
@@ -2921,6 +2944,15 @@ label {
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+}
+.white_box_wrapper table td:nth-child(4) {
+    /* display: inline-table; */
+    display: inline-block;
+    color: #817e7e;
+    padding-left: 0;
+}
+.white_box_wrapper table td:nth-child(3) {
+    display: inline-block;
 }
 .product-details #dataTableBuilder_wrapper>div>div ~ div{
     /*display: none;*/
@@ -8479,6 +8511,13 @@ header ul.navbar-right {
         margin: 0;
         padding: 20px 5px;
     }
+    .padding-none{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .contact-map {
+        padding-bottom: 20px;
+    }
 
     .primary-btn {
         padding: 0 20px;
@@ -8521,6 +8560,7 @@ header ul.navbar-right {
     .banner-area {
         padding-top: 20px;
     }
+    
 }
 .footer-text a, .footer-text i {
     color: #ffba00;
