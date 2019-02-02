@@ -154,10 +154,6 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
-<<<<<<< HEAD
- 
-=======
->>>>>>> 9e9b413093d32b3a6cbf1c3e0050389518274b2f
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
 		 	$(document).on('click','#sub_cat_filter'+index,function(){

@@ -115,7 +115,6 @@ class HomeController extends Controller
         }
 
         $data['html'] = $builder
-
             ->parameters([ 
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row' <'col-md-12'p>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-12'i>>",
                 "pageLength"=> 6, "aLengthMenu"=> [[6, 24, 48, -1], [6, 24, 48, "All"]], "iDisplayLength"=> 6, 
@@ -130,25 +129,6 @@ class HomeController extends Controller
         
         return view('front_home')->with($data);
     }
-
-    /*public function ajaxProduct(Request $request,$type,$slug){
-        $data['social'] = _arefy(Social::where('status','active')->get());
-        $data['products'] = Products::where('status','active')->where('main_id', $request->catId);
-        if(!empty($request->subcatid)){
-            $data['products']->where('sub_id',$request->subcatid);
-        }
-        if(!empty($request->brandid) && ($request->brandid!='all')){
-            $data['products']->where('brand_id',$request->brandid);
-        }
-        if (!empty($request->minPrice) && ($request->maxPrice)){
-            $data['products']->whereBetween('price', array($request->minPrice, $request->maxPrice));
-        }
-        $data['products']->orderBy('created_at','asc');
-        $data['products']->take(9);
-        $data['product'] = $data['products']->get();
-        $html = view('front.ajaxcategoryProduct',$data);
-        return Response($html);
-    }*/
 
     public function productView(Request $request,$id){
         $id = ___decrypt($id);
