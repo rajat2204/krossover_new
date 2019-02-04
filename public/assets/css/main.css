@@ -2903,7 +2903,15 @@ a.navbar-brand:hover {
     margin-top: 30px;
     transition: .2s ease-in-out 0s;
 }
+.category-list .single-product div.dataTables_wrapper div.dataTables_length select{
+    display: block !important;
+    padding: 13px 4px;
+    border-radius: 5px;
+}
+.category-list .single-product .product-details #dataTableBuilder_wrapper .nice-select{
+    display: none;
 
+}
 .related-product-area .container {
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     padding: 30px 20px;

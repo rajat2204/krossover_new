@@ -12,6 +12,12 @@
 */
 
 /***********************Front-Section****************************/
+
+Route::get('/cache', function() { $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); return 'DONE'; //Return anything 
+});
+Route::get('/config', function() { $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); return 'DONE'; //Return anything 
+});
+http://alc.studio/product/4/forever-ceiling-light
 Route::get('/','HomeController@index');
 Route::get('search','HomeController@search');
 Route::get('pages/{slug}','HomeController@staticPage');
