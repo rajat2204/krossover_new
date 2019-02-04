@@ -22,6 +22,15 @@
 				<form role="add-slider" method="POST" action="{!! action('Admin\SliderController@store') !!}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="item form-group">
+    					<label>Slider Image:</label>
+    					<select class="form-control" name="main_id" id="main_id">
+                            <option value="">Select Product Image</option>
+                            @foreach($products as $product)
+                                <option value="{{!empty($product->id)?$product->id:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                            @endforeach
+    					</select>
+    				</div>
+					<div class="item form-group">
                         <label> Slider Image</label>
                         <div>
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
@@ -50,19 +59,27 @@
 
 @section('requirejs')
 <script type="text/javascript">
-
     function readURL(input) {
-
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#adminimg').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
-</script>
 
+        $(document).ready(function(){
+        $('#main_id').on('change',function(){
+            var value = $(this).val();
+            $.ajax({
+                url:"{{url('admin/subcategories/ajaxsubcategory?id=')}}"+value,
+                type:'POST',
+                success:function(data){
+                    $('#subcategory').html(data).prev().css("display","block");
+                }
+            });
+        });
+    });
+</script>
 @endsection

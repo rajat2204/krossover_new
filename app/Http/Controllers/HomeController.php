@@ -69,12 +69,12 @@ class HomeController extends Controller
             $cat_id = $data['cats']['id'];
             $data['cat']=$cat_id;
             $data['cats']['cat_id']=$cat_id;
-            $data['lowPrice'] = Products::where('status','active')->where('main_id',$cat_id)
-                ->orderBy('price','asc')
-                ->first();
-            $data['highPrice'] = Products::where('status','active')->where('main_id', $cat_id)
-                ->orderBy('price','desc')
-                ->first();
+            // $data['lowPrice'] = Products::where('status','active')->where('main_id',$cat_id)
+            //     ->orderBy('price','asc')
+            //     ->first();
+            // $data['highPrice'] = Products::where('status','active')->where('main_id', $cat_id)
+            //     ->orderBy('price','desc')
+            //     ->first();
         }
         
         $where = 'main_id ="'.$cat_id.'"';
@@ -87,9 +87,9 @@ class HomeController extends Controller
             }
         }
 
-        if(!empty($request->min_price)){
-            $where .= 'AND price BETWEEN "'.$request->min_price.'" AND "'.$request->max_price.'"';
-        }
+        // if(!empty($request->min_price)){
+        //     $where .= 'AND price BETWEEN "'.$request->min_price.'" AND "'.$request->max_price.'"';
+        // }
         $product  = _arefy(Products::list('array',$where));
         if ($request->ajax()) {
             return DataTables::of($product)
@@ -99,18 +99,18 @@ class HomeController extends Controller
              ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
-            ->editColumn('price',function($item){
-                return '$'. ucfirst($item['price']);
-            })
-            ->editColumn('previous_price',function($item){
-                return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
-            })
+            // ->editColumn('price',function($item){
+            //     return '$'. ucfirst($item['price']);
+            // })
+            // ->editColumn('previous_price',function($item){
+            //     return '<strike>'.'$'. ucfirst($item['previous_price']).'</strike>';
+            // })
              ->editColumn('feature_image',function($item){
                 $pathUrl = url("product/".___encrypt($item['id']));
                 $imageurl = asset("assets/images/products/".$item['feature_image']);
                 return '<a href="'.$pathUrl.'"><img src="'.$imageurl.'" height="60px" width="80px"></a>';
             })
-            ->rawColumns(['previous_price', 'feature_image', 'action'])
+            ->rawColumns(['feature_image', 'action'])
             ->make(true);
         }
 
@@ -122,8 +122,8 @@ class HomeController extends Controller
             ])
             ->addColumn(['data' => 'feature_image', 'name' => 'image',"render"=>'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Product Title','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'previous_price','name' => 'previous_price',"render"=>'data','title' => 'Previous Price','orderable' => false, 'width' => 120])
+            // ->addColumn(['data' => 'price','name' => 'price','title' => 'Price','orderable' => false, 'width' => 120])
+            // ->addColumn(['data' => 'previous_price','name' => 'previous_price',"render"=>'data','title' => 'Previous Price','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         
         return view('front_home')->with($data);

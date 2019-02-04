@@ -147,26 +147,116 @@
                     <textarea name="description" id="description" class="form-control" rows="6" required>{{!empty($product['description'])?$product['description']:''}}</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Current Price for User</label>
-                    <div>
-                        <input class="form-control col-md-7 col-xs-12" name="price" value="{{!empty($product['price'])?$product['price']:''}}" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." type="number">
+                @if($product['price'] != null)
+                <div class="item form-group">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="pPrice" id="pprice" value="1"><strong> Product Price</strong></label>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Previous Price for User</label>
-                    <div>
-                        <input class="form-control col-md-7 col-xs-12" name="previous_price" value="{{!empty($product['previous_price'])?$product['previous_price']:''}}" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." type="number">
+                <div class="item form-group" id="pPrice" style="display: none;">
+                    <label for="name">Product Price</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" placeholder="e.g.2000" name="price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/ value="{{!empty($product['price'])?$product['price']:''}}">
                     </div>
                 </div>
+                @else
 
                 <div class="item form-group">
-                    <label>Product Stock</label>
-                    <div>
-                        <input class="form-control col-md-7 col-xs-12" name="stock" value="{{!empty($product['stock'])?$product['stock']:''}}" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="pPrice" id="pprice" value="1"><strong> Product Price</strong></label>
+                        </div>
                     </div>
                 </div>
+
+                <div class="item form-group" id="pPrice" style="display: none;">
+                    <label for="name">Product Price</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" placeholder="e.g.2000" name="price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/">
+                    </div>
+                </div>
+                @endif
+
+                @if($product['previous_price'] != null)
+                <div class="item form-group">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="ppPrice" id="ppprice" value="1" placeholder="e.g.2000"><strong> Product Previous Price</strong></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item form-group" id="ppPrice" style="display: none;">
+                    <label for="name">Product Previous Price</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" name="previous_price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/ placeholder="e.g.2000" value="{{!empty($product['previous_price'])?$product['previous_price']:''}}">
+                    </div>
+                </div>
+                @else
+
+                <div class="item form-group">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="ppPrice" id="ppprice" value="1" placeholder="e.g.2000"><strong> Product Previous Price</strong></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item form-group" id="ppPrice" style="display: none;">
+                    <label for="name">Product Previous Price</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" name="previous_price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/ placeholder="e.g.2000">
+                    </div>
+                </div>
+                @endif
+
+                @if($product['stock'] != null)
+                <div class="item form-group">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="pstock" id="pStock" value="1"><strong> Product Stock</strong></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item form-group" id="pstock" style="display: none;">
+                    <label for="name">Product Stock</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" name="stock" pattern="[0-9]{1,10}" placeholder="e.g 15" data-role="tagsinput"/ value="{{!empty($product['stock'])?$product['stock']:''}}">
+                    </div>
+                </div>
+
+                @else
+                <div class="item form-group">
+                    <label for="name">
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="pstock" id="pStock" value="1"><strong> Product Stock</strong></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item form-group" id="pstock" style="display: none;">
+                    <label for="name">Product Stock</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" name="stock" pattern="[0-9]{1,10}" placeholder="e.g 15" data-role="tagsinput"/>
+                    </div>
+                </div>
+                @endif
 
                 <div class="item form-group">
                     <label>Product Buy/Return Policy</label>
@@ -219,6 +309,18 @@
 
         $("#allow").change(function () {
            $("#pSizes").toggle();
+        });
+
+        $("#pprice").change(function () {
+           $("#pPrice").toggle();
+        });
+
+        $("#ppprice").change(function () {
+           $("#ppPrice").toggle();
+        });
+
+        $("#pStock").change(function () {
+           $("#pstock").toggle();
         });
 
     $(document).ready(function(){

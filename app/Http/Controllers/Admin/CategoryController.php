@@ -103,6 +103,11 @@ class CategoryController extends Controller
         }else{
             $category = new Category;
             $category->fill($request->all());
+            if ($file = $request->file('image')){
+                $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/categories',$photo_name);
+                $category['image'] = $photo_name;
+            }
             $category['status'] = 'active';
             $category->save();
            
@@ -157,6 +162,11 @@ class CategoryController extends Controller
         }else{
             $category = Category::findOrFail($id);
             $input = $request->all();
+            if ($file = $request->file('image')){
+                $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/categories',$photo_name);
+                $input['image'] = $photo_name;
+            }
             $category->update($input);
             $this->status   = true;
             $this->modal    = true;

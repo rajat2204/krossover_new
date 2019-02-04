@@ -34,7 +34,7 @@
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
 					<h3>{{$productdata['title']}}</h3>
-					<h2>${{$productdata['price']}}</h2>
+					<!-- <h2>${{$productdata['price']}}</h2> -->
 					<ul class="list">
 						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
@@ -133,10 +133,10 @@
 							<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 							<div class="desc">
 								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?$popular_products->title:''}}</a>
-								<div class="price">
+								<!-- <div class="price">
 									<h6>${{!empty($popular_products->price)?$popular_products->price:''}}</h6>
 									<h6 class="l-through">${{!empty($popular_products->previous_price)?$popular_products->previous_price:''}}</h6>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>

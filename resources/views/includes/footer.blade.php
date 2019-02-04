@@ -4,15 +4,15 @@
 <footer class="footer-area section_gap">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6  col-md-6 col-sm-6">
+      <!-- <div class="col-lg-6  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>About Us</h6>
           @if(!empty($staticpage))
             <p>{!!str_limit($staticpage['description'],200)!!}</p><span><a href="{{url('pages/aboutus')}}">Read More....</a></span>
           @endif
         </div>
-      </div>
-      <!-- <div class="col-lg-4  col-md-6 col-sm-6">
+      </div> -->
+      <div class="col-lg-4  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>Newsletter</h6>
           <p>Stay update with our latest</p>
@@ -30,17 +30,17 @@
                 <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                 <div style="position: absolute; left: -5000px;">
                   <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                </div> -->
+                </div>
 
                 <!-- <div class="col-lg-4 col-md-4">
-                      <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                    </div>  -->
-              <!-- </div>
-              <div class="info"></div>
+                    <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                </div> --> 
+              </div>
+              <!-- <div class="info"></div> -->
             </form>
           </div>
         </div>
-      </div> -->
+      </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <h6 class="mb-20">More Links</h6>
@@ -67,7 +67,7 @@
     </div>
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
       <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://www.igniterpro.com/" target="_blank">Igniterpro</a>
+  Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://www.igniterpro.com/" target="_blank">Igniterpro</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>

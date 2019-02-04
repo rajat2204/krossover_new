@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Sliders;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -90,6 +91,7 @@ class SliderController extends Controller
      */
     public function create()
     {
+        $data['products'] = Products::where('status', '=', 'active')->get();
         $data['view'] = 'admin.slideradd';
         return view('admin.home',$data);
     }
@@ -102,7 +104,6 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-       // echo '<pre>'; print_r($request->all());die;
         $validation = new Validations($request);
         $validator  = $validation->addslider();
         if ($validator->fails()){

@@ -27,6 +27,11 @@
 								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($offer['id'])?$offer['id']:''}}">
 							</div>
 						</div>
+					<div class="form-group">
+						<label>Offer Text:</label>
+						<input class="form-control" id="text" name="text" value="{{!empty($offer['text'])?$offer['text']:''}}" placeholder="Offer Text">
+					</div>
+
 					<div class="item form-group">
                         <label>Current Offer Image:</label>
                         	<div>

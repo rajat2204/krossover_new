@@ -57,7 +57,15 @@ class OfferController extends Controller
                 $imageurl = asset("assets/images/offers/".$item['image']);
                 return '<img src="'.$imageurl.'" height="100px" width="120px">';
             })
-             ->editColumn('name',function($item){
+            ->editColumn('text',function($item){
+                if ($item['text'] == '') {
+                    return 'N/A';
+                }
+                else{
+                    return ucfirst($item['text']);
+                }
+            })
+            ->editColumn('name',function($item){
                 if ($item['name'] == '') {
                     return 'N/A';
                 }
@@ -74,6 +82,7 @@ class OfferController extends Controller
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
             ->addColumn(['data' => 'image', 'name' => 'image','render' => 'data','title' => 'Offer Image','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'text', 'name' => 'text','title' => 'Offer Text','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Offer Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
