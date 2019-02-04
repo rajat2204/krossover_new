@@ -151,10 +151,10 @@
                             </div>
                         </div>
 
-                        <div class="item form-group">
+                        <!-- <div class="item form-group">
                             <label>Product Buy/Return Policy:</label>
                             <textarea name="policy" id="policy" class="form-control" rows="6"></textarea>
-                        </div>
+                        </div> -->
 
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">
@@ -178,17 +178,15 @@
 <script type="text/javascript">
     
     CKEDITOR.replace( 'description');
-    CKEDITOR.replace( 'policy');
+    // CKEDITOR.replace( 'policy');
 
     function readURL(input) {
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#adminimg').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }

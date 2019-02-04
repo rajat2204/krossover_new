@@ -99,6 +99,9 @@ Route::resource('whyus', 'WhyusController');
 /***********************Inspirationla Gallery-Section****************************/
 Route::resource('gallery', 'GalleryController');
 
+/***********************Contact-Address-Section****************************/
+Route::resource('contact', 'ContactAddressController');
+
 /***********************Offers Section****************************/
 Route::resource('offers', 'OfferController');
 	Route::group(['prefix' => 'offers'],function(){

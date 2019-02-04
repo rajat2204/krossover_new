@@ -254,6 +254,20 @@ class Validate
 		return $validator;
 	}
 
+	public function contactaddress($action='edit'){
+		$validations = [
+        	'address' 				=> $this->validation('name'),
+        	'email'					=> $this->validation('req_email'),
+        	'mobile'				=> $this->validation('name'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'address.required' 				=>  'Please enter your address.',
+			'email.required'				=> 	'Please enter your E-mail.',
+			'mobile.required'				=> 	'Please enter your Contact Number.',
+		]);
+		return $validator;
+	}
+
 	public function addoffer($action='edit'){
 		$validations = [
         	// 'name' 				=> $this->validation('name'),
@@ -309,7 +323,7 @@ class Validate
 			// 'price'						=> $this->validation('price'),
 			// 'previous_price'			=> $this->validation('price'),
 			// 'stock'						=> $this->validation('name'),
-			'policy'					=> $this->validation('name'),
+			// 'policy'					=> $this->validation('name'),
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
@@ -328,7 +342,7 @@ class Validate
 			// 'price.required' 					=>  'Current Price for User is required.',
 			// 'previous_price.required' 			=>  'Previous Price for User is required.',
 			// 'stock.required' 					=>  'Product Stock is required.',
-			'policy.required' 					=>  'Product Buy/Return Policy is required.',
+			// 'policy.required' 					=>  'Product Buy/Return Policy is required.',
 		]);
 		if(!empty($this->data->pallow) && empty($this->data->sizes)){
 		    $validator->after(function ($validator){

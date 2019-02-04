@@ -68,23 +68,19 @@
                     <div class="contact-icon">
                       <i class="fa fa-map-marker"></i>
                     </div>
-                    <p>Dubai Office:
-                      Suite #107, Mandarin Building 
-                      Near Lamcy Plaza 
-                      Oud Metha P.O. Box 242172
-                    </p>
+                    <p>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-envelope"></i>
                     </div>
-                    <p><a href="mailto:info@kross-over.net">info@kross-over.net</a></p>
+                    <p><a href="{{!empty($contact[0]['email'])?$contact[0]['email']:''}}">{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-phone"></i>
                     </div>
-                    <p><a href="tel:04 2979798">04 2979798</a></p>
+                    <p><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}">{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></p>
                   </div>
                 </div>
               </div>

@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\Products;
 use App\Models\ContactUs;
 use App\Models\StaticPages;
+use App\Models\ContactAddress;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
@@ -51,6 +52,7 @@ class HomeController extends Controller
     }
     
     public function contactUs(Request $request){
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['title'] = 'Contact Us';
         $data['view']='front.contactus';
