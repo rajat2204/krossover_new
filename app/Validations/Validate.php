@@ -254,6 +254,16 @@ class Validate
 		return $validator;
 	}
 
+	public function subscriber($action='add'){
+		$validations = [
+        	'EMAIL' 				=> $this->validation('req_email'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'EMAIL.required'					=> 	'E-mail is required',
+		]);
+		return $validator;
+	}
+
 	public function contactaddress($action='edit'){
 		$validations = [
         	'address' 				=> $this->validation('name'),

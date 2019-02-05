@@ -26,6 +26,7 @@ Route::post('contactussubmission','HomeController@contactUsForm');
 Route::post('enquiry','HomeController@productEnquiry');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
+Route::post('subscribe', 'HomeController@Subscribe');
 // Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
 /***********************Admin-Section****************************/
@@ -101,6 +102,9 @@ Route::resource('gallery', 'GalleryController');
 
 /***********************Contact-Address-Section****************************/
 Route::resource('contact', 'ContactAddressController');
+
+/***********************Subscribers-Section****************************/
+Route::resource('subscribers', 'SubscribersController');
 
 /***********************Offers Section****************************/
 Route::resource('offers', 'OfferController');

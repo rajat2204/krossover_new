@@ -13,6 +13,7 @@ use App\Models\Sliders;
 use App\Models\Category;
 use App\Models\Products;
 use App\Models\ContactUs;
+use App\Models\Subscribers;
 use App\Models\StaticPages;
 use App\Models\ContactAddress;
 use Illuminate\Http\Request;
@@ -226,6 +227,37 @@ class HomeController extends Controller
             }
         }
         return $this->populateresponse();    
+    }
+
+    public function Subscribe(Request $request)
+    {
+        $validation = new Validations($request);
+        $validator  = $validation->subscriber();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $data['EMAIL']               = !empty($request->EMAIL)?$request->EMAIL:'';
+            $data['created_at']          = date('Y-m-d H:i:s');
+            $data['updated_at']          = date('Y-m-d H:i:s');
+
+            $subscribe = Subscribers::add($data);
+
+            if($subscribe){
+            $emailData               = ___email_settings();
+            $emailData['EMAIL']      = !empty($request->EMAIL)?$request->EMAIL:'';
+            $emailData['date']       = date('Y-m-d H:i:s');
+
+            $emailData['custom_text'] = 'You are subscribed successfully';
+            ___mail_sender($emailData['EMAIL'],$request->date,"subscription",$emailData);
+
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "You are subscribed successfully.";
+            $this->redirect = url('/');
+            }
+        }
+        return $this->populateresponse();
     }
 }
 
