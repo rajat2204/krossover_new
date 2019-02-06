@@ -37,6 +37,7 @@
             <li><a href="{{url('/contactus')}}" >Contact Us</a></li>
             <li><a href="{{url('pages/termsandconditions')}}" >Terms and condition</a></li>
             <li><a href="{{url('pages/privacypolicy')}}" >Privacy policy</a></li>
+            <li><a href="{{url('whyus')}}" >Why Us</a></li>
           </ul>
         </div>
       </div>

@@ -1998,6 +1998,32 @@ a.navbar-brand:hover {
     transition: all 0.3s ease 0s;
 }
 
+.single-exclusive-slider {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.single-exclusive-slider .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.single-exclusive-slider:hover .overlay {
+    opacity: .5;
+    visibility: visible;
+}
+
 .single-deal .deal-details {
     position: absolute;
     left: 50%;

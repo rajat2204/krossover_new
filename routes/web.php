@@ -27,6 +27,7 @@ Route::post('enquiry','HomeController@productEnquiry');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
 Route::post('subscribe', 'HomeController@Subscribe');
+Route::get('whyus', 'HomeController@whyUs');
 // Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
 /***********************Admin-Section****************************/

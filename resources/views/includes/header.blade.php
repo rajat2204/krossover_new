@@ -15,8 +15,8 @@
             <ul class="nav navbar-nav menu_nav ml-auto">
               <li class="nav-item  @if(Request::segment(1)=='') active @endif"><a class="nav-link" href="{{url('/')}}">Home</a></li>
               <li class="nav-item @if(Request::segment(2)=='aboutus') active @endif"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
+              <li class="nav-item @if(Request::segment(1)=='whyus') active @endif"><a class="nav-link" href="{{url('whyus')}}">Why Us</a></li>
               @if(Request::segment(1)=='')
-              <li class="nav-item"><a class="nav-link" href="#whyus" class="page-scroll">Why Us</a></li>
               <li class="nav-item"><a class="nav-link" href="#gallery" class="page-scroll">Gallery</a></li>
               <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
               @endif
