@@ -45,7 +45,7 @@
           @foreach($categories as $category)
           <!-- single exclusive carousel -->
             <div class="single-exclusive-slider">
-              <a class="col single-img" href="{{url('/category/main')}}/{{$category['slug']}}">
+              <a class="single-img" href="{{url('/category/main')}}/{{$category['slug']}}">
                 <div class="overlay"></div>
                 <img class="img-fluid d-block mx-auto" src="{{url('assets/images/categories')}}/{{$category['image']}}" alt="">
                 <div class="deal-details">
