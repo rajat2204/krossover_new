@@ -104,6 +104,7 @@ Route::resource('gallery', 'GalleryController');
 Route::resource('contact', 'ContactAddressController');
 
 /***********************Subscribers-Section****************************/
+Route::get('subscribers/export','SubscribersController@exportExcel');
 Route::resource('subscribers', 'SubscribersController');
 
 /***********************Offers Section****************************/

@@ -149,6 +149,7 @@ class SliderController extends Controller
     {
         $data['view'] = 'admin.slideredit';
         $id = ___decrypt($id);
+        $data['products'] = Products::where('status', '=', 'active')->get();
         $data['slider'] = _arefy(Sliders::where('id',$id)->first());
         return view('admin.home',$data);
     }

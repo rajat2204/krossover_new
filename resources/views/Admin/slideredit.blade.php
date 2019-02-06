@@ -27,6 +27,20 @@
 								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($slider['id'])?$slider['id']:''}}">
 							</div>
 						</div>
+
+					<div class="item form-group">
+    					<label>Slider Image:</label>
+    					<select class="form-control" name="main_id" id="main_id">
+                            <option value="">Select Product Image</option>
+                            @foreach($products as $product)
+                            	@if($product->id == $slider['product_id'])
+                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}" selected="">{{!empty($product->title)?$product->title:''}}</option>
+                                @else
+                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                                @endif
+                            @endforeach
+    					</select>
+    				</div>
 					<div class="item form-group">
                         <label>Current Slider Image</label>
                         	<div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Subscribers;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SubscriberExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -54,6 +56,12 @@ class SubscribersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function exportExcel()
+    {
+        return Excel::download(new SubscriberExport, 'subscriber.xlsx');
+    }
+
     public function create()
     {
         //

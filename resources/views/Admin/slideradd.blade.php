@@ -26,7 +26,7 @@
     					<select class="form-control" name="main_id" id="main_id">
                             <option value="">Select Product Image</option>
                             @foreach($products as $product)
-                                <option value="{{!empty($product->id)?$product->id:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                                <option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}">{{!empty($product->title)?$product->title:''}}</option>
                             @endforeach
     					</select>
     				</div>
@@ -37,7 +37,7 @@
                             <span>max. size 2 MB.</span>
                         	<span>(700X450 pixels)</span>
                         </div>
-                        <div>
+                        <div id="image-location">
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
@@ -81,5 +81,16 @@
             });
         });
     });
+</script>
+
+<script type="text/javascript">
+    $('#main_id').change(function(){ //if the select value gets changed
+   var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
+   if(imageSource){ //if it has data
+      $('#image-location').html('<img src="'+imageSource+'">'); // insert image in div image-location
+   } else {
+      $('#image-location').html(''); //remove content from div image-location, thus removing the image
+   }
+})
 </script>
 @endsection

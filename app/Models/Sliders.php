@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sliders extends Model
 {
     protected $table = 'sliders';
-    protected $fillable = ['title','text','image','status','created_at','updated_at'];
+    protected $fillable = ['product_id','title','text','image','status','created_at','updated_at'];
 
     public static function change($userID,$data){
         $isUpdated = false;
