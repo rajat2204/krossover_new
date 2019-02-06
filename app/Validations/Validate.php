@@ -185,11 +185,18 @@ class Validate
 	}
 
 	public function addslider($action = 'add'){
-		$validations = [
-        	'image' 				=> $this->validation('photo'),
+    	if(!empty($this->data->main_id)){
+        	$validations = [
         	'title' 				=> $this->validation('name'),
         	'text' 					=> $this->validation('name'),
-    	];
+        	];
+    	}else{
+    		$validations = [
+			'image'					=> $this->validation('photo'),
+        	'title' 				=> $this->validation('name'),
+        	'text' 					=> $this->validation('name'),
+    		];
+    	}
 		if($action == 'edit'){
 			$validations['image']	= $this->validation('photomimes');
 	        $validations['title'] 	= $this->validation('name');
@@ -304,21 +311,6 @@ class Validate
 
     	]);
         return $validator;		
-	}
-
-	public function changepassword(array $data){
-	  $messages = [
-	    'password.required' 	=> 'Please enter current password',
-	    'new_password.required' => 'Please enter password',
-	  ];
-
-	  $validator = Validator::make($data, [
-	    'password' 			=> 'required',
-	    'new_password' 		=> 'required|same:password',
-	    'confirm_password' 	=> 'required|same:password',     
-	  ], $messages);
-
-	  return $validator;
 	}
 
 	public function createProduct($action='add'){

@@ -15,7 +15,7 @@
       <div class="col-lg-4  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>Newsletter</h6>
-          <p>Stay update with our latest</p>
+          <p>Stay update with our latest.</p>
           <div class="" id="mc_embed_signup">
 
             <form role="subscribe" action="{{url('subscribe')}}" method="POST" class="form-inline">

@@ -64,7 +64,6 @@
 
 				<div class="item form-group">
                     <label> Current Featured Image:</label>
-                    
                     <div>
                         <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
                         <span>max. size 2 MB.</span>

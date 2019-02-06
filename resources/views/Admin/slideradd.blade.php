@@ -32,7 +32,7 @@
     				</div>
 					<div class="item form-group">
                         <label> Slider Image</label>
-                        <div>
+                        <div id="image_div">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
                         	<span>(700X450 pixels)</span>
@@ -92,5 +92,15 @@
       $('#image-location').html(''); //remove content from div image-location, thus removing the image
    }
 })
+
+$(function() {
+    $('#main_id').change(function(){
+        if($('#main_id').val() != "NULL") {
+            $('#image_div').hide(); 
+        } else {
+            $('#image_div').show(); 
+        } 
+    });
+});
 </script>
 @endsection

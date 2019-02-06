@@ -15,7 +15,11 @@
               </div>
               <div class="col-lg-7">
                 <div class="banner-img">
+                  @if(!empty($sliders['product_id']))
+                    <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
+                  @else
                   <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
+                  @endif
                 </div>
               </div>
             </div>
@@ -125,8 +129,12 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-deal">
             <div class="overlay"></div>
-            <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
-            <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
+            @if(!empty($offer[0]['image']))
+              <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
+              <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
+            @else
+              <h6>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h6>
+            @endif
               <div class="deal-details">
                 <h6 class="deal-title">{{!empty($offer[0]['name'])?$offer[0]['name']:''}}</h6>
               </div>
@@ -249,7 +257,13 @@
         <div class="col-lg-3">
           <div class="ctg-right">
             <a href="#" target="_blank">
-              <img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
+              @if(!empty($offer[1]['image']))
+                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
+              @else
+              <div class="offer_text">
+                <h1>{{!empty($offer[1]['text'])?$offer[1]['text']:''}}</h1>
+              </div>
+              @endif
             </a>
           </div>
         </div>

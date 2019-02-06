@@ -65,7 +65,12 @@ class SliderController extends Controller
                 return ucfirst($item['title']);
             })
             ->editColumn('image',function($item){
-                $imageurl = asset("assets/images/sliders/".$item['image']);
+                if (!empty($item['product_id'])) {
+                    $imageurl = asset("assets/images/products/".$item['image']);
+                }else{
+                    $imageurl = asset("assets/images/sliders/".$item['image']);
+                }
+
                 return '<img src="'.$imageurl.'" height="100px" width="150px">';
             })
             ->rawColumns(['image', 'action'])
@@ -110,13 +115,20 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = new Sliders();
-            $slider->fill($request->all());
-
+            if (!empty($request->main_id)){
+                $productImage = Products::where('id', $request->main_id)->first();
+                $slider['image'] = $productImage['feature_image'];
+                $slider['product_id'] = $productImage['id'];
+            }
+            else{
             if ($file = $request->file('image')){
                 $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
                 $file->move('assets/images/sliders',$photo_name);
                 $slider['image'] = $photo_name;
+                }
             }
+            $slider->fill($request->all());
+
             $slider->save();
 
             $this->status   = true;
@@ -170,13 +182,20 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = Sliders::findOrFail($id);
-            $data = $request->all();
-
+            if (!empty($request->main_id)){
+                $productImage = Products::where('id', $request->main_id)->first();
+                $slider['image'] = $productImage['feature_image'];
+                $slider['product_id'] = $productImage['id'];
+            }
+            else{
             if ($file = $request->file('image')){
                 $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
                 $file->move('assets/images/sliders',$photo_name);
-                $data['image'] = $photo_name;
+                $slider['image'] = $photo_name;
+                }
             }
+            $data = $request->all();
+            
             $slider->update($data);
 
             $this->status   = true;

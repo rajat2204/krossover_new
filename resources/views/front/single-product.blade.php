@@ -3,10 +3,10 @@
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 			<div class="col-first">
-				<h1>{{!empty($productdata['title'])?($productdata['title']):''}}</h1>
+				<h1>{{!empty(ucfirst($productdata['title']))?(ucfirst($productdata['title'])):''}}</h1>
 				<nav class="d-flex align-items-center">
 					<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-					<a href="javascript:void(0);">{{!empty($productdata['title'])?($productdata['title']):''}}</a>
+					<a href="javascript:void(0);">{{!empty(ucfirst($productdata['title']))?(ucfirst($productdata['title'])):''}}</a>
 				</nav>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
-					<h3>{{$productdata['title']}}</h3>
+					<h3>{{ucfirst($productdata['title'])}}</h3>
 					<!-- <h2>${{$productdata['price']}}</h2> -->
 					<ul class="list">
 						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>

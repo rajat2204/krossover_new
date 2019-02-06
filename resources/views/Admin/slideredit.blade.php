@@ -41,24 +41,23 @@
                             @endforeach
     					</select>
     				</div>
-					<div class="item form-group">
-                        <label>Current Slider Image</label>
-                        	<div>
-                                <img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
-                            </div>
-                    </div>
+					
                     <div class="item form-group">
-                        <label>Change Slider Image</label>
-                        <div>
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-							<span>max. size 2 MB.</span>
-							<span>(700X450 pixels)</span>
-                        </div>
-                        <div>
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        
-                    </div>
+	                    <label> Current Featured Image:</label>
+	                    <div id="image_div">
+	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+	                        <span>max. size 2 MB.</span>
+	                        <span>(700X450 pixels)</span>
+	                    </div>
+	                    <div class="col-md-12 col-sm-12 col-xs-12">
+	                    	@if(!empty($slider['product_id']))
+	                       		<img src="{!! url('/') !!}/assets/images/products/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
+                    		@else
+                            	<img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                            @endif
+	                    </div>
+	                </div>
+
 					<div class="form-group">
 						<label>Slider Title:</label>
 						<input class="form-control" id="title" name="title" value="{{!empty($slider['title'])?$slider['title']:''}}" placeholder="E.g. Men's Clothing">
