@@ -2597,6 +2597,7 @@ a.navbar-brand:hover {
 
 .single-img img {
     opacity: .6;
+    height: 181px;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
