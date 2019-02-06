@@ -88,9 +88,9 @@ $(document).ready(function(){
     ==================================*/
     $(".active-exclusive-product-slider").owlCarousel({
         items:4,
-        autoplay:false,
+        autoplay:true,
         autoplayTimeout: 3000,
-        loop:false,
+        loop:true,
         nav:true,
         navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:false,
