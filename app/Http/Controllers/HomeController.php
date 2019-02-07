@@ -58,7 +58,6 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['whyus'] = _arefy(Whyus::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
-        // dd($data['whyus']);
         $data['view']='front.whyus';
         return view('front_home',$data);
     }

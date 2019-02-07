@@ -318,14 +318,8 @@ class Validate
 			'title'						=> $this->validation('name_product'),
 			'main_id'					=> $this->validation('name'),
 			'sub_id'					=> $this->validation('name'),
-			// 'brand_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
-			// 'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
-			// 'price'						=> $this->validation('price'),
-			// 'previous_price'			=> $this->validation('price'),
-			// 'stock'						=> $this->validation('name'),
-			// 'policy'					=> $this->validation('name'),
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
@@ -339,16 +333,26 @@ class Validate
 			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Product Image should be in jpg,jpeg,png format.',
-			// 'sizes.required'					=>  'Size field is required',
 			'description.required' 				=>  'Product Description is required.',
-			// 'price.required' 					=>  'Current Price for User is required.',
-			// 'previous_price.required' 			=>  'Previous Price for User is required.',
-			// 'stock.required' 					=>  'Product Stock is required.',
-			// 'policy.required' 					=>  'Product Buy/Return Policy is required.',
 		]);
 		if(!empty($this->data->pallow) && empty($this->data->sizes)){
 		    $validator->after(function ($validator){
 				   $validator->errors()->add('sizes', 'The Sizes should be X,XL,XXL,M,L,S');
+			});
+		}
+		if(!empty($this->data->pPrice) && empty($this->data->price)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('price', 'The Price is required and should be numeric');
+			});
+		}
+		if(!empty($this->data->ppPrice) && empty($this->data->previous_price)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('previous_price', 'The Previous Price is required and should be numeric');
+			});
+		}
+		if(!empty($this->data->pstock) && empty($this->data->stock)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('stock', 'The Stock is required and should be numeric');
 			});
 		}
 

@@ -10,9 +10,11 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Product</h1>
-            <div class="pull-right back-admin">
-                <a href="{!! url('admin/products') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+            <div class="clearfix">
+                <h1 class="page-header">Add Product</h1>
+                <div class="pull-right back-admin">
+                    <a href="{!! url('admin/products') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+                </div>
             </div>
         </div>
     </div><!--/.row-->
@@ -111,7 +113,6 @@
                         </div>
 
                         <div class="item form-group" id="pPrice" style="display: none;">
-                            <label for="name">Product Price</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" placeholder="e.g.2000" name="price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/>
                             </div>
@@ -128,7 +129,6 @@
                         </div>
 
                         <div class="item form-group" id="ppPrice" style="display: none;">
-                            <label for="name">Product Previous Price</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" name="previous_price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/ placeholder="e.g.2000">
                             </div>
@@ -145,7 +145,6 @@
                         </div>
 
                         <div class="item form-group" id="pstock" style="display: none;">
-                            <label for="name">Product Stock</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" name="stock" pattern="[0-9]{1,10}" placeholder="e.g 15" data-role="tagsinput"/>
                             </div>
