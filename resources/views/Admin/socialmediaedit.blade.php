@@ -30,6 +30,7 @@
 					<div class="form-group">
 						<label>Social Media Url:</label>
 						<input class="form-control" id="url" name="url" value="{{!empty($social['url'])?$social['url']:''}}" placeholder="E.g. http://www.google.com">
+						<p>Please use <strong>"http"</strong> with the URL.</p>
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-social"]'>Edit Social Media</button>
 					</div>

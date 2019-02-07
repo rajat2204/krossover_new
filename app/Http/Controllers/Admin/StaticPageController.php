@@ -55,8 +55,11 @@ class StaticPageController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('title',function($item){
+            ->editColumn('title',function($item){
                 return ucfirst($item['title']);
+            })
+            ->editColumn('description',function($item){
+                return str_limit($item['description'],80);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -67,6 +70,7 @@ class StaticPageController extends Controller
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Title','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'description','name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
