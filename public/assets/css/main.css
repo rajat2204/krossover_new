@@ -2976,6 +2976,7 @@ a.navbar-brand:hover {
 }
 .product-details {
     padding: 0 10px 10px;
+    margin: 5px 0 0 -10px;
 }
 
 .category-list .single-product:hover {
