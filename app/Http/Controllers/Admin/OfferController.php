@@ -54,8 +54,14 @@ class OfferController extends Controller
                 return ucfirst($item['status']);
             })
             ->editColumn('image',function($item){
-                $imageurl = asset("assets/images/offers/".$item['image']);
-                return '<img src="'.$imageurl.'" height="100px" width="120px">';
+                if ($item['image']) {
+                    $imageurl = asset("assets/images/offers/".$item['image']);
+                    return '<img src="'.$imageurl.'" height="100px" width="120px">';
+                }
+                else{
+                    $imageurl = asset('/img/avatar.png');
+                    return '<img src="'.$imageurl.'" height="80px" width="100px">';                    
+                }
             })
             ->editColumn('text',function($item){
                 if ($item['text'] == '') {

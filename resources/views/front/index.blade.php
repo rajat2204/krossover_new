@@ -133,7 +133,7 @@
               <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
               <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
             @else
-              <h6>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h6>
+              <h1>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h1>
             @endif
               <div class="deal-details">
                 <h6 class="deal-title">{{!empty($offer[0]['name'])?$offer[0]['name']:''}}</h6>
