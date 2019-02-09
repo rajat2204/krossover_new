@@ -113,7 +113,27 @@
       </div>
     </div>
 </header>
+<div class="top">
+<div class="container">
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+       <div class="phone-e">
+            <a href="tel:+971-04-2979798" target="_blank"><i class="fa fa-phone"></i>  +971-04-2979798</a>
+            <a href="mailto:pawan@kross-over.net" target="_blank"><i class="fa fa-envelope:"></i>  pawan@kross-over.net</a>
+        </div>
+    </div>
 
+    <div class="col-md-6 col-xs-12">
+        <div class="footer-socialn text-right" id="top-social">
+            <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 <script>
   var header = document.getElementById("navbarSupportedContent");
   var list = header.getElementsByClassName("nav-item");

@@ -87,7 +87,7 @@ $(document).ready(function(){
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider").owlCarousel({
-        items:4,
+        items:8,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
@@ -102,10 +102,10 @@ $(document).ready(function(){
                   items: 2,
               },
               768: {
-                  items: 3,
+                  items: 4,
               },
               1200:{
-                items:4,
+                items:8,
               }
           }
     });

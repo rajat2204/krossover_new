@@ -1,4 +1,6 @@
 <!-- start banner Area -->
+
+<!-- Start brand Area -->
 <section class="banner-area">
     <div class="container">
       <div class="row fullscreen align-items-center justify-content-start">
@@ -31,10 +33,11 @@
 </section>
 <!-- End banner Area -->
 
-<!-- Start brand Area -->
-<section class="brand-area section_gap">
+
+
+<section class="brand-area section_gap" id="second-sec1">
     <div class="container">
-      <div class="row justify-content-center">
+      <!--<div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
             <h1>OUR CATEGORIES</h1>
@@ -42,7 +45,7 @@
               magna aliqua.</p>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <!-- clients logo slider -->
         <div class="active-exclusive-product-slider">
@@ -63,6 +66,7 @@
       </div>
     </div>
 </section>
+ 
 <!-- End brand Area -->
 
 <!-- Start category Area -->
