@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offers extends Model
 {
     protected $table = 'offer';
-    protected $fillable = ['name','image','status','created_at','updated_at'];
+    protected $fillable = ['text','name','image','status','created_at','updated_at'];
 
     public static function change($userID,$data){
         $isUpdated = false;

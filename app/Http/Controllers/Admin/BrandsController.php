@@ -29,8 +29,8 @@ class BrandsController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.brandlist';
-        
-        $brand  = _arefy(Brands::where('status','!=','trashed')->get());
+        $where = 'status != "trashed"';
+        $brand  = _arefy(Brands::list('array',$where));
         if ($request->ajax()) {
             return DataTables::of($brand)
             ->editColumn('action',function($item){
@@ -46,13 +46,13 @@ class BrandsController extends Controller
                         data-url="'.url(sprintf('admin/brands/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['brand_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['brand_name'].' status from Active to Inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/brands/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['brand_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['brand_name'].' status from Inactive to Active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -64,6 +64,9 @@ class BrandsController extends Controller
              ->editColumn('brand_name',function($item){
                 return ucfirst($item['brand_name']);
             })
+            ->editColumn('category_id',function($item){
+                return ucfirst($item['category']['name']);
+            })
             ->rawColumns(['action'])
             ->make(true);
         }
@@ -72,6 +75,7 @@ class BrandsController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'category_id', 'name' => 'category_id','title' => 'Category Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'brand_name', 'name' => 'brand_name','title' => 'Brand Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])

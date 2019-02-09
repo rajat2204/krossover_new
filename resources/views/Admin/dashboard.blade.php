@@ -47,30 +47,6 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-red panel-widget ">
-						<a href="{{url('admin/brands')}}">
-							<div class="row no-padding"><em class="fa fa-xl fa-bitbucket color-red"></em>
-								<div class="large">{{ \App\Models\Brands::count() }}</div>
-								<div class="text-muted">Brands</a></div>
-							</div>
-						<a href="{{url('admin/brands')}}">
-					</div>
-				</div>
-			</div><!--/.row-->
-		</div>
-		<div class="panel panel-container">
-			<div class="row">
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right">
-						<a href="{{url('admin/colors')}}">
-							<div class="row no-padding"><em class="fa fa-xl fa-flickr color-blue"></em>
-								<div class="large">{{ \App\Models\Colors::count() }}</div>
-								<div class="text-muted">Colors</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
 						<a href="{{url('admin/clients')}}">
 							<div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
@@ -80,6 +56,10 @@
 						</a>
 					</div>
 				</div>
+			</div><!--/.row-->
+		</div>
+		<div class="panel panel-container">
+			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
 						<a href="{{url('admin/gallery')}}">
@@ -100,10 +80,6 @@
 						</a>
 					</div>
 				</div>
-			</div><!--/.row-->
-		</div>
-		<div class="panel panel-container">
-			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-envelope color-blue"></em>
@@ -112,28 +88,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa fa-user color-blue"></em>
-							<div class="large">0</div>
-							<div class="text-muted">Total Visitors</div>
-						</div>
-					</div>
-				</div> -->
-			</div>
+			</div><!--/.row-->
 		</div>
 	</div>
-
-@section('requirejs')
-	<script type="text/javascript">
-		window.onload = function () {
-		var chart1 = document.getElementById("line-chart").getContext("2d");
-		window.myLine = new Chart(chart1).Line(lineChartData, {
-		responsive: true,
-		scaleLineColor: "rgba(0,0,0,.2)",
-		scaleGridLineColor: "rgba(0,0,0,.05)",
-		scaleFontColor: "#c5c7cc"
-		});
-		};
-	</script>
-@endsection

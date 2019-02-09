@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Sliders;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -44,13 +45,13 @@ class SliderController extends Controller
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['title'].' status from Active to Inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/sliders/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['title'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['title'].' status from Inactive to Active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -63,8 +64,16 @@ class SliderController extends Controller
             ->editColumn('title',function($item){
                 return ucfirst($item['title']);
             })
+            ->editColumn('text',function($item){
+                return str_limit($item['text'],150);
+            })
             ->editColumn('image',function($item){
-                $imageurl = asset("assets/images/sliders/".$item['image']);
+                if (!empty($item['product_id'])) {
+                    $imageurl = asset("assets/images/products/".$item['image']);
+                }else{
+                    $imageurl = asset("assets/images/sliders/".$item['image']);
+                }
+
                 return '<img src="'.$imageurl.'" height="100px" width="150px">';
             })
             ->rawColumns(['image', 'action'])
@@ -90,6 +99,7 @@ class SliderController extends Controller
      */
     public function create()
     {
+        $data['products'] = Products::where('status', '=', 'active')->get();
         $data['view'] = 'admin.slideradd';
         return view('admin.home',$data);
     }
@@ -102,20 +112,26 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-       // echo '<pre>'; print_r($request->all());die;
         $validation = new Validations($request);
         $validator  = $validation->addslider();
         if ($validator->fails()){
             $this->message = $validator->errors();
         }else{
             $slider = new Sliders();
-            $slider->fill($request->all());
-
+            if (!empty($request->main_id)){
+                $productImage = Products::where('id', $request->main_id)->first();
+                $slider['image'] = $productImage['feature_image'];
+                $slider['product_id'] = $productImage['id'];
+            }
+            else{
             if ($file = $request->file('image')){
                 $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
                 $file->move('assets/images/sliders',$photo_name);
                 $slider['image'] = $photo_name;
+                }
             }
+            $slider->fill($request->all());
+
             $slider->save();
 
             $this->status   = true;
@@ -148,6 +164,7 @@ class SliderController extends Controller
     {
         $data['view'] = 'admin.slideredit';
         $id = ___decrypt($id);
+        $data['products'] = Products::where('status', '=', 'active')->get();
         $data['slider'] = _arefy(Sliders::where('id',$id)->first());
         return view('admin.home',$data);
     }
@@ -168,13 +185,20 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = Sliders::findOrFail($id);
-            $data = $request->all();
-
+            if (!empty($request->main_id)){
+                $productImage = Products::where('id', $request->main_id)->first();
+                $slider['image'] = $productImage['feature_image'];
+                $slider['product_id'] = $productImage['id'];
+            }
+            else{
             if ($file = $request->file('image')){
                 $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
                 $file->move('assets/images/sliders',$photo_name);
-                $data['image'] = $photo_name;
+                $slider['image'] = $photo_name;
+                }
             }
+            $data = $request->all();
+            
             $slider->update($data);
 
             $this->status   = true;

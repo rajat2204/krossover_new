@@ -69,10 +69,12 @@ class Validate
 
 	public function createCategory($action='add'){
         $validations = [
+        	'image'				=> $this->validation('photo'),
             'name' 		        => $this->validation('name'),
 			'slug'  			=> array_merge($this->validation('slug_no_space'),[Rule::unique('categories')]),
     	];
 		if($action =='edit'){
+			$validations['image'] 	= $this->validation('photo_null');
 			$validations['slug'] = array_merge($this->validation('slug_no_space'),[
 				Rule::unique('categories')->where(function($query){
 					$query->where('id','!=',$this->data->id);
@@ -80,6 +82,8 @@ class Validate
 			]);
 		}
         $validator = \Validator::make($this->data->all(), $validations,[
+        	'image.required' 				=> 'Category Image is required.',
+			'image.mimes' 					=> 'Category Image should be in jpg,jpeg,png format.',
         	'name.required'     			=> 'Category Name is Required.',
         	'slug.required'     			=> 'Category Slug is Required.',
         	'slug.unique'     				=> 'This Category Slug has already been taken.',
@@ -181,11 +185,18 @@ class Validate
 	}
 
 	public function addslider($action = 'add'){
-		$validations = [
-        	'image' 				=> $this->validation('photo'),
+    	if(!empty($this->data->main_id)){
+        	$validations = [
         	'title' 				=> $this->validation('name'),
         	'text' 					=> $this->validation('name'),
-    	];
+        	];
+    	}else{
+    		$validations = [
+			'image'					=> $this->validation('photo'),
+        	'title' 				=> $this->validation('name'),
+        	'text' 					=> $this->validation('name'),
+    		];
+    	}
 		if($action == 'edit'){
 			$validations['image']	= $this->validation('photomimes');
 	        $validations['title'] 	= $this->validation('name');
@@ -250,12 +261,36 @@ class Validate
 		return $validator;
 	}
 
-	public function addoffer($action='edit'){
+	public function subscriber($action='add'){
 		$validations = [
-        	'image' 				=> $this->validation('photomimes'),
+        	'EMAIL' 				=> $this->validation('req_email'),
     	];
 		$validator = \Validator::make($this->data->all(), $validations,[
-			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
+			'EMAIL.required'					=> 	'E-mail is required',
+		]);
+		return $validator;
+	}
+
+	public function contactaddress($action='edit'){
+		$validations = [
+        	'address' 				=> $this->validation('name'),
+        	'email'					=> $this->validation('req_email'),
+        	'mobile'				=> $this->validation('name'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			'address.required' 				=>  'Please enter your address.',
+			'email.required'				=> 	'Please enter your E-mail.',
+			'mobile.required'				=> 	'Please enter your Contact Number.',
+		]);
+		return $validator;
+	}
+
+	public function addoffer($action='edit'){
+		$validations = [
+        	// 'name' 				=> $this->validation('name'),
+    	];
+		$validator = \Validator::make($this->data->all(), $validations,[
+			// 'name' 					=>  'Offer Name is required.',
 		]);
 		return $validator;
 	}
@@ -278,34 +313,13 @@ class Validate
         return $validator;		
 	}
 
-	public function changepassword(array $data){
-	  $messages = [
-	    'password.required' 	=> 'Please enter current password',
-	    'new_password.required' => 'Please enter password',
-	  ];
-
-	  $validator = Validator::make($data, [
-	    'password' 			=> 'required',
-	    'new_password' 		=> 'required|same:password',
-	    'confirm_password' 	=> 'required|same:password',     
-	  ], $messages);
-
-	  return $validator;
-	}
-
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name_product'),
 			'main_id'					=> $this->validation('name'),
 			'sub_id'					=> $this->validation('name'),
-			'brand_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
-			// 'sizes'						=> $this->validation('name'),
 			'description'				=> $this->validation('description'),
-			'price'						=> $this->validation('price'),
-			'previous_price'			=> $this->validation('price'),
-			'stock'						=> $this->validation('name'),
-			'policy'					=> $this->validation('name'),
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
@@ -319,16 +333,26 @@ class Validate
 			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Product Image should be in jpg,jpeg,png format.',
-			// 'sizes.required'					=>  'Size field is required',
 			'description.required' 				=>  'Product Description is required.',
-			'price.required' 					=>  'Current Price for User is required.',
-			'previous_price.required' 			=>  'Previous Price for User is required.',
-			'stock.required' 					=>  'Product Stock is required.',
-			'policy.required' 					=>  'Product Buy/Return Policy is required.',
 		]);
 		if(!empty($this->data->pallow) && empty($this->data->sizes)){
 		    $validator->after(function ($validator){
 				   $validator->errors()->add('sizes', 'The Sizes should be X,XL,XXL,M,L,S');
+			});
+		}
+		if(!empty($this->data->pPrice) && empty($this->data->price)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('price', 'The Price is required and should be numeric');
+			});
+		}
+		if(!empty($this->data->ppPrice) && empty($this->data->previous_price)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('previous_price', 'The Previous Price is required and should be numeric');
+			});
+		}
+		if(!empty($this->data->pstock) && empty($this->data->stock)){
+		    $validator->after(function ($validator){
+				   $validator->errors()->add('stock', 'The Stock is required and should be numeric');
 			});
 		}
 

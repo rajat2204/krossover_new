@@ -27,8 +27,9 @@ class SubcategoryController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.subcategorylist';
-
-        $category  = _arefy(Subcategories::where('status','!=','trashed')->get());
+        $where = 'status != "trashed"';
+        $category  = _arefy(Subcategories::list('array',$where));
+        
         if ($request->ajax()) {
             return DataTables::of($category)
             ->editColumn('action',function($item){
@@ -44,13 +45,13 @@ class SubcategoryController extends Controller
                         data-url="'.url(sprintf('admin/subcategories/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['name'].' status from Active to Inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/subcategories/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['name'].' status from Inactive to Active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -62,6 +63,9 @@ class SubcategoryController extends Controller
             ->editColumn('name',function($item){
                 return ucfirst($item['name']);
             })
+            ->editColumn('cat_id',function($item){
+                return ucfirst($item['category']['name']);
+            })
             ->rawColumns(['action'])
             ->make(true);
         }
@@ -70,6 +74,7 @@ class SubcategoryController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'cat_id','name' => 'cat_id','title' => 'Main Category Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Sub-Category Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])

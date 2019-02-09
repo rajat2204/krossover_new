@@ -3,10 +3,10 @@
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 			<div class="col-first">
-				<h1>{{!empty($productdata['title'])?($productdata['title']):''}}</h1>
+				<h1>{{!empty(ucfirst($productdata['title']))?(ucfirst($productdata['title'])):''}}</h1>
 				<nav class="d-flex align-items-center">
 					<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-					<a href="javascript:void(0);">{{!empty($productdata['title'])?($productdata['title']):''}}</a>
+					<a href="javascript:void(0);">{{!empty(ucfirst($productdata['title']))?(ucfirst($productdata['title'])):''}}</a>
 				</nav>
 			</div>
 		</div>
@@ -33,8 +33,8 @@
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
-					<h3>{{$productdata['title']}}</h3>
-					<h2>${{$productdata['price']}}</h2>
+					<h3>{{ucfirst($productdata['title'])}}</h3>
+					<!-- <h2>${{$productdata['price']}}</h2> -->
 					<ul class="list">
 						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<li><a href="#"><span>Availibility:</span>
@@ -67,7 +67,6 @@
 								<form role="productenquiry" action="{{url('enquiry')}}" method="POST">
 						        	<div class="form-group">
 						        		{{csrf_field()}}
-					        		<!-- <input type="hidden" value="PUT" name="_method"> -->
 									<div class="col-md-12">
 										<div class="form-group">
 											<input type="hidden" id="id" name="product_id" class="form-control" value="{{!empty($productdata['id'])?$productdata['id']:''}}">
@@ -134,10 +133,10 @@
 							<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 							<div class="desc">
 								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?$popular_products->title:''}}</a>
-								<div class="price">
+								<!-- <div class="price">
 									<h6>${{!empty($popular_products->price)?$popular_products->price:''}}</h6>
 									<h6 class="l-through">${{!empty($popular_products->previous_price)?$popular_products->previous_price:''}}</h6>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>

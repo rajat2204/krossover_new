@@ -10,10 +10,12 @@
 	
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Edit Social Media</h1>
-			<div class="pull-right back-admin">
-                <a href="{!! url('admin/social') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
+			<div class="clearfix">
+				<h1 class="page-header">Edit Social Media</h1>
+				<div class="pull-right back-admin">
+	                <a href="{!! url('admin/social') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+	            </div>
+	        </div>
 		</div>
 	</div><!--/.row-->
 	<div class="panel panel-default">
@@ -30,6 +32,7 @@
 					<div class="form-group">
 						<label>Social Media Url:</label>
 						<input class="form-control" id="url" name="url" value="{{!empty($social['url'])?$social['url']:''}}" placeholder="E.g. http://www.google.com">
+						<p>Please use <strong>"http"</strong> with the URL.</p>
 					</div>
 						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-social"]'>Edit Social Media</button>
 					</div>

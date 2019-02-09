@@ -12,6 +12,12 @@
 */
 
 /***********************Front-Section****************************/
+
+Route::get('/cache', function() { $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); return 'DONE'; //Return anything 
+});
+Route::get('/config', function() { $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); return 'DONE'; //Return anything 
+});
+http://alc.studio/product/4/forever-ceiling-light
 Route::get('/','HomeController@index');
 Route::get('search','HomeController@search');
 Route::get('pages/{slug}','HomeController@staticPage');
@@ -20,6 +26,8 @@ Route::post('contactussubmission','HomeController@contactUsForm');
 Route::post('enquiry','HomeController@productEnquiry');
 Route::get('category/{type}/{category_slug}','HomeController@category');
 Route::get('product/{id}','HomeController@productView');
+Route::post('subscribe', 'HomeController@Subscribe');
+Route::get('whyus', 'HomeController@whyUs');
 // Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
 /***********************Admin-Section****************************/
@@ -92,6 +100,13 @@ Route::resource('whyus', 'WhyusController');
 
 /***********************Inspirationla Gallery-Section****************************/
 Route::resource('gallery', 'GalleryController');
+
+/***********************Contact-Address-Section****************************/
+Route::resource('contact', 'ContactAddressController');
+
+/***********************Subscribers-Section****************************/
+Route::get('subscribers/export','SubscribersController@exportExcel');
+Route::resource('subscribers', 'SubscribersController');
 
 /***********************Offers Section****************************/
 Route::resource('offers', 'OfferController');

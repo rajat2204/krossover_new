@@ -1,28 +1,28 @@
 <!-- Start Banner Area -->
-  <section class="banner-area organic-breadcrumb">
-    <div class="container">
-      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-        <div class="col-first">
-          @if(empty($staticpage['description']))
-          <h1>Catalogue</h1>
-          <nav class="d-flex align-items-center">
-            <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-            <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
-            <a href="">Catalogue</a>
-          </nav>
-          @else
-          <h1>{{!empty($staticpage['title'])?$staticpage['title']:''}}</h1>
-          <nav class="d-flex align-items-center">
-            <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-            <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
-            <a href="">{{!empty($staticpage['title'])?$staticpage['title']:''}}</a>
-          </nav>
-          @endif
-        </div>
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        @if(empty($staticpage['description']))
+        <h1>Catalogue</h1>
+        <nav class="d-flex align-items-center">
+          <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+          <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
+          <a href="">Catalogue</a>
+        </nav>
+        @else
+        <h1>{{!empty($staticpage['title'])?$staticpage['title']:''}}</h1>
+        <nav class="d-flex align-items-center">
+          <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+          <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
+          <a href="">{{!empty($staticpage['title'])?$staticpage['title']:''}}</a>
+        </nav>
+        @endif
       </div>
     </div>
-  </section>
-  <!-- End Banner Area -->
+  </div>
+</section>
+<!-- End Banner Area -->
 
 <!-- Start Static Area -->
 <section class="static-area section_gap white_bg">

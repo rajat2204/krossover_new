@@ -45,13 +45,13 @@ class CategoryController extends Controller
                         data-url="'.url(sprintf('admin/categories/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['name'].' status from Active to Inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/categories/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('assets/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['name'].' status from Inactive to Active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -63,7 +63,11 @@ class CategoryController extends Controller
              ->editColumn('name',function($item){
                 return ucfirst($item['name']);
             })
-            ->rawColumns(['action'])
+            ->editColumn('image',function($item){
+                $imageurl = asset("assets/images/categories/".$item['image']);
+                return '<img src="'.$imageurl.'" height="100px" width="120px">';
+            })
+            ->rawColumns(['image','action'])
             ->make(true);
         }
 
@@ -71,6 +75,7 @@ class CategoryController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'image', 'name' => 'image',"render"=>'data','title' => 'Category Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Category Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
@@ -103,6 +108,11 @@ class CategoryController extends Controller
         }else{
             $category = new Category;
             $category->fill($request->all());
+            if ($file = $request->file('image')){
+                $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/categories',$photo_name);
+                $category['image'] = $photo_name;
+            }
             $category['status'] = 'active';
             $category->save();
            
@@ -157,6 +167,11 @@ class CategoryController extends Controller
         }else{
             $category = Category::findOrFail($id);
             $input = $request->all();
+            if ($file = $request->file('image')){
+                $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/categories',$photo_name);
+                $input['image'] = $photo_name;
+            }
             $category->update($input);
             $this->status   = true;
             $this->modal    = true;

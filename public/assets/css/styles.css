@@ -1001,6 +1001,7 @@ a.label:hover, a.label:focus {
 }
 .back-admin {
     margin-bottom: 10px;
+    margin-top: 26px;
 }
 .single-img:after,.single-img:before {
     display: table;
@@ -1142,6 +1143,7 @@ a.label:hover, a.label:focus {
 h1.page-header {
     margin-top: 20px;
     border-bottom: 0;
+    float: left;
 }
 
 .main-chart {

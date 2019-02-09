@@ -30,7 +30,7 @@
             <div class="col-md-6 col-lg-6 col-sm-12">
               <div class="contact-block">
                 <h2>Contact Form</h2>
-                <form role="contactus" data-request="enable-enter" action="{{url('contactussubmission')}}" method="POST" >
+                <form role="contactus" action="{{url('contactussubmission')}}" method="POST">
                   {{csrf_field()}}
                   <div class="row">
                     <div class="col-md-6">
@@ -53,7 +53,7 @@
                         <textarea class="form-control" id="message" placeholder="Your Message" name="message" rows="5"></textarea>
                       </div>
                       <div class="submit-button">
-                        <button class="btn primary-btn contact_us" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
+                        <button class="btn primary-btn" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
                       </div>
                     </div>
                   </div>            
@@ -68,23 +68,19 @@
                     <div class="contact-icon">
                       <i class="fa fa-map-marker"></i>
                     </div>
-                    <p>Dubai Office:
-                      Suite #107, Mandarin Building 
-                      Near Lamcy Plaza 
-                      Oud Metha P.O. Box 242172
-                    </p>
+                    <p>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-envelope"></i>
                     </div>
-                    <p><a href="mailto:info@kross-over.net">info@kross-over.net</a></p>
+                    <p><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}">{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">
                       <i class="fa fa-phone"></i>
                     </div>
-                    <p><a href="tel:04 2979798">04 2979798</a></p>
+                    <p><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}">{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></p>
                   </div>
                 </div>
               </div>
@@ -96,15 +92,4 @@
 </section>
 
 @section('requirejs')
-<script type="text/javascript">
-    setTimeout(function(){
-        $('[data-request="enable-enter"]').on('keyup','input',function (e) {
-        e.preventDefault();
-        if (e.which == 13) {
-        $('[data-request="enable-enter"]').find('.contact_us').trigger('click');
-        return false;   
-        }
-    }); 
-},100);
-</script>
 @endsection

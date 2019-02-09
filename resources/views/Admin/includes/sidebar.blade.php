@@ -12,6 +12,8 @@
 		<li><a href="{{url('admin/gallery')}}"><i class="fa fa-fw fa-file-image-o">&nbsp;</i>Gallery</a></li>
 		<li><a href="{{url('admin/offers')}}"><i class="fa fa-fw fa-gift">&nbsp;</i>Offers</a></li>
 		<li><a href="{{url('admin/social')}}"><i class="fa fa-fw fa-linkedin-square">&nbsp;</i>Social Media</a></li>
+		<li><a href="{{url('admin/contact')}}"><i class="fa fa-fw fa-phone">&nbsp;</i>Contact Address</a></li>
+		<li><a href="{{url('admin/subscribers')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Subscribers</a></li>
 		<!-- <li><a href="{{url('admin/changepassword')}}"><i class="fa fa-key">&nbsp;</i>Change Password</a></li> -->
 		<li><a href="{{url('admin/logout')}}"><i class="fa fa-fw fa-sign-out">&nbsp;</i>Logout</a></li>
 	</ul>

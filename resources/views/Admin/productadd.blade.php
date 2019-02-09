@@ -10,9 +10,11 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add Product</h1>
-            <div class="pull-right back-admin">
-                <a href="{!! url('admin/products') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+            <div class="clearfix">
+                <h1 class="page-header">Add Product</h1>
+                <div class="pull-right back-admin">
+                    <a href="{!! url('admin/products') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+                </div>
             </div>
         </div>
     </div><!--/.row-->
@@ -101,32 +103,57 @@
                         </div>
 
                         <div class="item form-group">
-                            <label>Current Price for User</label>
-                            <div>
-                                <input class="form-control col-md-7 col-xs-12" name="price" placeholder="e.g 20" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                                       title="Price must be a numeric or up to 2 decimal places." type="number">
+                            <label for="name">
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="pPrice" id="pprice" value="1"><strong> Product Price</strong></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item form-group" id="pPrice" style="display: none;">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" placeholder="e.g.2000" name="price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/>
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label>Previous Price for User</label>
-                            <div>
-                                <input class="form-control col-md-7 col-xs-12" name="previous_price" placeholder="e.g 25" pattern="[0-9]+(\.[0-9]{0,2})?%?"
-                                       title="Price must be a numeric or up to 2 decimal places." type="number">
+                            <label for="name">
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="ppPrice" id="ppprice" value="1" placeholder="e.g.2000"><strong> Product Previous Price</strong></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item form-group" id="ppPrice" style="display: none;">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" name="previous_price" pattern="[0-9]+(\.[0-9]{0,2})?%?" title="Price must be a numeric or up to 2 decimal places." data-role="tagsinput"/ placeholder="e.g.2000">
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label>Product Stock</label>
-                            <div>
-                                <input class="form-control col-md-7 col-xs-12" name="stock" placeholder="e.g 15" pattern="[0-9]{1,10}" type="number">
+                            <label for="name">
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="pstock" id="pStock" value="1"><strong> Product Stock</strong></label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="item form-group">
+                        <div class="item form-group" id="pstock" style="display: none;">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" name="stock" pattern="[0-9]{1,10}" placeholder="e.g 15" data-role="tagsinput"/>
+                            </div>
+                        </div>
+
+                        <!-- <div class="item form-group">
                             <label>Product Buy/Return Policy:</label>
                             <textarea name="policy" id="policy" class="form-control" rows="6"></textarea>
-                        </div>
+                        </div> -->
 
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">
@@ -150,23 +177,33 @@
 <script type="text/javascript">
     
     CKEDITOR.replace( 'description');
-    CKEDITOR.replace( 'policy');
+    // CKEDITOR.replace( 'policy');
 
     function readURL(input) {
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#adminimg').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
         $("#allow").change(function () {
            $("#pSizes").toggle();
+        });
+
+        $("#pprice").change(function () {
+           $("#pPrice").toggle();
+        });
+
+        $("#ppprice").change(function () {
+           $("#ppPrice").toggle();
+        });
+
+        $("#pStock").change(function () {
+           $("#pstock").toggle();
         });
 
 

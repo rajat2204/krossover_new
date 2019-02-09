@@ -10,10 +10,12 @@
 	
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Edit Slider</h1>
-			<div class="pull-right back-admin">
-                <a href="{!! url('admin/sliders') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
+			<div class="clearfix">
+				<h1 class="page-header">Edit Slider</h1>
+				<div class="pull-right back-admin">
+	                <a href="{!! url('admin/sliders') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+	            </div>
+	        </div>
 		</div>
 	</div><!--/.row-->
 	<div class="panel panel-default">
@@ -27,24 +29,37 @@
 								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($slider['id'])?$slider['id']:''}}">
 							</div>
 						</div>
+
 					<div class="item form-group">
-                        <label>Current Slider Image</label>
-                        	<div>
-                                <img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
-                            </div>
-                    </div>
+    					<label>Slider Image:</label>
+    					<select class="form-control" name="main_id" id="main_id">
+                            <option value="">Select Product Image</option>
+                            @foreach($products as $product)
+                            	@if($product->id == $slider['product_id'])
+                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}" selected="">{{!empty($product->title)?$product->title:''}}</option>
+                                @else
+                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                                @endif
+                            @endforeach
+    					</select>
+    				</div>
+					
                     <div class="item form-group">
-                        <label>Change Slider Image</label>
-                        <div>
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-							<span>max. size 2 MB.</span>
-							<span>(700X450 pixels)</span>
-                        </div>
-                        <div>
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-                        </div>
-                        
-                    </div>
+	                    <label> Current Featured Image:</label>
+	                    <div id="image_div">
+	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file">
+	                        <span>max. size 2 MB.</span>
+	                        <span>(700X450 pixels)</span>
+	                    </div>
+	                    <div class="col-md-12 col-sm-12 col-xs-12">
+	                    	@if(!empty($slider['product_id']))
+	                       		<img src="{!! url('/') !!}/assets/images/products/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
+                    		@else
+                            	<img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                            @endif
+	                    </div>
+	                </div>
+
 					<div class="form-group">
 						<label>Slider Title:</label>
 						<input class="form-control" id="title" name="title" value="{{!empty($slider['title'])?$slider['title']:''}}" placeholder="E.g. Men's Clothing">

@@ -41,7 +41,7 @@
 				            @endphp
 						</ul>
 					</div>
-					<div class="sidebar-filter mt-50">
+					<!-- <div class="sidebar-filter mt-50">
 						<div class="top-filter-head">Product Filters</div>
 						<div class="common-filter">
 							<div class="head">Price</div>
@@ -57,7 +57,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					<!-- Start Filter Bar -->
@@ -128,10 +128,10 @@
 								<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
 								<div class="desc">
 									<a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}" class="title">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
-									<div class="price">
+									<!-- <div class="price">
 										<h6>${{!empty($popular_products->price)?($popular_products->price):''}}</h6>
 										<h6 class="l-through">${{!empty($popular_products->previous_price)?($popular_products->previous_price):''}}</h6>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
@@ -154,10 +154,6 @@
 @section('requirejs')
 {!! $html->scripts()!!}
 <script type="text/javascript">
-<<<<<<< HEAD
- 
-=======
->>>>>>> 9e9b413093d32b3a6cbf1c3e0050389518274b2f
 	$(function(){
 		$( ".sub_cat_filter" ).each(function( index ) {
 		 	$(document).on('click','#sub_cat_filter'+index,function(){

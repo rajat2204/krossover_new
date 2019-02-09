@@ -15,7 +15,11 @@
               </div>
               <div class="col-lg-7">
                 <div class="banner-img">
+                  @if(!empty($sliders['product_id']))
+                    <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
+                  @else
                   <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
+                  @endif
                 </div>
               </div>
             </div>
@@ -27,33 +31,39 @@
 </section>
 <!-- End banner Area -->
 
-<!-- start features Area -->
-<section id="whyus" class="features-area section_gap white_bg">
+<!-- Start brand Area -->
+<section class="brand-area section_gap">
     <div class="container">
-     
-      <div class="section-title  text-center">
-        <h1>Why Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.</p>
-      </div>
-
-      <div class="row features-inner">
-        <!-- single features -->
-        @foreach($whyus as $whyusimages)
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="single-features">
-            <div class="f-icon">
-              <img src="{{url('assets/images/whyus')}}/{{$whyusimages['image']}}" alt="">
-            </div>
-            <h6>{{!empty($whyusimages['title'])?$whyusimages['title']:''}}</h6>
-            <p>{{strip_tags(!empty($whyusimages['description'])?($whyusimages['description']):'')}}</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+          <div class="section-title">
+            <h1>OUR CATEGORIES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.</p>
           </div>
         </div>
-        @endforeach
+      </div>
+      <div class="row">
+        <!-- clients logo slider -->
+        <div class="active-exclusive-product-slider">
+          @foreach($categories as $category)
+          <!-- single exclusive carousel -->
+            <div class="single-exclusive-slider">
+              <a class="single-img" href="{{url('/category/main')}}/{{$category['slug']}}">
+                <div class="overlay"></div>
+                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/categories')}}/{{$category['image']}}" alt="">
+                <div class="deal-details">
+                  <h6 class="deal-title">{{!empty($category['name'])?$category['name']:''}}</h6>
+                </div>
+              </a>
+            </div>
+          @endforeach
+          </div>
+        </div>
       </div>
     </div>
 </section>
-<!-- end features Area -->
+<!-- End brand Area -->
 
 <!-- Start category Area -->
 <section id="gallery" class="category-area section_gap white_bg">
@@ -119,8 +129,12 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-deal">
             <div class="overlay"></div>
-            <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
-            <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
+            @if(!empty($offer[0]['image']))
+              <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
+              <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
+            @else
+              <h6>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h6>
+            @endif
               <div class="deal-details">
                 <h6 class="deal-title">{{!empty($offer[0]['name'])?$offer[0]['name']:''}}</h6>
               </div>
@@ -157,10 +171,10 @@
             </div>
             <div class="product-details">
               <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
-              <div class="price">
+              <!-- <div class="price">
                 <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
                 <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -190,10 +204,10 @@
             <a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
             <div class="product-details">
               <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
-              <div class="price">
+              <!-- <div class="price">
                 <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
                 <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -203,36 +217,6 @@
   </div>
 </section>
 <!-- end product Area -->
-
-<!-- Start brand Area -->
-<section class="brand-area section_gap">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 text-center">
-          <div class="section-title">
-            <h1>OUR CLIENTS</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <!-- clients logo slider -->
-        <div class="active-exclusive-product-slider">
-          @foreach($client as $clients)
-          <!-- single exclusive carousel -->
-            <div class="single-exclusive-slider">
-              <a class="col single-img" href="javascript:void(0);">
-                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients['image']}}" alt="">
-              </a>
-            </div>
-          @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-</section>
-<!-- End brand Area -->
 
 <!-- Start related-product Area -->
 <section id="popular" class="related-product-area section_gap_bottom">
@@ -259,10 +243,10 @@
                 <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" style="width: 70px; height:70px;" alt=""></a>
                 <div class="desc">
                   <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
-                  <div class="price">
+                  <!-- <div class="price">
                     <h6>${{!empty($popular_products->price)?($popular_products->price):''}}</h6>
                     <h6 class="l-through">${{!empty($popular_products->previous_price)?($popular_products->previous_price):''}}</h6>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -273,7 +257,13 @@
         <div class="col-lg-3">
           <div class="ctg-right">
             <a href="#" target="_blank">
-              <img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
+              @if(!empty($offer[1]['image']))
+                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
+              @else
+              <div class="offer_text">
+                <h1>{{!empty($offer[1]['text'])?$offer[1]['text']:''}}</h1>
+              </div>
+              @endif
             </a>
           </div>
         </div>
