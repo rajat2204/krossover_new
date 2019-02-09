@@ -3081,6 +3081,7 @@ div#undefined-sticky-wrapper {
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     padding: 30px 20px;
 }
+<<<<<<< HEAD
 .owl-carousel.active-product-area.section_gap.owl-theme.owl-loaded .product-details {
       
     padding: 9px 10px 1px;
@@ -3092,6 +3093,10 @@ div#undefined-sticky-wrapper {
 .owl-carousel.active-product-area.section_gap.owl-theme.owl-loaded .product-details h6
 {
     color:#fff;
+/*product-details {
+    padding: 0 10px 10px;
+    margin: 5px 0 0 -10px;
+>>>>>>> b519a794b76cd8daad0adbb2e8f38054542dc153*/
 }
 
 #popular .container {
