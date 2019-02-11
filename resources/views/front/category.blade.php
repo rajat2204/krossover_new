@@ -59,9 +59,13 @@
 						</div>
 					</div> -->
 				</div>
+
+
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					<!-- Start Filter Bar -->
-					<div class="filter-bar d-flex flex-wrap align-items-center">
+
+					<div id="products_cus">
+					<div class="filter-bar d-flex flex-wrap align-items-center" id="products_cus1">
 						<div class="sorting">
 							{{-- <select>
 								<option value="1">Default sorting</option>
@@ -98,6 +102,7 @@
 						</div>
 					</section>
 					<!-- End Best Seller -->
+				</div>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@
           @endif
         </div>
       </div> -->
-      <div class="col-lg-4  col-md-6 col-sm-6">
+      <div class="col-lg-3  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>Newsletter</h6>
           <p>Stay update with our latest.</p>
@@ -41,6 +41,18 @@
           </ul>
         </div>
       </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+       <div class="single-footer-widget mail-chimp">
+          <h6>Contact us</h6> 
+
+          <ul class="instafeed static_links"> 
+            <li style="    color: #f9f9f9b8;"> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
+            <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></li> 
+            <li><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}"> <i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></li>
+          </ul>
+        </div>
+        </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>Follow Us</h6>
@@ -49,9 +61,12 @@
             <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
             <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="{{$social[3]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a>
           </div>
         </div>
       </div>
+
+
     </div>
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
       <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

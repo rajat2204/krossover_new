@@ -1,4 +1,6 @@
 <!-- start banner Area -->
+
+<!-- Start brand Area -->
 <section class="banner-area">
     <div class="container">
       <div class="row fullscreen align-items-center justify-content-start">
@@ -31,18 +33,18 @@
 </section>
 <!-- End banner Area -->
 
-<!-- Start brand Area -->
-<section class="brand-area section_gap">
+
+
+
+<section class="brand-area section_gap" id="second-sec1">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
             <h1>OUR CATEGORIES</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.</p>
           </div>
         </div>
-      </div>
+      </div> 
       <div class="row">
         <!-- clients logo slider -->
         <div class="active-exclusive-product-slider">
@@ -58,11 +60,20 @@
               </a>
             </div>
           @endforeach
+
+
           </div>
-        </div>
-      </div>
+        </div> 
+
+
+<div class="clearfix"></div>
+<div class="text-center" id="viewww">
+<br/>
+<a class="btn btn-info" id="vieww">Click for more information..</a>
+    </div>
     </div>
 </section>
+ 
 <!-- End brand Area -->
 
 <!-- Start category Area -->
@@ -147,7 +158,7 @@
 <!-- End category Area -->
 
 <!-- start product Area -->
-<section class="owl-carousel active-product-area section_gap">
+<section class="owl-carousel active-product-area section_gap" id="products1">
   <!-- single product slide -->
   <div class="single-product-slider">
     <div class="container">
@@ -271,7 +282,18 @@
     </div>
 </section>
 <!-- End related-product Area -->
-
+@section('requirejs')
+<script>
   
+  $('document').ready(function(){ 
+
+  $('#vieww').click(function(){ 
+  $('#gallery,  section.owl-carousel.active-product-area.section_gap.owl-theme.owl-loaded, section#popular').toggle(); 
+
+  $('#vieww').hide(); 
+});
+});
  
+</script>
+@endsection
 

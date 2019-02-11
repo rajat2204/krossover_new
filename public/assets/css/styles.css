@@ -1,5 +1,5 @@
 body {
-    background: #f1f4f7;
+    background: #e8e8e8;
     padding-top: 0;
     font-size: 14px;
     color: #444444;
@@ -11,7 +11,7 @@ p {
 }
 
 #cover {
-    background: url("../images/balls_loader.gif") no-repeat scroll center center;
+    background: url("../images/loading.gif") no-repeat scroll center center;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -25,7 +25,7 @@ a, a:hover, a:focus {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #444444;
+    color: #1097cc;
 }
 
 h1 {
@@ -130,8 +130,8 @@ textarea.form-control {
 }
 
 .navbar-custom {
-    background: #222;
-    height: 60px;
+    background: #0f81ad;
+    height: 49px;
 }
 
 .navbar-header .navbar-brand {
@@ -140,7 +140,7 @@ textarea.form-control {
     text-transform: uppercase;
     font-weight: 500;
     height: 60px;
-    padding-top: 18px;
+    padding-top: 9px;
 }
 
 .navbar-header .navbar-brand span {
@@ -703,7 +703,7 @@ a.label:hover, a.label:focus {
 }
 
 .panel .border-top, .panel .border-right, .panel .border-bottom, .panel .border-left {
-    border-color: #e9ecf2;
+    border-color: #0f81ad8c;
 }
 
 .article {
@@ -815,6 +815,10 @@ a.label:hover, a.label:focus {
 
 .timeline-badge.success {
     background-color: #8ad919 !important;
+}
+tr.odd:hover, tr.even:hover {
+    background: #e6e6e6bf;
+    /* line-height: 70px !important; */
 }
 
 .timeline-badge.warning {
@@ -1013,10 +1017,13 @@ a.label:hover, a.label:focus {
 }
 
 .single-exclusive-slider {
+   
     padding: 10px;
-    max-width: 200px;
+    max-width: 260px;
     margin: 0 auto;
-    max-height: 200px;
+    max-height: 220px; 
+    background: #ffffffed;
+    box-shadow: 0 0 4px #ccc;
 }
 
 @media (min-width: 768px) {
@@ -1041,13 +1048,13 @@ a.label:hover, a.label:focus {
 
 .sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover {
     text-decoration: none;
-    background-color: #30a5ff;
+    background-color: #0e82af;
     color: #fff;
 }
 
 .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
     color: #fff;
-    background-color: #30a5ff;
+    background-color: #0e82af;
 }
 
 .sidebar ul.nav ul, .sidebar ul.nav ul li {
@@ -1055,10 +1062,14 @@ a.label:hover, a.label:focus {
     list-style-type: none;
 }
 
+.sidebar ul.nav li {
+    background: #e8e7e7;
+    border-bottom: 1px solid #ccc;
+}
 .sidebar ul.nav li a {
-    height: 50px;
+    height: 45px;
     font-size: 15px;
-    line-height: 2em;
+    line-height: 26px;
     color: #444444;
 }
 
@@ -1144,6 +1155,8 @@ h1.page-header {
     margin-top: 20px;
     border-bottom: 0;
     float: left;
+    font-size: 33px;
+    color: #0f81ad;
 }
 
 .main-chart {
@@ -1359,11 +1372,13 @@ p.back-link {
     width: 50px;
     color: transparent;
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .banner-area .active-banner-slider .owl-nav .owl-next {
     background: url(../../img/banner/next.png) center center transparent;
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 /*sub menu code*/
@@ -1681,7 +1696,7 @@ button {
     width: 100%;
 }
 .product_img {
-    height: 255px;
+    height: 208px;
 }
 
 .product_img img {
@@ -1716,7 +1731,48 @@ header ul.navbar-right {
 
 /*dashboard css*/
 
+.sorting_1 img {
+    max-width: 70px !important;
+    max-height: 50px !important;
+}
 
+i.fa {
+    font-size: 18px;
+    color: #ffffff;
+    margin-right: 10px;
+}
+.sidebar ul.nav li:hover i.fa {
+    font-size: 18px;
+    color: #fff !important;
+    margin-right: 8px;
+}
+#dataTableBuilder_wrapper i.fa {
+    font-size: 18px;
+    color: #861c1c !important;
+    margin-right: 10px;
+}
+#dataTableBuilder i.fa {
+    font-size: 18px;
+    color: #1f54ce !important;
+    margin-right: 10px;
+}
+
+@media (min-width: 767px) {
+.portlet-title {
+    float: right;
+    margin-top: -62px;
+}
+
+section#products1 {
+    max-height: 808px;
+}
+}
+.footer-right-contact i.fa {
+    font-size: 18px;
+    color: #ffffff;
+    margin-right: auto !important;
+    text-align: center;
+}
 @media (max-width: 767px) {
     
     #sidebar-collapse {

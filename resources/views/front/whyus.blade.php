@@ -44,7 +44,7 @@
 <!-- end features Area -->
 
 <!-- Start brand Area -->
-<section class="brand-area section_gap">
+<section class="brand-area section_gap" id="our-clientss">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">

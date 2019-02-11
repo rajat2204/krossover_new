@@ -36,54 +36,8 @@
                 @endif
               </li>
               <li class="nav-item @if(Request::segment(1)=='contactus') active @endif"><a class="nav-link" href="{{url('/contactus')}}">Contact Us</a></li>
-             
-              <!-- @if(\App\Models\Category::where('status','active')->count() >0)
-              @php
-                $menus = \App\Models\Category::where('status','active')->get();
-              @endphp
-                @foreach($menus as $menu)
-                  <li class="nav-item submenu dropdown">
-                    <a href="{{url('/category/main')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
-                   
-                    @if(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->count() >0)
-                      <ul class="dropdown-menu">
-                        @foreach(\App\Models\Subcategories::where('cat_id',$menu->id)->where('status','active')->get() as $submenu)
-                          <li class="nav-item">
-                            <a class="nav-link dropdown-toggle" href="{{url('/category/sub')}}/{{$submenu->slug}}">{{$submenu->name}}</a>
-                           {{--  <ul class="dropdown-menu sub-dropdown">
-                              @foreach(\App\Models\Childcategories::where('sid',$submenu->id)->where('status','active')->get() as $childmenu)
-                              
-                              <li class="nav-item"><a class="child nav-link" href="category.html">{{$childmenu->name}}</a></li>
-                              @endforeach
-                            </ul> --}}
-                          </li>
-                        @endforeach
-                      </ul>
-                    @endif
-                  </li>
-                @endforeach
-              @endif -->
-              {{-- <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                 aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                </ul>
-              </li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                 aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-                  <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> --}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              {{-- <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li> --}}
               <li class="nav-item">
                 <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
               </li>
@@ -95,7 +49,7 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Search Here">
+          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Item number...">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
           
@@ -113,7 +67,26 @@
       </div>
     </div>
 </header>
-
+<div class="top">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+           <div class="phone-e">
+                <a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}" target="_blank"><i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a>
+                <a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}" target="_blank"><i class="fa fa-envelope:"></i>  {{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="footer-socialn text-right" id="top-social">
+                <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="{{$social[3]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
 <script>
   var header = document.getElementById("navbarSupportedContent");
   var list = header.getElementsByClassName("nav-item");
