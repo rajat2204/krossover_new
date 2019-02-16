@@ -11,7 +11,7 @@ p {
 }
 
 #cover {
-    background: url("../images/balls_loader.gif") no-repeat scroll center center;
+    background: url("../images/loading.gif") no-repeat scroll center center;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -131,7 +131,7 @@ textarea.form-control {
 
 .navbar-custom {
     background: #0f81ad;
-    height: 49px;
+    /*height: 49px;*/
 }
 
 .navbar-header .navbar-brand {
@@ -140,7 +140,7 @@ textarea.form-control {
     text-transform: uppercase;
     font-weight: 500;
     height: 60px;
-    padding-top: 9px;
+    padding-top: 13px;
 }
 
 .navbar-header .navbar-brand span {
@@ -1746,12 +1746,32 @@ i.fa {
     color: #fff !important;
     margin-right: 8px;
 }
+#dataTableBuilder_wrapper i.fa {
+    font-size: 18px;
+    color: #861c1c !important;
+    margin-right: 10px;
+}
+#dataTableBuilder i.fa {
+    font-size: 18px;
+    color: #1f54ce !important;
+    margin-right: 10px;
+}
 
 @media (min-width: 767px) {
 .portlet-title {
     float: right;
     margin-top: -62px;
 }
+
+section#products1 {
+    max-height: 808px;
+}
+}
+.footer-right-contact i.fa {
+    font-size: 18px;
+    color: #ffffff;
+    margin-right: auto !important;
+    text-align: center;
 }
 @media (max-width: 767px) {
     

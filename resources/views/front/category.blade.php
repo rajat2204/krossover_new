@@ -147,7 +147,13 @@
 				<div class="col-lg-3">
 					<div class="ctg-right">
 						<a href="#" target="_blank">
+							@if(!empty($offer[1]['image']))
 							<img class="img-fluid d-block mx-auto" src="{{url('assets/images/offers')}}/{{$offer[1]['image']}}" alt="">
+							@else
+			               <div class="offer_text">
+			                <h1>{{!empty($offer[1]['text'])?$offer[1]['text']:''}}</h1>
+			               </div>
+			              @endif
 						</a>
 					</div>
 				</div>

@@ -36,11 +36,8 @@
                 @endif
               </li>
               <li class="nav-item @if(Request::segment(1)=='contactus') active @endif"><a class="nav-link" href="{{url('/contactus')}}">Contact Us</a></li>
-             
-            
             </ul>
             <ul class="nav navbar-nav navbar-right">
-             
               <li class="nav-item">
                 <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
               </li>
@@ -51,12 +48,12 @@
     </div>
     <div class="search_input" id="search_input_box">
       <div class="container">
-          <form class="d-flex justify-content-between">
-            <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Search Here">
-            <button type="submit" class="btn"></button>
-            <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-            
-          </form>
+        <form class="d-flex justify-content-between">
+          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Item number...">
+          <button type="submit" class="btn"></button>
+          <span class="lnr lnr-magnifier-cross" id="close_search" title="Close Search"></span>
+          
+        </form>
           <ul id="suggestion">
             @php
               $products = \App\Models\Products::where('status', 'active')->get();
@@ -71,25 +68,24 @@
     </div>
 </header>
 <div class="top">
-<div class="container">
-<div class="row">
-    <div class="col-md-6 col-xs-12">
-       <div class="phone-e">
-            <a href="tel:+971-04-2979798" target="_blank"><i class="fa fa-phone"></i>  +971-04-2979798</a>
-            <a href="mailto:pawan@kross-over.net" target="_blank"><i class="fa fa-envelope:"></i>  pawan@kross-over.net</a>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+           <div class="phone-e">
+                <a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}" target="_blank"><i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a>
+                <a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}" target="_blank"><i class="fa fa-envelope:"></i>  {{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="footer-socialn text-right" id="top-social">
+                <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="{{$social[3]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
         </div>
     </div>
-
-    <div class="col-md-6 col-xs-12">
-        <div class="footer-socialn text-right" id="top-social">
-            <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-instagram"></i></a>
-        </div>
-    </div>
-</div>
-</div>
+  </div>
 </div>
 <script>
   var header = document.getElementById("navbarSupportedContent");

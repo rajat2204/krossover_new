@@ -39,20 +39,17 @@ class HomeController extends Controller
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['slider'] = _arefy(Sliders::where('status','active')->get());
-        
         $data['categories'] = _arefy(Category::where('status','active')->get());
-        // dd($data['categories']);
-        
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
     	$data['view']='front.index';
 		return view('front_home',$data);
     }
 
     public function staticPage(Request $request,$slug){
         $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
-
         $data['view']='front.static';
-
         return view('front_home',$data);
     }
 
@@ -60,13 +57,12 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         //$data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['view']='pdf-flipbook/index';
-
         return view('front_home',$data);
-        
     }
 
     public function whyUs(Request $request){
         $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['whyus'] = _arefy(Whyus::where('status','active')->get());
         $data['client'] = _arefy(Clients::where('status','active')->get());
         $data['view']='front.whyus';
@@ -82,6 +78,7 @@ class HomeController extends Controller
     }
 
     public function category(Request $request,Builder $builder,$type,$slug){
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.category';
@@ -155,6 +152,7 @@ class HomeController extends Controller
 
     public function productView(Request $request,$id){
         $id = ___decrypt($id);
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);

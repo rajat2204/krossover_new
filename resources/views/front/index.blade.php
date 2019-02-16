@@ -35,17 +35,16 @@
 
 
 
+
 <section class="brand-area section_gap" id="second-sec1">
     <div class="container">
-      <!--<div class="row justify-content-center">
+      <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
           <div class="section-title">
             <h1>OUR CATEGORIES</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.</p>
           </div>
         </div>
-      </div> -->
+      </div> 
       <div class="row">
         <!-- clients logo slider -->
         <div class="active-exclusive-product-slider">
@@ -61,9 +60,17 @@
               </a>
             </div>
           @endforeach
+
+
           </div>
-        </div>
-      </div>
+        </div> 
+
+
+<div class="clearfix"></div>
+<div class="text-center" id="viewww">
+<br/>
+<a class="btn btn-info" id="vieww">Click for more information..<i class="fa fa-arrow-down"></i></a>
+    </div>
     </div>
 </section>
  
@@ -137,7 +144,7 @@
               <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
               <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
             @else
-              <h6>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h6>
+              <h1>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h1>
             @endif
               <div class="deal-details">
                 <h6 class="deal-title">{{!empty($offer[0]['name'])?$offer[0]['name']:''}}</h6>
@@ -151,7 +158,7 @@
 <!-- End category Area -->
 
 <!-- start product Area -->
-<section class="owl-carousel active-product-area section_gap">
+<section class="owl-carousel active-product-area section_gap" id="products1">
   <!-- single product slide -->
   <div class="single-product-slider">
     <div class="container">
@@ -275,7 +282,18 @@
     </div>
 </section>
 <!-- End related-product Area -->
-
+@section('requirejs')
+<script>
   
+  $('document').ready(function(){ 
+
+  $('#vieww').click(function(){ 
+  $('#gallery,  section.owl-carousel.active-product-area.section_gap.owl-theme.owl-loaded, section#popular').toggle(); 
+
+  $('#vieww').hide(); 
+});
+});
  
+</script>
+@endsection
 

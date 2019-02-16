@@ -1897,12 +1897,15 @@ span#search {
     font-weight: 500;
     color: #fff;
 }
-
+button#vieww {
+    width: 163px;
+    padding: 8px;
+}
 .organic-breadcrumb {
-    background: url('../../img/banner/common-banner.jpg') center no-repeat;
+    /*background: url('../../img/banner/common-banner.jpg') center no-repeat; */
     background-size: cover;
-    padding-top: 121px;
-    padding-bottom: 170px;
+    padding-top: 92px;
+    padding-bottom: 144px;
     margin-bottom: 0;
 }
 
@@ -8492,7 +8495,14 @@ header ul.navbar-right {
 
 .instafeed.static_links li {
     overflow: hidden;
-    width: 100%;
+    width: 100%; 
+    margin-bottom: 7px;
+    /* border-bottom: 1px dotted #ddd; */ 
+}
+
+.brand-area .owl-controls {
+    margin-top: 40px;
+    display: none;
 }
 
 .instafeed li img {
@@ -8781,6 +8791,7 @@ header ul.navbar-right {
 
 
 
+
 #second-sec1 .owl-controls
 {
     display: none;
@@ -8788,7 +8799,7 @@ header ul.navbar-right {
 
 #gallery,  section.owl-carousel.active-product-area.section_gap.owl-theme.owl-loaded, section#popular
 {
-     
+     display: none;
 }
 
 @media(max-width: 767px) {
