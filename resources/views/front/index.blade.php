@@ -69,7 +69,7 @@
 <div class="clearfix"></div>
 <div class="text-center" id="viewww">
 <br/>
-<a class="btn btn-info" id="vieww">Click for more information..</a>
+<a class="btn btn-info" id="vieww">Click for more information..<i class="fa fa-arrow-down"></i></a>
     </div>
     </div>
 </section>

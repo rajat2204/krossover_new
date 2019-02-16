@@ -131,7 +131,7 @@ textarea.form-control {
 
 .navbar-custom {
     background: #0f81ad;
-    height: 49px;
+    /*height: 49px;*/
 }
 
 .navbar-header .navbar-brand {
@@ -140,7 +140,7 @@ textarea.form-control {
     text-transform: uppercase;
     font-weight: 500;
     height: 60px;
-    padding-top: 9px;
+    padding-top: 13px;
 }
 
 .navbar-header .navbar-brand span {

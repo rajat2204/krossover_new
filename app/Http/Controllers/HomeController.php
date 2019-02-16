@@ -163,9 +163,6 @@ class HomeController extends Controller
     public function search(Request $request){
         $data['products'] = _arefy(Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get());
         $data['searchkey'] = $request->item;
-        if ($data['searchkey'] == NULL) {
-            $data['products'] = _arefy(Products::where('status', 'active')->get());
-        }
         $html = view('front.suggestion',$data);
         return Response($html);
     }
