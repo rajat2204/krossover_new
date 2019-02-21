@@ -62,7 +62,7 @@
         PDFViewerApplication.pdfViewer.currentScaleValue = 'page-fit';
 
         $('#viewerContainer').after('<div id="magazineContainer"><div id="magazine"></div></div>');
-        $('body').append('<div class="directions"><a href="#" class="prev-button"></a><a href="#" class="next-button"></a></div>')
+        $('body #outerContainer').append('<div class="directions"><a href="#" class="prev-button"></a><a href="#" class="next-button"></a></div>')
         $("#viewerContainer").hide();
         $("#viewer").hide();
         $(".se-pre-con").hide();

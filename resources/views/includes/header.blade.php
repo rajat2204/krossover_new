@@ -51,7 +51,7 @@
         <form class="d-flex justify-content-between">
           <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Item number...">
           <button type="submit" class="btn"></button>
-          <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+          <span class="lnr lnr-magnifier-cross" id="close_search" title="Close Search"></span>
           
         </form>
           <ul id="suggestion">

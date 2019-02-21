@@ -54,9 +54,10 @@ class HomeController extends Controller
     }
 
     public function catalogePage(Request $request){
-        $data['view']='front.static';
-        return view('pdf-flipbook/index',$data);
-        
+        $data['social'] = _arefy(Social::where('status','active')->get());
+        //$data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
+        $data['view']='pdf-flipbook/index';
+        return view('front_home',$data);
     }
 
     public function whyUs(Request $request){
