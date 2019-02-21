@@ -33,9 +33,6 @@
 </section>
 <!-- End banner Area -->
 
-
-
-
 <section class="brand-area section_gap" id="second-sec1">
     <div class="container">
       <div class="row justify-content-center">

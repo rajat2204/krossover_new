@@ -108,6 +108,5 @@
         $("#suggestion").html(data);
       }
     });
-
   }
 </script>
