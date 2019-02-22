@@ -47,7 +47,10 @@
           <h6>Contact us</h6> 
 
           <ul class="instafeed static_links"> 
+{{-- <<<<<<< HEAD
             <li> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
+======= --}}
+            <li style="    color: #fff;"> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
             <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></li> 
             <li><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}"> <i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></li>
           </ul>
@@ -68,11 +71,12 @@
 
 
     </div>
-    <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+   
+  </div>
+   <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
       <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://www.igniterpro.com/" target="_blank">Igniterpro</a>
+      Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://www.igniterpro.com/" target="_blank">Igniterpro</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>
-  </div>
 </footer>

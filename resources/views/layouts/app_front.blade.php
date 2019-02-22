@@ -20,6 +20,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('/img/logo.ico')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/linearicons.css')}}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
@@ -34,6 +35,8 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
+  {{-- for zoom images --}}
+  <link href="{{asset('assets/magiczoomplus/magiczoomplus.css')}}" rel="stylesheet" type="text/css" media="screen"/>
 <!-- ====================================[ DEFAULT STYLESHEET ]==================================== -->
  @yield('css')
     </head>
@@ -63,6 +66,8 @@
   <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
+  {{-- zoom images  --}}
+  <script src="{{asset('assets/magiczoomplus/magiczoomplus.js')}}" type="text/javascript"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
