@@ -1,5 +1,5 @@
 body {
-    background: #e8e8e8;
+    background: #fff;
     padding-top: 0;
     font-size: 14px;
     color: #444444;
@@ -18,6 +18,7 @@ p {
     z-index: 9999;
     background-color: white;
     background-size: 100px;
+    color: #797979;
 }
 
 a, a:hover, a:focus {
@@ -25,7 +26,7 @@ a, a:hover, a:focus {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #1097cc;
+    color: #797979;
 }
 
 h1 {
@@ -1511,7 +1512,10 @@ ul.program-list li small {
 }
 
 .footer-area p {
-    color: #ccc;
+    color: #767676;
+}
+.footer-area i.fa {
+    color: #615e5e;
 }
 
 /*.select_block {
@@ -1795,3 +1799,28 @@ section#products1 {
 
 
 
+
+/*Update CSS*/
+.homepage_wrapper {
+    padding-top: 80px;
+}
+.form-inline input::placeholder {
+    color: #767676;
+}
+.footer-area .single-footer-widget .click-btn i.fa {
+    color: #fff;
+    margin: 0;
+}
+.single-footer-widget .click-btn {
+    background: #585757!important;
+}
+.header_area {
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0, .3);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0, .3);
+}
+.brand-area .btn-info {
+    background: #585757;
+    border: 1px solid #585757;
+    color: #fff!important;
+}
+/* End Update CSS*/

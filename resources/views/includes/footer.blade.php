@@ -47,7 +47,7 @@
           <h6>Contact us</h6> 
 
           <ul class="instafeed static_links"> 
-            <li style="    color: #f9f9f9b8;"> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
+            <li> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
             <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></li> 
             <li><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}"> <i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></li>
           </ul>

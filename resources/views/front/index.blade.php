@@ -34,7 +34,20 @@
 <!-- End banner Area -->
 
 
+<div class="homepage_wrapper">
 
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          
+        </div>
+      </div>
+    </div>
+  </section>
 
 <section class="brand-area section_gap" id="second-sec1">
     <div class="container">
@@ -60,17 +73,13 @@
               </a>
             </div>
           @endforeach
-
-
-          </div>
-        </div> 
-
-
-<div class="clearfix"></div>
-<div class="text-center" id="viewww">
-<br/>
-<a class="btn btn-info" id="vieww">Click for more information..<i class="fa fa-arrow-down"></i></a>
-    </div>
+        </div>
+      </div> 
+      <div class="clearfix"></div>
+      <div class="text-center" id="viewww">
+        <br/>
+        <a class="btn btn-info" id="vieww">Click for more information..<i class="fa fa-arrow-down"></i></a>
+      </div>
     </div>
 </section>
  
@@ -282,6 +291,9 @@
     </div>
 </section>
 <!-- End related-product Area -->
+
+</div>
+
 @section('requirejs')
 <script>
   
