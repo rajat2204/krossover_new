@@ -53,15 +53,15 @@
 					<!-- <h2>${{$productdata['price']}}</h2> -->
 					<ul class="list">
 						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
-						<li><a href="#"><span>Availibility:</span>
+						<!-- <li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
 							In Stock
 						@else
 						<span>Out of Stock</span>
 						@endif
-					</a></li>
+					</a></li> -->
 					</ul>
-					<p>{{strip_tags(!empty($productdata['description'])?$productdata['description']:'')}}</p>
+					<p>{{trim(html_entity_decode(strip_tags(!empty($productdata['description'])?$productdata['description']:'')))}}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="number" name="qty" id="qty" maxlength="12" min="1" value="1" title="Quantity:" class="input-text qty">
