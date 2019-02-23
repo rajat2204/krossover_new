@@ -55,6 +55,7 @@ class HomeController extends Controller
     }
 
     public function catalogePage(Request $request){
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='pdf-flipbook/index';
         return view('front_home',$data);
