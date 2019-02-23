@@ -357,6 +357,9 @@
     .section_gap {
         padding: 80px 0;
     }
+    .homepage_wrapper{
+        padding-top: 0;
+    }
 }
 
 .section_gap_top_75 {
@@ -2205,6 +2208,9 @@ span#search {
         font-size: 35px;
         line-height: 46px;
     }
+    .banner-area .active-banner-slider{
+        margin: 0;
+    }
 }
 
 .banner-area .banner-content p {
@@ -2220,7 +2226,7 @@ span#search {
         /*display: none;*/
     }
     .banner-area .active-banner-slider {
-        height: 334px;
+        height: 364px;
     }
     .related-product-area-right .single-related-product img {
         width: 63px;
@@ -2280,15 +2286,19 @@ button#vieww {
     .organic-breadcrumb {
         padding-top: 80px;
     }
+    .related-product-area-right {
+        margin-right: 0 !important;
+        margin-top: 30px;
+    }
+
 }
 
 @media (max-width: 767px) {
-    .margin-front{
-        margin-left:0 !important;
+   .categoryFront {
+        order: 2;
     }
-    .related-product-area-right{
-        margin-right:0 !important;
-        margin-top: 30px;
+    .frontHead{
+        margin-top: 20px;
     }
 }
 
@@ -2521,6 +2531,12 @@ button#vieww {
     color: #fff;
     z-index: 1;
     text-transform: uppercase;
+}
+.singleDeal img{
+
+}
+.banner-img img.img-fluid{
+    height: 265px;
 }
 .single-exclusive-slider .overlay{
     position: absolute;
@@ -2757,11 +2773,19 @@ button#vieww {
 }
 
 @media (max-width: 570px) {
+    
+    .banner-area .banner-img{
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 570px) {
     .active-product-area .owl-nav div {
         left: 37%;
         top: 1%;
         margin-top: -25px;
     }
+   
 }
 
 @media (max-width: 480px) {
@@ -2770,7 +2794,14 @@ button#vieww {
         left: 28%;
     }
 }
-
+@media (max-width: 420px) {
+    .banner-area .banner-content p{
+        margin-left: 20px;
+    }
+    .banner-area .banner-content h1{
+        margin-left: 20px;
+    }
+}
 .active-product-area .owl-nav div:hover {
     opacity: 1;
 }
@@ -2796,6 +2827,12 @@ button#vieww {
     .active-product-area .owl-nav .owl-next {
         top: 3%;
         right: 25%;
+    }
+    .banner-img img.img-fluid {
+        height: 235px;
+    }
+    .margin-front {
+        margin-left: 0 !important;
     }
 }
 
@@ -3201,12 +3238,7 @@ div#undefined-sticky-wrapper {
     color: rgba(255, 255, 255, 0.5);
     border-color: rgba(31, 167, 220, 0.47) !important; 
 }
-@media (max-width: 800px) {
-    .single-img img {
-        margin-bottom: 40px;
-    }
 
-}
 
 .single-img img:hover {
     opacity: 1;

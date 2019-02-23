@@ -41,7 +41,7 @@
                 </div>
                  <div class="row justify-content-center">
                   <div class="col-md-12">
-                    <div class="single-deal">
+                    <div class="single-deal singleDeal">
                       <div class="overlay"></div>
                       <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
                       <a href="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" class="img-pop-up" target="_blank">
@@ -92,7 +92,7 @@
 <!-- End banner Area -->
 
 
-<div class="homepage_wrapper">
+
 
 {{-- <<<<<<< HEAD
   <section>
@@ -164,7 +164,7 @@
   <div class="container">
   <!-- single product slide -->
     <div class="row">
-      <div class="col-md-8 margin-front">
+      <div class="col-lg-8 col-md-12 margin-front">
         <div class="single-product-slider singleProductSlider">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
@@ -237,7 +237,7 @@
           </div>
         </div> --}}
       </div>
-      <div class="col-md-4">
+      <div class="col-lg-8 col-md-12">
         <div class="related-product-area-right section_gap_bottom">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
@@ -299,7 +299,7 @@
         </div>
         
       </div>
-  </div>
+    </div>
 </div>
 </section>
 <!-- end product Area -->
@@ -307,7 +307,7 @@
 
 <!-- End related-product Area -->
 
-</div>
+
 
 @section('requirejs')
 <script>

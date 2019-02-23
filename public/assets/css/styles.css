@@ -1855,7 +1855,7 @@ section#products1 {
 
 /*Update CSS*/
 .homepage_wrapper {
-    padding-top: 80px;
+    /*padding-top: 80px;*/
 }
 .form-inline input::placeholder {
     color: #767676;

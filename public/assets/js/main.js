@@ -50,7 +50,7 @@ $(document).ready(function(){
     ==================================*/
     $(".active-banner-slider").owlCarousel({
         items:1,
-        autoplay:false,
+        autoplay:true,
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
@@ -63,7 +63,7 @@ $(document).ready(function(){
     ==================================*/
     $(".active-product-area").owlCarousel({
         items:1,
-        autoplay:false,
+        autoplay:true,
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
@@ -73,7 +73,7 @@ $(document).ready(function(){
 
     $("#activeArea").owlCarousel({
         items:3,
-        autoplay:false,
+        autoplay:true,
         margin:30,
         autoplayTimeout: 5000,
         loop:true,
@@ -103,7 +103,7 @@ $(document).ready(function(){
     ==================================*/
     $(".s_Product_carousel").owlCarousel({
       items:1,
-      autoplay:false,
+      autoplay:true,
       autoplayTimeout: 5000,
       loop:true,
       nav:false,
@@ -127,6 +127,9 @@ $(document).ready(function(){
               },
               480: {
                   items: 1,
+              },
+              550: {
+                items: 2,
               },
               768: {
                   items: 2,
