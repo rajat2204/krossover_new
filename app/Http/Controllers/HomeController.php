@@ -60,6 +60,38 @@ class HomeController extends Controller
         return view('front_home',$data);
     }
 
+    public function viewcategory(Request $request){
+        $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
+        // $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
+        $data['gallery'] = _arefy(Gallery::where('status','active')->get());
+        $data['categories'] = _arefy(Category::where('status','active')->get());
+        $data['view']='front.view-category';
+        return view('front_home',$data);
+    }
+
+    /*---------------latest product-------------*/
+
+    public function viewlatestProduct(Request $request){
+        $where = 'status = "active"';
+        $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
+        // $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
+        $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
+        $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
+        $data['view']='front.latest-product';
+        return view('front_home',$data);
+    }
+
+    /*-----------most popular--------------*/
+
+    public function viewMostpopular(Request $request){
+        $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
+        $data['view']='front.most-popular';
+        return view('front_home',$data);
+    }
+
     public function whyUs(Request $request){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());

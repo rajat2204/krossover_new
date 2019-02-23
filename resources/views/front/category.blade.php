@@ -1,5 +1,5 @@
 <!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
+	<section class="categoryWrapper clearfix  organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
@@ -14,7 +14,7 @@
 	</section>
 <!-- End Banner Area -->
 	
-	<section class="section_gap">
+	<section class="section_gap categoryListingWrap">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 col-lg-4 col-md-5">

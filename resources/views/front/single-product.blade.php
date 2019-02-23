@@ -1,5 +1,5 @@
 <!-- Start Banner Area -->
-<section class="banner-area organic-breadcrumb">
+<section class="banner-area clearfix organic-breadcrumb singleproductWrapper">
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 			<div class="col-first">
@@ -15,23 +15,98 @@
 <!-- End Banner Area -->
 
 <!--================Single Product Area =================-->
-<div class="product_image_area">
+<div class="product_image_area singleProduct">
 	<div class="container">
 		<div class="row s_product_inner">
-			<div class="col-lg-6">
-				<div class="s_Product_carousel">
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-				</div>
+			<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 col-xs">
+				<div class="categoryproductZoom">
+					<div class="preview col">
+					    <div class="api-controls">
+					       {{--  <button class="cfg-btn" onclick="MagicZoom.prev('Zoom-1')">Prev</button>
+					        <button class="cfg-btn" onclick="MagicZoom.next('Zoom-1')">Next</button>
+					        <button class="cfg-btn" onclick="MagicZoom.zoomIn('Zoom-1')">Zoom In</button> --}}
+					        {{-- <button class="cfg-btn" onclick="MagicZoom.zoomOut('Zoom-1')">Zoom Out</button> --}}
+					    </div>
+					    <div class="app-figure" id="zoom-fig">
+					        <a id="Zoom-1" class="MagicZoom"
+					            href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
+					        >
+					            <img src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg" alt=""/>
+					        </a>
+					        <div class="selectors">
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.width=56"/>
+					            </a>
+					           <a
+					                data-zoom-id="Zoom-1"
+					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg"
+					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.height=400"
+					            >
+					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.width=56"/>
+					            </a>
+					        </div>
+					    </div>
+			   </div>
 			</div>
-			<div class="col-lg-5 offset-lg-1">
+				{{-- <div class="s_Product_carousel">
+					<div class="single-prd-item">
+						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
+					</div>
+					<div class="single-prd-item">
+						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
+					</div>
+					<div class="single-prd-item">
+						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
+					</div>
+				</div> --}}
+			</div>
+			<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-xs">
 				<div class="s_product_text">
 					<h3>{{ucfirst($productdata['title'])}}</h3>
 					<!-- <h2>${{$productdata['price']}}</h2> -->
@@ -54,6 +129,21 @@
 					<div class="card_area d-flex align-items-center">
 						<button type="button" id="getquotes" class="primary-btn" data-toggle="modal" data-target="#myModal">Get Quotes</button>
 					</div>
+					<div class="share-box detail-info-entry">
+                        <!-- AddToAny BEGIN -->
+                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                            <a class="a2a_dd" href="https://#"></a>
+                            <a class="a2a_button_facebook"></a>
+                            <a class="a2a_button_twitter"></a>
+                            <a class="a2a_button_google_plus"></a>
+                            <a class="a2a_button_linkedin"></a>
+                        </div>
+                        <script async src="https://static.addtoany.com/menu/page.js"></script>
+                        <!-- AddToAny END -->
+                        <div class="title">Share in social media</div>
+
+                        <div class="clear"></div>
+                    </div>
 					<div class="modal modalWrapper fade" id="myModal" role="dialog">
 					    <div class="modal-dialog">
 					      <div class="modal-content">
@@ -105,6 +195,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!--================End Single Product Area =================-->
 
@@ -169,5 +260,90 @@
 			$("#quantity").val(qty);
 		});
 	})
+</script>
+<script type="text/javascript">
+    var mzOptions = {};
+    mzOptions = {
+        onZoomReady: function() {
+            console.log('onReady', arguments[0]);
+        },
+        onUpdate: function() {
+            console.log('onUpdated', arguments[0], arguments[1], arguments[2]);
+        },
+        onZoomIn: function() {
+            console.log('onZoomIn', arguments[0]);
+        },
+        onZoomOut: function() {
+            console.log('onZoomOut', arguments[0]);
+        },
+        onExpandOpen: function() {
+            console.log('onExpandOpen', arguments[0]);
+        },
+        onExpandClose: function() {
+            console.log('onExpandClosed', arguments[0]);
+        }
+    };
+    var mzMobileOptions = {};
+
+    function isDefaultOption(o) {
+        return magicJS.$A(magicJS.$(o).byTag('option')).filter(function(opt){
+            return opt.selected && opt.defaultSelected;
+        }).length > 0;
+    }
+
+    function toOptionValue(v) {
+        if ( /^(true|false)$/.test(v) ) {
+            return 'true' === v;
+        }
+        if ( /^[0-9]{1,}$/i.test(v) ) {
+            return parseInt(v,10);
+        }
+        return v;
+    }
+
+    // function makeOptions(optType) {
+    //     var  value = null, isDefault = true, newParams = Array(), newParamsS = '', options = {};
+    //     magicJS.$(magicJS.$A(magicJS.$(optType).getElementsByTagName("INPUT"))
+    //         .concat(magicJS.$A(magicJS.$(optType).getElementsByTagName('SELECT'))))
+    //         .forEach(function(param){
+    //             value = ('checkbox'==param.type) ? param.checked.toString() : param.value;
+
+    //             isDefault = ('checkbox'==param.type) ? value == param.defaultChecked.toString() :
+    //                 ('SELECT'==param.tagName) ? isDefaultOption(param) : value == param.defaultValue;
+
+    //             if ( null !== value && !isDefault) {
+    //                 options[param.name] = toOptionValue(value);
+    //             }
+    //     });
+    //     return options;
+    // }
+
+    // function updateScriptCode() {
+    //     var code = '&lt;script&gt;\nvar mzOptions = ';
+    //     code += JSON.stringify(mzOptions, null, 2).replace(/\"(\w+)\":/g,"$1:")+';';
+    //     code += '\n&lt;/script&gt;';
+
+    //     magicJS.$('app-code-sample-script').changeContent(code);
+    // }
+
+    // function updateInlineCode() {
+    //     var code = '&lt;a class="MagicZoom" data-options="';
+    //     code += JSON.stringify(mzOptions).replace(/\"(\w+)\":(?:\"([^"]+)\"|([^,}]+))(,)?/g, "$1: $2$3; ").replace(/\{([^{}]*)\}/,"$1").replace(/\s*$/,'');
+    //     code += '"&gt;';
+
+    //     magicJS.$('app-code-sample-inline').changeContent(code);
+    // }
+
+    function applySettings() {
+        MagicZoom.stop('Zoom-1');
+        mzOptions = makeOptions('params');
+        mzMobileOptions = makeOptions('mobile-params');
+        MagicZoom.start('Zoom-1');
+        updateScriptCode();
+        updateInlineCode();
+        try {
+            prettyPrint();
+        } catch(e) {}
+    }
 </script>
 @endsection	

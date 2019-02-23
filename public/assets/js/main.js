@@ -50,12 +50,12 @@ $(document).ready(function(){
     ==================================*/
     $(".active-banner-slider").owlCarousel({
         items:1,
-        autoplay:true,
-        autoplayTimeout: 3000,
+        autoplay:false,
+        autoplayTimeout: 5000,
         loop:true,
         nav:true,
         // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
-        dots:false
+        dots:true
     });
 
     /*=================================
@@ -67,10 +67,37 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:false
     });
 
+    $("#activeArea").owlCarousel({
+        items:3,
+        autoplay:false,
+        margin:30,
+        autoplayTimeout: 5000,
+        loop:true,
+        nav:true,
+        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        dots:false,
+        responsive: {
+              0: {
+                  items: 1
+              },
+              480: {
+                  items: 1,
+              },
+              576: {
+                items: 2,
+              },
+              768: {
+                  items: 2,
+              },
+              1200:{
+                items:3,
+              }
+          }
+    });
     /*=================================
     Javascript for single product area carousel
     ==================================*/
@@ -86,30 +113,53 @@ $(document).ready(function(){
     /*=================================
     Javascript for exclusive area carousel
     ==================================*/
+    $(".active-exclusive-product-slider-front").owlCarousel({
+        items:2,
+        autoplay:true,
+        autoplayTimeout: 3000,
+        loop:true,
+        nav:true,
+        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        dots:true,
+        responsive: {
+              0: {
+                  items: 1
+              },
+              480: {
+                  items: 1,
+              },
+              768: {
+                  items: 2,
+              },
+              1200:{
+                items:2,
+              }
+          }
+    });
+
     $(".active-exclusive-product-slider").owlCarousel({
         items:8,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
         nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
-        dots:false,
+        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        dots:true,
         responsive: {
               0: {
                   items: 1
               },
               480: {
-                  items: 2,
+                  items: 2
               },
               768: {
-                  items: 4,
+                  items: 5
               },
               1200:{
                 items:8,
               }
           }
     });
-
     //--------- Accordion Icon Change ---------//
 
     $('.collapse').on('shown.bs.collapse', function(){
