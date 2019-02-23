@@ -12,6 +12,7 @@ use App\Models\Enquiry;
 use App\Models\Sliders;
 use App\Models\Category;
 use App\Models\Products;
+use App\Models\Product_Gallery;
 use App\Models\ContactUs;
 use App\Models\Subscribers;
 use App\Models\StaticPages;
@@ -55,7 +56,6 @@ class HomeController extends Controller
 
     public function catalogePage(Request $request){
         $data['social'] = _arefy(Social::where('status','active')->get());
-        //$data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['view']='pdf-flipbook/index';
         return view('front_home',$data);
     }
@@ -63,9 +63,9 @@ class HomeController extends Controller
     public function viewcategory(Request $request){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
-        // $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
         $data['categories'] = _arefy(Category::where('status','active')->get());
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['view']='front.view-category';
         return view('front_home',$data);
     }
@@ -76,7 +76,6 @@ class HomeController extends Controller
         $where = 'status = "active"';
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
-        // $data['staticpage'] = _arefy(StaticPages::where('slug',$slug)->first());
         $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
         $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
         $data['view']='front.latest-product';
@@ -88,6 +87,7 @@ class HomeController extends Controller
     public function viewMostpopular(Request $request){
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
+        $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['view']='front.most-popular';
         return view('front_home',$data);
     }
@@ -188,10 +188,14 @@ class HomeController extends Controller
         $data['offer'] = _arefy(Offers::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['productdata'] = Products::findOrFail($id);
+        $where = 'product_id = "'.$id.'"';
+        $data['gallery'] = _arefy(Product_Gallery::list('array',$where,['*'],'id-desc'));
         $data['category'] = _arefy(Category::where('id',$id)->first());
         $data['view']='front.single-product';
         return view('front_home',$data);
     }
+
+
 
     public function search(Request $request){
         $data['products'] = _arefy(Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get());
