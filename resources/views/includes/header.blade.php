@@ -20,7 +20,7 @@
               <li class="nav-item"><a class="nav-link" href="#gallery" class="page-scroll">Gallery</a></li>
               <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
               @endif
-              <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('pages/catalogue')}}">Catalogue</a></li>
+              <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a></li>
               <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="javascipt:void(0);">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
