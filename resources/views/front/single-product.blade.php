@@ -29,82 +29,23 @@
 					    </div>
 					    <div class="app-figure" id="zoom-fig">
 					        <a id="Zoom-1" class="MagicZoom"
-					            href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
-					        >
-					            <img src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg" alt=""/>
+					            href="{{url('assets/images/products')}}/{{$productdata['feature_image']}}">
+					            <img src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt=""/>
 					        </a>
-					        <div class="selectors">
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-1-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-5-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-6-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-7-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-8-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-2-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-3-z.jpg?scale.width=56"/>
-					            </a>
-					           <a
-					                data-zoom-id="Zoom-1"
-					                href="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg"
-					                data-image="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.height=400"
-					            >
-					                <img srcset="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.width=112 2x" src="https://magictoolbox.sirv.com/images/magiczoomplus/jeans-4-z.jpg?scale.width=56"/>
-					            </a>
+					        <div class="selectors" id="galleries">
+					        	@foreach($gallery as $galimages)
+					        	<ul id="myList">
+						           	<a data-zoom-id="Zoom-1"
+						                href="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}"
+						                data-image="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}">
+						            	<img srcset="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}" src="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}"/>
+						            </a>
+						        </ul>
+					            @endforeach
 					        </div>
 					    </div>
-			   </div>
-			</div>
-				{{-- <div class="s_Product_carousel">
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt="">
-					</div>
-				</div> --}}
+				   	</div>
+				</div>
 			</div>
 			<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-xs">
 				<div class="s_product_text">

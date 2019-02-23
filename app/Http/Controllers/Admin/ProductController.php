@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Colors;
 use App\Models\Brands;
 use App\Models\Products;
+use App\Models\Product_Gallery;
 use App\Models\Category;
 use App\Models\Subcategories;
 use App\Models\Product_Colors;
@@ -148,6 +149,16 @@ class ProductController extends Controller
             $data->save();
 
             $lastid = $data->id;
+            if ($files = $request->file('gallery')){
+                foreach ($files as $file){
+                    $gallery = new Product_Gallery;
+                    $image_name = str_random(2).time().$file->getClientOriginalName();
+                    $file->move('assets/images/Product Gallery',$image_name);
+                    $gallery['images'] = $image_name;
+                    $gallery['product_id'] = $lastid;
+                    $gallery->save();
+                }
+            }
             if(!empty($request->input("color_name"))){
                 foreach ($request->input("color_name") as $colors){
                     $add_color = new Product_Colors;
@@ -189,6 +200,7 @@ class ProductController extends Controller
         $id = ___decrypt($id);
         $whereProduct = ' id = '.$id;
         $data['product'] = _arefy(Products::list('single',$whereProduct));
+        $data['gallery'] = _arefy(Product_Gallery::where('product_id',$id)->get());
         $where = 'status != "trashed"';
         $data['categories'] = _arefy(Category::where('status', '=', 'active')->get());
         $data['subcategory'] = _arefy(Subcategories::where('status', '=', 'active')->where('id',$id)->get());
@@ -219,6 +231,10 @@ class ProductController extends Controller
                 $file->move('assets/images/products',$photo_name);
                 $input['feature_image'] = $photo_name;
             }
+            if ($request->galdel == 1){
+                $gal = Product_Gallery::where('product_id',$id);
+                $gal->delete();
+            }
             if ($request->pallow == ""){
                 $input['sizes'] = null;
             }
@@ -237,6 +253,16 @@ class ProductController extends Controller
                 }
             }
             $product->update($input);
+            if ($files = $request->file('gallery')){
+                foreach ($files as $file){
+                    $gallery = new Product_Gallery;
+                    $image_name = str_random(2).time().$file->getClientOriginalName();
+                    $file->move('assets/images/Product Gallery',$image_name);
+                    $gallery['images'] = $image_name;
+                    $gallery['product_id'] = $id;
+                    $gallery->save();
+                }
+            }
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;

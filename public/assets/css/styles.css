@@ -1627,7 +1627,7 @@ ul.program-list li small {
 }
 
 .footer-right-contact .contact-icon {
-    background: #f5b50b;
+    background: #e8e8e8;
     color: #fff;
     border-radius: 50%;
     font-size: 20px;
@@ -1637,15 +1637,15 @@ ul.program-list li small {
     position: absolute;
     text-align: center;
     top: 50%;
-    -webkit-transform: translateY(-50%);
+    /*-webkit-transform: translateY(-50%);*/
     transform: translateY(-50%);
     width: 42px;
-    background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+    /*background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);*/
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(255, 108, 0, 0.2);
+    /*background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);*/
+    /*border-radius: 50%;*/
+    /*box-shadow: 0 10px 20px rgba(255, 108, 0, 0.2);*/
 }
 
 #contact {
