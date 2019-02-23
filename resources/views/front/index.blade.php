@@ -237,7 +237,7 @@
           </div>
         </div> --}}
       </div>
-      <div class="col-lg-8 col-md-12">
+      <div class="col-lg-4 col-md-12">
         <div class="related-product-area-right section_gap_bottom">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
