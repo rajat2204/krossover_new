@@ -104,7 +104,7 @@
       url: "{{url('search')}}",
       data: {item:q},
       success:function(data){
-      
+      console.log(data);
         $("#suggestion").html(data);
       }
     });
