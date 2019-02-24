@@ -1527,7 +1527,9 @@ ul.program-list li small {
 .white_bg {
     background: #fff !important;
 }
-
+.contactus-area.section_gap {
+    padding-top: 0;
+}
 .footer-area p {
     color: #767676;
 }
@@ -1592,6 +1594,7 @@ ul.program-list li small {
     background: #fff;
     box-shadow: 0 0 30px #ededed;
     padding: 60px 40px;
+    margin-bottom: 30px;
 }
 
 .contact-form-area h2 {

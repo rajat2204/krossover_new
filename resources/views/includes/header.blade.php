@@ -3,13 +3,13 @@
       <div class="top">
         <div class="container-fluid">
           <div class="row">
-              <div class="col-md-6 col-xs-6 col-8">
+              <div class="col-md-6 col-xs-6 col-10">
                  <div class="phone-e">
                       <a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}" target="_blank"><i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a>
                       <a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}" target="_blank"><i class="fa fa-envelope:"></i>  {{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a>
                   </div>
               </div>
-              <div class="col-md-6 col-xs-6 col-4">
+              <div class="col-md-6 col-xs-6 col-2">
                   <div class="footer-socialn text-right" id="top-social">
                       <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
