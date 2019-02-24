@@ -43,7 +43,7 @@
                   <div class="col-md-12">
                     <div class="single-deal singleDeal">
                       <div class="overlay"></div>
-                      <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
+                      <img class="img-responsive" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
                       <a href="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" class="img-pop-up" target="_blank">
                         <div class="deal-details">
                           <h6 class="deal-title">{{!empty($gallery[0]['name'])?$gallery[0]['name']:''}}</h6>
