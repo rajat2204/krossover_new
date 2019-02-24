@@ -433,12 +433,12 @@
     background: -o-linear-gradient(90deg, #7c7d73 0%, #7c7d73 100%);
     background: linear-gradient(90deg, #7c7d73 0%, #7c7d73 100%);
 }
-/*.swal2-confirm{
+.swal2-confirm{
     background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
     background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
-}*/
+}
 div#swal2-content {
     text-align: center;
 }
@@ -980,9 +980,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover !important;
     height: 200px;
 }
-.contact-map{
-    padding-bottom: 60px;
-}
+
 .list-style {
     width: 14px;
     height: 14px;
@@ -1550,7 +1548,7 @@ ul#suggestion {
     width: 16px;
     height: 16px;
     border-radius: 8px;
-    background: #f9f9ff;
+    background: #64cdf6;
     position: relative;
     cursor: pointer;
 }
@@ -2315,6 +2313,7 @@ button#vieww {
 .breadcrumb-banner h1 {
     font-weight: 500;
     font-size: 30px;
+    margin-bottom: 0;
     color: #7c7d73;
 }
 .categoryListingWrap{
@@ -2916,7 +2915,10 @@ button#vieww {
     padding-top: 100px;
 }
 .showCategories{
-    padding-top: 100px;
+    padding-top: 130px;
+}
+.static-area.section_gap{
+    padding: 30px 0;
 }
 .mostPopularWrap{
     padding-top: 100px;
@@ -3615,6 +3617,7 @@ div#undefined-sticky-wrapper {
 .category-list .single-product div.dataTables_wrapper div.dataTables_length select{
     display: block !important;
     padding: 6px 4px;
+    margin: 0 10px;
     border-radius: 5px;
 }
 .category-list .single-product .product-details #dataTableBuilder_wrapper .nice-select{
@@ -3673,8 +3676,8 @@ div#undefined-sticky-wrapper {
     height: 50px;
 }
 .categoryWrapper {
-    padding-bottom: 20px;
-    padding-top: 60px;
+    padding-bottom: 0;
+    padding-top: 90px;
 }
 .product-details .table-responsive{
     overflow: unset;
