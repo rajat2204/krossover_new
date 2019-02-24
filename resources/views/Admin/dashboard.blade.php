@@ -71,7 +71,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-red panel-widget ">
+					<div class="panel panel-red panel-widget border-right">
 						<a href="{{url('admin/offers')}}">
 							<div class="row no-padding"><em class="fa fa-xl fa-gift color-red"></em>
 								<div class="large">{{ \App\Models\Offers::count() }}</div>
