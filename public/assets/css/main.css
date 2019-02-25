@@ -3820,6 +3820,16 @@ label {
 .product-details #dataTableBuilder_wrapper>div>div ~ div{
     /*display: none;*/
 }
+.product-details #dataTableBuilder_paginate .paginate_button {
+    color: #000;
+    font-size: 20px;
+}
+.product-details #dataTableBuilder_paginate .paginate_button.previous {
+    font-size: 0;
+}
+.product-details #dataTableBuilder_paginate .paginate_button.next {
+    font-size: 0;
+} 
 .product-details #dataTableBuilder_paginate a{
     /*padding: 10px;
     cursor: pointer;
