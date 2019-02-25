@@ -33,15 +33,16 @@
 					            <img src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt=""/>
 					        </a>
 					        <div class="selectors" id="galleries">
-					        	@foreach($gallery as $galimages)
 					        	<ul id="myList">
+					        		<a data-zoom-id="Zoom-1" href="{{url('assets/images/products')}}/{{$productdata['feature_image']}}"><img src="{{url('assets/images/products')}}/{{$productdata['feature_image']}}" alt=""/></a>
+					        	@foreach($gallery as $galimages)
 						           	<a data-zoom-id="Zoom-1"
 						                href="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}"
 						                data-image="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}">
 						            	<img srcset="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}" src="{{url('assets/images/Product Gallery')}}/{{$galimages['images']}}"/>
 						            </a>
-						        </ul>
 					            @endforeach
+						        </ul>
 					        </div>
 					    </div>
 				   	</div>
