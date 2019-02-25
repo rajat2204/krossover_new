@@ -424,9 +424,12 @@
 .section-title {
     margin-bottom: 40px;
 }
-
+.features-area .section-title{
+    margin-bottom: 10px;
+}
 .section-title h1 {
     font-size: 30px;
+    margin-bottom: 0;
 }
 
 .section-title p {
@@ -1538,7 +1541,7 @@ ul#suggestion {
     border: 1px solid #f1f1f1;
 }
 .frontHead{
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 .categoryFront .owl-controls .owl-nav{
     font-size: 0;
@@ -1598,7 +1601,12 @@ ul#suggestion {
 .default-select {
     height: 40px;
 }
-
+.left_category{
+    float:left;
+}
+.rightMore{
+    float: right;
+}
 .default-select .nice-select {
     border: none;
     border-radius: 0px;
@@ -2198,12 +2206,14 @@ a.navbar-brand:hover {
     color: #7c7d73;
 }
 .active-banner-slider{
-    height: 360px;
+    /*height: 360px;*/
+    height: 300px;
+    margin-top: 34px;
     margin-left: 15px;
     background-color: #f3f2f2;
 }
 .banner-img {
-    padding-top: 80px;
+    padding-top: 40px;
     padding-right: 40px;
 }
 .margin-front{
@@ -2487,10 +2497,13 @@ button#vieww {
 .features-area .col-lg-3:nth-child(3) .single-features, .features-area .col-lg-3:nth-child(4) .single-features {
     margin-bottom: 0;
 }
-
+.active-exclusive-product-slider-front {
+    height: 130px;
+}
 .features-inner {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 0 0 40px;
+    padding: 10px 0 40px;
+    background: #f3f2f2;
 }
 #our-clientss {
     padding-top: 30px;
@@ -2986,7 +2999,11 @@ button#vieww {
     padding: 30px 0;
 }
 .mostPopularWrap{
-    padding-top: 100px;
+    padding-top: 130px;
+    padding-bottom: 30px;
+}
+.mostPopularWrap .section-title{
+        margin-bottom: 10px;
 }
 .single-product .product-details .price .l-through {
     text-decoration: line-through;
@@ -3326,14 +3343,14 @@ div#undefined-sticky-wrapper {
 
 .single-related-product {
     margin-bottom: 30px;
-    margin-right: 15px;
+    margin-right: 0;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     border: 1px solid #dedede;
     padding: 10px 15px;
-    background: #fbfbfb;
+    background: #fff;
 }
 
 .single-related-product .desc {
@@ -5771,8 +5788,8 @@ div#products_cus {
 
 .related-product-area .container {
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
-    padding: 30px 20px;
-    background: #fff;
+    padding: 20px 20px 0;
+    background: #f3f2f2;
 }
 .view-more-wrap{
     /*padding: 10px;*/
@@ -7736,7 +7753,7 @@ div#products_cus {
 
 .brand-area.section_gap .row.justify-content-center
 { 
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 @media (min-width: 767px) {
