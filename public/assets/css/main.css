@@ -2211,6 +2211,7 @@ a.navbar-brand:hover {
 }
 span#search {
     color: #0984b8;
+    border-radius: 10px;
 }
 
 @media (min-width: 768px) {
