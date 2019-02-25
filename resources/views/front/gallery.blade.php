@@ -16,7 +16,7 @@
           <div class="col-lg-8 col-md-8">
             <div class="single-deal">
               <div class="overlay"></div>
-              <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
+              <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
               <a href="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" class="img-pop-up" target="_blank">
                 <div class="deal-details">
                   <h6 class="deal-title">{{!empty($gallery[0]['name'])?$gallery[0]['name']:''}}</h6>
@@ -27,7 +27,7 @@
           <div class="col-lg-4 col-md-4">
             <div class="single-deal">
               <div class="overlay"></div>
-              <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" alt="">
+              <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" alt="">
               <a href="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" class="img-pop-up" target="_blank">
                 <div class="deal-details">
                   <h6 class="deal-title">{{!empty($gallery[1]['name'])?$gallery[1]['name']:''}}</h6>
@@ -38,7 +38,7 @@
           <div class="col-lg-4 col-md-4">
             <div class="single-deal">
               <div class="overlay"></div>
-              <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[2]['image']}}" alt="">
+              <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[2]['image']}}" alt="">
               <a href="{{url('assets/images/gallery')}}/{{$gallery[2]['image']}}" class="img-pop-up" target="_blank">
                 <div class="deal-details">
                   <h6 class="deal-title">{{!empty($gallery[2]['name'])?$gallery[2]['name']:''}}</h6>
@@ -49,7 +49,7 @@
           <div class="col-lg-8 col-md-8">
             <div class="single-deal">
               <div class="overlay"></div>
-              <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" alt="">
+              <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" alt="">
               <a href="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" class="img-pop-up" target="_blank">
                 <div class="deal-details">
                   <h6 class="deal-title">{{!empty($gallery[3]['name'])?$gallery[3]['name']:''}}</h6>
@@ -63,7 +63,7 @@
         <div class="single-deal">
           <div class="overlay"></div>
           @if(!empty($offer[0]['image']))
-            <img class="img-fluid w-100" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
+            <img class="img-fluid w-100 single-right" src="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" alt="">
             <a href="{{url('assets/images/offers')}}/{{$offer[0]['image']}}" class="img-pop-up" target="_blank">
           @else
             <h1>{{!empty($offer[0]['text'])?$offer[0]['text']:''}}</h1>
