@@ -52,7 +52,7 @@
 					<h3>{{ucfirst($productdata['title'])}}</h3>
 					<!-- <h2>${{$productdata['price']}}</h2> -->
 					<ul class="list">
-						<li><a class="active" href="#"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
+						<li><a class="active"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
 						<!-- <li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
 							In Stock
