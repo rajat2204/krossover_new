@@ -1,7 +1,7 @@
 body {
 
     /*background: #e8e8e8;*/
-    background-color: #f3f2f2;
+    background-color: #fff;
     padding-top: 0;
     font-size: 14px;
     color: #444444;
@@ -1019,14 +1019,16 @@ tr.odd:hover, tr.even:hover {
 .single-img:after {
     clear: both;
 }
-
+.inspirationHead{
+    margin-top: 15px;
+}
 .single-exclusive-slider {
    
     padding: 10px;
     max-width: 260px;
     margin: 0 auto;
     max-height: 220px; 
-    background: #ffffffed;
+    background: #f3f2f2;
     box-shadow: 0 0 4px #ccc;
 }
 

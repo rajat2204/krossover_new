@@ -1538,7 +1538,7 @@ ul#suggestion {
     border: 1px solid #f1f1f1;
 }
 .frontHead{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .categoryFront .owl-controls .owl-nav{
     font-size: 0;
@@ -2189,12 +2189,13 @@ a.navbar-brand:hover {
     color: #7c7d73;
 }
 .active-banner-slider{
-    height: 400px;
+    height: 360px;
     margin-left: 15px;
-    background-color: #fff;
+    background-color: #f3f2f2;
 }
 .banner-img {
     padding-top: 80px;
+    padding-right: 40px;
 }
 .margin-front{
     margin-left:-15px;
@@ -2566,11 +2567,11 @@ button#vieww {
     text-transform: uppercase;
 }
 .singleDeal img{
-    max-width: 380px;
-    height: 150px;
+    max-width: 400px;
+    height: 100px;
 }
 .banner-img img.img-fluid{
-    height: 265px;
+    height: 215px;
 }
 .single-exclusive-slider .overlay{
     position: absolute;
@@ -2680,7 +2681,7 @@ button#vieww {
     overflow-x: hidden;
 }
 .singleProductSlider{
-    padding: 30px 30px 40px;
+    padding: 10px 30px 20px;
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     background-color: #fff;
 }
@@ -5776,7 +5777,7 @@ div#products_cus {
 }
 .related-product-area-right{
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
-    padding: 30px 20px;
+    padding: 10px 20px 15px;
     margin-right: -30px;
     background-color: #fff;
 }
@@ -9272,11 +9273,7 @@ header ul.navbar-right {
     transition: all 0.3s ease 0s;
 }
 
-@media (max-width: 991px) {
-    .single-footer-widget {
-        margin-bottom: 40px;
-    }
-}
+
 
 .single-footer-widget .form-inline {
     display: inline-block;
