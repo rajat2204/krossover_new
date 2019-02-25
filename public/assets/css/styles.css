@@ -1027,7 +1027,7 @@ tr.odd:hover, tr.even:hover {
     margin-bottom: 20px;
 }
 .inspirationHead{
-    margin-top: 10px;
+    margin-top: 6px;
 }
 .single-exclusive-slider {
    
@@ -1538,6 +1538,7 @@ ul.program-list li small {
 }
 .contactus-area.section_gap {
     padding-top: 0;
+    padding-bottom: 30px;
 }
 .footer-area p {
     color: #767676;
@@ -1600,20 +1601,22 @@ ul.program-list li small {
 
 /*contact us css*/
 .contact-form-area {
-    background: #fff;
+    background: #f3f2f2;
     box-shadow: 0 0 30px #ededed;
-    padding: 60px 40px;
-    margin-bottom: 30px;
+    padding: 20px 10px;
+    margin-bottom: 10px;
 }
 
 .contact-form-area h2 {
     font-size: 18px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left;
 }
 
 .footer-right-contact {
     padding: 4px;
+    background: #fff;
     border: 1px solid #e1e1e1;
     margin-top: 0;
     text-align: left;
