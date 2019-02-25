@@ -5829,7 +5829,7 @@ div#products_cus {
 }
 .related-product-area-right p{
     overflow: hidden;
-    height: 20px;
+    height: 30px;
 }
 .sidebar-categories .main-nav-list a {
     font-size: 14px;
@@ -9245,7 +9245,7 @@ header ul.navbar-right {
 .footer-area h6 {
 
     color: #fff;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     font-size: 18px;
     font-weight: 600;
 }
@@ -9267,7 +9267,8 @@ header ul.navbar-right {
 .instafeed.static_links li {
     overflow: hidden;
     width: 100%; 
-    margin-bottom: 7px;
+    font-size: 12px;
+    /*margin-bottom: 7px;*/
     /* border-bottom: 1px dotted #ddd; */ 
 }
 
