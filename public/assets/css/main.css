@@ -414,9 +414,13 @@
     background: #f9f9ff;
 }
 .static_img {
-    padding-top: 25px;
+    padding-bottom: 10px;
+    /*padding-top: 25px;*/
     /*max-width: 360px;*/
     height: 100%;
+}
+.related-product-area .section-title{
+    margin-bottom: 20px;
 }
 .static_img img{
     width: 100%;
@@ -2780,6 +2784,7 @@ button#vieww {
 }
 .related-product-area.section_gap{
     padding-top: 0;
+    padding-bottom: 35px;
 }
 .paddingRight{
     padding-right: 30px;
@@ -2960,12 +2965,14 @@ button#vieww {
 }
 
 #products_cus .single-product {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border: 0px solid #fff !important;
     box-shadow: 0 0 0px #ccc !important;
     padding: 5px 5px;
 }
-
+.lattest-product-area div.dataTables_wrapper div.dataTables_info{
+    padding-top: 0;
+}
 @media (max-width: 480px) {
     .active-product-area .owl-nav .owl-next {
         margin-top: -20px;
@@ -3009,7 +3016,7 @@ button#vieww {
     padding-top: 130px;
 }
 .static-area.section_gap{
-    padding: 30px 0;
+    padding: 10px 0;
 }
 .mostPopularWrap{
     padding-top: 130px;
@@ -3760,7 +3767,8 @@ div#undefined-sticky-wrapper {
     width: 30.5%;
     position: relative;
     margin: 10px;
-    border: 1px solid #eee;
+    background: #f3f2f2;
+    border: 1px solid #7c7d73;
     padding: 20px 0 0;
 }
 .white_box_wrapper table tr::before {
@@ -9504,6 +9512,7 @@ header ul.navbar-right {
     }
     section.categoryListingWrap{
         padding-top: 0;
+        padding-bottom: 8px;
     }
     div.popular {
         padding: 30px 0 40px;

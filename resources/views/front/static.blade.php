@@ -38,12 +38,12 @@
           </div>
         </div>
         @if(!empty($staticpage['image']))
-        <div class="col-lg-5 col-md-5 col-sm-12"> 
+        <div class="col-lg-12 col-md-12 col-sm-12"> 
           <div class="static_img">
             <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
           </div>
         </div>
-        <div class="col-lg-7 col-md-7 col-sm-12"> 
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="static-description">
               <p>{!!($staticpage['description'])!!}</p>
             </div>

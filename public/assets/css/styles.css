@@ -10,6 +10,7 @@ body {
 
 p {
     color: #777;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 #cover {
@@ -25,25 +26,30 @@ p {
 
 a, a:hover, a:focus {
     color: #30a5ff;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
 
     color: #7c7d73;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h1 {
     font-weight: 300;
     font-size: 40px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h2 {
     font-weight: 300;
     margin-bottom: 20px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h3, h4 {
     font-weight: 300;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 .large {
@@ -1021,7 +1027,7 @@ tr.odd:hover, tr.even:hover {
 }
 .viewGallery{
     padding-top: 120px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 .viewGallery .section-title{
     margin-bottom: 20px;
@@ -1582,8 +1588,9 @@ ul.program-list li small {
 }
 
 .static-description p {
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 5px;
 }
 
 .about_img {
@@ -1604,7 +1611,7 @@ ul.program-list li small {
     background: #f3f2f2;
     box-shadow: 0 0 30px #ededed;
     padding: 20px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .contact-form-area h2 {
