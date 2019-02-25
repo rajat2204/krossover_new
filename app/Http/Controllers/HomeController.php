@@ -199,6 +199,7 @@ class HomeController extends Controller
         $where = 'product_id = "'.$id.'"';
         $data['gallery'] = _arefy(Product_Gallery::list('array',$where,['*'],'id-desc'));
         $data['category'] = _arefy(Category::where('id',$id)->first());
+        $data['social'] = _arefy(Social::where('status','active')->get());
         $data['view']='front.single-product';
         return view('front_home',$data);
     }
