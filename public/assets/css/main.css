@@ -403,7 +403,10 @@
 
 @media (max-width: 991px) {
     .section_gap_bottom {
-        padding-bottom: 80px;
+        padding-bottom: 30px !important;
+    }
+    .mostPopularWrap{
+        padding-top: 50px !important; 
     }
 }
 
