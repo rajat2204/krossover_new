@@ -1538,13 +1538,13 @@ ul#suggestion {
     border: 1px solid #f1f1f1;
 }
 .frontHead{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .categoryFront .owl-controls .owl-nav{
     font-size: 0;
 }
 .frontHead h1{
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
 }
 .confirm-radio input:checked + label {
@@ -2100,6 +2100,15 @@ a.navbar-brand:hover {
 @media (max-width: 575px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding: 0px 15px;
+    }
+    #products_cus .product-details #dataTableBuilder_paginate a{
+        width: 28px !important;
+    }
+    .product-details #dataTableBuilder_paginate a.paginate_button.previous:after{
+        left: 13px !important;
+    }
+    .product-details #dataTableBuilder_paginate a.paginate_button.next:after{
+        right: 13px !important;
     }
 }
 
@@ -5764,8 +5773,7 @@ div#products_cus {
 }
 .view-more-wrap{
     /*padding: 10px;*/
-    padding-top: 20px;
-
+    padding-top: 10px;
     text-align: center;
 }
 .view-more-wrap a{
@@ -9582,8 +9590,15 @@ header ul.navbar-right {
 }*/
 
 @media(max-width: 767px) {
-/*.top
-{
-    display: none;
-}*/
+    .banner-img{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .banner-area .banner-content h1{
+        font-size: 21px;
+        margin-left: 20px;
+    }
+    .banner-area .banner-content p{
+        margin-left: 20px;
+    }
 }
