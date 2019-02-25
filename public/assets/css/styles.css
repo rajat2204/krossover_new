@@ -1019,6 +1019,13 @@ tr.odd:hover, tr.even:hover {
 .single-img:after {
     clear: both;
 }
+.viewGallery{
+    padding-top: 120px;
+    padding-bottom: 20px;
+}
+.viewGallery .section-title{
+    margin-bottom: 20px;
+}
 .inspirationHead{
     margin-top: 15px;
 }
@@ -1755,25 +1762,25 @@ button {
     content:"\f053";
     position: absolute;
     color: #7c7d73;
-    top: -44px;
+    top: -34px;
     left: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
     border: 1px solid #7c7d73;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fontAwesome;
 
 }
 .active-product .owl-controls .owl-next:after{
-    content:"\f054";
+    content: "\f054";
     position: absolute;
     color: #7c7d73;
-    top: -44px;
-    left: 30px;
+    top: -34px;
+    left: 25px;
     line-height: 25px;
     padding: 2px 4px 0 7px;
     border: 1px solid #7c7d73;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fontAwesome;
 
 }

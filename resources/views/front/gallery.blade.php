@@ -1,5 +1,5 @@
 <!-- Start gallery Area -->
-<section class="category-area section_gap white_bg">
+<section class="category-area viewGallery section_gap white_bg">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6 text-center">

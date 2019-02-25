@@ -422,7 +422,7 @@
 /* Section title css
 ============================================================================================ */
 .section-title {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-title h1 {
@@ -2177,7 +2177,7 @@ a.navbar-brand:hover {
     }
 }
 .footer-area.section_gap{
-    padding: 45px 0 0;
+    padding: 30px 0 0;
 }
 .banner-area .banner-content h1 { 
     font-size: 24px;
@@ -2307,6 +2307,9 @@ button#vieww {
     }
     .frontHead{
         margin-top: 20px;
+    }
+    .frontHead h1{
+        text-align: center;
     }
 }
 
@@ -2681,7 +2684,7 @@ button#vieww {
     overflow-x: hidden;
 }
 .singleProductSlider{
-    padding: 10px 30px 20px;
+    padding: 5px 30px 12px;
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     background-color: #fff;
 }
@@ -5777,12 +5780,12 @@ div#products_cus {
 }
 .related-product-area-right{
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
-    padding: 10px 20px 15px;
+    padding: 5px 20px 15px;
     margin-right: -30px;
     background-color: #fff;
 }
 .sectionTitle{
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .related-product-area-right .single-related-product{
     margin-bottom: 10px;
@@ -9401,7 +9404,7 @@ header ul.navbar-right {
 }
 .footer-bottom.d-flex.justify-content-center.align-items-center.flex-wrap {
     border-top: 1px solid #dddddd36;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 20px;
     background: #000;
     /* background: #ffffff1a; */
@@ -9438,6 +9441,8 @@ header ul.navbar-right {
     .menu_nav {
         padding-left: 20px;
         padding-top: 10px;
+        margin-top: 2px;
+        border-top: 1px solid #64cdf6;
     }
     .single-product img{
         margin-bottom: 0;
@@ -9460,7 +9465,10 @@ header ul.navbar-right {
     .section_gap {
         padding: 40px 0;
     }
-
+    .viewGallery {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
     .section-title h1 {
         font-size: 25px;
     }
