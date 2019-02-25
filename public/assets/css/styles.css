@@ -1630,7 +1630,7 @@ ul.program-list li small {
 }
 
 .footer-right-contact .single-contact {
-    margin: 22px 22px;
+    margin: 5px;
     padding: 3px 55px;
     position: relative;
     color: #666;
@@ -1652,16 +1652,16 @@ ul.program-list li small {
     background: #e8e8e8;
     color: #fff;
     border-radius: 50%;
-    font-size: 20px;
-    height: 42px;
+    font-size: 0px;
+    height: 33px;
     left: 0;
     padding-top: 8px;
     position: absolute;
     text-align: center;
     top: 50%;
-    /*-webkit-transform: translateY(-50%);*/
+    /* -webkit-transform: translateY(-50%); */
     transform: translateY(-50%);
-    width: 42px;
+    width: 33px;
     /*background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);*/
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
