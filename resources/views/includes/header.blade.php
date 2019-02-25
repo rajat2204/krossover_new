@@ -36,11 +36,9 @@
               <li class="nav-item  @if(Request::segment(1)=='') active @endif"><a class="nav-link" href="{{url('/')}}">Home</a></li>
               <li class="nav-item @if(Request::segment(2)=='aboutus') active @endif"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
               <li class="nav-item @if(Request::segment(1)=='whyus') active @endif"><a class="nav-link" href="{{url('whyus')}}">Why Us</a></li>
-              @if(Request::segment(1)=='')
-              <li class="nav-item"><a class="nav-link" href="{{url('view-category')}}">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="{{url('most-popular')}}">Most Popular</a></li>
-              @endif
-              <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a></li>
+              <li class="nav-item @if(Request::segment(1)=='gallery') active @endif"><a class="nav-link" href="{{url('gallery')}}">Gallery</a></li>
+              <li class="nav-item @if(Request::segment(1)=='most-popular') active @endif"><a class="nav-link" href="{{url('most-popular')}}">Most Popular</a></li>
+              <li class="nav-item @if(Request::segment(1)=='catalogue') active @endif"><a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a></li>
               <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="javascipt:void(0);">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
