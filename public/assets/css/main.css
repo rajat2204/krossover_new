@@ -2514,7 +2514,7 @@ button#vieww {
 }
 .features-inner {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 10px 0 40px;
+        padding: 10px 0 10px;
     background: #f3f2f2;
 }
 #our-clientss {
