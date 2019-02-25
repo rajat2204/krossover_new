@@ -2777,6 +2777,13 @@ button#vieww {
 .related-product-area.section_gap{
     padding-top: 0;
 }
+.paddingRight{
+    padding-right: 30px;
+}
+.ctg-right img {
+    height: 265px;
+    width: 100%;
+}
 /*.sidebar-categories #sub_cat_filter0 {
     border: 1px solid #ddd;
 }
@@ -2796,9 +2803,7 @@ button#vieww {
     .header_area .navbar .nav .nav-item {
         margin-right: 20px;
     }
-    .active-banner-slider{
-        height: 373px;
-    }
+    
     .banner-area .banner-content h1{
         line-height: 33px;
     }

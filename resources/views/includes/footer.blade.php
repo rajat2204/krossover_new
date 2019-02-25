@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-2 col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <h6 class="mb-20">More Links</h6>
 
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-4 col-md-6 col-sm-6 paddingRight">
        <div class="single-footer-widget mail-chimp">
           <h6>Contact us</h6> 
 
