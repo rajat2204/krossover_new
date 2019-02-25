@@ -61,7 +61,7 @@
           @foreach($client as $clients)
           <!-- single exclusive carousel -->
             <div class="single-exclusive-slider">
-              <a class="col single-img" href="javascript:void(0);">
+              <a class="col single-img">
                 <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients['image']}}" alt="">
               </a>
             </div>

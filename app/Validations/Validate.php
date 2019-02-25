@@ -21,7 +21,7 @@ class Validate
 			'req_email'				=> ['required','email'],
 			'first_name' 			=> ['required','string'],
 			'name' 					=> ['required','string'],
-			'name_product' 			=> ['required','string','max:20'],
+			'name_product' 			=> ['required','string'],
 			'last_name' 			=> ['nullable','string'],
 			'date_of_birth' 		=> ['nullable','string'],
 			'gender' 				=> ['required','string'],
@@ -332,7 +332,6 @@ class Validate
 		
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
-			'title.max'							=>  'Product Name cannot be more than 20 letters.',
 			'main_id.required' 					=>  'Product Main Category is required.',
 			'sub_id.required' 					=>  'Product Sub Category is required.',
 			'brand_id.required' 				=>  'Product Brand is required.',

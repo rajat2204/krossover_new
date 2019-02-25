@@ -59,7 +59,7 @@ class StaticPageController extends Controller
                 return ucfirst($item['title']);
             })
             ->editColumn('description',function($item){
-                return str_limit($item['description'],80);
+                return str_limit(strip_tags($item['description']),50);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -73,7 +73,7 @@ class StaticPageController extends Controller
             ->addColumn(['data' => 'description','name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug','name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
-            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 

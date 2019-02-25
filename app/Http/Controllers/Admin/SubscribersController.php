@@ -47,7 +47,7 @@ class SubscribersController extends Controller
             ])
             ->addColumn(['data' => 'id', 'name' => 'id','title' => 'Subscriber ID#','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'EMAIL', 'name' => 'EMAIL','title' => 'Subscriber EMAIL','orderable' => false, 'width' => 120])
-            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 

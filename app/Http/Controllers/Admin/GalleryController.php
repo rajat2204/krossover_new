@@ -58,7 +58,7 @@ class GalleryController extends Controller
             ->addColumn(['data' => 'image', 'name' => 'image','render' => 'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name','name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
-            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 

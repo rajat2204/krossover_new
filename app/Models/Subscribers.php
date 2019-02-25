@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subscribers extends Model
 {
 	protected $table = 'subscribers';
-	protected $fillable = ['EMAIL','created_at','updated_at'];
+	protected $fillable = ['EMAIL','status','created_at','updated_at'];
 
 	public static function add($data){
         if(!empty($data)){
