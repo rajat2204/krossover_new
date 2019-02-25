@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="view-more-wrap text-center">
-              <a href="{{url('view-category')}}">View More</a>
+              <a href="{{url('gallery')}}">View More</a>
             </div>
           </div>
 
