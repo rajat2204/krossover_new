@@ -3750,7 +3750,7 @@ div#undefined-sticky-wrapper {
     position: relative;
     margin: 10px;
     border: 1px solid #eee;
-    padding: 20px 0;
+    padding: 20px 0 0;
 }
 .white_box_wrapper table tr::before {
     content: "";
