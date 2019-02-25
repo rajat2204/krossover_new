@@ -18,17 +18,10 @@
 	<!--
 		CSS
 		============================================= -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/linearicons.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
-
-	<link href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert2.css') }}">
 </head>
 
 <body>
@@ -47,7 +40,7 @@
 						<form role="login" class="row login_form" action="{{url('admin/login')}}" data-request="enable-enter" method="post">
 							{{ csrf_field() }}
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+								<input type="text" class="form-control" id="name" name="email" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
@@ -69,6 +62,7 @@
 			</div>
 		</div>
 	</section>
+	
 	<script type="text/javascript">
 		setTimeout(function(){
         $('[data-request="enable-enter"]').on('keyup','input',function (e) {
@@ -82,23 +76,9 @@
 	</script>
 
 	<script src="{{asset('assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-	 crossorigin="anonymous"></script>
 	<script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
-	<script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
-	<script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
-	<script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
-	<script src="{{asset('assets/js/nouislider.min.js')}}"></script>
-	<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
-	<script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-	<script src="{{asset('assets/js/select2.full.min.js')}}"></script>
 	<script src="{{asset('assets/js/script.js')}}"></script>
-	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="js/gmaps.min.js"></script>
-	<script src="js/main.js"></script>
 </body>
 	
 </html>

@@ -91,7 +91,7 @@
 
 
 
-{{-- <<<<<<< HEAD
+{{-- 
   <section>
     <div class="container">
       <div class="row">
@@ -155,7 +155,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
-======= --}}
+ --}}
 <!-- start product Area -->
 <section class="section_gap_front" id="products1">
   <div class="container">
