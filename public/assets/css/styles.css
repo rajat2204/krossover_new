@@ -134,12 +134,12 @@ textarea.form-control {
 }
 
 .navbar-custom {
-    background: #0f81ad;
+    background: #e8e8e8;
     /*height: 49px;*/
 }
 
 .navbar-header .navbar-brand {
-    color: #fff;
+    color: #000;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 500;
