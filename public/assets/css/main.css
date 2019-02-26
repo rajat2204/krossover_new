@@ -2130,8 +2130,17 @@ a.navbar-brand:hover {
     .product-details #dataTableBuilder_paginate a.paginate_button.next:after{
         right: 13px !important;
     }
+    footer.footer-area h6 {
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+    
 }
-
+@media (max-width: 460px){
+    .product-details .white_box_wrapper table tr{
+        width: 96% !important;
+    }
+}
 /* banner area css
 ============================================================================================ */
 .banner-area {
@@ -3886,7 +3895,7 @@ label {
     clear: both;
 }
 .white_box_wrapper #dataTableBuilder{
-    min-width: 830px !important;
+    max-width: 830px !important;
 
 }
 .white_box_wrapper table td.sorting_1{
@@ -8896,7 +8905,8 @@ header ul.navbar-right {
 }
 @media (max-width: 1200px) {
     .white_box_wrapper #dataTableBuilder {
-        min-width: 613px !important;
+        width: 100% !important;
+        /*min-width: 613px !important;*/
     }
 }
 @media (max-width: 991px) {
@@ -8907,10 +8917,10 @@ header ul.navbar-right {
         width: 42%;
         padding: 20px 0 0;
     }
-    .white_box_wrapper #dataTableBuilder {
+    /*.white_box_wrapper #dataTableBuilder {
         min-width: 413px !important;
         width: 0 !important;
-    }
+    }*/
     .single-product img{
         margin-bottom: 0;
     }
@@ -8921,7 +8931,7 @@ header ul.navbar-right {
 }
 @media (max-width: 767px){
     .product-details .white_box_wrapper table tr{
-        width: 96%;
+        width: 45%;
     }
     .white_box_wrapper table td{
         text-align: center;
@@ -8930,10 +8940,7 @@ header ul.navbar-right {
         background: #fff;
         margin: 0;
     }
-    .white_box_wrapper #dataTableBuilder {
-        min-width: 0!important;
-        /*width: 0 !important;*/
-    }
+    
     .white_box_wrapper td.sorting_1 img{
         margin-bottom: 0;
     }
