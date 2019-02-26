@@ -320,13 +320,11 @@ class Validate
 			'main_id'					=> $this->validation('name'),
 			'sub_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
-			'gallery'					=> $this->validation('id'),
 			'gallery.*'					=> $this->validation('gallery'),
 			'description'				=> $this->validation('description'),
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
-			$validations['gallery'] = $this->validation('gallery_null');
 		}
 		
 		$validator = \Validator::make($this->data->all(), $validations,[
@@ -336,7 +334,6 @@ class Validate
 			'brand_id.required' 				=>  'Product Brand is required.',
 			'feature_image.required' 			=>  'Product Image is required.',
 			'feature_image.mimes' 				=>  'Product Image should be in jpg,jpeg,png format.',
-			'gallery.*.required' 				=> 	'Gallery Images are required.',
 			'gallery.*.mimes' 					=> 	'Gallery Images should be in jpg,jpeg,png format.',
 			'gallery.*.max' 					=> 	'Gallery Images should not be greater than 2MB.',
 			'description.required' 				=>  'Product Description is required.',

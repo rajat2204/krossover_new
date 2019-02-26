@@ -62,7 +62,7 @@
 						@endif
 					</a></li> -->
 					</ul>
-					<p>{{trim(html_entity_decode(strip_tags(!empty($productdata['description'])?$productdata['description']:'')))}}</p>
+					<p>{!!(!empty($productdata['description'])?$productdata['description']:'')!!}</p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="number" name="qty" id="qty" maxlength="12" min="1" value="1" title="Quantity:" class="input-text qty">
