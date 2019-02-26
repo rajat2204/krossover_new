@@ -30,13 +30,10 @@ class CatalogueController extends Controller
             return DataTables::of($catalogue)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/catalogue/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '<a href="'.url(sprintf('admin/catalogue/edit')).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
                 $html   .= '</div>';
                                 
                 return $html;
-            })
-             ->editColumn('brand_name',function($item){
-                return ucfirst($item['brand_name']);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -68,9 +65,24 @@ class CatalogueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createCatalogue();
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            if ($file = $request->file('file')){
+                $file_name = $request->file('file')->getClientOriginalName();
+                $file->move(public_path(), $file_name);
+            }
+           
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Catalogue has been Added successfully.";
+            $this->redirect = url('admin/catalogue');
+        }
+         return $this->populateresponse();
     }
 
     /**

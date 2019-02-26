@@ -21,13 +21,14 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="add-brand" action="{!! action('Admin\CatalogueController@store') !!}" method="POST" class="form-horizontal form-label-left">
+				<form role="add-catalogue" action="{!! action('Admin\CatalogueController@store') !!}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="form-group">
-						<label>Brand Name:</label>
-						<input class="form-control" name="brand_name" placeholder="E.g. Men's Clothing">
+						<label>File Name:</label>
+						<input class="form-control" type="file" name="file">
 					</div>
-						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-brand"]'>Add Catalogue</button>
+					<div>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-catalogue"]'>Add Catalogue</button>
 					</div>
 				</form>
 			</div>

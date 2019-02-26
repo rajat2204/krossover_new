@@ -54,6 +54,7 @@ class Validate
 			'url' 				    => ['required','url'],
 			'slug_no_space'		    => ['required','alpha_dash','max:255'],
 			'password_check'	    => ['required'],
+			'file'					=> ['required','mimes:pdf'],
 			'newpassword'		    => ['required','max:10']	
 
 		];
@@ -113,6 +114,26 @@ class Validate
     		'slug.required' 		=>  'Sub-Category Slug is required.',
     		'slug.unique' 			=>  'This Sub-Category Slug has already been taken.',
     		'slug.alpha_dash'     	=> 	'No spaces allowed in sub-category slug.The Slug may only contain letters, numbers, dashes and underscores.',
+
+    	]);
+        return $validator;		
+	}
+
+	public function createCatalogue($action='add'){
+        $validations = [
+        	'file' 				=> $this->validation('file'),
+    	];
+    	
+		// if($action =='edit'){
+		// 	$validations['slug'] = array_merge($this->validation('slug_no_space'),[
+		// 		Rule::unique('subcategories')->where(function($query){
+		// 			$query->where('id','!=',$this->data->id);
+		// 		})
+		// 	]);
+		// }
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'file.required' 		=>  'Catalogue File is required.',
+    		'file.mimes' 			=>  'Catalogue File should be in .pdf format.',
 
     	]);
         return $validator;		
