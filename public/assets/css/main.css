@@ -57,6 +57,10 @@
     .cfg-btn:hover:not([disabled]) {
         background-color: rgb(37, 215, 120);
     }
+    .mz-lens{
+        height: 100px !important;
+        width: 100px !important;
+    }
     .mobile-magic .cfg-btn:hover:not([disabled]) { background: rgb(55, 181, 114); }
     .cfg-btn[disabled] { opacity: .5; color: #808080; background: #ddd; }
 
@@ -111,6 +115,7 @@
         max-height: 400px !important;
         max-width: 400px !important;
     }
+    
     .app-figure {
         width: 100% !important;
         /*margin: 0px auto;*/
@@ -248,10 +253,10 @@
         height: 400px;
         width: 400px;
     }
-    figure>div{
+    /*figure>div{
         display: none;
         opacity: 0;
-    }
+    }*/
     figure>span{
         display: none;
         opacity: 0;
@@ -2131,8 +2136,17 @@ a.navbar-brand:hover {
         right: 13px !important;
     }
     footer.footer-area h6 {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         margin-top: 15px;
+    }
+    .footer-area p {
+        line-height: 14px;
+    }
+    .contact-map {
+        padding-bottom: 0;
+    }
+    .footer-area.section_gap {
+        padding: 10px 0 0;
     }
     
 }
@@ -9291,6 +9305,7 @@ header ul.navbar-right {
 @media (max-width: 767px) {
     .footer-area h6 {
         margin-bottom: 15px;
+        margin-top: 10px;
     }
 }
 
