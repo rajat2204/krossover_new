@@ -1,5 +1,5 @@
 <!-- Start Banner Area -->
-	<section class="banner-area organic-breadcrumb">
+	<section class="banner-area clearfix categoryWrapper organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
@@ -15,7 +15,7 @@
 	</section>
 <!-- End Banner Area -->
 
-<section class="contactus-area section_gap white_bg">
+<section class="contactus-area section_gap">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
@@ -62,6 +62,12 @@
                       <i class="fa fa-map-marker"></i>
                     </div>
                     <p>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</p>
+                  </div>
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                    <p>{{!empty($contact[1]['address'])?$contact[1]['address']:''}}</p>
                   </div>
                   <div class="single-contact">
                     <div class="contact-icon">

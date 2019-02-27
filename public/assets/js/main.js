@@ -240,6 +240,10 @@ $(document).ready(function(){
                     }
                 });
             });
+
+            $(".toggleBrowse").click(function(){
+              $(".main-categories").toggle();
+            });
         });
 
 

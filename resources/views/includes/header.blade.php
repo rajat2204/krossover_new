@@ -3,13 +3,13 @@
       <div class="top">
         <div class="container-fluid">
           <div class="row">
-              <div class="col-md-6 col-xs-6 col-8">
+              <div class="col-md-6 col-xs-6 col-10">
                  <div class="phone-e">
                       <a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}" target="_blank"><i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a>
                       <a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}" target="_blank"><i class="fa fa-envelope:"></i>  {{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a>
                   </div>
               </div>
-              <div class="col-md-6 col-xs-6 col-4">
+              <div class="col-md-6 col-xs-6 col-2">
                   <div class="footer-socialn text-right" id="top-social">
                       <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -36,11 +36,9 @@
               <li class="nav-item  @if(Request::segment(1)=='') active @endif"><a class="nav-link" href="{{url('/')}}">Home</a></li>
               <li class="nav-item @if(Request::segment(2)=='aboutus') active @endif"><a class="nav-link" href="{{url('pages/aboutus')}}">About Us</a></li>
               <li class="nav-item @if(Request::segment(1)=='whyus') active @endif"><a class="nav-link" href="{{url('whyus')}}">Why Us</a></li>
-              @if(Request::segment(1)=='')
-              <li class="nav-item"><a class="nav-link" href="#gallery" class="page-scroll">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="#popular" class="page-scroll">Most Popular</a></li>
-              @endif
-              <li class="nav-item @if(Request::segment(2)=='catalogue') active @endif"><a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a></li>
+              <li class="nav-item @if(Request::segment(1)=='gallery') active @endif"><a class="nav-link" href="{{url('gallery')}}">Gallery</a></li>
+              <li class="nav-item @if(Request::segment(1)=='most-popular') active @endif"><a class="nav-link" href="{{url('most-popular')}}">Most Popular</a></li>
+              <li class="nav-item @if(Request::segment(1)=='catalogue') active @endif"><a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a></li>
               <li class="nav-item submenu dropdown @if(Request::segment(2)=='main') active @endif"><a class="nav-link" href="javascipt:void(0);">Products</a>
                 @if(\App\Models\Category::where('status','active')->count() >0)
                   @php
@@ -72,7 +70,6 @@
           <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Item number...">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-magnifier-cross" id="close_search" title="Close Search"></span>
-          
         </form>
           <ul id="suggestion">
             @php

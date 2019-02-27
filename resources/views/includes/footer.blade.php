@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-2 col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <h6 class="mb-20">More Links</h6>
 
@@ -42,12 +42,11 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-4 col-md-6 col-sm-6 paddingRight">
        <div class="single-footer-widget mail-chimp">
           <h6>Contact us</h6> 
-
           <ul class="instafeed static_links">
-            <li style="    color: #fff;"> <i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li>
+            <li style="color: #fff;"><i class="fa fa-map-marker"></i>{{!empty($contact[0]['address'])?$contact[0]['address']:''}}</li><li style="color: #fff;"><i class="fa fa-map-marker"></i>{{!empty($contact[1]['address'])?$contact[1]['address']:''}}</li>
             <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{!empty($contact[0]['email'])?$contact[0]['email']:''}}</a></li> 
             <li><a href="tel:{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}"> <i class="fa fa-phone"></i>{{!empty($contact[0]['mobile'])?$contact[0]['mobile']:''}}</a></li>
           </ul>

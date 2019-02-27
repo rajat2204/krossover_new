@@ -29,11 +29,14 @@
                   @endforeach
                 </div>
               </div> 
+               <div class="view-more-wrap text-center" style="padding-top: 0;">
+                <a href="{{url('view-category')}}">View More</a>
+              </div>
             </div>
             <div class="col-md-12">
               <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
-                  <div class="section-title frontHead">
+                  <div class="section-title frontHead inspirationHead">
                     <h1>Our Inspirational Gallery</h1>
                    {{--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                       magna aliqua.</p> --}}
@@ -42,59 +45,59 @@
                  <div class="row justify-content-center">
                   <div class="col-md-12">
                     <div class="single-deal singleDeal">
-                      <div class="overlay"></div>
-                      <img class="img-fluid w-100" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
-                      <a href="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" class="img-pop-up" target="_blank">
-                        <div class="deal-details">
-                          <h6 class="deal-title">{{!empty($gallery[0]['name'])?$gallery[0]['name']:''}}</h6>
-                        </div>
-                      </a>
-                    </div>
+                    <div class="overlay"></div>
+                    <img class="img-responsive" src="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" alt="">
+                    <a href="{{url('assets/images/gallery')}}/{{$gallery[0]['image']}}" class="img-pop-up" target="_blank">
+                      <div class="deal-details">
+                        <h6 class="deal-title">{{!empty($gallery[0]['name'])?$gallery[0]['name']:''}}</h6>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
-              <div class="view-more-wrap text-center">
-                <a href="{{url('view-category')}}">View More</a>
-              </div>
             </div>
+            <div class="view-more-wrap text-center">
+              <a href="{{url('gallery')}}">View More</a>
+            </div>
+          </div>
 
-          </div>
         </div>
-      
-      {{-- <div class="fullscreen align-items-center justify-content-start"> --}}
-        <div class="col-lg-8 col-md-8 col-sm-12 bannerFront">
-          <div class="active-banner-slider owl-carousel">
-          @foreach($slider as $sliders)
-            <!-- single-slide -->
-            <div class="row single-slide align-items-center d-flex">
-              <div class="col-lg-5 col-md-4 col-sm-4">
-                <div class="banner-content">
-                  <a href="{{url('/')}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
-                  <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
-                </div>
-              </div>
-              <div class="col-lg-7 col-md-8 col-sm-8">
-                <div class="banner-img">
-                  @if(!empty($sliders['product_id']))
-                    <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
-                  @else
-                  <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
-                  @endif
-                </div>
+      </div>
+    
+    {{-- <div class="fullscreen align-items-center justify-content-start"> --}}
+      <div class="col-lg-8 col-md-8 col-sm-12 bannerFront">
+        <div class="active-banner-slider owl-carousel">
+        @foreach($slider as $sliders)
+          <!-- single-slide -->
+          <div class="row single-slide align-items-center d-flex">
+            <div class="col-lg-5 col-md-4 col-sm-4">
+              <div class="banner-content">
+                <a href="{{url('/')}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
+                <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
               </div>
             </div>
-          @endforeach
+            <div class="col-lg-7 col-md-8 col-sm-8">
+              <div class="banner-img">
+                @if(!empty($sliders['product_id']))
+                  <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
+                @else
+                <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
+                @endif
+              </div>
+            </div>
           </div>
+        @endforeach
         </div>
       </div>
     </div>
+  </div>
 </section>
 <!-- End banner Area -->
 
 
 
 
-{{-- <<<<<<< HEAD
+{{-- 
   <section>
     <div class="container">
       <div class="row">
@@ -158,7 +161,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
-======= --}}
+ --}}
 <!-- start product Area -->
 <section class="section_gap_front" id="products1">
   <div class="container">

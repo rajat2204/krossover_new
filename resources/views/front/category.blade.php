@@ -19,7 +19,7 @@
 			<div class="row">
 				<div class="col-xl-3 col-lg-4 col-md-5">
 					<div class="sidebar-categories">
-						<div class="head">Browse Categories</div>
+						<div class="head toggleBrowse clearfix"><span>Browse Categories</span><i class="fa fa-chevron-down"></i></div>
 						<ul class="main-categories">
 							<li class="main-nav-list sub_cat_filter" id="sub_cat_filter0"><a href="javascript:void(0);" class="nav-link">All</a></li>
 			            	<input type="hidden" id="catid" name="cat_id" value="{{!empty($cats['cat_id'])?$cats['cat_id']:''}}">

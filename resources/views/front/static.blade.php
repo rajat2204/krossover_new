@@ -1,5 +1,5 @@
 <!-- Start Banner Area -->
-<section class="banner-area organic-breadcrumb">
+<section class="banner-area clearfix categoryWrapper organic-breadcrumb">
   <div class="container">
     <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
       <div class="col-first">
@@ -38,13 +38,13 @@
           </div>
         </div>
         @if(!empty($staticpage['image']))
-        <div class="col-lg-4 col-md-4 col-sm-12"> 
+        <div class="col-lg-12 col-md-12 col-sm-12"> 
           <div class="static_img">
             <img src="{{url('assets/images/staticpage')}}/{{$staticpage['image']}}">
           </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12"> 
-            <div class="static-description p-l-40">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="static-description">
               <p>{!!($staticpage['description'])!!}</p>
             </div>
         </div>

@@ -1,15 +1,16 @@
 body {
 
     /*background: #e8e8e8;*/
-    background-color: #f3f2f2;
+    background-color: #fff;
     padding-top: 0;
     font-size: 14px;
     color: #444444;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 p {
     color: #777;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 #cover {
@@ -25,25 +26,30 @@ p {
 
 a, a:hover, a:focus {
     color: #30a5ff;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
 
     color: #7c7d73;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h1 {
     font-weight: 300;
     font-size: 40px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h2 {
     font-weight: 300;
     margin-bottom: 20px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 h3, h4 {
     font-weight: 300;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
 }
 
 .large {
@@ -134,12 +140,12 @@ textarea.form-control {
 }
 
 .navbar-custom {
-    background: #0f81ad;
+    background: #4e9299;
     /*height: 49px;*/
 }
 
 .navbar-header .navbar-brand {
-    color: #fff;
+    color: #000;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 500;
@@ -1019,14 +1025,23 @@ tr.odd:hover, tr.even:hover {
 .single-img:after {
     clear: both;
 }
-
+.viewGallery{
+    padding-top: 120px;
+    padding-bottom: 5px;
+}
+.viewGallery .section-title{
+    margin-bottom: 20px;
+}
+.inspirationHead{
+    margin-top: 6px;
+}
 .single-exclusive-slider {
    
     padding: 10px;
     max-width: 260px;
     margin: 0 auto;
     max-height: 220px; 
-    background: #ffffffed;
+    background: #f3f2f2;
     box-shadow: 0 0 4px #ccc;
 }
 
@@ -1527,7 +1542,10 @@ ul.program-list li small {
 .white_bg {
     background: #fff !important;
 }
-
+.contactus-area.section_gap {
+    padding-top: 0;
+    padding-bottom: 30px;
+}
 .footer-area p {
     color: #767676;
 }
@@ -1540,7 +1558,7 @@ ul.program-list li small {
     display: block !important;
 }*/
 .static_head {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .static_head h3 {
@@ -1570,8 +1588,9 @@ ul.program-list li small {
 }
 
 .static-description p {
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 5px;
 }
 
 .about_img {
@@ -1589,26 +1608,29 @@ ul.program-list li small {
 
 /*contact us css*/
 .contact-form-area {
-    background: #fff;
+    background: #f3f2f2;
     box-shadow: 0 0 30px #ededed;
-    padding: 60px 40px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
 }
 
 .contact-form-area h2 {
     font-size: 18px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left;
 }
 
 .footer-right-contact {
     padding: 4px;
+    background: #fff;
     border: 1px solid #e1e1e1;
     margin-top: 0;
     text-align: left;
 }
 
 .footer-right-contact .single-contact {
-    margin: 22px 22px;
+    margin: 5px;
     padding: 3px 55px;
     position: relative;
     color: #666;
@@ -1630,16 +1652,16 @@ ul.program-list li small {
     background: #e8e8e8;
     color: #fff;
     border-radius: 50%;
-    font-size: 20px;
-    height: 42px;
+    font-size: 0px;
+    height: 33px;
     left: 0;
     padding-top: 8px;
     position: absolute;
     text-align: center;
     top: 50%;
-    /*-webkit-transform: translateY(-50%);*/
+    /* -webkit-transform: translateY(-50%); */
     transform: translateY(-50%);
-    width: 42px;
+    width: 33px;
     /*background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);*/
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
@@ -1750,25 +1772,25 @@ button {
     content:"\f053";
     position: absolute;
     color: #7c7d73;
-    top: -44px;
+    top: -34px;
     left: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
     border: 1px solid #7c7d73;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fontAwesome;
 
 }
 .active-product .owl-controls .owl-next:after{
-    content:"\f054";
+    content: "\f054";
     position: absolute;
     color: #7c7d73;
-    top: -44px;
-    left: 30px;
+    top: -34px;
+    left: 25px;
     line-height: 25px;
     padding: 2px 4px 0 7px;
     border: 1px solid #7c7d73;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fontAwesome;
 
 }
