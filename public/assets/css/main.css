@@ -115,7 +115,7 @@
         max-height: 400px !important;
         max-width: 400px !important;
     }
-    
+
     .app-figure {
         width: 100% !important;
         /*margin: 0px auto;*/
@@ -1824,6 +1824,7 @@ a.navbar-brand:hover {
 }
 .categoryproductZoom .MagicZoom img, .mz-figure img{
     border: 1px solid #ddd !important;
+    height: 400px !important;
 }
 @media (max-width: 991px) {
     .header_area .navbar .navbar-collapse {
