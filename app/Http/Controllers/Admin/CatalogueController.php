@@ -24,28 +24,8 @@ class CatalogueController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
-         dd('sdfs');
         $data['view'] = 'admin.cataloguelist';
         
-        if ($request->ajax()) {
-            return DataTables::of($catalogue)
-            ->editColumn('action',function($item){
-                $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/catalogue/edit')).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                $html   .= '</div>';
-                                
-                return $html;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
-
-        $data['html'] = $builder
-            ->parameters([
-                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
-            ])
-            ->addColumn(['data' => 'file', 'name' => 'file','title' => 'Catalogue Name','orderable' => false, 'width' => 120])
-            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 

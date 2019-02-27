@@ -4,16 +4,16 @@
 			<li><a href="#">
 				<em class="fa fa-home"></em>
 			</a></li>
-			<li class="active">Edit Client</li>
+			<li class="active">Edit Offer</li>
 		</ol>
 	</div><!--/.row-->
 	
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="clearfix">
-				<h1 class="page-header">Edit Client</h1>
+				<h1 class="page-header">Edit Offer</h1>
 				<div class="pull-right back-admin">
-	                <a href="{!! url('admin/clients') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+	                <a href="{!! url('admin/offers') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
 	            </div>
 	        </div>
 		</div>
@@ -21,36 +21,42 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-client" method="POST" action="{{url('admin/clients/'.___encrypt($client['id']))}}" class="form-horizontal form-label-left">
+				<form role="edit-offer" method="POST" action="{{url('admin/offers/'.___encrypt($offer['id']))}}" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($client['id'])?$client['id']:''}}">
+								<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($offer['id'])?$offer['id']:''}}">
 							</div>
 						</div>
+					<div class="form-group">
+						<label>Offer Text:</label>
+						<input class="form-control" id="text" name="text" value="{{!empty($offer['text'])?$offer['text']:''}}" placeholder="Offer Text">
+					</div>
+
 					<div class="item form-group">
-                        <label>Current Client Image</label>
-                    	<div>
-                            <img src="{!! url('/') !!}/assets/images/clients/{{$client['image']}}" style="max-height: 300px;" alt="No Banner Photo">
-                        </div>
+                        <label>Current Offer Image:</label>
+                        	<div>
+                                <img src="{!! url('/') !!}/assets/images/offers/{{$offer['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                            </div>
                     </div>
                     <div class="item form-group">
-                        <label>Change Client Image</label>
-                        <div>
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file" class="image-margin">
+                        <label>Change Offer Image</label>
+                        
+                        <div class="image-margin">
+                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                            <span>(125X125 pixels)</span>
+                            <span>(360X425 pixels)</span>
                         </div>
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
-						<label>Client Title:</label>
-						<input class="form-control" id="title" name="title" value="{{!empty($client['title'])?$client['title']:''}}" placeholder="Title">
+						<label>Offer Title:</label>
+						<input class="form-control" id="name" name="name" value="{{!empty($offer['name'])?$offer['name']:''}}" placeholder="Title">
 					</div>
-						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-client"]'>Edit Slider</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-offer"]'>Edit Offer</button>
 					</div>
 				</form>
 			</div>

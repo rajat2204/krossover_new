@@ -4,13 +4,13 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Catalogue</li>
+				<li class="active">Contact</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Catalogue</h1>
+				<h1 class="page-header">Contact</h1>
 			</div>
 		</div><!--/.row-->
 		<div class="page-content">
@@ -20,13 +20,6 @@
 					
 					<div class="portlet light">
 						<div class="portlet-title">
-							<div class="actions">
-								<a href="{{url('admin/catalogue/create')}}" class="btn btn-default btn-circle">
-								<i class="fa fa-plus"></i>
-								<span class="hidden-480">
-								Add Catalogue</span>
-								</a>
-							</div>
 						</div>
 						<div class="portlet-body">
 							<div class="table-container">

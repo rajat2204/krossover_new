@@ -5,16 +5,16 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Edit WhyUs</li>
+				<li class="active">Edit Inspirational Gallery</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="clearfix">
-					<h1 class="page-header">Edit WhyUs</h1>
+					<h1 class="page-header">Edit Inspirational Gallery</h1>
 					<div class="pull-right back-admin">
-	                    <a href="{!! url('admin/whyus') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
+	                    <a href="{!! url('admin/gallery') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
 	                </div>
 	            </div>
 			</div>
@@ -22,27 +22,28 @@
 		<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="edit-whyus" action="{{url('admin/whyus/'.___encrypt($whyus['id']))}}" method="POST" class="form-horizontal form-label-left">
+				<form role="edit-gallery" action="{{url('admin/gallery/'.___encrypt($gallery['id']))}}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<input type="hidden" value="PUT" name="_method">
 					<div class="col-md-12">
 						<div class="form-group">
-							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($whyus['id'])?$whyus['id']:''}}">
+							<input type="hidden" id="id" name="id" class="form-control" value="{{!empty($gallery['id'])?$gallery['id']:''}}">
 						</div>
 					</div>
 
 					<div class="item form-group">
                         <label>Current Image:</label>
                         	<div>
-                                <img src="{!! url('/') !!}/assets/images/whyus/{{$whyus['image']}}" style="max-height: 300px;" alt="No Banner Photo">
+                                <img src="{!! url('/') !!}/assets/images/gallery/{{$gallery['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             </div>
                     </div>
                     <div class="item form-group">
                         <label>Change Image:</label>
+                        
                         <div class="image-margin">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                            <span>(512X512 pixels)</span>
+                            <span>(458X184 pixels)</span>
                         </div>
                         <div>
                            <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
@@ -50,15 +51,11 @@
                     </div>
 
 					<div class="form-group">
-						<label>Title:</label>
-						<input class="form-control" name="title" value="{{!empty($whyus['title'])?$whyus['title']:''}}" placeholder="E.g. Men's Clothing">
+						<label>Name:</label>
+						<input class="form-control" name="name" value="{{!empty($gallery['name'])?$gallery['name']:''}}" placeholder="Gallery Name">
 					</div>
 
-					<div class="item form-group">
-						<label>Description:</label>
-						<textarea name="description" id="description" class="form-control" rows="6">{{!empty($whyus['description'])?$whyus['description']:''}}</textarea>
-					</div>
-						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-whyus"]'>Edit Whyus</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-gallery"]'>Edit Whyus</button>
 					</div>
 				</form>
 			</div>
@@ -68,7 +65,6 @@
 
 @section('requirejs')
 <script type="text/javascript">
-    CKEDITOR.replace( 'description' );
 
     function readURL(input) {
 
