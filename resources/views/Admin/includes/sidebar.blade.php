@@ -8,6 +8,8 @@
 
 		<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
 
+		<li><a href="{{url('admin/catalogue')}}"><i class="fa fa-file-pdf-o">&nbsp;</i>Catalogue</a></li>
+
 		<li><a href="{{url('admin/brands')}}"><i class="fa fa-bitbucket">&nbsp;</i>Brands</a></li>
 
 		<li><a href="{{url('admin/colors')}}"><i class="fa fa-flickr">&nbsp;</i>Colors</a></li>

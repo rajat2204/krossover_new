@@ -101,6 +101,9 @@ Route::resource('clients', 'ClientController');
 		Route::post('/status', 'ClientController@changeStatus');
 	});
 
+/***********************Catalogue-Section****************************/
+Route::resource('catalogue', 'CatalogueController');
+
 /***********************Why-Us-Section****************************/
 Route::resource('whyus', 'WhyusController');
 
