@@ -24,6 +24,7 @@ class CatalogueController extends Controller
     }
 
     public function index(Request $request, Builder $builder){
+         dd('sdfs');
         $data['view'] = 'admin.cataloguelist';
         
         if ($request->ajax()) {
@@ -55,6 +56,7 @@ class CatalogueController extends Controller
      */
     public function create()
     {
+
         $data['view'] = 'admin.catalogueadd';
         return view('admin.home',$data);
     }
