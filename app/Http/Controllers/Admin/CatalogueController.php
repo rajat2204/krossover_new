@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers\Admin;
 
@@ -26,25 +26,7 @@ class CatalogueController extends Controller
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.cataloguelist';
         
-        if ($request->ajax()) {
-            return DataTables::of($catalogue)
-            ->editColumn('action',function($item){
-                $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/catalogue/edit')).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                $html   .= '</div>';
-                                
-                return $html;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
-        }
-
-        $data['html'] = $builder
-            ->parameters([
-                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
-            ])
-            ->addColumn(['data' => 'file', 'name' => 'file','title' => 'Catalogue Name','orderable' => false, 'width' => 120])
-            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
+       
         return view('admin.home')->with($data);
     }
 
@@ -71,16 +53,30 @@ class CatalogueController extends Controller
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-            if ($file = $request->file('file')){
-                $file_name = $request->file('file')->getClientOriginalName();
-                $file->move(public_path(), $file_name);
-            }
-           
+            $file_path = public_path('/kross_over.pdf');
+            if(file_exists($file_path)){
+
+                unlink($file_path);
+                if ($file = $request->file('file')){
+                    $file_name = $request->file('file')->getClientOriginalName();
+                    
+                    $change_name = 'kross_over.'.''.$request->file('file')->getClientOriginalExtension();
+                    $file->move(public_path(), $change_name);
+                }
+                $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Catalogue has been Updated successfully.";
+            $this->redirect = url('admin/catalogue');
+            }else{
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;
-            $this->message  = "Catalogue has been Added successfully.";
-            $this->redirect = url('admin/catalogue');
+            $this->message  = "Catalogue has been Updated failed.";
+            $this->redirect = url('admin/catalogue/create');
+            }
+           
+            
         }
          return $this->populateresponse();
     }

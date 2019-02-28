@@ -45,7 +45,8 @@
 						<label>Contact Number:</label>
 						<input class="form-control" name="mobile" value="{{!empty($contact['mobile'])?$contact['mobile']:''}}" placeholder="Enter Contact Number">
 					</div>
-						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-contact"]'>Edit Contact Address</button>
+
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-contact"]'>Edit Whyus</button>
 					</div>
 				</form>
 			</div>

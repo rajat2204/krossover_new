@@ -4,14 +4,14 @@
 			<li>
 				<a href="#"><em class="fa fa-home"></em></a>
 			</li>
-			<li class="active">Add Catalogue</li>
+			<li class="active">Update Catalogue</li>
 		</ol>
 	</div><!--/.row-->
 		
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="clearfix">
-				<h1 class="page-header">Add Catalogue</h1>
+				<h1 class="page-header">Update Catalogue</h1>
 				<div class="pull-right back-admin">
                     <a href="{!! url('admin/catalogue') !!}" class="btn btn-info btn-back"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
@@ -21,14 +21,14 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-6">
-				<form role="add-catalogue" action="{!! action('Admin\CatalogueController@store') !!}" method="POST" class="form-horizontal form-label-left">
+				<form role="add-catalogue" enctype="multipart/form-data" action="{!! action('Admin\CatalogueController@store') !!}" method="POST" class="form-horizontal form-label-left">
 					{{csrf_field()}}
 					<div class="form-group">
 						<label>File Name:</label>
 						<input class="form-control" type="file" name="file">
 					</div>
 					<div>
-						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-catalogue"]'>Add Catalogue</button>
+						<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-catalogue"]'>Update Catalogue</button>
 					</div>
 				</form>
 			</div>
