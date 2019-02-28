@@ -53,28 +53,19 @@ class CatalogueController extends Controller
         }else{
             $file_path = public_path('/kross_over.pdf');
             if(file_exists($file_path)){
-
                 unlink($file_path);
-                if ($file = $request->file('file')){
-                    $file_name = $request->file('file')->getClientOriginalName();
-                    
-                    $change_name = 'kross_over.'.''.$request->file('file')->getClientOriginalExtension();
-                    $file->move(public_path(), $change_name);
-                }
+             }
+            if ($file = $request->file('file')){
+                $file_name = $request->file('file')->getClientOriginalName();
+                
+                $change_name = 'kross_over.'.''.$request->file('file')->getClientOriginalExtension();
+                $file->move(public_path(), $change_name);
                 $this->status   = true;
-            $this->modal    = true;
-            $this->alert    = true;
-            $this->message  = "Catalogue has been Updated successfully.";
-            $this->redirect = url('admin/catalogue');
-            }else{
-            $this->status   = true;
-            $this->modal    = true;
-            $this->alert    = true;
-            $this->message  = "Catalogue has been Updated failed.";
-            $this->redirect = url('admin/catalogue/create');
-            }
-           
-            
+                $this->modal    = true;
+                $this->alert    = true;
+                $this->message  = "Catalogue has been Updated successfully.";
+                $this->redirect = url('admin/catalogue');
+            } 
         }
          return $this->populateresponse();
     }
