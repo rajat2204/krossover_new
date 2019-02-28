@@ -25,8 +25,6 @@ class CatalogueController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.cataloguelist';
-        
-       
         return view('admin.home')->with($data);
     }
 
