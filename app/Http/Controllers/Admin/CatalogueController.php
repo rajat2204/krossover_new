@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers\Admin;
 
@@ -26,6 +26,7 @@ class CatalogueController extends Controller
     public function index(Request $request, Builder $builder){
         $data['view'] = 'admin.cataloguelist';
         
+       
         return view('admin.home')->with($data);
     }
 
@@ -36,7 +37,6 @@ class CatalogueController extends Controller
      */
     public function create()
     {
-
         $data['view'] = 'admin.catalogueadd';
         return view('admin.home',$data);
     }
@@ -53,16 +53,30 @@ class CatalogueController extends Controller
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-            if ($file = $request->file('file')){
-                $file_name = $request->file('file')->getClientOriginalName();
-                $file->move(public_path(), $file_name);
-            }
-           
+            $file_path = public_path('/kross_over.pdf');
+            if(file_exists($file_path)){
+
+                unlink($file_path);
+                if ($file = $request->file('file')){
+                    $file_name = $request->file('file')->getClientOriginalName();
+                    
+                    $change_name = 'kross_over.'.''.$request->file('file')->getClientOriginalExtension();
+                    $file->move(public_path(), $change_name);
+                }
+                $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Catalogue has been Updated successfully.";
+            $this->redirect = url('admin/catalogue');
+            }else{
             $this->status   = true;
             $this->modal    = true;
             $this->alert    = true;
-            $this->message  = "Catalogue has been Added successfully.";
-            $this->redirect = url('admin/catalogue');
+            $this->message  = "Catalogue has been Updated failed.";
+            $this->redirect = url('admin/catalogue/create');
+            }
+           
+            
         }
          return $this->populateresponse();
     }
