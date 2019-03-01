@@ -171,11 +171,11 @@
         <div class="single-product-slider singleProductSlider">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
-              <div class="section-title">
+              <div class="section-title leftDiv">
                 <h1>Latest Products</h1>
-                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore
-                  magna aliqua.</p> --}}
+                  magna aliqua.</p>
                   
               </div>
             </div>

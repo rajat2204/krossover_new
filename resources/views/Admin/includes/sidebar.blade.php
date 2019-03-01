@@ -15,7 +15,7 @@
 		<li><a href="{{url('admin/social')}}"><i class="fa fa-fw fa-linkedin-square">&nbsp;</i>Social Media</a></li>
 		<li><a href="{{url('admin/contact')}}"><i class="fa fa-fw fa-phone">&nbsp;</i>Contact Address</a></li>
 		<li><a href="{{url('admin/subscribers')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Subscribers</a></li>
-		<!-- <li><a href="{{url('admin/changepassword')}}"><i class="fa fa-key">&nbsp;</i>Change Password</a></li> -->
+		<li><a href="{{url('admin/enquiries')}}"><i class="fa fa-envelope"></i>Enquiries</a></li>
 		<li><a href="{{url('admin/logout')}}"><i class="fa fa-fw fa-sign-out">&nbsp;</i>Logout</a></li>
 	</ul>
 </div>
