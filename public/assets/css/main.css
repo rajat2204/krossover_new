@@ -2146,6 +2146,10 @@ a.navbar-brand:hover {
     #products_cus .product-details #dataTableBuilder_paginate a{
         width: 28px !important;
     }
+    figure img {
+        /*max-height: 320px !important;*/
+        /*max-width: 160px !important;*/
+    }
     .product-details #dataTableBuilder_paginate a.paginate_button.previous:after{
         left: 13px !important;
     }
@@ -2288,8 +2292,12 @@ span#search {
         font-size: 35px;
         line-height: 46px;
     }
+    
     .banner-area .active-banner-slider{
         margin: 0;
+    }
+    .singleproductWrapper.organic-breadcrumb {
+        padding-top: 23px;
     }
 }
 
@@ -2406,7 +2414,7 @@ button#vieww {
 }
 @media (max-width: 767px) {
     .breadcrumb-banner h1 {
-        font-size: 26px;
+        font-size: 22px;
     }
     #products_cus .product-details #dataTableBuilder_paginate a{
         padding: 7px;
