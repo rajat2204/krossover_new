@@ -3,6 +3,7 @@
 		<li class=""><a href="{{url('admin/home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 		<li><a href="{{url('admin/categories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Main Categories</a></li>
 		<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-list-alt">&nbsp;</i>Sub Categories</a></li>
+		<li><a href="{{url('admin/enquiries')}}"><i class="fa fa-envelope"></i>Enquiries</a></li>
 		<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
 		<li><a href="{{url('admin/catalogue')}}"><i class="fa fa-book">&nbsp;</i>Catalogue</a></li>
 		<li><a href="{{url('admin/brands')}}"><i class="fa fa-bitbucket">&nbsp;</i>Brands</a></li>
@@ -15,7 +16,7 @@
 		<li><a href="{{url('admin/social')}}"><i class="fa fa-fw fa-linkedin-square">&nbsp;</i>Social Media</a></li>
 		<li><a href="{{url('admin/contact')}}"><i class="fa fa-fw fa-phone">&nbsp;</i>Contact Address</a></li>
 		<li><a href="{{url('admin/subscribers')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Subscribers</a></li>
-		<!-- <li><a href="{{url('admin/changepassword')}}"><i class="fa fa-key">&nbsp;</i>Change Password</a></li> -->
+		<li><a href="{{url('admin/changepassword')}}"><i class="fa fa-fw fa-users">&nbsp;</i>Change Password</a></li>
 		<li><a href="{{url('admin/logout')}}"><i class="fa fa-fw fa-sign-out">&nbsp;</i>Logout</a></li>
 	</ul>
 </div>
