@@ -335,6 +335,22 @@ class Validate
         return $validator;		
 	}
 
+	public function changePassword($action='add'){
+        $validations = [
+        	'password' 					=> $this->validation('password'),
+			'new_password'  			=> $this->validation('password'),
+            'confirm_password' 		    => $this->validation('password'),
+    	];
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'password.required' 			=>  'Old Password is required.',
+    		'new_password.required' 		=>  'New password is required.',
+    		'confirm_password.required' 	=>  'Confirm Password is required.',
+
+    	]);
+        return $validator;		
+	}
+
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name_product'),

@@ -21,7 +21,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="changepwd" action="{!! action('Admin\BrandsController@adminchangePass') !!}" method="POST" class="form-horizontal form-label-left">
+					<form role="changepwd" action="{!! action('Admin\BrandsController@adminchangePass',['id' => $admin['id']]) !!}" method="POST" class="form-horizontal form-label-left">
 						{{csrf_field()}}						
 						<div class="form-group">
 							<label>Current Password:</label>

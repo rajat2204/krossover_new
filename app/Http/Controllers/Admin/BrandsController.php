@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Auth;
 use Hash;
 use App\Models\Category;
+use App\Models\User;
 use App\Models\Brands;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -198,31 +199,38 @@ class BrandsController extends Controller
 
     public function changepassword(){
         $data['view'] = 'admin.changepassword';
+        $data['admin'] = _arefy(User::find(Auth::user()->id));
         return view('admin.home',$data);
     }
 
-    public function adminchangePass(Request $request)
+    public function adminchangePass(Request $request,$id)
     {
-        $request_data = $request->All();
-        $validation = new Validations($request);
-        $validator  = $validation->changepassword($request_data);
+
+      $validation = new Validations($request);
+        $validator  = $validation->changePassword();
         if ($validator->fails()) {
-            return response()->json(array('error' => $validator->getMessageBag()->toArray()), 400);
+            $this->message = $validator->errors();
         }else{
-            $current_password = Auth::User()->password;           
-            if(Hash::check($request_data['new_password'], $current_password))
-            {           
-                $user_id = Auth::User()->id;                       
-                $obj_user = User::find($user_id);
-                $obj_user->password = Hash::make($request_data['new_password']);;
-                $obj_user->save(); 
-                return "ok";
-            }
-            else
-            {
-                $error = array('password' => 'Please enter correct current password');
-                return response()->json(array('error' => $error), 400);
+          $user = User::findOrFail($id);
+          
+          $input['password'] = "";
+          if ($request->password){
+            if (Hash::check($request->password, $user->password)){
+                if ($request->new_password == $request->confirm_password){
+                    $input['password'] = Hash::make($request->new_password);
+                }else{
+                    Session::flash('error', 'Confirm Password Does not match.');
+                    return redirect('admin/changepassword');
+                }
+            }else{
+                Session::flash('error', 'Current Password Does not match');
+                return redirect('admin/changepassword');
             }
         }
+        $user->update($input);
+        Session::flash('message', 'Admin Password has been Updated Successfully.');
+        return redirect('admin/login');
     }
+    return $this->populateresponse();
+  }
 }
