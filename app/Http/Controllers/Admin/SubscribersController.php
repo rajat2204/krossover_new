@@ -52,8 +52,8 @@ class SubscribersController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'id', 'name' => 'id','title' => 'Subscriber ID#','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'EMAIL', 'name' => 'EMAIL','title' => 'Subscriber EMAIL','orderable' => false, 'width' => 120])
+            // ->addColumn(['data' => 'id', 'name' => 'id','title' => 'Subscriber ID#','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'EMAIL', 'name' => 'EMAIL','title' => 'Subscriber E-mail','orderable' => false, 'width' => 120])
             ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
