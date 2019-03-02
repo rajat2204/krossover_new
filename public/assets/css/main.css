@@ -17,7 +17,10 @@
 #second-sec  {
     padding: 122px 0 11px;
 } 
-
+#outerContainer{
+    margin-top: 100px !important;
+    margin-bottom: 20px;
+}
 .top {
     padding: 3px 0px 0;
 
@@ -368,6 +371,9 @@
     }
     .homepage_wrapper{
         padding-top: 0;
+    }
+    #outerContainer {
+        margin-top: 12px !important;
     }
 }
 
