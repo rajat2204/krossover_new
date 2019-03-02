@@ -743,18 +743,19 @@ figure.mz-figure {
 .mz-expand .mz-zoom-in .mz-image-stage > figure .mz-figure.mz-active {
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 1);
 }
 .mz-expand .mz-figure {
-    cursor: pointer;
+   /* cursor: pointer;
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
-    cursor: zoom-in;
+    cursor: zoom-in;*/
 }
 .mz-expand .mz-figure.mz-active {
-    cursor: crosshair;
+    /*cursor: crosshair;
     cursor: -webkit-zoom-out;
     cursor: -moz-zoom-out;
-    cursor: zoom-out;
+    cursor: zoom-out;*/
 }
 /* When inner zoom is always shown */
 .mz-expand .mz-expand-stage.mz-zoom-in.mz-always-zoom .mz-image-stage > figure > figure > img {
