@@ -18,10 +18,7 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:cache');
     return 'DONE'; //Return anything
 });
-Route::get('/cache', function() { $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); return 'DONE'; //Return anything 
-});
-Route::get('/config', function() { $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); return 'DONE'; //Return anything 
-});
+
 //http://alc.studio/product/4/forever-ceiling-light
 Route::get('/','HomeController@index');
 Route::get('search','HomeController@search');
@@ -82,7 +79,7 @@ Route::resource('sliders', 'SliderController');
 
 /***********************Brand-Section****************************/
 Route::get('changepassword', 'BrandsController@changepassword');
-Route::post('/changepassword/{id}','BrandsController@adminchangePass');
+Route::post('/changepassword','BrandsController@adminchangePass');
 Route::resource('brands', 'BrandsController');
 	Route::group(['prefix' => 'brands'],function(){
 		Route::post('/status', 'BrandsController@changeStatus');

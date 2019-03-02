@@ -203,7 +203,7 @@ class BrandsController extends Controller
         return view('admin.home',$data);
     }
 
-    public function adminchangePass(Request $request,$id)
+    public function adminchangePass(Request $request)
     {
 
       $validation = new Validations($request);
@@ -211,25 +211,28 @@ class BrandsController extends Controller
         if ($validator->fails()) {
             $this->message = $validator->errors();
         }else{
-          $user = User::findOrFail($id);
-          
-          $input['password'] = "";
+
+          $user = User::findOrFail(Auth::user()->id);
           if ($request->password){
             if (Hash::check($request->password, $user->password)){
                 if ($request->new_password == $request->confirm_password){
                     $input['password'] = Hash::make($request->new_password);
                 }else{
-                    Session::flash('error', 'Confirm Password Does not match.');
-                    return redirect('admin/changepassword');
+                    $this->message  =  $validator->errors()->add('confirm_password', 'Confirm Password Does not match.');
+                    return $this->populateresponse();
                 }
             }else{
-                Session::flash('error', 'Current Password Does not match');
-                return redirect('admin/changepassword');
+                $this->message  =  $validator->errors()->add('confirm_password', 'Current Password Does not match.');
+                    return $this->populateresponse();
             }
         }
         $user->update($input);
-        Session::flash('message', 'Admin Password has been Updated Successfully.');
-        return redirect('admin/login');
+       
+        $this->message = 'Admin Password has been Updated Successfully.';
+        $this->modal    = true;
+        $this->alert    = true;
+        $this->status = true;
+        $this->redirect = url('admin/changepassword');
     }
     return $this->populateresponse();
   }
