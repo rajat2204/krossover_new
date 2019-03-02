@@ -24,7 +24,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4">
+          <div class="col-lg-4 col-md-4 pad-bth">
             <div class="single-deal">
               <div class="overlay"></div>
               <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[1]['image']}}" alt="">
@@ -46,7 +46,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-8 col-md-8">
+          <div class="col-lg-8 col-md-8 pad-bth">
             <div class="single-deal">
               <div class="overlay"></div>
               <img class="img-fluid w-100 single-1" src="{{url('assets/images/gallery')}}/{{$gallery[3]['image']}}" alt="">
