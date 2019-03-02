@@ -203,10 +203,10 @@ figure.mz-figure {
 .mz-figure.mz-no-zoom,
 .mz-figure.mz-click-zoom,
 .mz-figure.mz-active {
-    cursor: pointer;
-    cursor: -webkit-zoom-in;
+    cursor: default;
+   /* cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
-    cursor: zoom-in;
+    cursor: zoom-in;*/
 }
 .mz-figure.mz-active.mz-no-expand {
     cursor: crosshair;
@@ -233,13 +233,13 @@ figure.mz-figure {
     opacity: 0.6;
 }
 .lt-ie10-magic .mz-figure.mz-active > img {
-    opacity: 1;
-    filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1,opacity=0.6);
+    /*opacity: 1;*/
+    /*filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1,opacity=0.6);*/
 }
 .mz-figure.mz-active.mz-inner-zoom,
 .lt-ie11-magic .mz-expand .mz-figure.mz-active.mz-inner-zoom,
 .lt-ie11-magic .mz-figure.mz-active.mz-inner-zoom > img {
-    opacity: 0;
+    /*opacity: 0;*/
 }
 .lt-ie11-magic .mz-figure.mz-active.mz-inner-zoom,
 .lt-ie11-magic .mz-figure.mz-active.mz-inner-zoom > .mz-zoom-window {
@@ -247,7 +247,7 @@ figure.mz-figure {
 }
 .lt-ie10-magic .mz-expand .mz-figure.mz-active.mz-inner-zoom,
 .lt-ie10-magic .mz-figure.mz-active.mz-inner-zoom > img {
-    filter: alpha(opacity=0);
+    /*filter: alpha(opacity=0);*/
 }
 .ie9-magic .mz-expand .mz-figure.mz-active.mz-inner-zoom {
     background: transparent;
