@@ -49,7 +49,7 @@ class Validate
 			'photo'					=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'			=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'			=> ['nullable'],
-			'gallery'				=> ['required','mimes:jpg,jpeg,png','max:2048'],
+			'gallery'				=> ['mimes:jpg,jpeg,png','max:2048'],
 			'gallery_null'			=> ['nullable'],
 			'url' 				    => ['required','url'],
 			'slug_no_space'		    => ['required','alpha_dash','max:255'],
@@ -362,6 +362,7 @@ class Validate
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
+			$validations['gallery'] 	= $this->validation('gallery_null');
 		}
 		
 		$validator = \Validator::make($this->data->all(), $validations,[

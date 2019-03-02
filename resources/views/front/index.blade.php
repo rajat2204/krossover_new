@@ -71,8 +71,7 @@
           <!-- single-slide -->
           <div class="row single-slide align-items-center d-flex">
             <div class="col-lg-5 col-md-4 col-sm-4">
-              <div class="banner-content">
-                <a href="{{url('/')}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
+              <div class="banner-content"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1>
                 <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
               </div>
             </div>
@@ -245,7 +244,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
               <div class="section-title sectionTitle">
-                <h1>Most Popular</h1>
+                <h1>Featured Products</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                   magna aliqua.</p>
                 

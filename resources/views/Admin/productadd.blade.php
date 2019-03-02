@@ -57,8 +57,7 @@
                         </div>
 
         				<div class="item form-group productWrap">
-                            <label>Current Featured Image</label>
-                            
+                            <label>Current Featured Image:</label>
                             <div>
                                 <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="feature_image" type="file" class="product-size">
                                 <span>max. size 2 MB.</span>
@@ -66,6 +65,16 @@
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                <img style="max-width: 250px;margin-top: 10px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label> Product Gallery Images:</label>
+                            <div>
+                                <input type="file" id="gallery" accept="image/*" name="gallery[]" multiple/>
+                                <h5 id="errorGal" style="color:#a94442"></h5>
+                                <br>
+                                <p class="small-label">Multiple Image Allowed</p>
                             </div>
                         </div>
 
