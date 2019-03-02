@@ -51,18 +51,35 @@
 			<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-xs">
 				<div class="s_product_text">
 					<h3>{{ucfirst($productdata['title'])}}</h3>
-					<!-- <h2>${{$productdata['price']}}</h2> -->
+					<div class="price clearfix">
+						@if(!empty($productdata['price']))
+							<div class="price-left">${{$productdata['price']}}</div>
+							<div class="price-left priceDiv">${{$productdata['previous_price']}}</div>
+						@else
+							<h6 style="display: none;">${{$productdata['price']}}</h6>
+							<h6 style="display: none;">${{$productdata['previous_price']}}</h6>
+						@endif
+					</div>
 					<ul class="list">
 						<li><a class="active"><span>Category:</span>{{!empty($productdata['category']['name'])?$productdata['category']['name']:''}}</a></li>
-						<!-- <li><a href="#"><span>Availibility:</span>
 						@if(!empty($productdata['stock']))
-							In Stock
+							<li><span>Availibility:</span>
+							@if(!empty($productdata['stock']))
+								In Stock
+							@else
+								<span>Out of Stock</span>
+							@endif
+							</li>
 						@else
-						<span>Out of Stock</span>
+							<li style="display: none;"><span>Availibility:</span>
 						@endif
-					</a></li> -->
 					</ul>
 					<p>{!!(!empty($productdata['description'])?$productdata['description']:'')!!}</p>
+					@if(!empty($productdata['sizes']))
+						<p>Sizes Available are:{{$productdata['sizes']}}</p>
+					@else
+						<p style="display: none;">Sizes Available are:</p>
+					@endif
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="number" name="qty" id="qty" maxlength="12" min="1" value="1" title="Quantity:" class="input-text qty">

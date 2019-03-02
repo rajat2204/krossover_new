@@ -118,13 +118,18 @@ Route::resource('contact', 'ContactAddressController');
 /***********************Subscribers-Section****************************/
 Route::get('subscribers/export','SubscribersController@exportExcel');
 Route::get('enquiries/export','SubscribersController@exportExcelEnquiries');
+Route::get('contacts/export','SubscribersController@exportExcelContacts');
 Route::get('enquiries','SubscribersController@enquirylist');
+Route::get('contacts','SubscribersController@contactlist');
 Route::resource('subscribers', 'SubscribersController');
 	Route::group(['prefix' => 'subscribers'],function(){
 		Route::post('/status', 'SubscribersController@changeStatus');
 	});
 	Route::group(['prefix' => 'enquiries'],function(){
 		Route::post('/status', 'SubscribersController@changeStatusEnquiry');
+	});
+	Route::group(['prefix' => 'contacts'],function(){
+		Route::post('/status', 'SubscribersController@changeStatusContacts');
 	});
 
 /***********************Offers Section****************************/

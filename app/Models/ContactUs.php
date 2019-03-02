@@ -16,4 +16,14 @@ class ContactUs extends Model
             return false;
         }   
     }
+
+    public static function change($userID,$data){
+        $isUpdated = false;
+        $table_contactus = \DB::table('contactus');
+        if(!empty($data)){
+            $table_contactus->where('id','=',$userID);
+            $isUpdated = $table_contactus->update($data); 
+        }
+        return (bool)$isUpdated;
+    }
 }

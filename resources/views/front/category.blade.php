@@ -211,6 +211,14 @@
         }
 
     });
+
+    $(document).ready(function() {
+		  var selector = '.main-categories li';
+		  $(selector).on('click', function() {
+		    $(selector).removeClass('active');
+		    $(this).addClass('active');
+		  });
+		});
    
 </script>
 

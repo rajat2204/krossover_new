@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Subscribers;
 use App\Models\Enquiry;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SubscriberExport;
+use App\Exports\ContactExport;
 use App\Exports\EnquiryExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -99,6 +101,45 @@ class SubscribersController extends Controller
         return view('admin.home')->with($data);
     }
 
+    public function contactlist(Request $request, Builder $builder){
+        $data['view'] = 'admin.contactslist';
+        
+        $contact  = _arefy(ContactUs::where('status','!=','trashed')->get());
+        if ($request->ajax()) {
+            return DataTables::of($contact)
+            ->editColumn('action',function($item){
+                $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="javascript:void(0);" 
+                        data-url="'.url(sprintf('admin/contacts/status/?id=%s&status=trashed',$item['id'])).'" 
+                        data-request="ajax-confirm"
+                        data-ask_image="'.url('assets/images/delete.png').'"
+                        data-ask="Would you like to Delete?" title="Delete"><i class="fa fa-fw fa-trash"></i></a> ';
+                $html   .= '</div>';
+                                
+                return $html;
+            })
+            ->editColumn('name',function($item){
+                return ucfirst($item['name']);
+            })
+            ->editColumn('subject',function($item){
+                return ucfirst($item['subject']);
+            })
+            ->make(true);
+        }
+
+        $data['html'] = $builder
+            ->parameters([
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
+            ])
+            ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Customer Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'email', 'name' => 'email','title' => 'Customer E-mail','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'subject', 'name' => 'subject','title' => 'Subject','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'message', 'name' => 'message','title' => 'Message','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'status', 'name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
+        return view('admin.home')->with($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -113,6 +154,11 @@ class SubscribersController extends Controller
     public function exportExcelEnquiries()
     {
         return Excel::download(new EnquiryExport, 'enquiry.xlsx');
+    }
+
+    public function exportExcelContacts()
+    {
+        return Excel::download(new ContactExport, 'contact.xlsx');
     }
 
     public function create()
@@ -202,6 +248,23 @@ class SubscribersController extends Controller
                 $this->message = 'Deleted Enquiry successfully.';
             }else{
                 $this->message = 'Updated Enquiry successfully.';
+            }
+            $this->status = true;
+            $this->redirect = true;
+            $this->jsondata = [];
+        }
+        return $this->populateresponse();
+    }
+
+    public function changeStatusContacts(Request $request){
+        $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
+        $isUpdated               = ContactUs::change($request->id,$userData);
+
+        if($isUpdated){
+            if($request->status == 'trashed'){
+                $this->message = 'Deleted Contacts successfully.';
+            }else{
+                $this->message = 'Updated Contacts successfully.';
             }
             $this->status = true;
             $this->redirect = true;

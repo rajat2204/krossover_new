@@ -4,6 +4,7 @@
 		<li><a href="{{url('admin/categories')}}"><i class="fa fa-fw fa-sitemap">&nbsp;</i>Main Categories</a></li>
 		<li><a href="{{url('admin/subcategories')}}"><i class="fa fa-fw fa-list-alt">&nbsp;</i>Sub Categories</a></li>
 		<li><a href="{{url('admin/enquiries')}}"><i class="fa fa-envelope"></i>Enquiries</a></li>
+		<li><a href="{{url('admin/contacts')}}"><i class="fa fa-fw fa-phone"></i>Contacts</a></li>
 		<li><a href="{{url('admin/products')}}"><i class="fa fa-fw fa-shopping-cart">&nbsp;</i>Products</a></li>
 		<li><a href="{{url('admin/catalogue')}}"><i class="fa fa-book">&nbsp;</i>Catalogue</a></li>
 		<li><a href="{{url('admin/brands')}}"><i class="fa fa-bitbucket">&nbsp;</i>Brands</a></li>
