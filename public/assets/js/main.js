@@ -32,11 +32,15 @@ $(document).ready(function(){
 
     // Search Toggle
     $("#search_input_box").hide();
-    $("#search").on("click", function () {
+    $(".search").on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         $("#search_input_box").slideToggle();
         $("#search_input").focus();
     });
     $("#close_search").on("click", function () {
+        e.preventDefault();
+        e.stopPropagation();
         $('#search_input_box').slideUp(500);
     });
 
