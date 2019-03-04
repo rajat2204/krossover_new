@@ -5954,7 +5954,8 @@ div#products_cus {
 }
 
 .sidebar-categories .main-nav-list a:hover {
-    color: #64cdf6;
+    background-color: #64cdf6;
+    color: #fff;
 }
 
 .sidebar-categories .main-nav-list a .number {
