@@ -49,7 +49,7 @@ class Validate
 			'photo'					=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'			=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'			=> ['nullable'],
-			'gallery'				=> ['required','mimes:jpg,jpeg,png','max:2048'],
+			'gallery'				=> ['mimes:jpg,jpeg,png','max:2048'],
 			'gallery_null'			=> ['nullable'],
 			'url' 				    => ['required','url'],
 			'slug_no_space'		    => ['required','alpha_dash','max:255'],
@@ -335,6 +335,22 @@ class Validate
         return $validator;		
 	}
 
+	public function changePassword($action='add'){
+        $validations = [
+        	'password' 					=> $this->validation('password'),
+			'new_password'  			=> $this->validation('password'),
+            'confirm_password' 		    => $this->validation('password'),
+    	];
+    	
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'password.required' 			=>  'Old Password is required.',
+    		'new_password.required' 		=>  'New password is required.',
+    		'confirm_password.required' 	=>  'Confirm Password is required.',
+
+    	]);
+        return $validator;		
+	}
+
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name_product'),
@@ -346,6 +362,7 @@ class Validate
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
+			$validations['gallery'] 	= $this->validation('gallery_null');
 		}
 		
 		$validator = \Validator::make($this->data->all(), $validations,[

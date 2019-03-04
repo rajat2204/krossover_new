@@ -18,10 +18,7 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:cache');
     return 'DONE'; //Return anything
 });
-Route::get('/cache', function() { $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); $exitCode = Artisan::call('cache:clear'); return 'DONE'; //Return anything 
-});
-Route::get('/config', function() { $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); $exitCode = Artisan::call('config:cache'); return 'DONE'; //Return anything 
-});
+
 //http://alc.studio/product/4/forever-ceiling-light
 Route::get('/','HomeController@index');
 Route::get('search','HomeController@search');
@@ -121,13 +118,18 @@ Route::resource('contact', 'ContactAddressController');
 /***********************Subscribers-Section****************************/
 Route::get('subscribers/export','SubscribersController@exportExcel');
 Route::get('enquiries/export','SubscribersController@exportExcelEnquiries');
+Route::get('contacts/export','SubscribersController@exportExcelContacts');
 Route::get('enquiries','SubscribersController@enquirylist');
+Route::get('contacts','SubscribersController@contactlist');
 Route::resource('subscribers', 'SubscribersController');
 	Route::group(['prefix' => 'subscribers'],function(){
 		Route::post('/status', 'SubscribersController@changeStatus');
 	});
 	Route::group(['prefix' => 'enquiries'],function(){
 		Route::post('/status', 'SubscribersController@changeStatusEnquiry');
+	});
+	Route::group(['prefix' => 'contacts'],function(){
+		Route::post('/status', 'SubscribersController@changeStatusContacts');
 	});
 
 /***********************Offers Section****************************/

@@ -77,6 +77,34 @@
                 </div>
 
                 <div class="item form-group">
+                    <label></label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="galdel" value="1"/>
+                                Delete Old Gallery Images</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item form-group">
+                    <label> Product Gallery Images</label>
+                    <div>
+                        @if(!empty($gallery))
+                            @foreach($gallery as $images)
+                                <img style="max-width: 100px;" src="{{url('assets/images/Product Gallery')}}/{{$images['images']}}" id="adminimg">
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input type="file" accept="image/*" id="gallery" name="gallery[]" multiple/>
+                        <h5 id="errorGal" style="color:#a94442"></h5>
+                        <br>
+                        <p class="small-label">Multiple Image Allowed</p>
+                        
+                    </div>
+                </div>
+
+                <div class="item form-group">
                     <label>Product Color:</label>
                     @foreach($color as $colors)
                         @php $flag = false; @endphp
