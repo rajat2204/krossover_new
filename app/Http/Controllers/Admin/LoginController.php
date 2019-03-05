@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
-use Auth;
 class LoginController extends Controller
 {
 	public function __construct(Request $request)
@@ -35,7 +35,7 @@ class LoginController extends Controller
                     $this->redirect = url('admin/home');
                }else{
                     \Session::flush();
-                    $this->message  =  $validator->errors()->add('not_exists', 'you are not authorised user.');
+                    $this->message  =  $validator->errors()->add('not_exists', 'You are not authorised user.');
                     return $this->populateresponse();
                }
 			}
