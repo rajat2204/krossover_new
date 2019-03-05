@@ -1,6 +1,6 @@
 /*--------------------------- Color variations ----------------------*/
 /*--------------------------- Fonts ----------------------*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500"); /* Medium Layout: 1280px */
+/*@import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500"); /* Medium Layout: 1280px */*/
 /* Tablet Layout: 768px */
 /* Mobile Layout: 320px */
 /* Wide Mobile Layout: 480px */
@@ -18,7 +18,7 @@
     padding: 122px 0 11px;
 } 
 #outerContainer{
-    margin-top: 100px !important;
+    margin-top: 110px !important;
     margin-bottom: 20px;
 }
 .top {
@@ -379,7 +379,7 @@
         padding-top: 0;
     }
     #outerContainer {
-        margin-top: 12px !important;
+        margin-top: 26px !important;
     }
 }
 
@@ -1853,7 +1853,7 @@ a.navbar-brand:hover {
         /*margin-top: 30px;*/
         background: #fff;
         width: 100%;
-        margin: 0 -77px;
+        /*margin: 0 -77px;*/
         /*margin: 0 -15px;*/
     }
     .singleproductWrapper.organic-breadcrumb{
@@ -1865,10 +1865,6 @@ a.navbar-brand:hover {
     }
     .sticky-wrapper {
         position: static;
-    }
-
-    .header_area {
-        /*position: static !important;*/
     }
 }
 
@@ -2149,6 +2145,12 @@ a.navbar-brand:hover {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding: 0px 15px;
     }
+     #magazine{
+        max-width: 450px;
+    }
+    .header_area .navbar .navbar-collapse {
+        margin: 0 -15px !important;
+    }
     #products_cus .product-details #dataTableBuilder_paginate a{
         width: 28px !important;
     }
@@ -2180,6 +2182,9 @@ a.navbar-brand:hover {
 @media (max-width: 460px){
     .product-details .white_box_wrapper table tr{
         width: 96% !important;
+    }
+    #magazine{
+        max-width: 400px !important;
     }
 }
 /* banner area css
@@ -2298,12 +2303,18 @@ span#search {
         font-size: 35px;
         line-height: 46px;
     }
-    
+    #magazine{
+        max-width: 650px !important;
+        width: unset !important;
+    }
     .banner-area .active-banner-slider{
         margin: 0;
     }
-    .singleproductWrapper.organic-breadcrumb {
+    .singleproductWrapper.organic-breadcrumb{
         padding-top: 23px;
+    }
+    .directions a{
+        top: 40% !important;
     }
 }
 
@@ -2540,6 +2551,10 @@ button#vieww {
     }
     .selectors .mz-thumb img{
         height: 50px;
+    }
+    #outerContainer {
+        margin-top: 4px !important;
+        min-height: 290px !important;
     }
     .mostPopularWrap .row{
         margin-right: 0;

@@ -1842,6 +1842,7 @@ i.fa {
     margin-top: -62px;
 }
 
+
 section#products1 {
     /*max-height: 808px;*/
 }
@@ -1866,6 +1867,13 @@ section#products1 {
     .page-container {
         position: relative;
     }
+    a.navbar-brand img {
+        max-width: 60px;
+    }
+    .header_area .navbar .nav .nav-item {
+        margin-right: 0;
+    }
+    
 }
 
 
