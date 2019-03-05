@@ -1,6 +1,6 @@
 /*--------------------------- Color variations ----------------------*/
 /*--------------------------- Fonts ----------------------*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500"); /* Medium Layout: 1280px */
+/*@import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500"); /* Medium Layout: 1280px */*/
 /* Tablet Layout: 768px */
 /* Mobile Layout: 320px */
 /* Wide Mobile Layout: 480px */
@@ -1853,7 +1853,7 @@ a.navbar-brand:hover {
         /*margin-top: 30px;*/
         background: #fff;
         width: 100%;
-        margin: 0 -77px;
+        /*margin: 0 -77px;*/
         /*margin: 0 -15px;*/
     }
     .singleproductWrapper.organic-breadcrumb{
@@ -1865,10 +1865,6 @@ a.navbar-brand:hover {
     }
     .sticky-wrapper {
         position: static;
-    }
-
-    .header_area {
-        /*position: static !important;*/
     }
 }
 
@@ -2149,6 +2145,12 @@ a.navbar-brand:hover {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding: 0px 15px;
     }
+     #magazine{
+        max-width: 450px;
+    }
+    .header_area .navbar .navbar-collapse {
+        margin: 0 -13px !important;
+    }
     #products_cus .product-details #dataTableBuilder_paginate a{
         width: 28px !important;
     }
@@ -2180,6 +2182,9 @@ a.navbar-brand:hover {
 @media (max-width: 460px){
     .product-details .white_box_wrapper table tr{
         width: 96% !important;
+    }
+    #magazine{
+        max-width: 400px !important;
     }
 }
 /* banner area css
@@ -2297,6 +2302,10 @@ span#search {
     .banner-area .banner-content h1 {
         font-size: 35px;
         line-height: 46px;
+    }
+    #magazine{
+        max-width: 650px !important;
+        width: unset !important;
     }
     
     .banner-area .active-banner-slider{
