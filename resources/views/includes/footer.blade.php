@@ -33,11 +33,11 @@
           <h6 class="mb-20">More Links</h6>
 
           <ul class="instafeed static_links">
-            <li><a href="{{url('pages/aboutus')}}" >About Us</a></li>
-            <li><a href="{{url('/contactus')}}" >Contact Us</a></li>
-            <li><a href="{{url('pages/termsandconditions')}}" >Terms and condition</a></li>
-            <li><a href="{{url('pages/privacypolicy')}}" >Privacy policy</a></li>
-            <li><a href="{{url('whyus')}}" >Why Us</a></li>
+            <li><a href="javascript:void(0);" >About Us</a></li>
+            <li><a href="javascript:void(0);" >Contact Us</a></li>
+            <li><a href="javascript:void(0);" >Terms and condition</a></li>
+            <li><a href="javascript:void(0);" >Privacy policy</a></li>
+            <li><a href="javascript:void(0);" >Why Us</a></li>
           </ul>
         </div>
       </div>
@@ -57,10 +57,10 @@
           <h6>Follow Us</h6>
           <p>Let us be social</p>
           <div class="footer-social d-flex align-items-center">
-            <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="{{$social[3]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="javascript:void(0);" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="javascript:void(0);" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="javascript:void(0);" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="javascript:void(0);" target="_blank"><i class="fa fa-instagram"></i></a>
           </div>
         </div>
       </div>
