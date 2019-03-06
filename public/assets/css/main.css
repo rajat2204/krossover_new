@@ -2145,9 +2145,15 @@ a.navbar-brand:hover {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding: 0px 15px;
     }
-     #magazine{
-        max-width: 450px;
+    .directions a.next-button{
+        display:none !important;
     }
+    .directions a.prev-button{
+        display:none !important;
+    }
+    /* #magazine{*/
+    /*    max-width: 450px;*/
+    /*}*/
     .header_area .navbar .navbar-collapse {
         margin: 0 -15px !important;
     }
@@ -2183,9 +2189,9 @@ a.navbar-brand:hover {
     .product-details .white_box_wrapper table tr{
         width: 96% !important;
     }
-    #magazine{
-        max-width: 400px !important;
-    }
+    /*#magazine{*/
+    /*    max-width: 400px !important;*/
+    /*}*/
 }
 /* banner area css
 ============================================================================================ */
@@ -2303,19 +2309,33 @@ span#search {
         font-size: 35px;
         line-height: 46px;
     }
-    #magazine{
-        max-width: 650px !important;
-        width: unset !important;
-    }
+
+    /*div#outerContainer ~ footer {*/
+    /*    display: none;*/
+    /*}*/
+    /*#magazine .page-wrapper{*/
+    /*    width: 100% !important;*/
+    /*}*/
+    /*#magazine .page {*/
+    /*    width: 100% !important;*/
+    /*    height: 300px !important; */
+    /*}*/
+    /*#outerContainer .shadow{*/
+    /*    left:0 !important;*/
+    /*}*/
+    /*#magazine{*/
+    /*    max-width: 600px !important;*/
+    /*    width: unset !important;*/
+    /*}*/
     .banner-area .active-banner-slider{
         margin: 0;
     }
     .singleproductWrapper.organic-breadcrumb{
         padding-top: 23px;
     }
-    .directions a{
-        top: 40% !important;
-    }
+    /*.directions a{*/
+    /*    top: 40% !important;*/
+    /*}*/
 }
 
 .banner-area .banner-content p {
@@ -2407,6 +2427,9 @@ button#vieww {
     }
     .frontHead h1{
         text-align: center;
+    }
+    .se-pre-con{
+        font-size: 15px !important;
     }
 }
 
@@ -9772,7 +9795,12 @@ header ul.navbar-right {
 {
      display: none;
 }*/
-
+@media (max-width: 342px){
+    #outerContainer {
+        margin-top: 18px !important;
+        min-height: 240px !important;
+    }
+}
 @media(max-width: 767px) {
     .banner-img{
         padding-right: 10px;
