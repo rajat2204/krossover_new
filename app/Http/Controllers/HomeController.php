@@ -204,8 +204,6 @@ class HomeController extends Controller
         return view('front_home',$data);
     }
 
-
-
     public function search(Request $request){
         $data['products'] = _arefy(Products::where('title', 'like', '%'.$request->item.'%')->where('status', 'active')->get());
         $data['searchkey'] = $request->item;
