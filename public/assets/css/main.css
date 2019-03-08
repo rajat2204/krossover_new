@@ -2448,9 +2448,12 @@ button#vieww {
     margin-bottom: 0;
     color: #7c7d73;
 }
+.win-magic body{
+    background: #e8e8e8 !important;
+}
 .categoryListingWrap{
     padding-top: 5px;
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 @media (max-width: 767px) {
     .breadcrumb-banner h1 {
