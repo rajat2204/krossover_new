@@ -5936,7 +5936,7 @@ div#products_cus {
     opacity: 0;
 }
 .sidebar-categories .main-categories {
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     background: #fff;
     box-shadow: 0 10px 10px rgba(153, 153, 153, 0.4);
 }
@@ -5985,7 +5985,7 @@ div#products_cus {
 .sidebar-categories .main-nav-list a {
     font-size: 14px;
     display: block;
-    padding: 5px;
+    padding: 8px 20px;
     /*line-height: 50px;*/
     /*padding-left: 10px;*/
     border-bottom: 1px solid #eee;
@@ -9706,6 +9706,9 @@ header ul.navbar-right {
     .pad-bth {
         padding:0 15px;
     }
+    #outerContainer ~ footer{
+        display: none;
+    }
     .phone-e {
         font-size: 12px;
     }
@@ -9773,7 +9776,11 @@ header ul.navbar-right {
         display: none;
     }
 }
-
+@media (max-width: 360px){
+    .se-pre-con {
+        font-size: 13px !important;
+    }
+}
 .footer-text a, .footer-text i {
     color: #7c7d73;
 }

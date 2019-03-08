@@ -122,55 +122,55 @@
                     $("#magazine").turn("page", PdfFlip.currentPage);
 
 
-                $("#magazineContainer").zoom({
-                    max: PdfFlip.maxScale,
-                    flipbook: $('#magazine'),
-                    when: {
-                        tap: function (event) {
+                // $("#magazineContainer").zoom({
+                //     max: PdfFlip.maxScale,
+                //     flipbook: $('#magazine'),
+                //     when: {
+                        // tap: function (event) {
 
-                            if ($(this).zoom('value') == 1) {
-                                $('#magazine').
-                                    removeClass('animated').
-                                    addClass('zoom-in');
-                                $(this).zoom('zoomIn', event);
-                            } else {
-                                $(this).zoom('zoomOut');
-                            }
-                        },
-                        resize: function (event, scale, page, pageElement) {
-                            PdfFlip.currentScale = scale;
-                            PdfFlip.loadTurnJsPages($('#magazine').turn('view'), $('#magazine'), false, false);
+                        //     if ($(this).zoom('value') == 1) {
+                        //         $('#magazine').
+                        //             removeClass('animated').
+                        //             addClass('zoom-in');
+                        //         $(this).zoom('zoomIn', event);
+                        //     } else {
+                        //         $(this).zoom('zoomOut');
+                        //     }
+                        // },
+                        // resize: function (event, scale, page, pageElement) {
+                        //     PdfFlip.currentScale = scale;
+                        //     PdfFlip.loadTurnJsPages($('#magazine').turn('view'), $('#magazine'), false, false);
 
-                        },
-                        zoomIn: function () {
-                            $('.zoom-icon').removeClass('zoom-icon-in').addClass('zoom-icon-out');
-                            $('#magazine').addClass('zoom-in');
-                            PdfFlip.resizeViewport();
-                        },
-                        zoomOut: function () {
-                            $('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
-                            setTimeout(function () {
-                                $('#magazine').addClass('animated').removeClass('zoom-in');
-                                PdfFlip.resizeViewport();
-                            }, 0);
+                        // },
+                        // zoomIn: function () {
+                        //     $('.zoom-icon').removeClass('zoom-icon-in').addClass('zoom-icon-out');
+                        //     $('#magazine').addClass('zoom-in');
+                        //     PdfFlip.resizeViewport();
+                        // },
+                        // zoomOut: function () {
+                        //     $('.zoom-icon').removeClass('zoom-icon-out').addClass('zoom-icon-in');
+                        //     setTimeout(function () {
+                        //         $('#magazine').addClass('animated').removeClass('zoom-in');
+                        //         PdfFlip.resizeViewport();
+                        //     }, 0);
 
-                        },
-                        swipeLeft: function () {
-                            $('#magazine').turn('next');
-                        },
-                        swipeRight: function () {
-                            $('#magazine').turn('previous');
-                        }
-                    }
-                });
+                        // },
+                //         swipeLeft: function () {
+                //             $('#magazine').turn('next');
+                //         },
+                //         swipeRight: function () {
+                //             $('#magazine').turn('previous');
+                //         }
+                //     }
+                // });
 
-                $('.zoom-icon').bind('click', function () {
-                    if ($(this).hasClass('zoom-icon-in'))
-                        $('#magazineContainer').zoom('zoomIn');
-                    else if ($(this).hasClass('zoom-icon-out'))
-                        $('#magazineContainer').zoom('zoomOut');
+                // $('.zoom-icon').bind('click', function () {
+                //     if ($(this).hasClass('zoom-icon-in'))
+                //         $('#magazineContainer').zoom('zoomIn');
+                //     else if ($(this).hasClass('zoom-icon-out'))
+                //         $('#magazineContainer').zoom('zoomOut');
 
-                });
+                // });
 
             }, 10);
         });
