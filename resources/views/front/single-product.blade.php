@@ -74,7 +74,9 @@
 							<li style="display: none;"><span>Availibility:</span>
 						@endif
 					</ul>
-					<p>{!!(!empty($productdata['description'])?$productdata['description']:'')!!}</p>
+					@if($productdata['description'])
+						{!!(!empty($productdata['description'])?$productdata['description']:'')!!}
+					@endif
 					@if(!empty($productdata['sizes']))
 						<p>Sizes Available are:{{$productdata['sizes']}}</p>
 					@else

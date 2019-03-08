@@ -20,18 +20,18 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('/img/logo.ico')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/linearicons.css')}}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
   {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('plugins/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/availability-calendar.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nice-select.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css') }}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/availability-calendar.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquerysctipttop.css')}}"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css') }}"> -->
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert2.css') }}" rel="stylesheet">
@@ -51,18 +51,18 @@
    crossorigin="anonymous"></script>
     <!-- [ PLUGIN SCRIPT ] -->
   <script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
-  <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
+  <!-- <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script> -->
   <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
-  <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
+  <!-- <script src="{{asset('assets/js/nouislider.min.js')}}"></script> -->
   <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
   <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('assets/js/vendor/popper.js')}}"></script>
-  <script src="{{asset('assets/js/parallax.min.js')}}"></script>
+  <!-- <script src="{{asset('assets/js/vendor/popper.js')}}"></script> -->
+  <!-- <script src="{{asset('assets/js/parallax.min.js')}}"></script> -->
   <script src="{{asset('assets/js/script.js')}}"></script>
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
-  <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-  <script src="{{asset('assets/js/select2.full.min.js')}}"></script>
+  <!-- <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script> -->
+  <!-- <script src="{{asset('assets/js/select2.full.min.js')}}"></script> -->
   <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
