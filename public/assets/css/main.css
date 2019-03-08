@@ -1813,7 +1813,7 @@ ul#suggestion {
 a.navbar-brand {
     width: 160px;
     /*width: 100px;*/
-    height: 71px;
+    height: 70px;
     padding: 3px;
     position: absolute;
     background: #fff;
@@ -1834,7 +1834,7 @@ a.navbar-brand {
 a.navbar-brand img {
     /*max-width: 80px;*/
     max-width: 170px;
-    height: 69px;
+    height: 68px;
 }
 
 a.navbar-brand:hover {
@@ -1883,7 +1883,7 @@ a.navbar-brand:hover {
 }
 
 .header_area .navbar .nav .nav-item {
-    margin-right: 37px;
+    margin-right: 27px;
 }
 
 .header_area .navbar .nav .nav-item .nav-link {
@@ -2455,6 +2455,9 @@ button#vieww {
 .win-magic body{
     background: #e8e8e8 !important;
 }
+.mobile-magic body{
+    background: #e8e8e8 !important;
+}
 .categoryListingWrap{
     padding-top: 5px;
     padding-bottom: 20px;
@@ -2925,10 +2928,18 @@ button#vieww {
     .active-product-area .owl-nav div {
         left: 28%;
     }
-    .header_area .navbar .nav .nav-item {
-        margin-right: 20px;
+    .header_area .navbar .nav.navbar-nav.navbar-right li:first-child {
+        margin-left: 15px;
     }
-    
+    .header_area .navbar .nav .nav-item {
+        margin-right: 15px;
+    }
+    .header_area .main_menu .main_box .container{
+        padding: 0;
+    }
+    a.navbar-brand{
+        width: 140px;
+    }
     .banner-area .banner-content h1{
         line-height: 33px;
     }
@@ -3914,6 +3925,9 @@ div#undefined-sticky-wrapper {
     background-image: url(../../assets/images/sale.png);
     background-size: cover;
     height: 50px;
+}
+.product-details .white_box_wrapper table tr {
+
 }
 .categoryWrapper {
     padding-bottom: 0;
@@ -5995,8 +6009,8 @@ div#products_cus {
 .sectionTitle{
     margin-bottom: 10px;
 }
-.features-area{
-    padding: 0;
+.features-area {
+    padding: 10px 0 30px;
 }
 .related-product-area-right .single-related-product{
     margin-bottom: 10px;
@@ -9053,14 +9067,21 @@ header ul.navbar-right {
         /*min-width: 600px !important;*/
     }
 }
+@media (min-width: 767px) and (max-width: 991px){
+     .white_box_wrapper #dataTableBuilder{
+        min-width: 600px !important;
+        width: 100% !important;
+    }
+}
 @media (max-width: 991px) {
     .single-post-area .sidebar-widgets {
         padding-bottom: 0px;
     }
     .product-details .white_box_wrapper table tr{
-        width: 42%;
+        width: 49%;
         padding: 20px 0 0;
     }
+   
     /*.white_box_wrapper #dataTableBuilder {
         min-width: 413px !important;
         width: 0 !important;
@@ -9669,7 +9690,7 @@ header ul.navbar-right {
         /*line-height: 52px;*/
     }
     .banner-area{
-        padding-top: 28px;
+        padding-top: 38px;
         padding-bottom: 20px;
         /*padding-top: 50px;*/
     }
