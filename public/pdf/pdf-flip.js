@@ -5,7 +5,7 @@
     currentScale: 1,
     layout: 'double',
     maxScale: 2,
-    audioSrc: "sound/page-flip.mp3",
+    // audioSrc: "sound/page-flip.mp3",
     init: function () {
 
         $(window).bind('keydown', function (e) {

@@ -9870,6 +9870,9 @@ header ul.navbar-right {
         padding-right: 10px;
         padding-left: 10px;
     }
+    #magazineContainer{
+        padding-top: 70px !important;
+    }
     .banner-area .banner-content h1{
         font-size: 21px;
         margin-left: 20px;
