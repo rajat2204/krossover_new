@@ -1868,7 +1868,7 @@ section#products1 {
         position: relative;
     }
     a.navbar-brand img {
-        max-width: 60px;
+        /*max-width: 60px;*/
     }
     .header_area .navbar .nav .nav-item {
         margin-right: 0;

@@ -47,8 +47,10 @@ $(document).ready(function(){
     $(".main-nav-list").click(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
-
-    // $('.product-details table tr').addClass('redBorder');
+    $(".main-nav-list").click(function(){
+        $('.white_box_wrapper table tr').addClass('redBorder');
+    });
+    
     
     /*==========================
 		javaScript for sticky header

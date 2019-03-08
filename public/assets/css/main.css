@@ -1811,7 +1811,9 @@ ul#suggestion {
 }
 
 a.navbar-brand {
-    width: 100px;
+    width: 160px;
+    /*width: 100px;*/
+    height: 71px;
     padding: 3px;
     position: absolute;
     background: #fff;
@@ -1830,7 +1832,9 @@ a.navbar-brand {
 }
 
 a.navbar-brand img {
-    max-width: 80px;
+    /*max-width: 80px;*/
+    max-width: 170px;
+    height: 69px;
 }
 
 a.navbar-brand:hover {
@@ -2480,7 +2484,7 @@ button#vieww {
         padding: 9px 4px !important;
     }
     #dataTableBuilder_wrapper .dataTables_length{
-        top: -52px !important;
+        top: -47px !important;
     }
     .categoryListingWrap .sidebar-categories .head{
         padding: 0 14px;
@@ -2596,9 +2600,16 @@ button#vieww {
         padding-bottom: 20px;
     }
     .main_box a.navbar-brand{
-        padding: 1px;
+        /*padding: 1px;
         width: 70px;
-        margin:0;
+        margin:0;*/
+        padding: 1px;
+        width: 128px;
+        height: 54px;
+        margin: 0;
+    }
+    a.navbar-brand img{
+        height: 53px;
     }
     .header_area .main_menu .main_box{
         height: 59px;
@@ -4012,8 +4023,16 @@ label {
     max-width: 830px !important;
 
 }
-.product-details .white_box_wrapper tr:has(> td.dataTables_empty) {
+.white_box_wrapper tr:has(> td.dataTables_empty){
     width: 100%;
+}
+.white_box_wrapper table tr::before .dataTables_empty {
+    content: "";
+    background-image: none;
+    height: 0;
+}
+.white_box_wrapper table td.dataTables_empty{
+    padding: 0;
 }
 .white_box_wrapper table td.sorting_1{
     padding: 3px;
@@ -9031,7 +9050,7 @@ header ul.navbar-right {
 @media (max-width: 1200px) {
     .white_box_wrapper #dataTableBuilder {
         width: 100% !important;
-        /*min-width: 613px !important;*/
+        /*min-width: 600px !important;*/
     }
 }
 @media (max-width: 991px) {
@@ -9641,7 +9660,7 @@ header ul.navbar-right {
 
     a.navbar-brand {
         position: static;
-        width: 100px;
+        /*width: 100px;*/
         padding: 5px;
         margin-left: 0;
     }
