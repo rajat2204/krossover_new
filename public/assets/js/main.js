@@ -48,7 +48,7 @@ $(document).ready(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
 
-    $('.product-details table tr:has(td.dataTables_empty)').addClass('redBorder');
+    // $('.product-details table tr').addClass('redBorder');
     
     /*==========================
 		javaScript for sticky header
