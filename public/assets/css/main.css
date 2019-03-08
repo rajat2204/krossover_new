@@ -584,12 +584,14 @@ span#search
     color:#fff !important;
     font-weight: bold;
 
-    background: #7c7d73;
+    background: #62ccf4;
     padding: 11px;
     border-radius: 0px;
 
 }
-
+.is-sticky #search_input_box{
+    top: 76px;
+}
 a {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -2592,7 +2594,7 @@ button#vieww {
     }
     #outerContainer {
         margin-top: 4px !important;
-        /*min-height: 290px !important;*/
+        min-height: 290px !important;
     }
     .mostPopularWrap .row{
         margin-right: 0;
@@ -9871,7 +9873,7 @@ header ul.navbar-right {
         padding-left: 10px;
     }
     #magazineContainer{
-        padding-top: 70px !important;
+        padding-top: 30px !important;
     }
     .banner-area .banner-content h1{
         font-size: 21px;
