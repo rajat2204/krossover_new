@@ -5982,6 +5982,9 @@ div#products_cus {
     overflow: hidden;
     height: 30px;
 }
+.main-nav-list .nav-link.active{
+    color:#64cdf6;
+}
 .sidebar-categories .main-nav-list a {
     font-size: 14px;
     display: block;

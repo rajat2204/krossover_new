@@ -21,7 +21,9 @@
 					<div class="sidebar-categories">
 						<div class="head toggleBrowse clearfix"><span>Browse Categories</span><i class="fa fa-chevron-down"></i></div>
 						<ul class="main-categories">
-							<li class="main-nav-list sub_cat_filter active" id="sub_cat_filter0"><a href="javascript:void(0);" class="nav-link ">All</a></li>
+							<li class="main-nav-list sub_cat_filter" id="sub_cat_filter0">
+								<a href="javascript:void(0);" class="nav-link active">All</a>
+							</li>
 			            	<input type="hidden" id="catid" name="cat_id" value="{{!empty($cats['cat_id'])?$cats['cat_id']:''}}">
 			            	<input type="hidden" id="subcatid" name="cat_id" value="{{!empty($subcatid)?$subcatid:''}}">
 							@php
