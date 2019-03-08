@@ -44,6 +44,9 @@ $(document).ready(function(){
         $('#search_input_box').slideUp(500);
     });
 
+    $(".main-nav-list").click(function(){
+        $(this).children().addClass("active").parent().siblings().children().removeClass("active");
+    });
     /*==========================
 		javaScript for sticky header
 		============================*/
