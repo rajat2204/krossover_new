@@ -118,6 +118,7 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = new Sliders();
+            $slider->fill($request->all());
             if (!empty($request->main_id)){
                 $productImage = Products::where('id', $request->main_id)->first();
                 $slider['image'] = $productImage['feature_image'];
@@ -130,7 +131,6 @@ class SliderController extends Controller
                 $slider['image'] = $photo_name;
                 }
             }
-            $slider->fill($request->all());
 
             $slider->save();
 
@@ -185,19 +185,19 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = Sliders::findOrFail($id);
+            $data = $request->all();
             if (!empty($request->main_id)){
                 $productImage = Products::where('id', $request->main_id)->first();
-                $slider['image'] = $productImage['feature_image'];
-                $slider['product_id'] = $productImage['id'];
+                $data['image'] = $productImage['feature_image'];
+                $data['product_id'] = $productImage['id'];
             }
             else{
             if ($file = $request->file('image')){
                 $photo_name = str_random(3).$request->file('image')->getClientOriginalName();
                 $file->move('assets/images/sliders',$photo_name);
-                $slider['image'] = $photo_name;
+                $data['image'] = $photo_name;
                 }
             }
-            $data = $request->all();
             
             $slider->update($data);
 
