@@ -4012,6 +4012,9 @@ label {
     max-width: 830px !important;
 
 }
+.product-details .white_box_wrapper td.dataTables_empty:parent{  
+    width: 100%
+}
 .white_box_wrapper table td.sorting_1{
     padding: 3px;
     text-align: center;

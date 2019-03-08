@@ -47,6 +47,9 @@ $(document).ready(function(){
     $(".main-nav-list").click(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
+
+    $('.product-details table tr:has(td.dataTables_empty)').addClass('redBorder');
+    
     /*==========================
 		javaScript for sticky header
 		============================*/
