@@ -2313,7 +2313,9 @@ span#search {
         font-size: 35px;
         line-height: 46px;
     }
-
+    #outerContainer{
+        /*min-height: 400px !important;*/
+    }
     /*div#outerContainer ~ footer {*/
     /*    display: none;*/
     /*}*/
@@ -2585,9 +2587,12 @@ button#vieww {
     .selectors .mz-thumb img{
         height: 50px;
     }
+    .header_area .main_menu .main_box .container{
+        padding: 0 10px !important;
+    }
     #outerContainer {
         margin-top: 4px !important;
-        min-height: 290px !important;
+        /*min-height: 290px !important;*/
     }
     .mostPopularWrap .row{
         margin-right: 0;
@@ -9824,6 +9829,9 @@ header ul.navbar-right {
     #top-social{
         display: none;
     }
+    /*#outerContainer{
+        min-height: 290px !important;
+    }*/
 }
 @media (max-width: 360px){
     .se-pre-con {
@@ -9854,7 +9862,7 @@ header ul.navbar-right {
 @media (max-width: 342px){
     #outerContainer {
         margin-top: 18px !important;
-        min-height: 240px !important;
+        
     }
 }
 @media(max-width: 767px) {
