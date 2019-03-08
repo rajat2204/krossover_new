@@ -704,7 +704,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 40px;
     line-height: 50px;
 }
-
+.newsletter-content{
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 19px;
+}
 .genric-btn.large {
     line-height: 45px;
 }
