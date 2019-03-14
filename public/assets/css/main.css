@@ -1939,7 +1939,7 @@ a.navbar-brand:hover {
         position: absolute;
         top: 140%;
         left: 0px;
-        min-width: 200px;
+        min-width: 250px;
         text-align: left;
         opacity: 0;
         -webkit-transition: visibility 0.5s ease;
@@ -1991,7 +1991,8 @@ a.navbar-brand:hover {
 
 .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
     line-height: 20px;
-    padding: 15px 16px;
+    padding: 15px 12px;
+    font-size: 11px;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -3934,6 +3935,7 @@ div#undefined-sticky-wrapper {
     width: 50px;
     top: -21px;
     left: 0;
+    z-index: 1;
     background-image: url(../../assets/images/sale.png);
     background-size: cover;
     height: 50px;
@@ -3970,8 +3972,9 @@ label {
     border-top: none;
     display: block;
     text-align: center;
-    padding-bottom: 0;
-    /*padding: 4px 25px 0 42px;*/
+    padding-top: 0;
+    padding-bottom: 5px;
+    /* padding: 4px 25px 0 42px; */
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
@@ -4065,6 +4068,7 @@ label {
 }
 .white_box_wrapper td.sorting_1 img {
     transition: .5s ease-in;
+    box-shadow: 0 2px 2px #ddd;
 }
 .white_box_wrapper td.sorting_1 img:hover {
     transform: scale(1.1);
