@@ -232,7 +232,7 @@ class BrandsController extends Controller
         $this->modal    = true;
         $this->alert    = true;
         $this->status = true;
-        $this->redirect = url('admin/changepassword');
+        $this->redirect = url('admin/home');
     }
     return $this->populateresponse();
   }
