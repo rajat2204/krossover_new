@@ -375,6 +375,9 @@
     .section_gap {
         padding: 80px 0;
     }
+    .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{
+        padding: 0;
+    }
     .homepage_wrapper{
         padding-top: 0;
     }
@@ -1586,7 +1589,7 @@ ul#suggestion {
     font-size: 30px;
     text-align: left;
     /* vertical-align: text-bottom; */
-    margin-left: -15px;
+    /*margin-left: -15px;*/
     margin-top: -10px;
 }
 .confirm-radio input:checked + label {
@@ -1930,9 +1933,9 @@ a.navbar-brand:hover {
     border: none;
     padding: 0px;
     overflow-y: scroll;
-    height: 230px;
+    height: 300px;
     border-radius: 0px;
-    box-shadow: none;
+    box-shadow: 1px 2px 1px 1px #7f7c7c;
     margin: 0px;
     background: #fff;
 }
@@ -1940,9 +1943,9 @@ a.navbar-brand:hover {
 @media (min-width: 992px) {
     .header_area .navbar .nav .nav-item.submenu ul {
         position: absolute;
-        top: 140%;
+        top: 136%;
         left: 0px;
-        min-width: 250px;
+        min-width: 300px;
         text-align: left;
         opacity: 0;
         -webkit-transition: visibility 0.5s ease;
@@ -1996,6 +1999,7 @@ a.navbar-brand:hover {
     line-height: 20px;
     padding: 15px 12px;
     font-size: 11px;
+    position: relative;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2003,7 +2007,14 @@ a.navbar-brand:hover {
     display: block;
     margin-right: 0px;
 }
-
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link:before{
+    content: "\f054";
+    margin-right: 5px;
+    font-size: 10px;
+    /*position: absolute;*/
+    /*left:0;*/
+    font-family: fontAwesome;
+}
 .header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child {
     border-bottom: none;
 }
@@ -2296,7 +2307,7 @@ a.navbar-brand:hover {
     /*height: 360px;*/
     height: 300px;
     /* margin-top: 34px; */
-    margin-left: 15px;
+    /*margin-left: 15px;*/
     background-color: #f3f2f2;
 }
 .banner-img {
@@ -2368,15 +2379,14 @@ span#search {
     .banner-area .banner-img {
         /*display: none;*/
     }
-    .banner-area .active-banner-slider {
+    /*.banner-area .active-banner-slider {
         height: 364px;
-    }
-    .related-product-area-right .single-related-product img {
-        width: 63px;
-        height: 70px;
+    }*/
+    .product_img a{
+        max-width: 100%;
     }
     .active-product .product_img img{
-        height: 100px;
+        /*height: 100px;*/
     }
     .singleProductSlider .single-product .product-details h6{
         font-size: 16px;
@@ -2661,7 +2671,7 @@ button#vieww {
 a.single-img {
     display: inline-block;
     height: 233px;
-    max-width: 220px;
+    max-width: 100%;
 }
 @media (max-width: 991px) {
     .single-features {
@@ -2957,6 +2967,9 @@ a.single-img {
     .active-product-area .owl-nav div {
         left: 28%;
     }
+    .product-details .white_box_wrapper table tr{
+        margin: 8px !important;
+    }
     .header_area .navbar .nav.navbar-nav.navbar-right li:first-child {
         margin-left: 15px;
     }
@@ -3000,6 +3013,10 @@ a.single-img {
         top: 2%;
         margin-top: -25px;
     }
+    .banner-area{
+        padding-bottom:0;
+    }
+
     #gallery .section-title{
         margin-bottom:20px;
     }
@@ -3540,7 +3557,8 @@ div#undefined-sticky-wrapper {
 }
 
 .single-related-product .desc {
-    margin: 10px 0px 10px 15px;
+    /*margin: 10px 0px 10px 15px;*/
+    margin: 0 10px;
     display: flex;
     align-items: center;
 }
@@ -7063,7 +7081,12 @@ div#products_cus {
 .product_description_area .nav.nav-tabs li:last-child {
     margin-right: 0px;
 }
-
+@media (max-width: 460px){
+    .sorting_1 a {
+        max-width: 100%;
+        height: auto;
+    }
+}
 @media (max-width: 441px) {
     .product_description_area .nav.nav-tabs li:last-child {
         margin-top: 15px;
@@ -9783,7 +9806,7 @@ header ul.navbar-right {
         font-size: 25px;
     }
     .frontHead h1{
-        font-size: 18px;
+        font-size: 23px;
     }
     .exclusive-deal-area .exclusive-right .active-exclusive-product-slider .single-exclusive-slider {
         padding-bottom: 0;

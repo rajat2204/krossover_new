@@ -12,7 +12,7 @@
                 </div>
               {{-- </div> --}}
             {{-- </div>  --}}
-              <div class="row">
+              <div class="">
                 <!-- clients logo slider -->
                 <div class="active-exclusive-product-slider-front">
                   @foreach($categories as $category)

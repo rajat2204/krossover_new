@@ -1752,7 +1752,7 @@ button {
 .product_img a {
     display: block;
     height: 160px;
-    max-width: 191px;
+    max-width: 100%;
 }
 .active-product .single-product{
     margin-bottom: 0;
