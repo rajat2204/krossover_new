@@ -29,11 +29,11 @@
                   @endforeach
                 </div>
               </div> 
-               <div class="view-more-wrap text-center" style="padding-top: 0;">
+              <!--  <div class="view-more-wrap text-center" style="padding-top: 0;">
                 <a href="{{url('view-category')}}">View More</a>
-              </div>
+              </div> -->
             </div>
-            <div class="col-md-12">
+           <!--  <div class="col-md-12">
               <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                   <div class="section-title frontHead inspirationHead">
@@ -59,7 +59,7 @@
             <div class="view-more-wrap text-center">
               <a href="{{url('gallery')}}">View More</a>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
