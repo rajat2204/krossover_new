@@ -60,6 +60,14 @@
   <!-- <script src="{{asset('assets/js/vendor/popper.js')}}"></script> -->
   <!-- <script src="{{asset('assets/js/parallax.min.js')}}"></script> -->
   <script src="{{asset('assets/js/script.js')}}"></script>
+  <!-- Pdf flipbook jss -->
+  <script src="{{asset('assets/js/pdff/html2canvas.min.js')}}"></script>
+  <script src="{{asset('assets/js/pdff/three.min.js')}}"></script>
+  <script src="{{asset('assets/js/pdff/pdf.min.js')}}"></script>
+  <script src="{{asset('assets/js/pdff/3dflipbook.min.js')}}"></script>
+  <script src="{{asset('assets/js/custom.js')}}"></script>
+  <!-- Pdf flipbook jss ends-->
+
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
   <!-- <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script> -->
   <!-- <script src="{{asset('assets/js/select2.full.min.js')}}"></script> -->

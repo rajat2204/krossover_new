@@ -28,3 +28,8 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
 		$this.find('em').removeClass('fa-toggle-down').addClass('fa-toggle-up');
 	}
 })
+
+
+
+
+      $('.solid-container').FlipBook({pdf: 'kross_over.pdf'});

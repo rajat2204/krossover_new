@@ -54,6 +54,13 @@ class HomeController extends Controller
         return view('front_home',$data);
     }
 
+    public function homepage(Request $request){
+        $data['social'] = _arefy(Social::where('status','active')->get());
+        $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
+        $data['view']='front.blank';
+        return view('front_home',$data);
+    }
+
     public function catalogePage(Request $request){
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['social'] = _arefy(Social::where('status','active')->get());

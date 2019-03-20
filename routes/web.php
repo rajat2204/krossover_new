@@ -21,6 +21,7 @@ Route::get('/clear-cache', function() {
 
 //http://alc.studio/product/4/forever-ceiling-light
 Route::get('/','HomeController@index');
+Route::get('/blank','HomeController@homepage');
 Route::get('search','HomeController@search');
 Route::get('pages/{slug}','HomeController@staticPage');
 Route::get('catalogue','HomeController@catalogePage');
