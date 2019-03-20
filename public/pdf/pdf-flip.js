@@ -3,6 +3,7 @@
     oldScale: 1,
     currentPage: 1,
     currentScale: 1,
+    scale:3,
     layout: 'double',
     maxScale: 2,
     // audioSrc: "sound/page-flip.mp3",

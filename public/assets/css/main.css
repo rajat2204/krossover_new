@@ -375,6 +375,9 @@
     .section_gap {
         padding: 80px 0;
     }
+    .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{
+        padding: 0;
+    }
     .homepage_wrapper{
         padding-top: 0;
     }
@@ -697,8 +700,8 @@ h1, h2, h3, h4, h5, h6 {
     outline: none;
 }
 .section_gap_front{
-    padding-bottom: 45px;
-    padding-top: 30px;
+   padding-bottom: 30px;
+    padding-top: 6px;
 }
 .genric-btn.e-large {
     padding: 0 40px;
@@ -1583,8 +1586,11 @@ ul#suggestion {
     font-size: 0;
 }
 .frontHead h1{
-    font-size: 18px;
+    font-size: 30px;
     text-align: left;
+    /* vertical-align: text-bottom; */
+    /*margin-left: -15px;*/
+    margin-top: -10px;
 }
 .confirm-radio input:checked + label {
     background: url(../img/elements/success-radio.png) no-repeat center center/cover;
@@ -1889,7 +1895,7 @@ a.navbar-brand:hover {
 }
 
 .header_area .navbar .nav .nav-item {
-    margin-right: 27px;
+    margin-right: 35px;
 }
 
 .header_area .navbar .nav .nav-item .nav-link {
@@ -1927,9 +1933,9 @@ a.navbar-brand:hover {
     border: none;
     padding: 0px;
     overflow-y: scroll;
-    height: 230px;
+    height: 300px;
     border-radius: 0px;
-    box-shadow: none;
+    box-shadow: 1px 2px 1px 1px #7f7c7c;
     margin: 0px;
     background: #fff;
 }
@@ -1937,9 +1943,9 @@ a.navbar-brand:hover {
 @media (min-width: 992px) {
     .header_area .navbar .nav .nav-item.submenu ul {
         position: absolute;
-        top: 140%;
+        top: 136%;
         left: 0px;
-        min-width: 250px;
+        min-width: 300px;
         text-align: left;
         opacity: 0;
         -webkit-transition: visibility 0.5s ease;
@@ -1993,6 +1999,7 @@ a.navbar-brand:hover {
     line-height: 20px;
     padding: 15px 12px;
     font-size: 11px;
+    position: relative;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2000,7 +2007,14 @@ a.navbar-brand:hover {
     display: block;
     margin-right: 0px;
 }
-
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link:before{
+    content: "\f054";
+    margin-right: 5px;
+    font-size: 10px;
+    /*position: absolute;*/
+    /*left:0;*/
+    font-family: fontAwesome;
+}
 .header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child {
     border-bottom: none;
 }
@@ -2211,8 +2225,8 @@ a.navbar-brand:hover {
     /*background-size: cover;*/
     position: relative;
     /*padding-top: 12px;*/
-    padding-top: 122px;
-    padding-bottom: 8px;
+    padding-top: 143px;
+    padding-bottom: 2px;
     /*max-height:405px;*/
 }
 
@@ -2292,13 +2306,15 @@ a.navbar-brand:hover {
 .active-banner-slider{
     /*height: 360px;*/
     height: 300px;
-    margin-top: 34px;
-    margin-left: 15px;
+    /* margin-top: 34px; */
+    /*margin-left: 15px;*/
     background-color: #f3f2f2;
 }
 .banner-img {
     padding-top: 40px;
     padding-right: 40px;
+    height: 258px;
+    max-width: 413px;
 }
 .margin-front{
     margin-left:-15px;
@@ -2363,15 +2379,14 @@ span#search {
     .banner-area .banner-img {
         /*display: none;*/
     }
-    .banner-area .active-banner-slider {
+    /*.banner-area .active-banner-slider {
         height: 364px;
-    }
-    .related-product-area-right .single-related-product img {
-        width: 63px;
-        height: 70px;
+    }*/
+    .product_img a{
+        max-width: 100%;
     }
     .active-product .product_img img{
-        height: 100px;
+        /*height: 100px;*/
     }
     .singleProductSlider .single-product .product-details h6{
         font-size: 16px;
@@ -2639,7 +2654,7 @@ button#vieww {
     margin-bottom: 0;
 }
 .active-exclusive-product-slider-front {
-    height: 130px;
+    /*height: 130px;*/
 }
 .features-inner {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -2653,7 +2668,11 @@ button#vieww {
     text-align: center;
     padding: 0 10px;
 }
-
+a.single-img {
+    display: inline-block;
+    height: 233px;
+    max-width: 100%;
+}
 @media (max-width: 991px) {
     .single-features {
         border-right: none;
@@ -2728,7 +2747,7 @@ button#vieww {
 }
 
 .single-exclusive-slider {
-    position: relative;
+    /* position: relative; */
     /*margin-bottom: 30px;*/
 }
 .single-exclusive-slider .deal-details h6 {
@@ -2741,7 +2760,9 @@ button#vieww {
     height: 100px;
 }
 .banner-img img.img-fluid{
-    height: 215px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 .single-exclusive-slider .overlay{
     position: absolute;
@@ -2837,15 +2858,16 @@ button#vieww {
     padding-bottom: 0;
 }
 .single-related-product img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
 }
 .related-product-area-right .single-related-product img {
-    width: 113px;
-    height: 140px;
+    /* max-width: 113px; */
+    /* height: 142px; */
 }
 .mostpopularWrap{
-    height: 165px;
+    height: 200px;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -2920,9 +2942,14 @@ button#vieww {
 .paddingRight{
     padding-right: 30px;
 }
+.ctg-right a {
+    height: 300px;
+    max-width: 290px;
+}
 .ctg-right img {
-    height: 295px;
     width: 100%;
+    object-fit: contain;
+    height: 100%;
 }
 /*.sidebar-categories #sub_cat_filter0 {
     border: 1px solid #ddd;
@@ -2939,6 +2966,9 @@ button#vieww {
 @media (max-width: 1200px) {
     .active-product-area .owl-nav div {
         left: 28%;
+    }
+    .product-details .white_box_wrapper table tr{
+        margin: 8px !important;
     }
     .header_area .navbar .nav.navbar-nav.navbar-right li:first-child {
         margin-left: 15px;
@@ -2983,6 +3013,10 @@ button#vieww {
         top: 2%;
         margin-top: -25px;
     }
+    .banner-area{
+        padding-bottom:0;
+    }
+
     #gallery .section-title{
         margin-bottom:20px;
     }
@@ -3130,16 +3164,17 @@ button#vieww {
     margin: 0 5px;
 }
 .single-product img {
-    margin-bottom: 10px;
-    height: 200px;
+    /* margin-bottom: 10px; */
+    height: 100%px;
     width: 100%;
 }
 
 .single-product .product-details h6 {
     font-size: 16px;
     color: #7c7d73;
+    margin-bottom: 0;
     text-transform: uppercase;
-    line-height: 24px;
+    line-height: 17px;
 }
 
 .single-product .product-details .price h6 {
@@ -3479,7 +3514,10 @@ button#vieww {
 
 .single-img img {
     opacity: 1;
-    height: 100px;
+    /*height: 100px;*/
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -3519,7 +3557,8 @@ div#undefined-sticky-wrapper {
 }
 
 .single-related-product .desc {
-    margin: 10px 0px 10px 15px;
+    /*margin: 10px 0px 10px 15px;*/
+    margin: 0 10px;
     display: flex;
     align-items: center;
 }
@@ -3539,6 +3578,11 @@ div#undefined-sticky-wrapper {
 
 .single-related-product a {
     color: #7c7d73;
+    display: block;
+    max-width: 113px;
+    height: 148px;
+    display: flex;
+    align-items: center;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -3904,8 +3948,8 @@ div#undefined-sticky-wrapper {
 }
 
 .product-details {
-    padding: 0 10px 10px;
-    margin: 5px 0 0 -10px;
+    padding: 0 10px 0px;
+    margin: 16px 0 0 -11px;
 }
 .lattest-product-area .product-details{
     margin: 0;
@@ -3965,8 +4009,9 @@ label {
     margin-bottom: 0;
 }
 .white_box_wrapper td.sorting_1 img {
-    max-width: 220px;
-    height: 200px;
+    width:  100%;
+    height: 100%;
+    object-fit: cover;
 }
 .white_box_wrapper table td{
     border-top: none;
@@ -4060,9 +4105,15 @@ label {
     max-width: 830px !important;
 
 }
-
+.sorting_1 a {
+    max-width: 240px;
+    display: block;
+    height: 206px;
+    position: relative;
+    overflow: hidden;
+}
 .white_box_wrapper table td.sorting_1{
-    padding: 3px;
+    padding: 3px 15px;
     text-align: center;
     position: relative;
 }
@@ -7030,7 +7081,12 @@ div#products_cus {
 .product_description_area .nav.nav-tabs li:last-child {
     margin-right: 0px;
 }
-
+@media (max-width: 460px){
+    .sorting_1 a {
+        max-width: 100%;
+        height: auto;
+    }
+}
 @media (max-width: 441px) {
     .product_description_area .nav.nav-tabs li:last-child {
         margin-top: 15px;
@@ -9750,7 +9806,7 @@ header ul.navbar-right {
         font-size: 25px;
     }
     .frontHead h1{
-        font-size: 18px;
+        font-size: 23px;
     }
     .exclusive-deal-area .exclusive-right .active-exclusive-product-slider .single-exclusive-slider {
         padding-bottom: 0;
