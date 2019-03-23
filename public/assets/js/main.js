@@ -63,7 +63,7 @@ $(document).ready(function(){
         autoplay:true,
         autoplayTimeout: 5000,
         loop:true,
-        nav:true,
+        // nav:true,
         // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
         dots:true
     });
