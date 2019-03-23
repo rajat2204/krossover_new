@@ -71,16 +71,16 @@
           <!-- single-slide -->
           <div class="row single-slide align-items-center d-flex">
             <div class="col-lg-5 col-md-4 col-sm-4">
-              <div class="banner-content"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1>
-                <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
+              <div class="banner-content"><a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
+                <a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><p>{{!empty($sliders['text'])?$sliders['text']:''}}</p></a>
               </div>
             </div>
             <div class="col-lg-7 col-md-8 col-sm-8">
               <div class="banner-img">
                 @if(!empty($sliders['product_id']))
-                  <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
+                  <a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt=""></a>
                 @else
-                <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
+                  <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                 @endif
               </div>
             </div>

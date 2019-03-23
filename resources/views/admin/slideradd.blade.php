@@ -35,12 +35,12 @@
 					<div class="item form-group">
                         <label> Slider Image</label>
                         <div id="image_div">
-                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-                            <span>max. size 2 MB.</span>
-                        	<span>(700X450 pixels)</span>
+                            <!-- <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file"> -->
+                            <!-- <span>max. size 2 MB.</span>
+                        	<span>(700X450 pixels)</span> -->
                         </div>
                         <div id="image-location">
-                           <img style="max-width: 250px;" src="{{asset('/img/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
+                           <img style="max-width: 250px;" src="{{asset('assets/images/avatar1.png')}}" id="adminimg" alt="No Featured Image Added">
                         </div>
                     </div>
 					<div class="form-group">
@@ -71,18 +71,18 @@
             }
         }
 
-        $(document).ready(function(){
-        $('#main_id').on('change',function(){
-            var value = $(this).val();
-            $.ajax({
-                url:"{{url('admin/subcategories/ajaxsubcategory?id=')}}"+value,
-                type:'POST',
-                success:function(data){
-                    $('#subcategory').html(data).prev().css("display","block");
-                }
-            });
-        });
-    });
+    // $(document).ready(function(){
+    //     $('#main_id').on('change',function(){
+    //         var value = $(this).val();
+    //         $.ajax({
+    //             url:"{{url('admin/subcategories/ajaxsubcategory?id=')}}"+value,
+    //             type:'POST',
+    //             success:function(data){
+    //                 $('#subcategory').html(data).prev().css("display","block");
+    //             }
+    //         });
+    //     });
+    // });
 </script>
 
 <script type="text/javascript">
@@ -95,14 +95,14 @@
    }
 })
 
-$(function() {
-    $('#main_id').change(function(){
-        if($('#main_id').val() != "NULL") {
-            $('#image_div').hide(); 
-        } else {
-            $('#image_div').show(); 
-        } 
-    });
-});
+// $(function() {
+//     $('#main_id').change(function(){
+//         if($('#main_id').val() != "NULL") {
+//             $('#image_div').hide(); 
+//         } else {
+//             $('#image_div').show(); 
+//         } 
+//     });
+// });
 </script>
 @endsection
