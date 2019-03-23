@@ -891,7 +891,15 @@ tr.odd:hover, tr.even:hover {
     background-color: #1ebfae;
     background-image: none;
 }
-
+#image-location {
+    height: 258px;
+    max-width: 413px;
+}
+#image-location img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
 .jumbotron {
     background: #fff;
     border-bottom: 1px solid #e9ecf2;

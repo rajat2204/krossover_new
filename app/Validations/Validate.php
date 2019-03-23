@@ -206,29 +206,17 @@ class Validate
         return $validator;		
 	}
 
-	public function addslider($action = 'add'){
-    	if(!empty($this->data->main_id)){
-        	$validations = [
-        	'title' 				=> $this->validation('name'),
-        	'text' 					=> $this->validation('name'),
-        	];
-    	}else{
-    		$validations = [
-			'image'					=> $this->validation('photo'),
-        	'title' 				=> $this->validation('name'),
-        	'text' 					=> $this->validation('name'),
-    		];
-    	}
-		if($action == 'edit'){
-			$validations['image']	= $this->validation('photomimes');
-	        $validations['title'] 	= $this->validation('name');
-	        $validations['text'] 	= $this->validation('name');
-		}
+	public function addslider($action = 'edit')
+	{
+		$validations = [
+        	'main_id' 				=> $this->validation('name'),
+        	'title' 					=> $this->validation('name'),
+        	'text' 						=> $this->validation('name'),
+    	];
 		$validator = \Validator::make($this->data->all(), $validations,[
-			'image.required' 				=>  'Slider Image is required.',
-			'image.mimes' 					=>  'Image should be in jpg,jpeg,png format.',
-			'title.required'				=>	'Slider Title is required.',
-			'text.required'					=>	'Slider Text is required.',
+			'main_id.required' 			=>  'Slider Image is required.',
+			'title.required'				=>	'Title is required.',
+			'text.required'					=>	'Text is required.',
 		]);
 		return $validator;
 	}
