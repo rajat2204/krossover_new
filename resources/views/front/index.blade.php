@@ -3,7 +3,7 @@
 <section class="banner-area">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 categoryFront">
+        <div class="col-lg-4 col-md-12 col-sm-12 categoryFront">
           <div class="row">
             <div class="col-md-12">
               {{-- <div class="col-lg-6 text-center"> --}}
@@ -65,7 +65,7 @@
       </div>
     
     {{-- <div class="fullscreen align-items-center justify-content-start"> --}}
-      <div class="col-lg-8 col-md-8 col-sm-12 bannerFront">
+      <div class="col-lg-8 col-md-12 col-sm-12 bannerFront">
         <div class="active-banner-slider owl-carousel">
         @foreach($slider as $sliders)
           <!-- single-slide -->
