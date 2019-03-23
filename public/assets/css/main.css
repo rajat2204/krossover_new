@@ -2443,11 +2443,7 @@ button#vieww {
         margin-right: 0 !important;
         margin-top: 30px;
     }
-
-}
-
-@media (max-width: 767px) {
-   .categoryFront {
+    .categoryFront {
         order: 2;
     }
     .frontHead{
@@ -2456,6 +2452,16 @@ button#vieww {
     .frontHead h1{
         text-align: center;
     }
+    .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{
+        line-height: 6px;
+        padding: 6px 12px;
+    }
+
+}
+
+@media (max-width: 767px) {
+   
+    
     .se-pre-con{
         font-size: 15px !important;
     }
