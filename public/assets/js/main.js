@@ -58,28 +58,21 @@ $(document).ready(function(){
     /*=================================
     Javascript for banner area carousel
     ==================================*/
-    $(".active-banner-slider").owlCarousel({
+    var isMulti = ($('#active-banner-slider .item').length > 1) ? true : false
+    $("#active-banner-slider").owlCarousel({
         items:1,
         autoplay:true,
         autoplayTimeout: 5000,
-        loop:true,
-        // nav:true,
+        loop:isMulti,
+        nav:isMulti,
         // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
-        dots:true
+        dots:isMulti
     });
 
     /*=================================
     Javascript for product area carousel
     ==================================*/
-    $(".active-product-area").owlCarousel({
-        items:1,
-        autoplay:true,
-        autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
-        dots:false
-    });
+   
 
     $("#activeArea").owlCarousel({
         items:3,

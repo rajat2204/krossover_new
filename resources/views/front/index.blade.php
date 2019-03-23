@@ -66,21 +66,21 @@
     
     {{-- <div class="fullscreen align-items-center justify-content-start"> --}}
       <div class="col-lg-8 col-md-12 col-sm-12 bannerFront">
-        <div class="active-banner-slider owl-carousel">
+        <div class="active-banner-slider owl-carousel" id="active-banner-slider">
         @foreach($slider as $sliders)
           <!-- single-slide -->
-          <div class="row single-slide align-items-center d-flex">
+          <div class="row item single-slide align-items-center d-flex">
             <div class="col-lg-5 col-md-4 col-sm-4">
-              <div class="banner-content"><a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1></a>
-                <a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><p>{{!empty($sliders['text'])?$sliders['text']:''}}</p></a>
+              <div class="banner-content"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1>
+                <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
               </div>
             </div>
             <div class="col-lg-7 col-md-8 col-sm-8">
               <div class="banner-img">
                 @if(!empty($sliders['product_id']))
-                  <a href="{{url('product')}}/{{___encrypt($sliders['product_id'])}}"><img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt=""></a>
+                  <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
                 @else
-                  <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
+                <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                 @endif
               </div>
             </div>
@@ -208,36 +208,7 @@
 
           </div>
         </div>
-        {{-- <div class="single-product-slider owl-carousel active-product-area">
-          <!-- single product slide -->
-          <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
-              <div class="section-title">
-                <h1>Latest Products</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- single product -->
-            @foreach($latest_product1 as $latest_products1)
-            <div class="col-lg-4 col-md-4">
-              <div class="single-product">
-                <a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
-                <div class="product-details">
-                  <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
-                  <!-- <div class="price">
-                    <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
-                    <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-            @endforeach
-          </div>
-        </div> --}}
+        
       </div>
       <div class="col-lg-4 col-md-12">
         <div class="related-product-area-right section_gap_bottom">
@@ -310,7 +281,7 @@
 
 
 @section('requirejs')
-<script>
+<!-- <script>
   
   $('document').ready(function(){ 
 
@@ -321,5 +292,5 @@
 });
 });
  
-</script>
+</script> -->
 @endsection
