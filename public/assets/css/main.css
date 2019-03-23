@@ -699,6 +699,14 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn:focus {
     outline: none;
 }
+.btn-subscribe{
+    position: relative;
+}
+.single-footer-widget .click-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .section_gap_front{
    padding-bottom: 30px;
     padding-top: 6px;
@@ -3113,9 +3121,9 @@ a.single-img {
         top: 3%;
         right: 25%;
     }
-    .banner-img img.img-fluid {
+    /*.banner-img img.img-fluid {
         height: 235px;
-    }
+    }*/
     .margin-front {
         margin-left: 0 !important;
     }
@@ -6909,10 +6917,9 @@ div#products_cus {
     .s_product_text {
         margin-left: 0px;
     }
-    .banner-img img.img-fluid {
-        height: 165px;
-        max-width: 300px;
-        margin: 0 auto;
+    .banner-img{
+        height: 105px;
+        max-width: 100%;
     }
     .related-product-area-right{
         margin-top: 20px;
@@ -9604,7 +9611,7 @@ header ul.navbar-right {
 
 .single-footer-widget input {
     border: none;
-    width: 80% !important;
+    width: 100% !important;
     font-weight: 300;
     background: #fff;
     color: #777;
@@ -9662,7 +9669,7 @@ header ul.navbar-right {
     border-radius: 0;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    padding: 6px 17px;
+    padding: 8px 17px;
     border: 0;
 }
 

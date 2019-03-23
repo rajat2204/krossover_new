@@ -20,9 +20,9 @@
 
             <form role="subscribe" action="{{url('subscribe')}}" method="POST" class="form-inline">
               {{csrf_field()}}
-              <div class="d-flex flex-row">
+              <div class="btn-subscribe">
                 <input class="form-control" name="EMAIL" placeholder="Enter Email" type="email">
-                <button type="button" class="click-btn btn btn-default" data-request="ajax-submit" data-target='[role="subscribe"]'><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                <button type="button" class="click-btn btn btn-default subscribebtn" data-request="ajax-submit" data-target='[role="subscribe"]'><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
               </div>
               <div>
                 <p class="newsletter-content">Sign up and be the first to know about our special offers and latest updates.</p>
