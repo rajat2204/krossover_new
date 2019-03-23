@@ -60,7 +60,7 @@
 		</div>
 		<div class="panel panel-container">
 			<div class="row">
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+				<!-- <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
 						<a href="{{url('admin/gallery')}}">
 							<div class="row no-padding"><em class="fa fa-xl fa-file-image-o color-teal"></em>
@@ -69,7 +69,7 @@
 							</div>
 						</a>
 					</div>
-				</div>
+				</div> -->
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget border-right">
 						<a href="{{url('admin/offers')}}">

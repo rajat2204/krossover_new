@@ -35,7 +35,7 @@ Route::get('whyus', 'HomeController@whyUs');
 Route::get('view-category', 'HomeController@viewcategory');
 Route::get('latest-product', 'HomeController@viewlatestProduct');
 Route::get('most-popular', 'HomeController@viewMostpopular');
-Route::get('gallery', 'HomeController@viewGallery');
+// Route::get('gallery', 'HomeController@viewGallery');
 
 // Route::get('ajaxcategory/{type}/{category_slug}', 'HomeController@ajaxProduct');
 
@@ -111,7 +111,7 @@ Route::resource('catalogue', 'CatalogueController');
 Route::resource('whyus', 'WhyusController');
 
 /***********************Inspirationla Gallery-Section****************************/
-Route::resource('gallery', 'GalleryController');
+// Route::resource('gallery', 'GalleryController');
 
 /***********************Contact-Address-Section****************************/
 Route::resource('contact', 'ContactAddressController');
