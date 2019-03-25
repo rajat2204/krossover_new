@@ -1555,7 +1555,7 @@ ul.program-list li small {
     padding-bottom: 30px;
 }
 .footer-area p {
-    color: #767676;
+    color: #fff;
 }
 .footer-area i.fa {
     
@@ -1759,8 +1759,11 @@ button {
 }
 .product_img a {
     display: block;
-    height: 160px;
-    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    /*max-width: 240px;*/
+    display: block;
+    height: 206px;
 }
 .active-product .single-product{
     margin-bottom: 0;
@@ -1830,7 +1833,7 @@ header ul.navbar-right {
 
 i.fa {
     font-size: 18px;
-    color: #7c7d73;
+    color: #fff;
     margin-right: 10px;
 }
 .sidebar ul.nav li:hover i.fa {

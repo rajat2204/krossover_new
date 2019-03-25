@@ -1,7 +1,7 @@
 /*
 
 
-   Magic Zoom Plus v5.2.8 
+   
    Copyright 2019 Magic Toolbox
    Buy a license: https://www.magictoolbox.com/magiczoomplus/
    License agreement: https://www.magictoolbox.com/license/
@@ -121,10 +121,10 @@ figure.mz-figure {
     -webkit-mask-clip: content;
     cursor: none;
 }
-.mz-figure.mz-active .mz-zoom-window.mz-magnifier {
+/*.mz-figure.mz-active .mz-zoom-window.mz-magnifier {
     pointer-events: auto !important;
     cursor: inherit !important;
-}
+}*/
 .mz-zoom-window.mz-magnifier.mz-expanded {
     z-index: 2147483647;
 }
@@ -221,7 +221,7 @@ figure.mz-figure {
     cursor: none;
 }
 .mz-figure.mz-magnifier-zoom.mz-active {
-    overflow: visible !important;
+    /*overflow: visible !important;*/
 }
 
 .mz-figure.mz-active > img {
@@ -946,7 +946,7 @@ button.mz-button.mz-button-next:before { content: "\a003"; }
     filter: alpha(opacity=75);
 }
 .lt-ie9-magic button.mz-button:hover {
-    filter: alpha(opacity=100);
+    /*filter: alpha(opacity=100);*/
 }
 
 

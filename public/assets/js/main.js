@@ -118,6 +118,7 @@ $(document).ready(function(){
     ==================================*/
     $(".active-exclusive-product-slider-front").owlCarousel({
         items:2,
+        margin:6,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
@@ -144,12 +145,13 @@ $(document).ready(function(){
     });
 
     $(".active-exclusive-product-slider").owlCarousel({
-        items:8,
+        items:6,
         autoplay:true,
         autoplayTimeout: 3000,
+        margin:15,
         loop:true,
         nav:true,
-        // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
         dots:true,
         responsive: {
               0: {
@@ -162,7 +164,7 @@ $(document).ready(function(){
                   items: 5
               },
               1200:{
-                items:8,
+                items:6,
               }
           }
     });
