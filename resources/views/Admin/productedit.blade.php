@@ -36,6 +36,11 @@
 					<input class="form-control" id="name" name="title" value="{{$product['title']}}" placeholder="E.g. Men's Clothing">
 				</div>
 
+                <div class="item form-group">
+                    <label>Product Code:</label>
+                    <input class="form-control" id="code" name="code" value="{{$product['code']}}" placeholder="E.g. IT-123456">
+                </div>
+
 				<div class="form-group">
 					<label>Main Category:</label>
 					<select class="form-control" name="main_id" id="main_id">
@@ -174,6 +179,11 @@
                 <div class="form-group">
                     <label>Product Description</label>
                     <textarea name="description" id="description" class="form-control" rows="6" required>{{!empty($product['description'])?$product['description']:''}}</textarea>
+                </div>
+
+                <div class="item form-group">
+                    <label>Product Dimensions:</label>
+                    <input class="form-control" id="dimensions" name="dimensions" placeholder="E.g. 12X12X12" value="{{$product['dimensions']}}">
                 </div>
 
                 @if($product['price'] != null)

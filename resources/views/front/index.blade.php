@@ -161,10 +161,10 @@
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
  --}}
+ 
 <!-- start product Area -->
 <section class="section_gap_front" id="products1">
   <div class="container">
-  <!-- single product slide -->
     <div class="row">
       <div class="col-lg-8 col-md-12 margin-front">
         <div class="single-product-slider singleProductSlider">
@@ -172,19 +172,14 @@
             <div class="col-lg-12 text-center">
               <div class="section-title leftDiv">
                 <h1>Latest Products</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore
-                  magna aliqua.</p>
-                  
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 col-md-12">
               <div class="active-product" id="activeArea">
-              <!-- single product -->
               @foreach($latest_product as $latest_products)
-             
                 <div class="single-product">
                   <div class="product_img">
                     <a href="{{url('product')}}/{{___encrypt($latest_products['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt=""></a>
@@ -197,9 +192,7 @@
                     </div> -->
                   </div>
                 </div>
-              
               @endforeach
-              <!-- single product end -->
               </div>
               <div class="view-more-wrap">
                 <a href="{{url('latest-product')}}">View More</a>
@@ -271,7 +264,7 @@
         
       </div>
     </div>
-</div>
+  </div>
 </section>
 <!-- end product Area -->
 

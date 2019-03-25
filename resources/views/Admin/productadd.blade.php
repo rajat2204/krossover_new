@@ -25,8 +25,13 @@
     			<form role="add-product" method="POST" action="{!! action('Admin\ProductController@store') !!}" class="form-horizontal form-label-left">
     				{{csrf_field()}}
         				<div class="item form-group">
-        					<label>Product Name:</label>
-        					<input class="form-control" id="name" name="title" placeholder="E.g. Men's Clothing">
+                            <label>Product Name:</label>
+                            <input class="form-control" id="name" name="title" placeholder="E.g. Men's Clothing">
+                        </div>
+
+                        <div class="item form-group">
+        					<label>Product Code:</label>
+        					<input class="form-control" id="code" name="code" placeholder="E.g. IT-123456">
         				</div>
 
         				<div class="item form-group">
@@ -109,6 +114,11 @@
                         <div class="item form-group">
                             <label>Product Description:</label>
                             <textarea name="description" id="description" class="form-control" rows="6"></textarea>
+                        </div>
+
+                        <div class="item form-group">
+                            <label>Product Dimensions:</label>
+                            <input class="form-control" id="dimensions" name="dimensions" placeholder="E.g. 12X12X12">
                         </div>
 
                         <div class="item form-group">

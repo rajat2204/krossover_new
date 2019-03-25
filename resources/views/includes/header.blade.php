@@ -81,7 +81,7 @@
     <div class="search_input" id="search_input_box">
       <div class="container">
         <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Item number...">
+          <input type="text" class="form-control" name="q" size="90" onkeyup="getSuggestion(this.value)" autocomplete="off"  id="search_input" placeholder="Product Name or Product Code...">
           <button type="submit" class="btn"></button>
           <span class="lnr lnr-magnifier-cross" id="close_search" title="Close Search"></span>
         </form>
@@ -91,7 +91,7 @@
             @endphp
             @if(!empty($products))
               @foreach($products as $product)
-              <li><a href="{{url('product')}}/{{$product->id}}">{{!empty($product->title)?$product->title:''}}</a></li>
+              <li><a href="{{url('product')}}/{{___encrypt($product->id)}}">{{!empty($product->title)?$product->title:''}} -- {{!empty($product->code)?$product->code:''}}</a></li>
               @endforeach
             @endif
           </ul>
