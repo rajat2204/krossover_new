@@ -441,7 +441,10 @@ color:#fff !important;
   background-color: #FFF;
   }
         
-        
+ .mz-expand-stage.with-thumbs ~ div{
+  display: none;
+  opacity: 0;
+ }      
        
 /*  MAIN HEADING
 ------------------------------*/

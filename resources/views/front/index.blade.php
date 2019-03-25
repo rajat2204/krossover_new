@@ -8,7 +8,7 @@
             <div class="col-md-12">
               {{-- <div class="col-lg-6 text-center"> --}}
                 <div class="section-title frontHead">
-                  <h1>Our Categories</h1>
+                  <h1><a class="" href="{{url('view-category')}}">Our Categories</a></h1>
                 </div>
               {{-- </div> --}}
             {{-- </div>  --}}
@@ -24,7 +24,11 @@
                         <div class="deal-details">
                           <h6 class="deal-title">{{!empty($category['name'])?$category['name']:''}}</h6>
                         </div>
+                        <div class="deal-detailsshow">
+                          <h6 class="deal-titleshow">{{!empty($category['name'])?$category['name']:''}}</h6>
+                      </div>
                       </a>
+                      
                     </div>
                   @endforeach
                 </div>
@@ -70,12 +74,12 @@
         @foreach($slider as $sliders)
           <!-- single-slide -->
           <div class="row item single-slide align-items-center d-flex">
-            <div class="col-lg-5 col-md-4 col-sm-4">
+           <!--  <div class="col-lg-5 col-md-4 col-sm-4">
               <div class="banner-content"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1>
                 <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
               </div>
-            </div>
-            <div class="col-lg-7 col-md-8 col-sm-8">
+            </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="banner-img">
                 @if(!empty($sliders['product_id']))
                   <img class="img-fluid" src="{{url('/')}}/assets/images/products/{{$sliders['image']}}" alt="">
@@ -132,6 +136,7 @@
                   <h6 class="deal-title">{{!empty($category['name'])?$category['name']:''}}</h6>
                 </div>
               </a>
+
             </div>
           @endforeach
         </div>
@@ -225,8 +230,9 @@
                   @endphp
                     @foreach($popular_product as $popular_products)
                     <div class="col-lg-12 col-md-12 col-sm-12 mb-20">
-                      <div class="single-related-product d-flex">
-                        <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" alt=""></a>
+                      <div class="single-related-product">
+                        <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}">
+                          <img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" alt=""></a>
                         <div class="desc">
                           <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}">{{!empty($popular_products->title)?($popular_products->title):''}}</a>
                           <!-- <div class="price">
