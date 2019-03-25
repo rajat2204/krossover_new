@@ -19,7 +19,7 @@
                   @endphp
                     @foreach($popular_product as $popular_products)
             <div class="col-lg-4 col-md-4 col-sm-6 mb-20 margin-rg">
-              <div class="single-related-product d-flex">
+              <div class="single-related-product">
                 <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" alt=""></a>
                 <div class="desc">
                   <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}">{{!empty($popular_products->title)?($popular_products->title):''}}</a>

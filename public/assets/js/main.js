@@ -118,7 +118,7 @@ $(document).ready(function(){
     ==================================*/
     $(".active-exclusive-product-slider-front").owlCarousel({
         items:2,
-        margin:6,
+        margin:15,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
