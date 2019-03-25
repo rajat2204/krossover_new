@@ -342,11 +342,13 @@ class Validate
 	public function createProduct($action='add'){
 		$validations = [
 			'title'						=> $this->validation('name_product'),
+			'code'						=> $this->validation('name_product'),
 			'main_id'					=> $this->validation('name'),
 			'sub_id'					=> $this->validation('name'),
 			'feature_image'				=> $this->validation('photo'),
 			'gallery.*'					=> $this->validation('gallery'),
 			'description'				=> $this->validation('description'),
+			'dimensions'				=> $this->validation('name'),
 		];
 		if($action == 'edit'){
 			$validations['feature_image'] 	= $this->validation('photo_null');
@@ -355,6 +357,7 @@ class Validate
 		
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'title.required' 					=>  'Product Name is required.',
+			'code.required' 					=>  'Product Code is required.',
 			'main_id.required' 					=>  'Product Main Category is required.',
 			'sub_id.required' 					=>  'Product Sub Category is required.',
 			'brand_id.required' 				=>  'Product Brand is required.',
@@ -363,6 +366,7 @@ class Validate
 			'gallery.*.mimes' 					=> 	'Gallery Images should be in jpg,jpeg,png format.',
 			'gallery.*.max' 					=> 	'Gallery Images should not be greater than 2MB.',
 			'description.required' 				=>  'Product Description is required.',
+			'dimensions.required' 				=>  'Product Dimension is required.',
 		]);
 		if(!empty($this->data->pallow) && empty($this->data->sizes)){
 		    $validator->after(function ($validator){
