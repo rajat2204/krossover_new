@@ -155,13 +155,20 @@ $(document).ready(function(){
         dots:true,
         responsive: {
               0: {
-                  items: 1
+                  items: 1,
+                   nav:false
               },
               480: {
-                  items: 2
+                  items: 2,
+                   nav:false
+              },
+              576:{
+                items: 2,
+                nav:false
               },
               768: {
-                  items: 5
+                  items: 4,
+                  nav:false
               },
               1200:{
                 items:6,

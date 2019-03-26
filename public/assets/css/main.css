@@ -3115,6 +3115,12 @@ h6.deal-titleshow {
         top: 1%;
         margin-top: -25px;
     }
+    /*.single-exclusive-slider{
+        margin: 0 20px !important;
+    }*/
+    /*.active-exclusive-product-slider{
+        margin: 0 20px !important; 
+    }*/
    
 }
 
@@ -3122,6 +3128,9 @@ h6.deal-titleshow {
     .active-product-area .owl-nav div {
         margin-top: -20px;
         left: 28%;
+    }
+    .showCategories{
+        padding: 0px 0;
     }
 }
 @media (max-width: 420px) {
@@ -3131,6 +3140,7 @@ h6.deal-titleshow {
     .banner-area .banner-content h1{
         margin-left: 20px;
     }
+    
 }
 
 @media (max-width: 420px) {
