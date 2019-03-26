@@ -3132,6 +3132,9 @@ h6.deal-titleshow {
     .showCategories{
         padding: 0px 0;
     }
+    .single-exclusive-slider{
+        margin: 0 10px;
+    }
 }
 @media (max-width: 420px) {
     .banner-area .banner-content p{
