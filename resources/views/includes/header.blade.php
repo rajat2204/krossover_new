@@ -42,13 +42,17 @@
                     $menus = \App\Models\Category::where('status','active')->orderBy('name','asc')->get();
                   @endphp
                   <ul class="dropdown-menu">
+                    <div class="cscrollbar" id="style-7">
+                      <div class="force-overflow">
                     @foreach($menus as $menu)
                       <li class="nav-item">
-                      <a href="{{url('/category/main')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
+                        <a href="{{url('/category/main')}}/{{$menu->slug}}" class="nav-link">{{$menu->name}}</a>
                       </li>
                     @endforeach
-                </ul>
-                @endif
+                      </div>
+                    </div>
+                  </ul>
+                  @endif   
               </li>
               <!-- <li class="nav-item @if(Request::segment(1)=='gallery') active @endif"><a class="nav-link" href="{{url('gallery')}}">Inspirational Gallery</a></li> -->
               <li class="nav-item @if(Request::segment(1)=='most-popular') active @endif"><a class="nav-link" href="{{url('most-popular')}}">Featured Products</a></li>
