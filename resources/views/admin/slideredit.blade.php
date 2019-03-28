@@ -33,12 +33,12 @@
 					<div class="item form-group">
     					<label>Slider Image:</label>
     					<select class="form-control" name="main_id" id="main_id">
-                            <option value="">Select Product Image</option>
-                            @foreach($products as $product)
-                            	@if($product->id == $slider['product_id'])
-                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}" selected="">{{!empty($product->title)?$product->title:''}}</option>
+                            <option value="">Select Category Image</option>
+                            @foreach($category as $categories)
+                            	@if($categories->id == $slider['product_id'])
+                                	<option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}" selected="">{{!empty($categories->name)?$categories->name:''}}</option>
                                 @else
-                                	<option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                                	<option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}">{{!empty($categories->name)?$categories->name:''}}</option>
                                 @endif
                             @endforeach
     					</select>
@@ -53,7 +53,7 @@
 	                    </div>
 	                    <div class="col-md-12 col-sm-12 col-xs-12">
 	                    	@if(!empty($slider['product_id']))
-	                       		<img src="{!! url('/') !!}/assets/images/products/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
+	                       		<img src="{!! url('/') !!}/assets/images/categories/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
                     		@else
                             	<img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             @endif

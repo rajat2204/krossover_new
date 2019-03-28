@@ -51,7 +51,7 @@
 			<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-xs">
 				<div class="s_product_text">
 					<h3>{{ucfirst($productdata['title'])}}</h3>
-					<h6>Product Code:{{ucfirst($productdata['code'])}}</h6>
+					<h6>Product Code : {{ucfirst($productdata['code'])}}</h6>
 					<div class="price clearfix">
 						@if(!empty($productdata['price']))
 							<div class="price-left">${{$productdata['price']}}</div>
@@ -78,7 +78,7 @@
 					@if($productdata['description'])
 						{!!(!empty($productdata['description'])?$productdata['description']:'')!!}
 					@endif
-					<h6>Product Size: {{$productdata['dimensions']}} </h6>
+					<h6>Product Size : {{$productdata['dimensions']}} </h6>
 					@if(!empty($productdata['sizes']))
 						<p>Sizes Available are:{{$productdata['sizes']}}</p>
 					@else
