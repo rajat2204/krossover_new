@@ -1920,6 +1920,7 @@ a.navbar-brand:hover {
 @media (max-width: 991px) {
 	.header_area .navbar .navbar-collapse{
 		width:0;
+		display: none;
 		opacity:0;
 	}
 	.cscrollbar{
@@ -1974,6 +1975,7 @@ a.navbar-brand:hover {
         /*margin-top: 30px;*/
         background: #fff;
         opacity:1;
+        display: block;
         transition: .3s ease-in;
         /*width: 100%;*/
         /* width: 100%; */
@@ -2819,6 +2821,10 @@ button#vieww {
 .single-features {
     text-align: center;
     padding: 0 10px;
+}
+.banner-img a{
+	height: 294px;
+	max-width:730px;
 }
 a.single-img {
     display: inline-block;
