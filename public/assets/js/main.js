@@ -141,7 +141,7 @@ $(document).ready(function(){
         margin:15,
         autoplay:true,
         autoplayTimeout: 3000,
-        loop:false,
+        loop:true,
         nav:true,
         // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:true,
@@ -169,7 +169,7 @@ $(document).ready(function(){
         autoplay:true,
         autoplayTimeout: 3000,
         margin:15,
-        loop:false,
+        loop:true,
         nav:true,
         // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
         dots:true,
@@ -183,7 +183,7 @@ $(document).ready(function(){
                    nav:false
               },
               576:{
-                items: 2,
+                items: 3,
                 nav:false
               },
               768: {
