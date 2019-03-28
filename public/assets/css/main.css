@@ -21,6 +21,10 @@
     margin-top: 110px !important;
     margin-bottom: 20px;
 }
+.mz-active>div{
+	opacity:0;
+	display:none;
+}
 .top {
     padding: 3px 0px 0;
     background: #312f30;
@@ -1914,12 +1918,74 @@ a.navbar-brand:hover {
     height: 400px !important;
 }
 @media (max-width: 991px) {
-    .header_area .navbar .navbar-collapse {
+	.header_area .navbar .navbar-collapse{
+		width:0;
+		opacity:0;
+	}
+	.cscrollbar{
+		min-width: 210px !important;
+	}
+	.header_area .navbar .nav .nav-item.submenu ul{
+		box-shadow:none !important;
+	}
+	#style-7::-webkit-scrollbar{
+		width: 4px;
+	}
+	#our-clientss{
+		padding-bottom:0;
+	}
+	.close-menu {
+	    width: 40px;
+	    height: 40px;
+	    /* display: none; */
+	    top: 0;
+	    right: 220px;
+	    opacity: 0;
+	    z-index: 99999;
+	    line-height: 40px;
+	    position: fixed;
+	    right: 0;
+	    cursor: pointer;
+	    text-transform: uppercase;
+	}
+	.close-menu:before {
+	    transform: rotate(45deg);
+	    -moz-transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	}
+	.close-menu:after {
+	    transform: rotate(-45deg);
+	    -moz-transform: rotate(-45deg);
+	    -webkit-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	}
+	.close-menu:before, .close-menu:after {
+	    width: 18px;
+	    height: 2px;
+	    position: absolute;
+	    right: 50%;
+	    top: 50%;
+	    margin: -1px 0 0 -9px;
+	    content: "";
+	    background: #000;
+	}
+    .opened-menu .header_area .navbar .navbar-collapse {
         /*margin-top: 30px;*/
         background: #fff;
-        width: 100%;
+        opacity:1;
+        transition: .3s ease-in;
+        /*width: 100%;*/
+        /* width: 100%; */
+        position: fixed;
+        top: 0;
+        z-index:9999;
+        right: 0;
         /*margin: 0 -77px;*/
         /*margin: 0 -15px;*/
+    }
+    .do-main-menu ul{
+    	height:100vh;
     }
     .singleproductWrapper.organic-breadcrumb{
         padding-top: 0;
@@ -2079,11 +2145,20 @@ a.navbar-brand:hover {
                      color-stop(0.72, rgb(100,205,246)),
                      color-stop(0.86, rgb(100,205,246)));
 }
-
+.close-header-layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    background: rgba(0,0,0,0.5);
+}
 .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
     line-height: 10px;
     padding: 15px 12px;
     font-size: 11px;
+    color: #7a7a75;
     position: relative;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
@@ -2748,7 +2823,7 @@ button#vieww {
 a.single-img {
     display: inline-block;
     height: 233px;
-    max-width: 100%;
+    width: 100%;
 }
 #our-clientss a.single-img{
     display: inline-block;
@@ -9933,10 +10008,10 @@ header ul.navbar-right {
         padding-top: 30px;
     }
     .menu_nav {
-        padding-left: 20px;
+        padding-left: 10px;
         padding-top: 10px;
         margin-top: 2px;
-        border-top: 1px solid #64cdf6;
+        /*border-top: 1px solid #64cdf6;*/
     }
     .single-product img{
         margin-bottom: 0;
@@ -10098,6 +10173,7 @@ header ul.navbar-right {
     .banner-img{
         height: 290px;
     }
+
     .active-banner-slider{
       height: 290px;  
     }

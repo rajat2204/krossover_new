@@ -48,7 +48,27 @@ $(document).ready(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
     
-    
+    $('.menu-button').on('click', function(){
+		$('body').addClass('opened-menu');
+		$(".do-main-menu").css("width","267px");
+		$(".close-menu").css("opacity","1");
+		$("body").css("overflow","hidden");
+		$(".do-main-menu .navbar-nav").css("display","block");
+		$(this).closest('header').addClass('opened');
+		$('.opened .close-header-layer').fadeIn(300);
+		closePopups();
+		return false;
+	});
+
+	$('.close-header-layer, .close-menu').on('click', function(){	
+		$('body').removeClass('opened-menu');
+		$(".do-main-menu").css("width","0");
+		$(".close-menu").css("opacity","0");
+		$("body").css("overflow","scroll");
+		$(".do-main-menu .navbar-nav").css("display","none");
+		$('header.opened').removeClass('opened');
+		$('.close-header-layer:visible').fadeOut(300);
+	});
     
     /*==========================
 		javaScript for sticky header
@@ -121,7 +141,7 @@ $(document).ready(function(){
         margin:15,
         autoplay:true,
         autoplayTimeout: 3000,
-        loop:true,
+        loop:false,
         nav:true,
         // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:true,
@@ -149,13 +169,13 @@ $(document).ready(function(){
         autoplay:true,
         autoplayTimeout: 3000,
         margin:15,
-        loop:true,
+        loop:false,
         nav:true,
         // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
         dots:true,
         responsive: {
               0: {
-                  items: 1,
+                  items: 2,
                    nav:false
               },
               480: {
