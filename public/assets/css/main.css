@@ -21,6 +21,10 @@
     margin-top: 110px !important;
     margin-bottom: 20px;
 }
+.mz-active>div{
+	opacity:0;
+	display:none;
+}
 .top {
     padding: 3px 0px 0;
     background: #312f30;
