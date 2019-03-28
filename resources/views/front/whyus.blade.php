@@ -56,17 +56,19 @@
         </div>
       </div>
       <div class="row">
+      	<div class="col-md-12">
         <!-- clients logo slider -->
-        <div class="active-exclusive-product-slider">
-          @foreach($client as $clients)
-          <!-- single exclusive carousel -->
-            <div class="single-exclusive-slider">
-              <a class="col single-img">
-                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients['image']}}" alt="">
-              </a>
-            </div>
-          @endforeach
-          </div>
+	        <div class="active-exclusive-product-slider">
+	          @foreach($client as $clients)
+	          <!-- single exclusive carousel -->
+	            <div class="single-exclusive-slider">
+	              <a class="col single-img">
+	                <img class="img-fluid d-block mx-auto" src="{{url('assets/images/clients')}}/{{$clients['image']}}" alt="">
+	              </a>
+	            </div>
+	          @endforeach
+	          </div>
+	        </div>
         </div>
       </div>
     </div>
