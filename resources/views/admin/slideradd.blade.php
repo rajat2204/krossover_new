@@ -26,9 +26,9 @@
 					<div class="item form-group">
     					<label>Slider Image:</label>
     					<select class="form-control" name="main_id" id="main_id">
-                            <option value="">Select Product Image</option>
-                            @foreach($products as $product)
-                                <option value="{{!empty($product->id)?$product->id:''}}" data-picture="{{asset('assets/images/products')}}/{{!empty($product->feature_image)?$product->feature_image:''}}">{{!empty($product->title)?$product->title:''}}</option>
+                            <option value="">Select Category Image</option>
+                            @foreach($category as $categories)
+                                <option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}">{{!empty($categories->name)?$categories->name:''}}</option>
                             @endforeach
     					</select>
     				</div>

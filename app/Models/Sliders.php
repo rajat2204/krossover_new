@@ -18,4 +18,53 @@ class Sliders extends Model
         }
         return (bool)$isUpdated;
     }
+
+    public function category(){
+        return $this->hasOne('App\Models\Category','id','product_id');
+    }
+
+    public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc',$limit=''){
+        $table_sliders = self::select($keys)
+        ->with([
+            'category' => function($q){
+                $q->select('id','name','slug');
+            },
+        ]);
+        if($where){
+            $table_sliders->whereRaw($where);
+        }
+        if(!empty($cat_id)){
+            $table_sliders->where('main_id',$cat_id);
+        }
+        if(!empty($sub_id)){
+            $table_sliders->where('sub_id',$sub_id);
+        }
+                
+        if(!empty($order)){
+            $order = explode('-', $order);
+            $table_sliders->orderBy($order[0],$order[1]);
+        }
+        if (!empty($offset)) {
+            $table_sliders->offset($offset);
+        }
+        if (!empty($limit)) {
+            $table_sliders->limit($limit);
+        }
+        if($fetch === 'array'){
+            $list = $table_sliders->get();
+            return json_decode(json_encode($list ), true );
+        }
+        elseif($fetch === 'paginate'){
+            $list = $table_sliders->paginate(1);
+            return json_decode(json_encode($list ), true );
+        }else if($fetch === 'obj'){
+            return $table_sliders->limit($limit)->get();                
+        }else if($fetch === 'single'){
+            return $table_sliders->get()->first();
+        }else if($fetch === 'count'){
+            return $table_sliders->get()->count();
+        }else{
+            return $table_sliders->limit($limit)->get();
+        }
+    }
 }
