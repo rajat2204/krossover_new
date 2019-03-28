@@ -1889,6 +1889,8 @@ section#products1 {
     }
     .header_area .navbar .nav .nav-item {
         margin-right: 0;
+        width: 100%;
+        padding: 6px 0;
     }
     
 }
