@@ -1406,7 +1406,7 @@ p.back-link {
     position: absolute;
     top: 0;
     right: 10px;
-    font-size: 30px;
+    font-size: 22px;
     font-family: fontAwesome;
 }
 .banner-area .active-banner-slider .owl-nav .owl-prev:before {
@@ -1417,7 +1417,7 @@ p.back-link {
     position: absolute;
     top: 0;
     left: 10px;
-    font-size: 30px;
+    font-size: 22px;
     font-family: fontAwesome;
 }
 
