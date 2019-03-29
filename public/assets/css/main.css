@@ -1858,7 +1858,7 @@ ul#suggestion {
 .header_area .main_menu .main_box {
      
      
-    background: linear-gradient(-90deg, #fff, #fff);
+    background: linear-gradient(-90deg, #f6f5f5, #f6f5f5);
     margin: 0 auto 0;
     max-width: 100%;
     height: 76px;
@@ -2647,7 +2647,7 @@ button#vieww {
     /*background: #e8e8e8 !important;*/
 }
 .mobile-magic body{
-    background: #e8e8e8 !important;
+     /*background: #e8e8e8 !important;*/
 }
 .categoryListingWrap{
     padding-top: 5px;
@@ -2830,6 +2830,7 @@ button#vieww {
 }
 #our-clientss {
     padding-top: 30px;
+    background: #e8e8e8;
 }
 .single-features {
     text-align: center;
@@ -3374,16 +3375,20 @@ h6.deal-titleshow {
     margin-bottom: 30px;
     border: 4px solid #fff;
     /*background: #fff;*/
-    box-shadow: 0 0 10px #ccc;
+    /*box-shadow: 0 0 10px #ccc;*/
     padding: 5px 5px;
 }
 .product-details #dataTableBuilder_wrapper .nice-select {
     margin: 0 5px;
 }
+.product_img a{
+	height:206px;
+}
 .single-product img {
     /* margin-bottom: 10px; */
-    height: 100%px;
+    height: 100%;
     width: 100%;
+    object-fit:contain;
 }
 
 .single-product .product-details h6 {
@@ -3722,7 +3727,9 @@ h6.deal-titleshow {
 .exclusive-deal-area .exclusive-right .product-details .add-bag .add-btn span {
     transform: rotate(0deg);
 }
-
+.ctg-right {
+    padding-bottom: 10px;
+}
 @media (max-width: 767px) {
     .single-img {
         min-width: 50%;
@@ -4185,6 +4192,7 @@ div#undefined-sticky-wrapper {
 }
 .lattest-product-area .product-details{
     margin: 0;
+    background: #fff;
 }
 #popular {
     background: #fff;
@@ -4339,6 +4347,7 @@ label {
 }
 .white_box_wrapper #dataTableBuilder{
     max-width: 830px !important;
+    background: transparent;	
 
 }
 .sorting_1 a {
@@ -10053,7 +10062,7 @@ header ul.navbar-right {
     }
 
     .section_gap {
-        padding: 40px 0;
+        padding: 0px 0 40px;
     }
     .viewGallery {
         padding-top: 40px !important;

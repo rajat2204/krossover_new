@@ -1,4 +1,4 @@
-<section class="owl-carousel active-product-area section_gap viewlatestProduct" id="products1">
+<section class="active-product-area section_gap viewlatestProduct" id="products1">
   <!-- single product slide -->
   <div class="single-product-slider">
     <div class="container">
@@ -52,14 +52,19 @@
         @foreach($latest_product1 as $latest_products1)
         <div class="col-lg-3 col-md-6">
           <div class="single-product">
-            <a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
-            <div class="product-details">
-              <h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>
-              <!-- <div class="price">
-                <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
-                <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
-              </div> -->
-            </div>
+          	<div class="product_img">
+            	<a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
+	            <div class="product-details">
+	             <!--<h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>-->
+	              <!-- <div class="price">
+	                <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
+	                <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
+	              </div> -->
+	            </div>
+        	</div>
+        	<div class="product-details">
+        		<h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>
+        	</div>
           </div>
         </div>
         @endforeach
