@@ -4239,7 +4239,7 @@ label {
 .white_box_wrapper td.sorting_1 img {
     width:  100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .white_box_wrapper table td{
     border-top: none;
