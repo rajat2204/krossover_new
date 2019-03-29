@@ -202,30 +202,10 @@ $(document).ready(function(){
         autoplayTimeout: 3000,
         margin:15,
         loop:true,
-        nav:true,
+        nav:false,
         // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
         dots:true,
-        responsive: {
-              0: {
-                  items: 2,
-                   nav:false
-              },
-              480: {
-                  items: 2,
-                   nav:false
-              },
-              576:{
-                items: 3,
-                nav:false
-              },
-              768: {
-                  items: 4,
-                  nav:false
-              },
-              1200:{
-                items:1,
-              }
-          }
+        
     });
     //--------- Accordion Icon Change ---------//
 

@@ -20,7 +20,7 @@
             <div class="product_img">
               <a href="{{url('product')}}/{{___encrypt($latest_products['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt=""></a>
             </div>
-            <div class="product-details">
+            <div class="product-details desc">
               <h6>{{!empty($latest_products['title'])?$latest_products['title']:''}}</h6>
               <!-- <div class="price">
                 <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
@@ -54,15 +54,9 @@
           <div class="single-product">
           	<div class="product_img">
             	<a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
-	            <div class="product-details">
-	             <!--<h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>-->
-	              <!-- <div class="price">
-	                <h6>${{!empty($latest_products['price'])?$latest_products['price']:''}}</h6>
-	                <h6 class="l-through">${{!empty($latest_products['previous_price'])?$latest_products['previous_price']:''}}</h6>
-	              </div> -->
-	            </div>
+	            
         	</div>
-        	<div class="product-details">
+        	<div class="product-details desc">
         		<h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>
         	</div>
           </div>
