@@ -1935,7 +1935,9 @@ a.navbar-brand:hover {
 	}
 	.cscrollbar{
 		min-width: 210px !important;
+        height: 260px !important;
 	}
+
 	.header_area .navbar .nav .nav-item.submenu ul{
 		box-shadow:none !important;
 	}
@@ -1996,8 +1998,11 @@ a.navbar-brand:hover {
         /*margin: 0 -77px;*/
         /*margin: 0 -15px;*/
     }
-    .do-main-menu ul{
+    .do-main-menu ul.menu_nav{
     	height:100vh;
+    }
+    .cscrollbar{
+        padding: 7px 0;
     }
     .singleproductWrapper.organic-breadcrumb{
         padding-top: 0;
@@ -3295,7 +3300,12 @@ h6.deal-titleshow {
     .banner-area .banner-content h1{
         margin-left: 20px;
     }
-    
+    .footer-text a, .footer-text i{
+        line-height: 22px;
+    }
+    .product-details .white_box_wrapper table tr{
+        padding: 0px 0 0;
+    }
 }
 
 @media (max-width: 420px) {
@@ -10019,6 +10029,7 @@ header ul.navbar-right {
     .footer-text {
         /*padding-top: 40px;*/
     }
+
     button.navbar-toggler {
         float: right;
         z-index: 1;
@@ -10037,6 +10048,7 @@ header ul.navbar-right {
     .banner-area{
         padding-top: 38px;
         padding-bottom: 0;
+
         /*padding-top: 50px;*/
     }
     .categoryWrapper {
@@ -10047,6 +10059,7 @@ header ul.navbar-right {
         padding-left: 10px;
         padding-top: 10px;
         margin-top: 2px;
+        padding-right: 20px;
         /*border-top: 1px solid #64cdf6;*/
     }
     .single-product img{
