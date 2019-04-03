@@ -22,9 +22,9 @@
             <div class="deal-details">
               <h6 class="deal-title">{{!empty($category['name'])?$category['name']:''}}</h6>
             </div>
-            <div class="deal-detailsshow">
+            <!-- <div class="deal-detailsshow">
                 <h6 class="deal-titleshow">{{str_limit($category['name'],19)}}</h6>
-            </div>
+            </div> -->
           </a>
         </div>
       @endforeach
