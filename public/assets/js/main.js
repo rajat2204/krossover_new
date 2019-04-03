@@ -147,19 +147,19 @@ $(document).ready(function(){
         dots:true,
         responsive: {
               0: {
-                  items: 1
+                  items: 2
               },
               480: {
-                  items: 1,
+                  items: 2
               },
               550: {
-                items: 2,
+                items: 2
               },
               768: {
-                  items: 2,
+                  items: 2
               },
               1200:{
-                items:2,
+                items:2
               }
           }
     });

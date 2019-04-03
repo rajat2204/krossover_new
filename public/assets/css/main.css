@@ -2347,6 +2347,9 @@ a.navbar-brand:hover {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding: 0px 15px;
     }
+    .section_gap {
+        padding: 40px 0 0px;
+    }
     .features-area .features-inner{
         box-shadow:none;
         background:#fff;
@@ -2489,7 +2492,7 @@ a.navbar-brand:hover {
 }
 .active-banner-slider{
     /*height: 360px;*/
-    height: 270px;
+    height: 264px;
     /* margin-top: 34px; */
     /*margin-left: 15px;*/
     background-color: #f3f2f2;
@@ -2497,7 +2500,7 @@ a.navbar-brand:hover {
 .banner-img {
     /* padding-top: 40px; */
     /* padding-right: 40px; */
-    height: 294px;
+        
     /*background: #53b1dd;*/
     /* max-width: 413px; */
 }
@@ -2846,11 +2849,12 @@ button#vieww {
     padding: 0 10px;
 }
 .banner-img a{
-    height: 270px;
+    height: 265px;
+    display: block;
     max-width:730px;
 }
 a.single-img {
-    display: inline-block;
+    /* display: inline-block; */
     height: 233px;
     width: 100%;
 }
@@ -3281,6 +3285,9 @@ h6.deal-titleshow {
         left: 28%;
     }
     .active-banner-slider{
+        height: 190px;
+    }
+    .banner-img a{
         height: 190px;
     }
     .banner-img {
@@ -10082,7 +10089,7 @@ header ul.navbar-right {
     }
 
     .section_gap {
-        padding: 0px 0 40px;
+        padding: 40px 0 0px;
     }
     .viewGallery {
         padding-top: 40px !important;
@@ -10223,13 +10230,9 @@ header ul.navbar-right {
     }
 }
 @media(max-width: 767px) {
-    .banner-img{
-        height: 290px;
-    }
+    
 
-    .active-banner-slider{
-      height: 290px;  
-    }
+    
     #magazineContainer{
        padding-top: 30px !important;
     }
