@@ -26,18 +26,18 @@
 					<div class="item form-group">
     					<label>Slider Image:</label>
     					<select class="form-control" name="main_id" id="main_id">
-                            <option value="">Select Category Image</option>
-                            @foreach($category as $categories)
-                                <option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}">{{!empty($categories->name)?$categories->name:''}}</option>
+                            <option value="">Select Product</option>
+                            @foreach($products as $product)
+                                <option value="{{!empty($product->id)?$product->id:''}}">{{!empty($product->title)?$product->title:''}}</option>
                             @endforeach
     					</select>
     				</div>
 					<div class="item form-group">
                         <label> Slider Image</label>
                         <div id="image_div">
-                            <!-- <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file"> -->
-                            <!-- <span>max. size 2 MB.</span>
-                        	<span>(700X450 pixels)</span> -->
+                            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+                            <span>max. size 2 MB.</span>
+                        	<span>(730X294 pixels)</span>
                         </div>
                         <div id="image-location">
                            <img style="max-width: 250px;" src="{{asset('assets/images/avatar1.png')}}" id="adminimg" alt="No Featured Image Added">
@@ -85,7 +85,7 @@
     // });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $('#main_id').change(function(){ //if the select value gets changed
    var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
    if(imageSource){ //if it has data
@@ -104,5 +104,5 @@
 //         } 
 //     });
 // });
-</script>
+</script> -->
 @endsection

@@ -33,12 +33,12 @@
 					<div class="item form-group">
     					<label>Slider Image:</label>
     					<select class="form-control" name="main_id" id="main_id">
-                            <option value="">Select Category Image</option>
-                            @foreach($category as $categories)
-                            	@if($categories->id == $slider['product_id'])
-                                	<option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}" selected="">{{!empty($categories->name)?$categories->name:''}}</option>
+                            <option value="">Select Image</option>
+                            @foreach($products as $product)
+                            	@if($product->id == $slider['product_id'])
+                                	<option value="{{!empty($product->id)?$product->id:''}}" selected="">{{!empty($product->title)?$product->title:''}}</option>
                                 @else
-                                	<option value="{{!empty($categories->id)?$categories->id:''}}" data-picture="{{asset('assets/images/categories')}}/{{!empty($categories->image)?$categories->image:''}}">{{!empty($categories->name)?$categories->name:''}}</option>
+                                	<option value="{{!empty($product->id)?$product->id:''}}">{{!empty($product->title)?$product->title:''}}</option>
                                 @endif
                             @endforeach
     					</select>
@@ -47,13 +47,13 @@
                     <div class="item form-group">
 	                    <label> Current Featured Image:</label>
 	                    <div id="image_div">
-	                        <!-- <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
 	                        <span>max. size 2 MB.</span>
-	                        <span>(700X450 pixels)</span> -->
+	                        <span>(730X294 pixels)</span>
 	                    </div>
 	                    <div class="col-md-12 col-sm-12 col-xs-12">
 	                    	@if(!empty($slider['product_id']))
-	                       		<img src="{!! url('/') !!}/assets/images/categories/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
+	                       		<img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo" id="adminimg">
                     		@else
                             	<img src="{!! url('/') !!}/assets/images/sliders/{{$slider['image']}}" style="max-height: 300px;" alt="No Banner Photo">
                             @endif

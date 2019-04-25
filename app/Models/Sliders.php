@@ -19,15 +19,15 @@ class Sliders extends Model
         return (bool)$isUpdated;
     }
 
-    public function category(){
-        return $this->hasOne('App\Models\Category','id','product_id');
+    public function product(){
+        return $this->hasOne('App\Models\products','id','product_id');
     }
 
     public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc',$limit=''){
         $table_sliders = self::select($keys)
         ->with([
-            'category' => function($q){
-                $q->select('id','name','slug');
+            'product' => function($q){
+                $q->select('id','title');
             },
         ]);
         if($where){

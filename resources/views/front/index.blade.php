@@ -82,7 +82,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="banner-img">
                 @if(!empty($sliders['product_id']))
-                  <a href="{{url('category/main')}}/{{$sliders['category']['slug']}}"><img class="img-fluid" src="{{url('/')}}/assets/images/categories/{{$sliders['image']}}" alt=""></a>
+                  <a href="{{url('product')}}/{{___encrypt($sliders['product']['id'])}}"><img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt=""></a>
                 @else
                   <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                 @endif

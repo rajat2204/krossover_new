@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Sliders;
-use App\Models\Category;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -68,12 +68,7 @@ class SliderController extends Controller
                 return str_limit($item['text'],150);
             })
             ->editColumn('image',function($item){
-                if (!empty($item['product_id'])) {
-                    $imageurl = asset("assets/images/categories/".$item['image']);
-                }else{
-                    $imageurl = asset("assets/images/sliders/".$item['image']);
-                }
-
+                $imageurl = asset("assets/images/sliders/".$item['image']);
                 return '<img src="'.$imageurl.'" height="100px" width="150px">';
             })
             ->rawColumns(['image', 'action'])
@@ -99,8 +94,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        $data['category'] = Category::where('status', '=', 'active')->get();
         $data['view'] = 'admin.slideradd';
+        $data['products'] = Products::where('status', '=', 'active')->get();
         return view('admin.home',$data);
     }
 
@@ -118,11 +113,17 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = new Sliders();
+
             $slider->fill($request->all());
-            if (!empty($request->main_id)){
-                $productImage = Category::where('id', $request->main_id)->first();
-                $slider['image'] = $productImage['image'];
-                $slider['product_id'] = $productImage['id'];
+
+            $productImage = Products::where('id', $request->main_id)->first();
+
+            $slider['product_id'] = $productImage['id'];
+
+            if ($file = $request->file('image')){
+                $photo_name = time().$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/sliders',$photo_name);
+                $slider['image'] = $photo_name;
             }
 
             $slider->save();
@@ -157,7 +158,7 @@ class SliderController extends Controller
     {
         $data['view'] = 'admin.slideredit';
         $id = ___decrypt($id);
-        $data['category'] = Category::where('status', '=', 'active')->get();
+        $data['products'] = Products::where('status', '=', 'active')->get();
         $data['slider'] = _arefy(Sliders::where('id',$id)->first());
         return view('admin.home',$data);
     }
@@ -178,12 +179,19 @@ class SliderController extends Controller
             $this->message = $validator->errors();
         }else{
             $slider = Sliders::findOrFail($id);
+            
             $data = $request->all();
-            if (!empty($request->main_id)){
-                $productImage = Category::where('id', $request->main_id)->first();
-                $data['image'] = $productImage['image'];
-                $data['product_id'] = $productImage['id'];
+
+            $productImage = Products::where('id', $request->main_id)->first();
+
+            $data['product_id'] = $productImage['id'];
+
+            if ($file = $request->file('image')){
+                $photo_name = time().$request->file('image')->getClientOriginalName();
+                $file->move('assets/images/sliders',$photo_name);
+                $data['image'] = $photo_name;
             }
+            
             
             $slider->update($data);
 
