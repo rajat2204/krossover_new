@@ -117,6 +117,15 @@
     .api-controls {
         text-align: center;
     }
+    .mz-thumb-selected{
+        /*-webkit-filter: brightness(60%)!important;*/
+        /*filter: brightness(60%)!important;*/
+        background-color: rgba(153,153,153,1);
+    }
+    .mz-thumb-selected img{
+        -webkit-filter: brightness(60%)!important;
+        filter: brightness(60%)!important;
+    }
     .api-controls button,
     .api-controls button:active,
     .api-controls button:focus {
@@ -142,14 +151,20 @@
     }
     .selectors a{
         float: left;
-    }
-    .selectors .mz-thumb img {
-        /*max-width: 56px; */
-        width: 90px;
-        /* margin: 5px; */
         margin-right: 10px;
         margin-top: 10px;
         height: 90px;
+        width: 90px;
+        border: 1px solid #ddd;
+    }
+    .selectors .mz-thumb img {
+        /*max-width: 56px; */
+        /*width: 90px;*/
+        height:100%;
+        width: 100%;
+        object-fit: contain;
+        /* margin: 5px; */
+        
     }
 
     .app-code-sample {
@@ -1925,6 +1940,7 @@ a.navbar-brand:hover {
 }
 .categoryproductZoom .MagicZoom img, .mz-figure img{
     border: 1px solid #ddd !important;
+    object-fit: contain;
     height: 400px !important;
 }
 @media (max-width: 991px) {
@@ -2785,8 +2801,9 @@ button#vieww {
     .features-area .col-lg-3:last-child .single-features {
         margin-top: 30px;
     }
-    .selectors .mz-thumb img{
+    .selectors .mz-thumb{
         height: 50px;
+        width: 50px;
     }
     .header_area .main_menu .main_box .container{
         padding: 0 10px !important;
