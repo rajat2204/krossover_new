@@ -84,6 +84,9 @@ $(document).ready(function(){
         autoplay:true,
         autoplayTimeout: 5000,
         loop:isMulti,
+        dots:true,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         nav:isMulti,
         // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
         dots:isMulti
@@ -94,11 +97,13 @@ $(document).ready(function(){
     ==================================*/
    
 
-    $("#activeArea").owlCarousel({
-        items:3,
+    $(".activeSlider").owlCarousel({
+        items:2,
         autoplay:true,
         margin:30,
         autoplayTimeout: 5000,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         loop:true,
         nav:true,
         // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
@@ -113,13 +118,13 @@ $(document).ready(function(){
                   nav:false
               },
               576: {
-                items: 2,
+                items: 1,
               },
               768: {
-                  items: 2,
+                  items: 1,
               },
               1200:{
-                items:3,
+                items:2,
               }
           }
     });
@@ -128,19 +133,29 @@ $(document).ready(function(){
     ==================================*/
     $(".s_Product_carousel").owlCarousel({
       items:1,
+      slideTransition: 'linear',
+      autoplaySpeed: 2000,
       autoplay:true,
       autoplayTimeout: 5000,
       loop:true,
       nav:false,
       dots:true
     });
+    $(".searchproduct").click(function(){
+      $(".inputsearchblock").toggle();
+    });
+    $(".crosses").click(function(){
+      $(".inputsearchblock").hide();
+    });
     
     /*=================================
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider-front").owlCarousel({
-        items:2,
+        items:5,
         margin:15,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
@@ -155,13 +170,13 @@ $(document).ready(function(){
                   items: 2
               },
               550: {
-                items: 2
+                items: 3
               },
               768: {
-                  items: 2
+                  items: 4
               },
               1200:{
-                items:2
+                items:5
               }
           }
     });

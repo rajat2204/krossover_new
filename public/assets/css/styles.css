@@ -23,7 +23,10 @@ p {
     background-size: 100px;
     color: #797979;
 }
-
+.containerWrap{
+    padding: 0 30px;
+    margin:0 auto;
+}
 a, a:hover, a:focus {
     color: #30a5ff;
     font-family: Arial,Verdana,Helvetica,sans-serif;
@@ -1044,12 +1047,7 @@ tr.odd:hover, tr.even:hover {
     margin-top: 6px;
 }
 .single-exclusive-slider {
-    /*padding: 10px;*/
-    /*max-width: 260px;*/
-    /*margin: 0 auto;*/
-    /*max-height: 220px; */
     background: #fff;
-    box-shadow: 0 0 4px #ccc;
 }
 
 @media (min-width: 768px) {
@@ -1762,7 +1760,7 @@ button {
     overflow: hidden;
     /*max-width: 240px;*/
     display: block;
-    height: 206px;
+    height: 110px;
 }
 .active-product .single-product{
     margin-bottom: 0;
@@ -1793,12 +1791,12 @@ button {
     content:"\f053";
     position: absolute;
     color: #7c7d73;
-    top: -34px;
+    top: 40%;
     left: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
-    border: 1px solid #7c7d73;
-    font-size: 15px;
+    /*border: 1px solid #7c7d73;*/
+    font-size: 24px;
     font-family: fontAwesome;
 
 }
@@ -1806,12 +1804,12 @@ button {
     content: "\f054";
     position: absolute;
     color: #7c7d73;
-    top: -34px;
-    left: 25px;
+    top: 40%;
+    right: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
-    border: 1px solid #7c7d73;
-    font-size: 15px;
+    /*border: 1px solid #7c7d73;*/
+    font-size: 24px;
     font-family: fontAwesome;
 
 }
@@ -1832,7 +1830,7 @@ header ul.navbar-right {
 
 i.fa {
     font-size: 18px;
-    color: #fff;
+    color: #4d4b4b;
     margin-right: 10px;
 }
 .sidebar ul.nav li:hover i.fa {

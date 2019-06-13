@@ -69,8 +69,6 @@
   <!-- Pdf flipbook jss ends-->
 
   <script src="{{asset('assets/js/sweetalert2.min.js') }}"></script>
-  <!-- <script src="{{asset('assets/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script> -->
-  <!-- <script src="{{asset('assets/js/select2.full.min.js')}}"></script> -->
   <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <!-- [ TYPING SCRIPT ] -->
          <!-- [ COUNT SCRIPT ] -->
@@ -80,7 +78,7 @@
   <script src="{{asset('assets/js/gmaps.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
     <!-- [ SLIDER SCRIPT ] -->
-    <script type="text/javascript">
+  <script type="text/javascript">
 $(function () {
     $.ajaxSetup({
         headers: {
