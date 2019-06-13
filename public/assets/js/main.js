@@ -48,27 +48,27 @@ $(document).ready(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
     
-    $('.menu-button').on('click', function(){
-		$('body').addClass('opened-menu');
-		$(".do-main-menu").css("width","267px");
-		$(".close-menu").css("opacity","1");
-		$("body").css("overflow","hidden");
-		$(".do-main-menu .navbar-nav").css("display","block");
-		$(this).closest('header').addClass('opened');
-		$('.opened .close-header-layer').fadeIn(300);
-		closePopups();
-		return false;
-	});
+ //    $('.menu-button').on('click', function(){
+	// 	$('body').addClass('opened-menu');
+	// 	$(".do-main-menu").css("width","267px");
+	// 	$(".close-menu").css("opacity","1");
+	// 	$("body").css("overflow","hidden");
+	// 	$(".do-main-menu .navbar-nav").css("display","block");
+	// 	$(this).closest('header').addClass('opened');
+	// 	$('.opened .close-header-layer').fadeIn(300);
+	// 	closePopups();
+	// 	return false;
+	// });
 
-	$('.close-header-layer, .close-menu').on('click', function(){	
-		$('body').removeClass('opened-menu');
-		$(".do-main-menu").css("width","0");
-		$(".close-menu").css("opacity","0");
-		$("body").css("overflow","scroll");
-		$(".do-main-menu .navbar-nav").css("display","none");
-		$('header.opened').removeClass('opened');
-		$('.close-header-layer:visible').fadeOut(300);
-	});
+	// $('.close-header-layer, .close-menu').on('click', function(){	
+	// 	$('body').removeClass('opened-menu');
+	// 	$(".do-main-menu").css("width","0");
+	// 	$(".close-menu").css("opacity","0");
+	// 	$("body").css("overflow","scroll");
+	// 	$(".do-main-menu .navbar-nav").css("display","none");
+	// 	$('header.opened').removeClass('opened');
+	// 	$('.close-header-layer:visible').fadeOut(300);
+	// });
     
     /*==========================
 		javaScript for sticky header
@@ -181,6 +181,27 @@ $(document).ready(function(){
           }
     });
 
+       $('.menu-button').on('click', function(){
+          $(this).css("display","none");
+         $('.do-main-menu').addClass('navigation-panel-new');
+         $("body").css("overflow","hidden");
+         $(".close-menu").css("display","block");
+        
+         $('.opened .close-header-layer').fadeIn(300);
+         closePopups();
+         return false;
+        });
+        $('.close-header-layer, .close-menu').on('click', function(){ 
+        $(".menu-button").css("display","block"); 
+        $('.do-main-menu').removeClass('navigation-panel-new');
+         $(".close-menu").css("display","none");
+         $("body").css("overflow","scroll");
+         $('.close-header-layer:visible').fadeOut(300);
+        });
+
+    // $(".close-menu").click(function(){
+    //   $(".do-main-menu").removeClass("navigation-panel-new");
+    // });
     $(".active-exclusive-product-slider").owlCarousel({
         items:6,
         autoplay:true,
@@ -213,17 +234,17 @@ $(document).ready(function(){
           }
     });
 
-    $(".viewlatestProduct").owlCarousel({
-        items:1,
-        autoplay:true,
-        autoplayTimeout: 3000,
-        margin:15,
-        loop:true,
-        nav:false,
-        // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
-        dots:true,
+    // $(".viewlatestProduct").owlCarousel({
+    //     items:1,
+    //     autoplay:true,
+    //     autoplayTimeout: 3000,
+    //     margin:15,
+    //     loop:true,
+    //     nav:false,
+    //     navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
+    //     dots:true,
         
-    });
+    // });
     //--------- Accordion Icon Change ---------//
 
     $('.collapse').on('shown.bs.collapse', function(){

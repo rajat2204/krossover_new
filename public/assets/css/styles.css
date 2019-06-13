@@ -175,7 +175,7 @@ textarea.form-control {
 }
 
 .dropdown {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     float: left;
     margin: 0;
     padding: 0px;
@@ -190,7 +190,7 @@ textarea.form-control {
 
 .dropdown:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
 }
 
 .dropdown .label {
@@ -1553,6 +1553,8 @@ ul.program-list li small {
 }
 .footer-area p {
     color: #fff;
+    font-size: 15px;
+    line-height: 23px;
 }
 .footer-area i.fa {
     
@@ -1754,13 +1756,16 @@ button {
     /*height: 130px;*/
     transition: .5s ease-in;
 }
+.activeSlider .product_img a{
+    height: 110px;
+}
 .product_img a {
     display: block;
     position: relative;
     overflow: hidden;
     /*max-width: 240px;*/
     display: block;
-    height: 110px;
+    height: 140px;
 }
 .active-product .single-product{
     margin-bottom: 0;
@@ -1773,12 +1778,17 @@ button {
 .active-product .product_img img:hover {
     transform: scale(1.1);
 }
+.product_img img:hover{
+    transform: scale(1.1);
+}
 .product_img img {
     height: 100%;
+    transition: .3s ease-in;
     width: 100%;
     object-fit: contain;
     /*height: 150px;*/
 }
+
 .active-product .owl-controls .owl-prev, .active-product .owl-controls .owl-next{
     font-size: 0;
     top: 0;

@@ -78,7 +78,7 @@
     <div class="row">
     <div class="col-md-12">
       <div class="section-title frontHead">
-          <div class="hr"><h1><a class="" href="{{url('view-category')}}">Our Categories</a></h1></div>
+          <h1><a class="ourcategoryhead" href="{{url('view-category')}}">Our Categories</a></h1>
       </div>
       <div class="">
         <!-- clients logo slider -->
