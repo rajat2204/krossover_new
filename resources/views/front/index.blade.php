@@ -68,7 +68,7 @@
     <div class="row">
     <div class="col-md-12">
       <div class="section-title frontHead">
-          <h1><a class="ourcategoryhead" href="{{url('view-category')}}">Our Categories</a></h1>
+          <h1>Our Categories</h1>
       </div>
       <div class="">
         <!-- clients logo slider -->
@@ -76,7 +76,7 @@
           @foreach($categories as $category)
           <!-- single exclusive carousel -->
             <div class="single-exclusive-slider">
-              <a class="single-img" href="{{url('view-category')}}">
+              <a class="single-img" href="{{url('/category/main')}}/{{$category['slug']}}">
                 <div class="overlay"></div>
                 <img class="img-fluid d-block mx-auto" src="{{url('assets/images/categories')}}/{{$category['image']}}" alt="">
                 <div class="deal-details">

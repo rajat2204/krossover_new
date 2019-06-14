@@ -43,8 +43,8 @@ class HomeController extends Controller
         $data['social'] = _arefy(Social::where('status','active')->get());
         $whereSlider = 'status = "active"';
         $data['slider'] = _arefy(Sliders::list('array',$whereSlider));
-        // dd($data['slider']);
         $data['categories'] = _arefy(Category::where('status','active')->get());
+        // dd($data['categories']);
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
     	$data['view']='front.index';
 		return view('front_home',$data);
