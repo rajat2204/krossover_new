@@ -1,14 +1,14 @@
 <!-- Start Banner Area -->
-  <section class="banner-area clearfix categoryWrapper organic-breadcrumb">
+  <section class="banner-area clearfix categoryWrapper organic-breadcrumb staticpageswrap">
     <div class="container">
-      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
         <div class="col-first colwhyus">
           <h1>Why Us</h1>
-          <nav class="d-flex align-items-center">
+          <!-- <nav class="d-flex align-items-center">
             <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
-            <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
+            <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a>
             <a href="">Why Us</a>
-          </nav>
+          </nav>-->
         </div>
       </div>
     </div>

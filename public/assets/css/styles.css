@@ -1046,7 +1046,7 @@ tr.odd:hover, tr.even:hover {
     margin-top: 6px;
 }
 .single-exclusive-slider {
-    background: #fff;
+    background: transparent;
 }
 
 @media (min-width: 768px) {
@@ -1593,8 +1593,7 @@ ul.program-list li small {
     bottom: -3px;
 }
 .static-description {
-    background: #fff;
-    padding: 1px 16px;
+    /*padding: 1px 16px;*/
     margin-top: -11px;
     margin-bottom: 20px;
 }

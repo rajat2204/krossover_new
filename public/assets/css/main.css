@@ -2712,6 +2712,7 @@ a.navbar-brand:hover {
     line-height: 50px;
     color: #53b1dd;
     font-size: 45px;
+    width: 190px;
     text-shadow: 0 0 1px #585b5c;
     transform: scale(1,1.1);
     text-align: center;
@@ -2975,8 +2976,8 @@ button#vieww {
 }
 
 .breadcrumb-banner {
-    padding: 25px 0 15px 0;
-    float: left;
+    padding: 28px 0 15px 0;
+    text-align: left;
 }
 
 .breadcrumb-banner h1 {
@@ -3194,7 +3195,7 @@ a.single-img {
     height: 100%;
 }
 .active-exclusive-product-slider .single-exclusive-slider{
-    background-color: transparent;
+    background-color: #fff;
 }
 @media (max-width: 991px) {
     .single-features {
@@ -3272,8 +3273,7 @@ a.single-img {
     display: none;
 }
 .single-exclusive-slider {
-    /* position: relative; */
-    /*margin-bottom: 30px;*/
+     position: relative; 
 }
 .single-exclusive-slider .deal-details h6 {
     color: #fff;
@@ -3512,7 +3512,7 @@ h6.deal-titleshow {
     height: 100%;
 }
 .static-description p {
-    color: #3c3939;
+    color: #fff;
 }
 @media (max-width: 1440px) {
     .active-product-area .owl-nav div {
@@ -3728,6 +3728,7 @@ h6.deal-titleshow {
     .product-details .white_box_wrapper table tr{
         padding: 0px 0 0;
     }
+
 
 }
 
@@ -10636,6 +10637,9 @@ header ul.navbar-right {
     .colwhyus{
         margin-left: 0;
     }
+    .breadcrumb-banner{
+        padding: 7px 0 0px 0;
+    }
     .headbtm{
         left: 25px;
     }
@@ -10729,6 +10733,10 @@ header ul.navbar-right {
     .categoryWrapper {
         padding-bottom: 20px;
         padding-top: 30px;
+    }
+    .staticpageswrap{
+        padding-top: 11px;
+        padding-bottom: 0;
     }
     .menu_nav {
         padding-left: 10px;
@@ -10852,9 +10860,7 @@ header ul.navbar-right {
         display: inline-block;
         vertical-align: -webkit-baseline-middle;
     }
-    .breadcrumb-banner {
-        padding: 0 0 0;
-    }
+    
     .static-description.p-l-40 {
         padding-left: 0;
         padding-top: 30px;
@@ -10900,6 +10906,11 @@ header ul.navbar-right {
     
     .categorySectionwrap {
         padding: 0px 0 10px;
+    }
+    .slidertext {
+        line-height: 36px;
+        font-size: 30px;
+        left: 10px;
     }
     
 }

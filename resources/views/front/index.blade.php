@@ -15,9 +15,9 @@
                 @else
                   <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                 @endif
-                <div class="sliderphone">
-                    <div class="slidertext">{{$sliders['title']}}</div>
-                </div>
+                <!-- <div class="sliderphone">
+                    <div class="slidertext">View our<br>New<br>Collection</div>
+                </div> -->
               </div>
             </div>
           </div>
