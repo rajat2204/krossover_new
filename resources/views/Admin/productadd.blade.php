@@ -184,6 +184,16 @@
                             </div>
                         </div>
 
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">
+                            </label>
+                            <div class="col-md-9 col-sm-6 col-xs-12" data-toggle="buttons">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="id" name="latest" value="1"> Add to Latest Products
+                                </label>
+                            </div>
+                        </div>
+
     					<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="add-product"]'>Add Product</button>
     				</div>
     			</form>
