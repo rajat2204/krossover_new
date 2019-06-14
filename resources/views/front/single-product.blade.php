@@ -2,7 +2,7 @@
 <section class="banner-area clearfix organic-breadcrumb singleproductWrapper">
 	<div class="container">
 		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-			<div class="col-first">
+			<div class="col-first colwhyus">
 				<h1>{{!empty(ucfirst($productdata['title']))?(ucfirst($productdata['title'])):''}}</h1>
 				<nav class="d-flex align-items-center">
 					<a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
