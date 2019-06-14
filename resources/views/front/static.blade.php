@@ -11,11 +11,11 @@
           <a href="">Catalogue</a>
         </nav>
         @else
-        <h1>{{!empty($staticpage['title'])?$staticpage['title']:''}}</h1>
+        <h1>About Kross Over</h1>
         <nav class="d-flex align-items-center">
-          <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+          <!-- <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a> -->
           <!-- <a href="javascript:void(0);">Shop<span class="lnr lnr-arrow-right"></span></a> -->
-          <a href="">{{!empty($staticpage['title'])?$staticpage['title']:''}}</a>
+          
         </nav>
         @endif
       </div>
