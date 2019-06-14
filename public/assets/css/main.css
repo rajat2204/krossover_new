@@ -2768,7 +2768,7 @@ span#search {
 }
 .imageinnerbtm span img{
     position: absolute;
-    height: 150px;
+    height: 160px;
     top: 0;
     right: 0;
 }
@@ -2961,6 +2961,7 @@ button#vieww {
     .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{
         line-height: 6px;
         padding: 6px 12px;
+        font-size: 12px !important;
         color: #fff;
     }
 
