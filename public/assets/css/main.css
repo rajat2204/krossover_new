@@ -19,6 +19,7 @@
 } 
 .homewrapper{
     background-color: #354c57;
+    background-image: url(../../assets/images/whitenoise.png);
 }
 #outercontainer{
     margin-top: 110px !important;
@@ -1682,7 +1683,8 @@ ul#suggestion {
 }
 .frontHead h1 a{
     color: #fff;
-    background: #354c57;
+    position: relative;
+    /*background: #354c57;*/
     padding: 0 20px;
 }
 .ourcategoryhead:after{
@@ -1701,7 +1703,8 @@ ul#suggestion {
 }
 .ourcategoryhead:hover::after {
     opacity: 1;
-    
+    left: 0;
+    right: 0;
     margin: 0 auto;
     
     bottom: -3px;
@@ -1782,7 +1785,10 @@ ul#suggestion {
     width: 100%;
     padding: 10px 0 10px 0px;
 }
-
+.single-product-slider .single-product{
+    background-color: #fff;
+    margin-bottom: 30px;
+}
 .default-select .nice-select .list .option {
     font-weight: 300;
     -webkit-transition: all 0.3s ease 0s;
@@ -1986,7 +1992,7 @@ a.navbar-brand:hover {
     }*/
     .cscrollbar{
         min-width: 210px !important;
-        height: 260px !important;
+        height: 150px !important;
     }
 
     .header_area .navbar .nav .nav-item.submenu ul{
@@ -2623,6 +2629,7 @@ a.navbar-brand:hover {
 }
 .active-banner-slider{
     background-color: #f3f2f2;
+    box-shadow:0 0px 10px rgba(153, 153, 153, 0.22);
 }
 .sliderphoneupper img{
     height: 168px;
@@ -2631,7 +2638,6 @@ a.navbar-brand:hover {
 
 .sliderhandphone{
     position: relative;
-    overflow: hidden;   
 }
 .sliderhandphone img{
     transition: .6s ease-in;
@@ -2654,7 +2660,7 @@ a.navbar-brand:hover {
     transition: .6s ease-in;
 }
 .imageinner span:first-child img:hover{
-    transform:scale(1.1);
+    transform:scale(1.02);
 }
 .imageinner span img:hover{
     transform:scale(1.1);
@@ -2719,6 +2725,7 @@ span#search {
 .rightupperWrap{
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.22);
 }
 
 .imageinner span:first-child img {
@@ -3358,9 +3365,18 @@ h6.deal-titleshow {
 ============================================================================================ */
 .active-product-area {
     padding-top: 40px;
-    background: #fff;
+    background: #354c57;
     box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     padding-bottom: 0;
+}
+.section-title p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+#products1 .section-title p{
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 14px;
 }
 .single-related-product img{
     width: 100%;
@@ -3509,6 +3525,12 @@ h6.deal-titleshow {
         top: 3%;
         left: 25%;
     }
+    section.categorySectionwrap{
+        padding: 10px 0;
+    }
+    section#products1 {
+        padding: 20px 0 30px !important;
+    }
     .headingright{
         font-size: 25px;
     }
@@ -3518,8 +3540,9 @@ h6.deal-titleshow {
     .inputsearchblock i{
         position: absolute;
         right: 0;
+        color: #fff !important;
         width: 25px;
-        background: #fff;
+        background: #354c57;
         top: 3px;
     }
     span.formSearch i{
@@ -3570,6 +3593,7 @@ h6.deal-titleshow {
         top: 2%;
         margin-top: -25px;
     }
+    
     .banner-area{
         padding-bottom:0;
     }
@@ -3633,6 +3657,9 @@ h6.deal-titleshow {
     .active-product-area .owl-nav div {
         margin-top: -20px;
         left: 28%;
+    }
+    .single-product-slider .single-product{
+        margin-bottom: 15px;
     }
     .breadcrumb-banner h1 {
         font-size: 22px;
@@ -4183,7 +4210,9 @@ div#undefined-sticky-wrapper {
     color: #cccccc;
     margin-bottom: 0;
 }
-
+.mostPopularWrap .single-related-product a{
+    height: 170px;
+}
 .single-related-product a {
     color: #7c7d73;
     display: block;
@@ -6680,7 +6709,7 @@ div#products_cus {
     background: #fff;
 }
 .view-more-wrap{
-    padding-top: 10px;
+    padding: 10px;
     text-align: right;
 }
 
@@ -10559,12 +10588,13 @@ header ul.navbar-right {
         display: none;
     }
     .imageinner span:first-child img{
-        top: 60px;
-        height: 100px;
+        top: 10px;
+        height: 122px;
         right: 20%;
     }
     .imageinner span img{
-        height: 100px;
+        height: 150px;
+        right: 5%;
     }
     .formSearch{
         padding-left: 0;
@@ -10651,7 +10681,10 @@ header ul.navbar-right {
     }
 
     .section_gap {
-        padding: 10px 0 0px;
+        padding: 40px 0 0px;
+    }
+    section#products1{
+        padding: 40px 0 0px;
     }
     .viewGallery {
         padding-top: 40px !important;
@@ -10767,7 +10800,7 @@ header ul.navbar-right {
         padding-left: 1px;
     }
     .single-product-slider .section-title{
-        margin-bottom: 0;
+        margin-bottom: 10px;
     }
     .active-banner-slider .sliderphoneupper img {
         width: 70%;

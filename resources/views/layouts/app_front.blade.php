@@ -92,6 +92,11 @@ $(window).load(function(){
       $('#cover').fadeOut(500);
   },500)
 });
+$(document).ready(function(){
+  $(".submenu").click(function(){
+    $(".dropdown-menu").toggle();
+  });
+});
 </script>
     @yield('requirejs')
     </body>
