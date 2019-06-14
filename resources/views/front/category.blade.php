@@ -1,7 +1,7 @@
 <!-- Start Banner Area -->
 	<section class="categoryWrapper clearfix  organic-breadcrumb collectiontop">
 		<div class="container">
-			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center">
 				<div class="col-first">
 					<h1>{{!empty($cats['name'])?$cats['name']:''}}</h1>
 					<nav class="d-flex align-items-center">
@@ -93,7 +93,7 @@
 					<!-- Start Best Seller -->
 					<section class="lattest-product-area pb-40 category-list" id="products">
 						<div class="row">
-							<div class="col-lg-12 col-md-6">
+							<div class="col-lg-12 col-md-12">
 								<div class="single-product">
 									{{-- <a href=""><img class="img-fluid" src="" style="height: 320px;" alt="Product Image" /></a> --}}
 									<div class="product-details" id="datatable">

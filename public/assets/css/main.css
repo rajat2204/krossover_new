@@ -403,6 +403,9 @@
     .section_gap {
         padding: 80px 0;
     }
+    .header_area .navbar .nav .nav-item .nav-link:hover{
+        color:rgba(31, 167, 220, 1) !important;
+    }
     .cscrollbar{
         width: 100%;
         min-width: none;
@@ -3212,7 +3215,6 @@ a.single-img {
         margin-left: -15px !important;
         margin-right: -15px;
         padding: 20px 30px !important;
-        box-shadow: 0 0px 10px rgba(153, 153, 153, 0.6);
     }
 }
 
@@ -3946,7 +3948,7 @@ iframe {
     left: 40px;
 }
 .categorySectionwrap{
-    padding: 40px 0;
+    padding: 30px 0;
 }
 /* end product area css
 ============================================================================================ */
@@ -10637,6 +10639,13 @@ header ul.navbar-right {
     .colwhyus{
         margin-left: 0;
     }
+    .product_image_area.singleProduct {
+        margin: 0 15px;
+    }
+    .singleProduct .s_product_text{
+        padding: 20px 20px !important;
+        margin-top: 0px !important;
+    }
     .breadcrumb-banner{
         padding: 7px 0 0px 0;
     }
@@ -10731,8 +10740,8 @@ header ul.navbar-right {
         /*padding-top: 50px;*/
     }
     .categoryWrapper {
-        padding-bottom: 20px;
-        padding-top: 30px;
+        padding-bottom: 7px;
+        padding-top: 15px;
     }
     .staticpageswrap{
         padding-top: 11px;
