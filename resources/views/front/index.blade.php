@@ -10,26 +10,15 @@
           <div class="row item single-slide align-items-center d-flex">
             <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="sliderphoneupperr">
-                <img src="{{asset('assets/images/BANNER1-NEW.png')}}">
-                <div class="sliderphone">
-                    <div class="slidertext">View our<br>New<br>Collection</div>
-                   
-                  </div>
-              </div>
-           <!--  <div class="col-lg-5 col-md-4 col-sm-4">
-              <div class="banner-content"><h1>{{!empty($sliders['title'])?$sliders['title']:''}}</h1>
-                <p>{{!empty($sliders['text'])?$sliders['text']:''}}</p>
-              </div>
-
-            </div> -->
-            
-              {{-- <div class="banner-img">
                 @if(!empty($sliders['product_id']))
                   <a href="{{url('product')}}/{{___encrypt($sliders['product']['id'])}}"><img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt=""></a>
                 @else
                   <img class="img-fluid" src="{{url('/')}}/assets/images/sliders/{{$sliders['image']}}" alt="">
                 @endif
-              </div> --}}
+                <!-- <div class="sliderphone">
+                    <div class="slidertext">View our<br>New<br>Collection</div>
+                </div> -->
+              </div>
             </div>
           </div>
         @endforeach

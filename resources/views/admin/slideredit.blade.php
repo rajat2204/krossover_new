@@ -49,7 +49,7 @@
 	                    <div id="image_div">
 	                        <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
 	                        <span>max. size 2 MB.</span>
-	                        <span>(730X294 pixels)</span>
+	                        <span>(575X533 pixels)</span>
 	                    </div>
 	                    <div class="col-md-12 col-sm-12 col-xs-12">
 	                    	@if(!empty($slider['product_id']))
