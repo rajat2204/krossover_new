@@ -23,7 +23,10 @@ p {
     background-size: 100px;
     color: #797979;
 }
-
+.containerWrap{
+    padding: 0 30px;
+    margin:0 auto;
+}
 a, a:hover, a:focus {
     color: #30a5ff;
     font-family: Arial,Verdana,Helvetica,sans-serif;
@@ -172,7 +175,7 @@ textarea.form-control {
 }
 
 .dropdown {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     float: left;
     margin: 0;
     padding: 0px;
@@ -187,7 +190,7 @@ textarea.form-control {
 
 .dropdown:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
 }
 
 .dropdown .label {
@@ -274,10 +277,10 @@ a.btn:hover, button:hover {
     opacity: 0.8;
 }
 
-a.btn:active, button:active {
+/*a.btn:active, button:active {
     box-shadow: inset 0px 0px 500px rgba(0, 0, 0, 0.1);
     opacity: 1;
-}
+}*/
 
 .btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default, .btn-default.disabled, .btn-default[disabled], fieldset[disabled] .btn-default, .btn-default.disabled:hover, .btn-default[disabled]:hover, fieldset[disabled] .btn-default:hover, .btn-default.disabled:focus, .btn-default[disabled]:focus, fieldset[disabled] .btn-default:focus, .btn-default.disabled:active, .btn-default[disabled]:active, fieldset[disabled] .btn-default:active, .btn-default.disabled.active, .btn-default[disabled].active, fieldset[disabled] .btn-default.active {
     background-color: #e9ecf2;
@@ -1044,12 +1047,7 @@ tr.odd:hover, tr.even:hover {
     margin-top: 6px;
 }
 .single-exclusive-slider {
-    /*padding: 10px;*/
-    /*max-width: 260px;*/
-    /*margin: 0 auto;*/
-    /*max-height: 220px; */
     background: #fff;
-    box-shadow: 0 0 4px #ccc;
 }
 
 @media (min-width: 768px) {
@@ -1555,6 +1553,8 @@ ul.program-list li small {
 }
 .footer-area p {
     color: #fff;
+    font-size: 15px;
+    line-height: 23px;
 }
 .footer-area i.fa {
     
@@ -1756,13 +1756,16 @@ button {
     /*height: 130px;*/
     transition: .5s ease-in;
 }
+.activeSlider .product_img a{
+    height: 110px;
+}
 .product_img a {
     display: block;
     position: relative;
     overflow: hidden;
     /*max-width: 240px;*/
     display: block;
-    height: 206px;
+    height: 150px;
 }
 .active-product .single-product{
     margin-bottom: 0;
@@ -1775,12 +1778,17 @@ button {
 .active-product .product_img img:hover {
     transform: scale(1.1);
 }
+.product_img img:hover{
+    transform: scale(1.1);
+}
 .product_img img {
     height: 100%;
+    transition: .3s ease-in;
     width: 100%;
     object-fit: contain;
     /*height: 150px;*/
 }
+
 .active-product .owl-controls .owl-prev, .active-product .owl-controls .owl-next{
     font-size: 0;
     top: 0;
@@ -1793,12 +1801,12 @@ button {
     content:"\f053";
     position: absolute;
     color: #7c7d73;
-    top: -34px;
+    top: 40%;
     left: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
-    border: 1px solid #7c7d73;
-    font-size: 15px;
+    /*border: 1px solid #7c7d73;*/
+    font-size: 24px;
     font-family: fontAwesome;
 
 }
@@ -1806,12 +1814,12 @@ button {
     content: "\f054";
     position: absolute;
     color: #7c7d73;
-    top: -34px;
-    left: 25px;
+    top: 40%;
+    right: 0;
     line-height: 25px;
     padding: 2px 4px 0 7px;
-    border: 1px solid #7c7d73;
-    font-size: 15px;
+    /*border: 1px solid #7c7d73;*/
+    font-size: 24px;
     font-family: fontAwesome;
 
 }
@@ -1832,7 +1840,7 @@ header ul.navbar-right {
 
 i.fa {
     font-size: 18px;
-    color: #fff;
+    color: #4d4b4b;
     margin-right: 10px;
 }
 .sidebar ul.nav li:hover i.fa {

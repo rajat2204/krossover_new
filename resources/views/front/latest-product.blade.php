@@ -35,34 +35,5 @@
     </div>
   </div>
   <!-- single product slide -->
-  <div class="single-product-slider">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 text-center">
-          <div class="section-title">
-            <h1>Latest Products</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <!-- single product -->
-        @foreach($latest_product1 as $latest_products1)
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-          	<div class="product_img">
-            	<a href="{{url('product')}}/{{___encrypt($latest_products1['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products1['feature_image']}}" alt=""></a>
-	            
-        	</div>
-        	<div class="product-details desc">
-        		<h6>{{!empty($latest_products1['title'])?$latest_products1['title']:''}}</h6>
-        	</div>
-          </div>
-        </div>
-        @endforeach
-      </div>
-    </div>
-  </div>
+  
 </section>

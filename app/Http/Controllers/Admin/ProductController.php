@@ -150,6 +150,9 @@ class ProductController extends Controller
             if ($request->featured == 1){
             $data->featured = 1;
             }
+            if ($request->latest == 1){
+            $data->latest = 1;
+            }
 
             if ($request->pallow == ""){
                 $data->sizes = null;
@@ -250,6 +253,11 @@ class ProductController extends Controller
                 $input['featured'] = 1;
             }else{
                 $input['featured'] = 0;
+            }
+            if ($request->latest == 1){
+                $input['latest'] = 1;
+            }else{
+                $input['latest'] = 0;
             }
             $productcolor = Product_Colors::where('product_id',$id)->delete();
             if(!empty($request->color_name)){

@@ -313,6 +313,24 @@
                         @endif
                     </div>
                 </div>
+
+                <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">
+                    </label>
+                    <div class="col-md-9 col-sm-6 col-xs-12" data-toggle="buttons">
+                        @if($product['latest'] == 1)
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="latest" value="1" checked>
+                            Add to Latest Product
+                        </label>
+                        @else
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="latest" value="1" autocomplete="off">
+                                Add to Latest Product
+                            </label>
+                        @endif
+                    </div>
+                </div>
 					<button type="button" class="btn btn-success btn-block" data-request="ajax-submit" data-target='[role="edit-product"]'>Edit Product</button>
 				</div>
 			</form>

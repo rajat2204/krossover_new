@@ -48,27 +48,27 @@ $(document).ready(function(){
         $(this).children().addClass("active").parent().siblings().children().removeClass("active");
     });
     
-    $('.menu-button').on('click', function(){
-		$('body').addClass('opened-menu');
-		$(".do-main-menu").css("width","267px");
-		$(".close-menu").css("opacity","1");
-		$("body").css("overflow","hidden");
-		$(".do-main-menu .navbar-nav").css("display","block");
-		$(this).closest('header').addClass('opened');
-		$('.opened .close-header-layer').fadeIn(300);
-		closePopups();
-		return false;
-	});
+ //    $('.menu-button').on('click', function(){
+	// 	$('body').addClass('opened-menu');
+	// 	$(".do-main-menu").css("width","267px");
+	// 	$(".close-menu").css("opacity","1");
+	// 	$("body").css("overflow","hidden");
+	// 	$(".do-main-menu .navbar-nav").css("display","block");
+	// 	$(this).closest('header').addClass('opened');
+	// 	$('.opened .close-header-layer').fadeIn(300);
+	// 	closePopups();
+	// 	return false;
+	// });
 
-	$('.close-header-layer, .close-menu').on('click', function(){	
-		$('body').removeClass('opened-menu');
-		$(".do-main-menu").css("width","0");
-		$(".close-menu").css("opacity","0");
-		$("body").css("overflow","scroll");
-		$(".do-main-menu .navbar-nav").css("display","none");
-		$('header.opened').removeClass('opened');
-		$('.close-header-layer:visible').fadeOut(300);
-	});
+	// $('.close-header-layer, .close-menu').on('click', function(){	
+	// 	$('body').removeClass('opened-menu');
+	// 	$(".do-main-menu").css("width","0");
+	// 	$(".close-menu").css("opacity","0");
+	// 	$("body").css("overflow","scroll");
+	// 	$(".do-main-menu .navbar-nav").css("display","none");
+	// 	$('header.opened').removeClass('opened');
+	// 	$('.close-header-layer:visible').fadeOut(300);
+	// });
     
     /*==========================
 		javaScript for sticky header
@@ -84,6 +84,9 @@ $(document).ready(function(){
         autoplay:true,
         autoplayTimeout: 5000,
         loop:isMulti,
+        dots:true,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         nav:isMulti,
         // navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
         dots:isMulti
@@ -94,11 +97,13 @@ $(document).ready(function(){
     ==================================*/
    
 
-    $("#activeArea").owlCarousel({
-        items:3,
+    $(".activeSlider").owlCarousel({
+        items:2,
         autoplay:true,
         margin:30,
         autoplayTimeout: 5000,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         loop:true,
         nav:true,
         // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
@@ -113,13 +118,13 @@ $(document).ready(function(){
                   nav:false
               },
               576: {
-                items: 2,
+                items: 1,
               },
               768: {
-                  items: 2,
+                  items: 1,
               },
               1200:{
-                items:3,
+                items:2,
               }
           }
     });
@@ -128,19 +133,29 @@ $(document).ready(function(){
     ==================================*/
     $(".s_Product_carousel").owlCarousel({
       items:1,
+      slideTransition: 'linear',
+      autoplaySpeed: 2000,
       autoplay:true,
       autoplayTimeout: 5000,
       loop:true,
       nav:false,
       dots:true
     });
+    $(".searchproduct").click(function(){
+      $(".inputsearchblock").toggle();
+    });
+    $(".crosses").click(function(){
+      $(".inputsearchblock").hide();
+    });
     
     /*=================================
     Javascript for exclusive area carousel
     ==================================*/
     $(".active-exclusive-product-slider-front").owlCarousel({
-        items:2,
+        items:5,
         margin:15,
+        slideTransition: 'linear',
+        autoplaySpeed: 2000,
         autoplay:true,
         autoplayTimeout: 3000,
         loop:true,
@@ -155,17 +170,38 @@ $(document).ready(function(){
                   items: 2
               },
               550: {
-                items: 2
+                items: 3
               },
               768: {
-                  items: 2
+                  items: 4
               },
               1200:{
-                items:2
+                items:5
               }
           }
     });
 
+       $('.menu-button').on('click', function(){
+          $(this).css("display","none");
+         $('.do-main-menu').addClass('navigation-panel-new');
+         $("body").css("overflow","hidden");
+         $(".close-menu").css("display","block");
+        
+         $('.opened .close-header-layer').fadeIn(300);
+         closePopups();
+         return false;
+        });
+        $('.close-header-layer, .close-menu').on('click', function(){ 
+        $(".menu-button").css("display","block"); 
+        $('.do-main-menu').removeClass('navigation-panel-new');
+         $(".close-menu").css("display","none");
+         $("body").css("overflow","scroll");
+         $('.close-header-layer:visible').fadeOut(300);
+        });
+
+    // $(".close-menu").click(function(){
+    //   $(".do-main-menu").removeClass("navigation-panel-new");
+    // });
     $(".active-exclusive-product-slider").owlCarousel({
         items:6,
         autoplay:true,
@@ -198,17 +234,17 @@ $(document).ready(function(){
           }
     });
 
-    $(".viewlatestProduct").owlCarousel({
-        items:1,
-        autoplay:true,
-        autoplayTimeout: 3000,
-        margin:15,
-        loop:true,
-        nav:false,
-        // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
-        dots:true,
+    // $(".viewlatestProduct").owlCarousel({
+    //     items:1,
+    //     autoplay:true,
+    //     autoplayTimeout: 3000,
+    //     margin:15,
+    //     loop:true,
+    //     nav:false,
+    //     navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],
+    //     dots:true,
         
-    });
+    // });
     //--------- Accordion Icon Change ---------//
 
     $('.collapse').on('shown.bs.collapse', function(){

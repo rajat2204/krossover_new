@@ -2,7 +2,7 @@
   $staticpage = _arefy(App\Models\StaticPages::where('slug','aboutus')->first());
 @endphp
 <footer class="footer-area section_gap">
-  <div class="container">
+  <div class="homecontainer">
     <div class="row">
       <!-- <div class="col-lg-6  col-md-6 col-sm-6">
         <div class="single-footer-widget">
@@ -12,7 +12,7 @@
           @endif
         </div>
       </div> -->
-      <div class="col-lg-3  col-md-6 col-sm-6">
+      <div class="col-lg-4  col-md-6 col-sm-6">
         <div class="single-footer-widget">
           <h6>Newsletter</h6>
           <p>Stay update with our latest.</p>
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <h6 class="mb-20">More Links</h6>
 
@@ -55,18 +55,16 @@
           </ul>
         </div>
         </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="single-footer-widget">
-          <h6>Follow Us</h6>
-          <p>Let us be social</p>
-          <div class="footer-social d-flex align-items-center">
-            <a href="javascript:void(0);" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="javascript:void(0);" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="javascript:void(0);" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="javascript:void(0);" target="_blank"><i class="fa fa-instagram"></i></a>
+        <div class="col-lg-4 col-md-6 col-sm-6 mobileviewsocial">
+          <div class="footer-social">
+            <h6>Follow us</h6>
+            <a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="{{$social[3]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a>
           </div>
         </div>
-      </div>
+      
 
 
     </div>

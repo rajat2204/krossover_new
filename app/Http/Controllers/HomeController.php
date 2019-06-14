@@ -32,8 +32,10 @@ class HomeController extends Controller
 
     public function index(Request $request){
         $where = 'status = "active"';
+        $where .= ' AND latest = 1';
         $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
-        $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
+        // dd($data['latest_product']);
+        // $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
         $whereWhyus = 'status = "active"';
         $data['whyus'] = _arefy(Whyus::list('array',$whereWhyus));
         $data['gallery'] = _arefy(Gallery::where('status','active')->get());
@@ -82,10 +84,11 @@ class HomeController extends Controller
 
     public function viewlatestProduct(Request $request){
         $where = 'status = "active"';
+        $where .= ' AND latest = 1';
         $data['social'] = _arefy(Social::where('status','active')->get());
         $data['contact'] = _arefy(ContactAddress::where('status','active')->get());
         $data['latest_product'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8));
-        $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
+        // $data['latest_product1'] = _arefy(Products::list('array',$where,'','',['*'],'id-desc',8,8));
         $data['view']='front.latest-product';
         return view('front_home',$data);
     }
