@@ -3759,7 +3759,18 @@ h6.deal-titleshow {
         right: 28%;
     }
 }
-
+@media (max-width: 1200px) and (min-width: 991px){
+    .bg-colorblue {
+        background-color: #53b1dd;
+        height: 250px;
+    }
+    .headingright{
+        font-size: 24px;
+    }
+    .bg-colorpink .headingright{
+        top:30px;
+    }
+}
 @media (max-width: 991px) {
     .active-product-area .owl-nav .owl-next {
         top: 3%;
@@ -10926,6 +10937,10 @@ header ul.navbar-right {
 @media (max-width: 360px){
     .se-pre-con {
         font-size: 13px !important;
+    }
+    .slidertext {
+        left: 1px;
+        bottom: 10px;
     }
 }
 .footer-text a, .footer-text i {
