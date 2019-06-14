@@ -2652,7 +2652,7 @@ a.navbar-brand:hover {
     transition: .6s ease-in;
 }
 .sliderphoneupperr img:hover{
-    transform:scale(1.0.4);
+    transform:scale(1.1);
 }
 .sliderhandphone{
     position: relative;
@@ -3524,6 +3524,9 @@ h6.deal-titleshow {
     }
     .product-details .white_box_wrapper table tr{
         margin: 8px !important;
+    }
+    .imageinner span:first-child img{
+        height: 170px;
     }
     .header_area .navbar .nav.navbar-nav.navbar-right li:first-child {
         margin-left: 15px;

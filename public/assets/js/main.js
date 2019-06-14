@@ -203,7 +203,7 @@ $(document).ready(function(){
     //   $(".do-main-menu").removeClass("navigation-panel-new");
     // });
     $(".active-exclusive-product-slider").owlCarousel({
-        items:6,
+        items:5,
         margin:15,
         autoplaySpeed: 2000,
         autoplay:true,
@@ -231,7 +231,7 @@ $(document).ready(function(){
                   nav:false
               },
               1200:{
-                items:6,
+                items:5,
               }
           }
     });
