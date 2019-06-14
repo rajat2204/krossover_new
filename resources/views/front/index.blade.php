@@ -137,7 +137,7 @@
         
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
-        <div class="section_gap_bottom singleProductSlider">
+        <div class="section_gap_bottom singleProductSlider m-b-20">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
               <div class="section-title sectionTitle sliderDiv">

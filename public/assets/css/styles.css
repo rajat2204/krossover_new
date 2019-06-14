@@ -1761,7 +1761,7 @@ button {
     transition: .5s ease-in;
 }
 .activeSlider .product_img a{
-    height: 110px;
+    height: 130px;
     width: 180px;
     margin: 0 auto;
 }
