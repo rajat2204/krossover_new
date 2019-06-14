@@ -1,7 +1,7 @@
 @php
   $staticpage = _arefy(App\Models\StaticPages::where('slug','aboutus')->first());
 @endphp
-<footer class="footer-area section_gap">
+<footer class="footer-area section_gap" id="jsnn-footer">
   <div class="homecontainer">
     <div class="row">
       <!-- <div class="col-lg-6  col-md-6 col-sm-6">

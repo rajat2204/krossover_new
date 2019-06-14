@@ -537,6 +537,11 @@ div#swal2-content {
 
 /* Start primary btn css
 ============================================================================================ */
+.submit-button .primary-btn{
+    color: #61cbf3;
+    border: 2px solid #61cbf3;
+        background: transparent;
+}
 .primary-btn {
     position: relative;
     overflow: hidden;
@@ -592,7 +597,8 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     color: #777777;
-    background: #fff;
+    background-color: #354c57;
+    background-image: url(../../assets/images/whitenoise.png);
 }
 html, body {
     height: 100%;
@@ -1976,7 +1982,6 @@ a.navbar-brand:hover {
 .singleproductWrapper.organic-breadcrumb{
     padding-bottom: 0;
     padding-top: 100px;
-    background: #fff;
 }
 .categoryproductZoom .MagicZoom img, .mz-figure img{
     border: 1px solid #ddd !important;
@@ -2959,7 +2964,7 @@ button#vieww {
 
 .breadcrumb-banner h1 {
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 0;
     color: #fff;
 }
@@ -3379,6 +3384,9 @@ h6.deal-titleshow {
     font-size: 14px;
     color: #fff;
 }
+.sliderDiv .section-title p{
+    color:#585454;
+}
 #products1 .section-title p{
     margin-bottom: 0;
     color: #fff;
@@ -3487,7 +3495,7 @@ h6.deal-titleshow {
     height: 100%;
 }
 .static-description p {
-    color: #fff;
+    color: #3c3939;
 }
 @media (max-width: 1440px) {
     .active-product-area .owl-nav div {
@@ -3770,7 +3778,7 @@ h6.deal-titleshow {
     padding: 5px 1px;
 }
 .lattest-product-area div.dataTables_wrapper div.dataTables_info{
-    padding-top: 0;
+    padding: 10px;
 }
 @media (max-width: 480px) {
     .active-product-area .owl-nav .owl-next {
@@ -4211,6 +4219,14 @@ div#undefined-sticky-wrapper {
     margin-bottom: 0;
 }
 .mostPopularWrap .single-related-product a{
+    height: 170px;
+}
+.product_image_area.singleProduct .container {
+    background: #fff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.related-product-area .single-related-product a{
     height: 170px;
 }
 .single-related-product a {
@@ -7638,6 +7654,8 @@ div#products_cus {
     padding-top: 20px;
     border-top: 1px dotted #d5d5d5;
     margin-top: 20px;
+    font-weight: 500;
+    color: #4c4646;
     margin-bottom: 20px;
 }
 
@@ -7646,6 +7664,10 @@ div#products_cus {
     padding: 0px 38px;
     text-transform: uppercase;
     margin-right: 10px;
+    color: #29337b;
+    font-weight: 700;
+    background: #fff;
+    border: 2px solid #29337b !important;
     border: none;
     border-radius: 5px;
 }
@@ -7694,7 +7716,7 @@ div#products_cus {
 
 .product_count label {
     font-size: 14px;
-    color: #777777;
+    color: #000;
     font-family: "Roboto", sans-serif;
     font-weight: normal;
     padding-right: 10px;
@@ -8562,7 +8584,6 @@ div#products_cus {
 }
 .singleProduct{
     padding-top: 0;
-    background: #fff;
 }
 .order_box .list_2 li a span {
     color: #777777;

@@ -98,6 +98,19 @@ $(document).ready(function(){
   });
 });
 </script>
+<script>
+
+    $(document).ready(function() {
+
+     var docHeight = $(window).height();
+     var footerHeight = $('#jsnn-footer').height();
+     var footerTop = $('#jsnn-footer').position().top + footerHeight;
+
+     if (footerTop < docHeight) {
+      $('#jsnn-footer').css('margin-top', 2+ (docHeight - footerTop) + 'px');
+     }
+    });
+   </script>
     @yield('requirejs')
     </body>
 </html>
