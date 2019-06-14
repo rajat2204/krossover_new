@@ -1,7 +1,6 @@
 body {
 
     /*background: #e8e8e8;*/
-    background-color: #fff;
     padding-top: 0;
     font-size: 14px;
     color: #444444;
@@ -1593,11 +1592,16 @@ ul.program-list li small {
     transform: rotate(45deg);
     bottom: -3px;
 }
-
+.static-description {
+    background: #fff;
+    padding: 1px 16px;
+    margin-top: -11px;
+    margin-bottom: 20px;
+}
 .static-description p {
     font-size: 14px;
     line-height: 28px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .about_img {
@@ -1616,7 +1620,7 @@ ul.program-list li small {
 /*contact us css*/
 .contact-form-area {
     background: #f3f2f2;
-    box-shadow: 0 0 30px #ededed;
+    box-shadow: 0 0 30px #6f6868;
     padding: 20px 10px;
     margin-bottom: 20px;
 }
@@ -1656,7 +1660,7 @@ ul.program-list li small {
 }
 
 .footer-right-contact .contact-icon {
-    background: #e8e8e8;
+    background: #62ccf4;
     color: #fff;
     border-radius: 50%;
     font-size: 0px;
@@ -1758,6 +1762,8 @@ button {
 }
 .activeSlider .product_img a{
     height: 110px;
+    width: 180px;
+    margin: 0 auto;
 }
 .product_img a {
     display: block;

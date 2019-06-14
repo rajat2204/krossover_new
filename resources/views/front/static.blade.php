@@ -25,7 +25,7 @@
 <!-- End Banner Area -->
 
 <!-- Start Static Area -->
-<section class="static-area section_gap white_bg">
+<section class="static-area section_gap">
     <div class="container">
        <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
