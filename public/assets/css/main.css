@@ -41,6 +41,7 @@
 .sliderDiv p{
     height: 48px;
     overflow: hidden;
+    color: #7d7575 !important;
 }
 .is-sticky .main_box{
     position: fixed;
@@ -540,7 +541,10 @@ div#swal2-content {
 .submit-button .primary-btn{
     color: #61cbf3;
     border: 2px solid #61cbf3;
-        background: transparent;
+    background: #fff;
+    padding: 1px 20px;
+    font-size: 14px;
+    line-height: 39px;
 }
 .primary-btn {
     position: relative;
@@ -582,7 +586,12 @@ div#swal2-content {
 .primary-btn:hover {
     color: #fff;
 }
-
+.submit-button .primary-btn:hover{
+    color: #61cbf3;
+}
+.submit-button .primary-btn:focus{
+    box-shadow: none;
+}
 .primary-btn:hover:before {
     left: 300px;
     opacity: .3;

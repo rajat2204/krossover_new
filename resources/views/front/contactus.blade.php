@@ -45,7 +45,7 @@
                       <div class="form-group"> 
                         <textarea class="form-control" id="message" placeholder="Your Message" name="message" rows="5"></textarea>
                       </div>
-                      <div class="submit-button">
+                      <div class="submit-button text-left">
                         <button class="btn primary-btn" type="button" data-request="ajax-submit" data-target='[role="contactus"]'>Send Message</button>
                       </div>
                     </div>

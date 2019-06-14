@@ -1619,7 +1619,7 @@ ul.program-list li small {
 
 /*contact us css*/
 .contact-form-area {
-    background: #f3f2f2;
+    background: rgba(243, 242, 242,.9);
     box-shadow: 0 0 30px #6f6868;
     padding: 20px 10px;
     margin-bottom: 20px;
