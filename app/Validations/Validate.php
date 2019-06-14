@@ -47,6 +47,7 @@ class Validate
 			'price'					=> ['required','numeric'],
 			'start_from'			=> ['required'],
 			'photo'					=> ['required','mimes:jpg,jpeg,png','max:2408'],
+			'photoslide'			=> ['required','mimes:png','max:2408'],
 			'photomimes'			=> ['mimes:jpg,jpeg,png','max:2408'],
 			'photo_null'			=> ['nullable'],
 			'gallery'				=> ['mimes:jpg,jpeg,png','max:2048'],
@@ -206,17 +207,23 @@ class Validate
         return $validator;		
 	}
 
-	public function addslider($action = 'edit')
+	public function addslider($action = 'add')
 	{
 		$validations = [
-        	'main_id' 				=> $this->validation('name'),
+        	'main_id' 					=> $this->validation('name'),
+        	'image' 					=> $this->validation('photoslide'),
         	'title' 					=> $this->validation('name'),
         	'text' 						=> $this->validation('name'),
     	];
+    	if($action =='edit'){
+			$validations['image'] 	= $this->validation('photo_null');
+		}
 		$validator = \Validator::make($this->data->all(), $validations,[
 			'main_id.required' 			=>  'Slider Image is required.',
-			'title.required'				=>	'Title is required.',
-			'text.required'					=>	'Text is required.',
+			'image.required' 			=>  'Slider Image is required.',
+			'image.mimes' 				=>  'Slider Image should be png only.',
+			'title.required'			=>	'Title is required.',
+			'text.required'				=>	'Text is required.',
 		]);
 		return $validator;
 	}

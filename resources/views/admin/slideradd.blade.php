@@ -37,7 +37,7 @@
                         <div id="image_div">
                             <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
                             <span>max. size 2 MB.</span>
-                        	<span>(730X294 pixels)</span>
+                        	<span>(575X533 pixels)</span>
                         </div>
                         <div id="image-location">
                            <img style="max-width: 250px;" src="{{asset('assets/images/avatar1.png')}}" id="adminimg" alt="No Featured Image Added">
