@@ -133,11 +133,11 @@ $(document).ready(function(){
     ==================================*/
     $(".s_Product_carousel").owlCarousel({
       items:1,
-      slideTransition: 'linear',
-      autoplaySpeed: 2000,
-      autoplay:true,
-      autoplayTimeout: 5000,
       loop:true,
+      autoplay:true,
+      autoplaySpeed: 2000,
+      autoplayTimeout: 5000,
+      slideTransition: 'linear',
       nav:false,
       dots:true
     });
@@ -153,12 +153,12 @@ $(document).ready(function(){
     ==================================*/
     $(".active-exclusive-product-slider-front").owlCarousel({
         items:5,
+        loop:true,
         margin:15,
-        slideTransition: 'linear',
         autoplaySpeed: 2000,
         autoplay:true,
         autoplayTimeout: 3000,
-        loop:true,
+        slideTransition: 'linear',
         nav:true,
         // navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:true,
@@ -204,9 +204,11 @@ $(document).ready(function(){
     // });
     $(".active-exclusive-product-slider").owlCarousel({
         items:6,
+        margin:15,
+        autoplaySpeed: 2000,
         autoplay:true,
         autoplayTimeout: 3000,
-        margin:15,
+        slideTransition: 'linear',
         loop:true,
         nav:true,
         // navText:[<i class="fa fa-chevron-left"></i>,<i class="fa fa-chevron-left"></i>],

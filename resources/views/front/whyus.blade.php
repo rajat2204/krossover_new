@@ -2,7 +2,7 @@
   <section class="banner-area clearfix categoryWrapper organic-breadcrumb">
     <div class="container">
       <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-        <div class="col-first">
+        <div class="col-first colwhyus">
           <h1>Why Us</h1>
           <nav class="d-flex align-items-center">
             <a href="{{url('/')}}">Home<span class="lnr lnr-arrow-right"></span></a>
@@ -16,7 +16,7 @@
 <!-- End Banner Area -->
 
 <!-- start features Area -->
-<section id="whyus" class="features-area section_gap white_bg">
+<section id="whyus" class="features-area section_gap">
     <div class="container">
      
       <div class="section-title  text-center">
@@ -28,7 +28,7 @@
       <div class="row features-inner">
         <!-- single features -->
         @foreach($whyus as $whyusimages)
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="col-lg-4 col-md-6 col-sm-6 line-right">
           <div class="single-features">
             <div class="f-icon">
               <img src="{{url('assets/images/whyus')}}/{{$whyusimages['image']}}" alt="">

@@ -1,4 +1,4 @@
-<div class="homewrapper">
+<div class="">
 <!-- Start brand Area -->
 <section class="banner-area">
     <div class="homecontainer">

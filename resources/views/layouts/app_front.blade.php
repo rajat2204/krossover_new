@@ -42,7 +42,7 @@
     </head>
     <body class="page-md login loadingInProgress" tabindex="1" > 
         <div id="cover"></div>
-        <div class="wrapper">
+        <div class="wrapper homewrapper">
                 @yield('content')
         </div>
         
