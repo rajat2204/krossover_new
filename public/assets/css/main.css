@@ -3730,7 +3730,7 @@ h6.deal-titleshow {
         padding: 0px 0 0;
     }
     .static_img {
-        height: 160px;
+        height: 110px;
     }
 
 
@@ -10985,5 +10985,10 @@ header ul.navbar-right {
     }
     .banner-area .banner-content p{
         margin-left: 20px;
+    }
+}
+@media (max-width: 350px){
+    .breadcrumb-banner h1 {
+        font-size: 19px;
     }
 }
