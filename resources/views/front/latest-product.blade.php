@@ -15,7 +15,7 @@
       <div class="row">
         <!-- single product -->
         @foreach($latest_product as $latest_products)
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
           <div class="single-product">
             <div class="product_img">
               <a href="{{url('product')}}/{{___encrypt($latest_products['id'])}}"><img class="img-fluid" src="{{url('assets/images/products')}}/{{$latest_products['feature_image']}}" alt=""></a>

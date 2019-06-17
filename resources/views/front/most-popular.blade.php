@@ -18,7 +18,7 @@
                     $popular_product = \App\Models\Products::take(9)->orderBy('id','DESC')->where('featured','1')->where('status','active')->get();
                   @endphp
                     @foreach($popular_product as $popular_products)
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-20 margin-rg">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-6 mb-20 margin-rg">
               <div class="single-related-product">
                 <a href="{{url('product')}}/{{___encrypt($popular_products['id'])}}"><img src="{{url('assets/images/products')}}/{{$popular_products->feature_image}}" alt=""></a>
                 <div class="desc">
