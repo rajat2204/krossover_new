@@ -3729,6 +3729,9 @@ h6.deal-titleshow {
     .product-details .white_box_wrapper table tr{
         padding: 0px 0 0;
     }
+    .static_img {
+        height: 160px;
+    }
 
 
 }
