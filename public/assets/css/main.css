@@ -3688,6 +3688,9 @@ h6.deal-titleshow {
         margin-top: -20px;
         left: 28%;
     }
+    .breadcrumb-banner .col-first{
+        padding-right: 0 !important;
+    }
     .single-product-slider .single-product{
         margin-bottom: 15px;
     }
@@ -10874,6 +10877,8 @@ header ul.navbar-right {
         margin: 20px 10px;
         padding: 0 10px 0 55px;
         min-height: 40px;
+        display: flex;
+        align-items: center;
     }
 
     .footer-right-contact .single-contact:first-child {
