@@ -3564,7 +3564,7 @@ h6.deal-titleshow {
         font-size: 25px;
     }
     #dataTableBuilder_wrapper div.dataTables_paginate {
-        right: -190px;
+        /*right: -190px;*/
     }
     .inputsearchblock i{
         position: absolute;
@@ -3679,6 +3679,9 @@ h6.deal-titleshow {
     }
     .sliderhandphone img {
         margin-left: 60px;
+    }
+    a.single-img{
+        height: 100%;
     }
    
 }
